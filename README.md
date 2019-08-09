@@ -12,17 +12,27 @@
 |birth_day|integer|null: false|
 |password|string|null: false|
 |email|string|null: false, unique: true|
+|status|integer|null: false|
 ### Association
-- has_many :likes
-- has_many :comments
-- has many :messages
-- has many :points
-- has_many :social_providers
-- has_one :deliver_adresses
-- has_one :user_detail
-- has_many :wallets
-- has_many :points
-- has many :reviews
+- has_many :likes dependent: :destroy
+- has_many :comments dependent: :destroy
+- has many :messages dependent: :destroy
+- has many :points dependent: :destroy
+- has_many :social_providers dependent: :destroy
+- has_one :deliver_adresses dependent: :destroy
+- has_one :user_detail dependent: :destroy
+- has_many :wallets dependent: :destroy
+- has_many :points dependent: :destroy
+- has many :reviews dependent: :destroy
+- has_many :deleted_users
+
+##deleted_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, FK: true|
+|deleted_at|datetime|null: false|
+### Association
+- belongs_to :user
 
 ## social_providersテーブル
 |Column|Type|Options|
@@ -81,8 +91,8 @@
 |item_id|references|null: false, FK: true|
 |text|text|null: false|
 ### Association
-belongs_to :user
-belongs_to :item
+- belongs_to :user
+- belongs_to :item
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -129,14 +139,14 @@ belongs_to :item
 |trading_status|integer|null: false|
 |completed_at|datetime|
 ### Association
-- belongs_to :categories
-- belongs_to :brands
-- has_many :likes
-- has_many :comments
-- has_many :messages
+- belongs_to :category
+- belongs_to :brand
+- has_many :likes dependent: :destroy
+- has_many :comments dependent: :destroy
+- has_many :messages dependent: :destroy
 - has_one :shipping
 - has_many :reviews
-- has_many :item_images
+- has_many :item_images dependent: :destroy
 
 ## item_imagesテーブル
 |Column|Type|Options|
@@ -158,26 +168,19 @@ belongs_to :item
 |Column|Type|Options|
 |------|----|-------|
 |category_id|references|null: false, FK: true|
+|brand_id|references|null: false, FK: true|
 |name|string|null: false|
 ### Association
 - has_many :item
-- has_many :brands_brand_groups
-
-## brands_brand_groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|brand_id|references|null: false, FK: true|
-|brand_group_id|references|null: false, FK: true|
-### Association
-- belongs_to :brand
-- belongs_to :brand-groups
+- belongs_to :category
+- belongs_to :brand-group
 
 ## brand-groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ## Association
-- has_many :brands_brand-groups
+- has_many :brands
 
 ## shippingsテーブル
 |Column|Type|Options|
