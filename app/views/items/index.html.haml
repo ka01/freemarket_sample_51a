@@ -3,7 +3,7 @@
     .pc-header__box
       .pc-header__box__top
         %h1
-          %a{href: "https://www.mercari.com/jp/"}
+          = link_to "https://www.mercari.com/jp/" do
             = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2787198863", alt: "mercari", width: "134", height: "36"
         %form.pc-header__box__form
           %input.pc-header__box__form__input-box{ type: "search", name: "keyword", placeholder: "何かお探しですか？", kl_vkbd_parsed: "true" }
@@ -13,21 +13,21 @@
           %ul.pc-header__nav-box__left__menu
             %li.pc-header__nav-box__left__menu__list
               %h2.pc-header__nav-box__left__menu__list__search
-                %a.pc-header__nav-root.list-parent{href: "https://www.mercari.com/jp/category/"}
+                =link_to "https://www.mercari.com/jp/category/", class: "pc-header__nav-root.list-parent" do
                   = fa_icon 'list', class: 'icon-list'
                   %spanカテゴリーから探す
               %ul.pc-header__nav-box__left__menu{ data: {mega: "1"}, style: "width: auto;"}
             %li.pc-header__nav-box__left__menu__list.pc-header__nav-box__left__menu__list--second
               %h2.pc-header__nav-box__left__menu__list__search
-                %a.pc-header__nav-root.list-parent{ href: "https://www.mercari.com/jp/brand/"}
+                =link_to "https://www.mercari.com/jp/brand/", class: "pc-header__nav-root.list-parent" do
                   = fa_icon 'tag', class: 'icon-tag'
                   %spanブランドから探す
         .pc-header__nav-box__right
           %ul.pc-header__nav-box__right__menu
             %li.pc-header__nav-box__right__menu__list
-              %a.pc-header__nav__btn.pc-header__nav__btn--red{ href: "https://www.mercari.com/jp/signup/"}新規会員登録
+              =link_to "新規会員登録", "https://www.mercari.com/jp/signup/", class: "pc-header__nav__btn pc-header__nav__btn--red"
             %li.pc-header__nav-box__right__menu__list
-              %a.pc-header__nav__btn.pc-header__nav__btn--login{href: "https://www.mercari.com/jp/login/?login_callback=https%3A%2F%2Fwww.mercari.com%2Fjp%2Ffeatured%2Fcamp%2F"}ログイン
+              =link_to "ログイン", "https://www.mercari.com/jp/login/?login_callback=https%3A%2F%2Fwww.mercari.com%2Fjp%2Ffeatured%2Fcamp%2F", class: "pc-header__nav__btn pc-header__nav__btn--login"
   %main.contents{role: "main"}
     %section.upper-content
       .upper-content__box
@@ -46,9 +46,9 @@
                       %br
                       購入時も安心な独自システムのアプリです
                     .main__visual__store
-                      %a.main__visual__store__icon.main__visual__store__icon--AppStore{ href: "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8"}
+                      =link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", class: "main__visual__store__icon main__visual__store__icon--AppStore" do
                         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?863303983", width: "170", height: "50.36"
-                      %a.main__visual__store__icon.main__visual__store__icon--GooglePlay{ href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" }
+                      = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", class: "main__visual__store__icon main__visual__store__icon--GooglePlay" do
                         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?863303983", width: "170", height: "50.36"
                   = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?863303983", width: "440", height: "390", class: "mobile-phone-image"
       .owl__nav
@@ -63,11 +63,11 @@
       %h2.pickup__container__title ピックアップカテゴリー
       %section.items
         %h3.items__heading
-          %a{ href: "/jp/category/1/"}
+          = link_to "/jp/category/1/" do
             レディース 新着アイテム
         .items__boxs
           %section.items__box
-            %a{ href: "https://item.mercari.com/jp/m74747117568/"}
+            = link_to "https://item.mercari.com/jp/m74747117568/" do
               %figure.items__box__photo
                 = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
               .items__box__body
@@ -79,7 +79,7 @@
                     = fa_icon 'heart', class: "icon-like-border"
                     %span 14
           %section.items__box
-            %a{ href: "https://item.mercari.com/jp/m74747117568/"}
+            = link_to "https://item.mercari.com/jp/m74747117568/" do
               %figure.items__box__photo
                 = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
               .items__box__body
@@ -91,7 +91,7 @@
                     = fa_icon 'heart', class: "icon-like-border"
                     %span 14
           %section.items__box
-            %a{ href: "https://item.mercari.com/jp/m74747117568/"}
+            = link_to "https://item.mercari.com/jp/m74747117568/" do
               %figure.items__box__photo
                 = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
               .items__box__body
@@ -103,27 +103,26 @@
                     = fa_icon 'heart', class: "icon-like-border"
                     %span 14
           %section.items__box
-            %a{ href: "https://item.mercari.com/jp/m74747117568/"}
+            = link_to "https://item.mercari.com/jp/m74747117568/" do
               %figure.items__box__photo
                 = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
               .items__box__body
                 %h3.items__box__name
                   新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L
                 .items__box__num
-                  .items__box__price ¥ 1,100
+                  .items__box__price ¥ 1,200
                   .items__box__icon
                     = fa_icon 'heart', class: "icon-like-border"
                     %span 14
-        .view-all
-          %a{ href: "https://www.mercari.com/jp/category/1/"} すべての商品を見る
-
+        .view__all
+          =link_to "すべての商品を見る","https://www.mercari.com/jp/category/1/"
       %section.items
         %h3.items__heading
-          %a{ href: "/jp/category/1/"}
+          =link_to "/jp/category/1/" do
             レディース 新着アイテム
         .items__boxs
           %section.items__box
-            %a{ href: "https://item.mercari.com/jp/m74747117568/"}
+            =link_to "https://item.mercari.com/jp/m74747117568/" do
               %figure.items__box__photo
                 = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
               .items__box__body
@@ -135,7 +134,7 @@
                     = fa_icon 'heart', class: "icon-like-border"
                     %span 14
           %section.items__box
-            %a{ href: "https://item.mercari.com/jp/m74747117568/"}
+            =link_to "https://item.mercari.com/jp/m74747117568/" do
               %figure.items__box__photo
                 = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
               .items__box__body
@@ -147,7 +146,7 @@
                     = fa_icon 'heart', class: "icon-like-border"
                     %span 14
           %section.items__box
-            %a{ href: "https://item.mercari.com/jp/m74747117568/"}
+            =link_to  "https://item.mercari.com/jp/m74747117568/" do
               %figure.items__box__photo
                 = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
               .items__box__body
@@ -159,7 +158,7 @@
                     = fa_icon 'heart', class: "icon-like-border"
                     %span 14
           %section.items__box
-            %a{ href: "https://item.mercari.com/jp/m74747117568/"}
+            =link_to "https://item.mercari.com/jp/m74747117568/" do
               %figure.items__box__photo
                 = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
               .items__box__body
@@ -171,8 +170,7 @@
                     = fa_icon 'heart', class: "icon-like-border"
                     %span 14
         .view__all
-          %a{ href: "https://www.mercari.com/jp/category/1/"} すべての商品を見る
-
+          =link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/"
   %aside.banner
     .banner__outer-frame
       .banner__inner-frame
@@ -183,92 +181,88 @@
             = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?863303983", width: "68"
           %ul.banner__icon__menu
             %li.banner__icon__menu.banner__icon__menu__AppStore-icon
-              %a{ href: "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8"}
+              =link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8" do
                 = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?863303983", width: "133", height: "40"
             %li.banner__icon__menu.banner__icon__menu__GooglePlay-icon
-              %a{ href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" }
+              =link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do
                 = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?863303983", width: "133", height: "40"
       %figure.banner__visual
         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?863303983", class: 'banner__visual__image'
-
   %footer.footer
     %nav.footer__nav
       .footer__cell
         %h2.footer__cell__title メルカリについて
         %ul
           %li
-            %a{ href: "https://about.mercari.com/"}  会社概要（運営会社）
+            =link_to "会社概要（運営会社)", "https://about.mercari.com/"
           %li
-            %a{ href: "https://www.mercari.com/jp/jobs/" } 採用情報
+            =link_to "採用情報", "https://www.mercari.com/jp/jobs/"
           %li
-            %a{ href: "https://about.mercari.com/press/news/" } プレスリリース
+            =link_to "プレスリリース","https://about.mercari.com/press/news/"
           %li
-            %a{ href: "https://jp-news.mercari.com/" } 公式ブログ
+            =link_to "公式ブログ", "https://jp-news.mercari.com/"
           %li
-            %a{ href: "https://www.mercari.com/jp/logo-guidelines/"} メルカリロゴ利用ガイドライン
+            =link_to "メルカリロゴ利用ガイドライン", "https://www.mercari.com/jp/logo-guidelines/"
           %li.footer__cell__social-link
-            %a{ href: "https://twitter.com/mercari_jp" }
+            =link_to "https://twitter.com/mercari_jp" do
               = fa_icon "twitter", class: "fa-3x"
           %li.footer__cell__social-link
-            %a{ href: "https://www.facebook.com/mercarijp" }
+            =link_to "https://www.facebook.com/mercarijp" do
               =fa_icon "facebook", class: "fa-2x"
       .footer__cell
         %h2.footer__cell__title ヘルプ＆ガイド
         %ul
           %li
-            %a{ href: "https://www.mercari.com/jp/help_center/" } メルカリガイド
+            =link_to "メルカリガイド", "https://www.mercari.com/jp/help_center/"
           %li
-            %a{ href: "https://www.mercari.com/jp/rakuraku-mercari/" } らくらくメルカリ便
+            =link_to "らくらくメルカリ便", "https://www.mercari.com/jp/rakuraku-mercari/"
           %li
-            %a{ href: "https://www.mercari.com/jp/yuyu-mercari/" } ゆうゆうメルカリ便
+            =link_to "ゆうゆうメルカリ便", "https://www.mercari.com/jp/yuyu-mercari/"
           %li
-            %a{ href: "https://www.mercari.com/jp/rakuraku-ogata/" } 大型メルカリ便
+            =link_to "大型メルカリ便", "https://www.mercari.com/jp/rakuraku-ogata/"
           %li
-            %a{ href: "https://www.mercari.com/jp/guide/car/" } 車体取引ガイド
+            =link_to "車体取引ガイド", "https://www.mercari.com/jp/guide/car/"
           %li
-            %a{ href: "https://www.mercari.com/jp/safe/description/" } メルカリあんしん・あんぜん宣言！
+            =link_to "メルカリあんしん・あんぜん宣言！", "https://www.mercari.com/jp/safe/description/"
           %li
-            %a{ href: "https://www.mercari.com/jp/authenticity/" } 偽ブランド品撲滅への取り組み
+            =link_to "偽ブランド品撲滅への取り組み", "https://www.mercari.com/jp/authenticity/"
           %li
-            %a{ href: "https://www.mercari.com/jp/box/" } メルカリボックス
+            =link_to "メルカリボックス", "https://www.mercari.com/jp/box/"
       .footer__cell.footer__cell__full-width
         %h2.footer__cell__title プライバシーと利用規約
         .footer__cell__outer-frame
           .inner-footer__cell__left-box
             %ul
               %li
-                %a{ href: "https://www.mercari.com/jp/privacy/" } プライバシーポリシー
+                =link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/"
               %li
-                %a{ href: "https://www.mercari.com/jp/tos/" } メルカリ利用規約
+                =link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/"
               %li
-                %a{ href: "https://www.mercari.com/jp/tos_smartphone_support/" } あんしんスマホサポート制度に関する利用特約
+                =link_to "あんしんスマホサポート制度に関する利用特約", "https://www.mercari.com/jp/tos_smartphone_support/"
               %li
-                %a{ href: "https://www.mercari.com/jp/compliance/" } コンプライアンスポリシー
+                =link_to "コンプライアンスポリシー", "https://www.mercari.com/jp/compliance/"
           .inner-footer-cell__right-box
             %ul
               %li
-                %a{ href: "https://www.mercari.com/jp/data_security/" } 個人データの安全管理に係る基本方針
+                =link_to "個人データの安全管理に係る基本方針", "https://www.mercari.com/jp/data_security/"
               %li
-                %a{ href: "https://www.mercari.com/jp/tokutei/" } 特定商取引に関する表記
+                =link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
               %li
-                %a{ href: "https://www.mercari.com/jp/shikin_kessai/" } 資金決済法に基づく表示
+                =link_to "資金決済法に基づく表示", "https://www.mercari.com/jp/shikin_kessai/"
               %li
-                %a{ href: "https://about.mercari.com/csr/safety/" } 法令順守と犯罪抑止のために
+                =link_to "法令順守と犯罪抑止のために", "https://about.mercari.com/csr/safety/"
       .footer__cell.footer-nav-lang
         %h2.footer__cell__title 国
         %ul
           %li
-            %a.active{ href: "https://www.mercari.com/jp/" } 日本
+            =link_to "日本", "https://www.mercari.com/jp/", class: "active"
           %li
-            %a{ href: "https://www.mercari.com/" } United States
+            =link_to "United States", "https://www.mercari.com/"
     .footer__bottom
-      %a.footer-logo{ href: "https://www.mercari.com/jp/"}
+      =link_to "https://www.mercari.com/jp/", class:"footer-logo" do
         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?863303983", width: "124", height: "33", alt: "mercari"
       %span.footer-copyright
         %small © 2019 Mercari
-  %a.footer__sell-btn{ href: "https://www.mercari.com/jp/category/1/" }
+  =link_to "https://www.mercari.com/jp/category/1/", class: "footer__sell-btn" do
     .footer__sell-btn__title 出品
     = fa_icon 'camera', class: "fa-3x"
-
-
-
