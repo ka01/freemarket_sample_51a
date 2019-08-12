@@ -13,7 +13,9 @@
 |password|string|null: false|
 |email|string|null: false, unique: true|
 |status|integer|null: false|
+|deleted_at|datetime|null :false|
 ### Association
+- has_many :items
 - has_many :likes dependent: :destroy
 - has_many :comments dependent: :destroy
 - has many :messages dependent: :destroy
@@ -24,15 +26,7 @@
 - has_many :wallets dependent: :destroy
 - has_many :points dependent: :destroy
 - has many :reviews dependent: :destroy
-- has_many :deleted_users
-
-##deleted_usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, FK: true|
-|deleted_at|datetime|null: false|
-### Association
-- belongs_to :user
+- has_many :orders dependent: :destroy
 
 ## social_providersテーブル
 |Column|Type|Options|
@@ -124,6 +118,15 @@
 - belongs_to :item
 - belongs_to :user
 
+## ordersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|buyer_user_id|references|null: false, FK: true|
+|item_id|references|null: false, FK: true|
+### Association
+- belongs_to :user
+- belongs_to :item
+
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -131,7 +134,6 @@
 |shipping_id|references|null: false. FK: true|
 |brand_id|references|null: false. FK: true|
 |seller_user_id|references|null: false, FK: true|
-|buyer_user_id|references|FK: true|
 |name|string|null: false|
 |text|text|null: false|
 |condition|integer|null: false|
@@ -139,6 +141,7 @@
 |trading_status|integer|null: false|
 |completed_at|datetime|
 ### Association
+- belongs_to :user
 - belongs_to :category
 - belongs_to :brand
 - has_many :likes dependent: :destroy
@@ -147,6 +150,7 @@
 - has_one :shipping
 - has_many :reviews
 - has_many :item_images dependent: :destroy
+- has_one :order
 
 ## item_imagesテーブル
 |Column|Type|Options|
@@ -163,6 +167,7 @@
 |name|string|null: false|
 ### Association
 - has_many :brands
+- has_many :items
 
 ## brandsテーブル
 |Column|Type|Options|
@@ -194,3 +199,5 @@
 
 ### cards(クレジットカード)
 **pay.jpで実装するので不要**
+
+![ER図](https://i.imgur.com/8Mb0CgW.jpg%5B/img%5D)
