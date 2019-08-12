@@ -199,3 +199,5 @@
 
 ### cards(クレジットカード)
 **pay.jpで実装するので不要**
+
+![ER図](https://i.imgur.com/8Mb0CgW.jpg%5B/img%5D)
