@@ -13,6 +13,7 @@
 |password|string|null: false|
 |email|string|null: false, unique: true|
 |status|integer|null: false|
+|deleted_at|datetime|null :false|
 ### Association
 - has_many :items
 - has_many :likes dependent: :destroy
@@ -26,16 +27,6 @@
 - has_many :points dependent: :destroy
 - has many :reviews dependent: :destroy
 - has_many :orders dependent: :destroy
-- has_many :deleted_users
-
-## deleted_usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, FK: true|
-|deleted_at|datetime|null: false|
-
-### Association
-- belongs_to :user
 
 ## social_providersテーブル
 |Column|Type|Options|
