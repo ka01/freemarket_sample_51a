@@ -24,10 +24,13 @@
                   %spanブランドから探す
         .pc-header__nav-box__right
           %ul.pc-header__nav-box__right__menu
+            - if user_signed_in?
+              %li.pc-header__nav-box__right__menu__list
+                =link_to "ログアウト",  destroy_user_session_path, method: :delete, class: "pc-header__nav__btn pc-header__nav__btn--red"
             %li.pc-header__nav-box__right__menu__list
-              =link_to "新規会員登録", "https://www.mercari.com/jp/signup/", class: "pc-header__nav__btn pc-header__nav__btn--red"
+              =link_to "新規会員登録", new_user_registration_path, class: "pc-header__nav__btn pc-header__nav__btn--red"
             %li.pc-header__nav-box__right__menu__list
-              =link_to "ログイン", "https://www.mercari.com/jp/login/?login_callback=https%3A%2F%2Fwww.mercari.com%2Fjp%2Ffeatured%2Fcamp%2F", class: "pc-header__nav__btn pc-header__nav__btn--login"
+              =link_to "ログイン", new_user_session_path, class: "pc-header__nav__btn pc-header__nav__btn--login"
   %main.contents{role: "main"}
     %section.upper-content
       .upper-content__box
