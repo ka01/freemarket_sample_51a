@@ -1,0 +1,25 @@
+.sidemenu
+  %nav.mypage-nav
+    %ul.mypage-nav__list
+      - mypage.each do |m|
+        = content_tag(:li) do
+          = link_to m[:url] do
+            .mypage-nav__list-item
+              = m[:title]
+              .mypage-nav__list-icon.fas.fa-chevron-right
+    %h3.mypage-nav__head メルペイ
+    %ul.mypage-nav__list
+      - merupay.each do |m|
+        = content_tag(:li) do
+          = link_to m[:url] do
+            .mypage-nav__list-item
+              = m[:title]
+              .mypage-nav__list-icon.fas.fa-chevron-right
+    %h3.mypage-nav__head 設定
+    %ul.mypage-nav__list
+      - setting.each do |m|
+        = content_tag(:li) do
+          = link_to m[:url] do
+            .mypage-nav__list-item
+              = m[:title]
+              .mypage-nav__list-icon.fas.fa-chevron-right

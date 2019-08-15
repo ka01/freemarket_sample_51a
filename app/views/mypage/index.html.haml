@@ -1,0 +1,38 @@
+.header
+  %h2 仮置きヘッダー
+%main.container.clearfix
+  .my-content
+    %section.mypage-user
+      = link_to  "https://www.mercari.com/jp/u/952910795/" do
+        .mypage-user__img
+          %img{src: "http://placehold.jp/cc9999/993333/60x60.png"}/
+        %h2.mypage-user__name AYA☆セールしてない
+        .mypage-user__number
+          .mypage-user__number--title
+            評価
+            .mypage-user__number--score
+              401
+          .mypage-user__number--title
+            出品数
+            .mypage-user__number--score
+              237
+
+    %section.mypage-notification-todo
+      .mypage-tab
+        %input#notification{name: "mypage-tab__item1", type: "radio",checked: "checked" }/
+        %label.mypage-tab__item{for: "notification"} お知らせ
+        %input#todo{name: "mypage-tab__item1", type: "radio"}/
+        %label.mypage-tab__item{for: "todo"} やることリスト
+
+        = render 'mypage/shared/notification-todo'
+
+
+    %section.mypage-purchase-purchased
+      .mypage-tab
+        %input#purchase{name: "mypage-tab__item2", type: "radio",checked: "checked" }/
+        %label.mypage-tab__item{for: "purchase"} 取引中
+        %input#purchased{name: "mypage-tab__item2", type: "radio"}/
+        %label.mypage-tab__item{for: "purchased"} 過去の取引
+
+        = render 'mypage/shared/purchase-purchased'
+  = render 'mypage/shared/sidemenu'

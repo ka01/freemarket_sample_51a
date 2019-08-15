@@ -1,0 +1,14 @@
+.header
+  %h2 仮置きヘッダー
+%main.container.clearfix
+  .my-content
+    %section.mypage-notification-todo
+      .mypage-tab
+        %input#notification{name: "mypage-tab__item1", type: "radio",checked: "checked" }/
+        %label.mypage-tab__item{for: "notification"} お知らせ
+        %input#todo{name: "mypage-tab__item1", type: "radio"}/
+        = link_to  todo_mypage_index_path do
+          %label.mypage-tab__item{for: "todo"} やることリスト
+
+        = render 'mypage/shared/notification-todo'
+  = render 'mypage/shared/sidemenu'
