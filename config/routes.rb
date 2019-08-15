@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       get "purchase"
       get "purchased"
       get "profile"
-      get "route"
+      get "logout"
     end
   end
 end
