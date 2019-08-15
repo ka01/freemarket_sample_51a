@@ -32,7 +32,7 @@ module MypageHelper
   end
 
   def notification
-    # titles = []
+    #  titles = []
     titles = [{content: "登録済み電話番号の確認をお願いします",time:"22 時間前"},
               {content: "3日後、8%還元お得チケットの有効期限が切れます！タップして詳細を確認しましょう。",time:"1 日前"},
               {content: "連休は断捨離しよう！今なら出品するだけで5%のお得チケットがもらえる♪詳しくはこちらから",time:"2 日前"},
@@ -52,9 +52,9 @@ module MypageHelper
 
   def purchase
     # titles=[]
-    titles = [{name: "コーラ",url:"http://placehold.jp/cc9999/993333/60x60.png"},
-              {name: "サイダー",url:"http://placehold.jp/cc9999/993333/60x60.png"},
-              {name: "ファンタグレープ",url:"http://placehold.jp/cc9999/993333/60x60.png"},]
+    titles = [{name: "コーラ",url:"http://placehold.jp/cc9999/993333/60x60.png",state:"発送待ち"},
+              {name: "サイダー",url:"http://placehold.jp/cc9999/993333/60x60.png",state:"発送待ち"},
+              {name: "ファンタグレープ",url:"http://placehold.jp/cc9999/993333/60x60.png",state:"受け取り評価待ち"},]
   end
 
   def purchased

@@ -7,7 +7,8 @@
         %input#purchase{name: "mypage-tab__item2", type: "radio",checked: "checked" }/
         %label.mypage-tab__item{for: "purchase"} 取引中
         %input#purchased{name: "mypage-tab__item2", type: "radio"}/
-        %label.mypage-tab__item{for: "purchased"} 過去の取引
+        = link_to  purchased_mypage_index_path do
+          %label.mypage-tab__item{for: "purchased"} 過去の取引
 
         = render 'mypage/shared/purchase-purchased'
   = render 'mypage/shared/sidemenu'

@@ -12,11 +12,17 @@
             .mypage-content__list-body
               .mypage-content__list-body--text
                 =m[:name]
-              .mypage-content__list-body--time
-                .mypage-content__list-body--time-icon.far.fa-clock
-                .mypage-content__list-body--time-text
-                  -# =m[:time]
+              .mypage-content__list-body--state.doing
+                =m[:state]
             .mypage-content__list-body--icon.fas.fa-chevron-right
+  - if request.path == '/' || request.path == '/mypage'
+    - if purchase != []
+      = content_tag(:li) do
+        = link_to purchase_mypage_index_path do
+          .mypage-content__go-list
+            .mypage-content__go-list--text
+              一覧を見る
+
 %ul#purchased-content.mypage-content__list
   - if purchased ==[]
     .mypage-content__not-found
@@ -30,9 +36,14 @@
               %img{src: m[:url]}
             .mypage-content__list-body
               .mypage-content__list-body--text
-                =m[:name]
-              .mypage-content__list-body--time
-                .mypage-content__list-body--time-icon.far.fa-clock
-                .mypage-content__list-body--time-text
-                  -# =m[:time]
+                「#{m[:name]}」を購入しました。取引が完了しました
+              .mypage-content__list-body--state.done
+                取引完了
             .mypage-content__list-body--icon.fas.fa-chevron-right
+  - if request.path == '/' || request.path == '/mypage'
+    - if purchased != []
+      = content_tag(:li) do
+        = link_to purchased_mypage_index_path do
+          .mypage-content__go-list
+            .mypage-content__go-list--text
+              一覧を見る
