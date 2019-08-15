@@ -1,7 +1,38 @@
 %ul#purchase-content.mypage-content__list
-  .mypage-content__not-found
-    取引中の処品はありません
-
+  - if purchase ==[]
+    .mypage-content__not-found
+      取引中の処品はありません
+  - else
+    - purchase.each do |m|
+      = content_tag(:li) do
+        = link_to "" do
+          .mypage-content__list-item
+            .mypage-content__list-img
+              %img{src: m[:url]}
+            .mypage-content__list-body
+              .mypage-content__list-body--text
+                =m[:name]
+              .mypage-content__list-body--time
+                .mypage-content__list-body--time-icon.far.fa-clock
+                .mypage-content__list-body--time-text
+                  -# =m[:time]
+            .mypage-content__list-body--icon.fas.fa-chevron-right
 %ul#purchased-content.mypage-content__list
-  .mypage-content__not-found
-    過去の取引はありません
+  - if purchased ==[]
+    .mypage-content__not-found
+      過去の取引はありません
+  - else
+    - purchased.each do |m|
+      = content_tag(:li) do
+        = link_to "" do
+          .mypage-content__list-item
+            .mypage-content__list-img
+              %img{src: m[:url]}
+            .mypage-content__list-body
+              .mypage-content__list-body--text
+                =m[:name]
+              .mypage-content__list-body--time
+                .mypage-content__list-body--time-icon.far.fa-clock
+                .mypage-content__list-body--time-text
+                  -# =m[:time]
+            .mypage-content__list-body--icon.fas.fa-chevron-right

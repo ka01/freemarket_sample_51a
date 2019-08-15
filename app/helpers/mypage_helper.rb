@@ -49,4 +49,19 @@ module MypageHelper
               {content: "菅原さんが「BenQ ディスプレイ（箱付き）」を購入しました。住所を確認の上、発送をお願いします",time:"1 日前"},
               {content: "鈴木さんから「Macbook Air 2011]の取引メッセージがあります。返信をお願いします",time:"2 日前"},]
   end
+
+  def purchase
+    # titles=[]
+    titles = [{name: "コーラ",url:"http://placehold.jp/cc9999/993333/60x60.png"},
+              {name: "サイダー",url:"http://placehold.jp/cc9999/993333/60x60.png"},
+              {name: "ファンタグレープ",url:"http://placehold.jp/cc9999/993333/60x60.png"},]
+  end
+
+  def purchased
+    # titles=[]
+    titles = [{name: "うまい棒",url:"http://placehold.jp/cc9999/993333/60x60.png"},
+              {name: "5円チョコ",url:"http://placehold.jp/cc9999/993333/60x60.png"},
+              {name: "柿の種",url:"http://placehold.jp/cc9999/993333/60x60.png"},
+              {name: "串団子",url:"http://placehold.jp/cc9999/993333/60x60.png"},]
+  end
 end
