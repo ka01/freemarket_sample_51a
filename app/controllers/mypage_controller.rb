@@ -17,4 +17,7 @@ class MypageController < ApplicationController
   def purchased
   end
 
+  def logout
+  end
+
 end
