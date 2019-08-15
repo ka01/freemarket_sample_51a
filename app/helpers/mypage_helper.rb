@@ -1,19 +1,19 @@
 module MypageHelper
   def mypage
-    titles = [{title: "マイページ",url:"/jp/mypage/"},
-              {title: "お知らせ",url:"/jp/mypage/notification/"},
-              {title: "やることリスト",url:"/jp/mypage/todo/"},
-              {title: "いいね！一覧",url:"/jp/mypage/like/history/"},
-              {title: "出品する",url:"/jp/sell/"},
-              {title: "出品した商品 - 出品中",url:"/jp/mypage/listings/listing/"},
-              {title: "出品した商品 - 取引中",url:"/jp/mypage/listings/in_progress/"},
-              {title: "出品した商品 - 売却済み",url:"/jp/mypage/listings/completed/"},
-              {title: "購入した商品 - 取引中",url:"/jp/mypage/purchase/"},
-              {title: "購入した商品 - 過去の取引",url:"/jp/mypage/purchased/"},
-              {title: "ニュース一覧",url:"/jp/mypage/news/"},
-              {title: "評価一覧",url:"/jp/mypage/review/history/"},
-              {title: "ガイド",url:"/jp/help_center/"},
-              {title: "お問い合わせ",url:"/jp/mypage/support/"}]
+    titles = [{title: "マイページ",url: "/mypage"},
+              {title: "お知らせ",url:"/mypage/notification/"},
+              {title: "やることリスト",url:"/mypage/todo/"},
+              {title: "いいね！一覧",url:"/mypage/like/history/"},
+              {title: "出品する",url:"/sell/"},
+              {title: "出品した商品 - 出品中",url:"/mypage/listings/listing/"},
+              {title: "出品した商品 - 取引中",url:"/mypage/listings/in_progress/"},
+              {title: "出品した商品 - 売却済み",url:"/mypage/listings/completed/"},
+              {title: "購入した商品 - 取引中",url:"/mypage/purchase/"},
+              {title: "購入した商品 - 過去の取引",url:"/mypage/purchased/"},
+              {title: "ニュース一覧",url:"/mypage/news/"},
+              {title: "評価一覧",url:"/mypage/review/history/"},
+              {title: "ガイド",url:"/help_center/"},
+              {title: "お問い合わせ",url:"/mypage/support/"}]
   end
 
   def merupay
