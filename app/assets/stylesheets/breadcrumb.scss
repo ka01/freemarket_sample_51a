@@ -9,10 +9,13 @@
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   background: #fff;
 }
-
+.breadcrumbs {
+  margin-left: 16px;
+}
 .breadcrumbs a {
   color: #333;
   display: inline-block;
+
 }
 .breadcrumbs .fa-chevron-right {
   font-size: 10px;
@@ -31,5 +34,3 @@
     margin: 0 auto;
   }
 }
-
-// 767

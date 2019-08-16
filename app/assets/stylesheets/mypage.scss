@@ -1,10 +1,19 @@
-@media screen and (max-width:1067px){
+.container {
+  width:100%;
+  margin-top:24px;
+}
+.mypage-nav{
+  width: 100%;
+  margin: 40px 0px 40px 0;
+
+}
+
+@media screen and (min-width:768px){
   .container {
     width: 700px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     margin: 24px auto 0;
   }
   .mypage-nav{
@@ -24,13 +33,6 @@
     margin: 0 40px 40px 0;
   }
 }
-
-.my-content{
-  width: 700px;
-  box-sizing: border-box;
-  height: 100%;
-}
-
 
 .mypage-purchase-purchased{
   margin: 40px 0 0;
