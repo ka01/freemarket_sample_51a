@@ -33,6 +33,11 @@ crumb :profile do
   parent :mypage
 end
 
+crumb :card do
+  link '支払い方法', card_mypage_index_path
+  parent :mypage
+end
+
 crumb :logout do
   link 'ログアウト', logput_mypage_index_path
   parent :mypage

@@ -24,7 +24,7 @@ module MypageHelper
   def setting
     titles = [{title: "プロフィール",url:"/mypage/profile/"},
               {title: "発送元・お届け先住所変更",url:"/jp/mypage/deliver_address/"},
-              {title: "支払い方法",url:"/jp/mypage/card/"},
+              {title: "支払い方法",url:"/mypage/card/"},
               {title: "メール/パスワード",url:"/jp/mypage/email_password/"},
               {title: "本人情報",url:"/jp/mypage/identification/"},
               {title: "電話番号の確認",url:"/jp/mypage/sms_confirmation/"},
