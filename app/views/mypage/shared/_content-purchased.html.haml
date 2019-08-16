@@ -1,0 +1,11 @@
+= content_tag(:li) do
+  = link_to "" do
+    .mypage-content__list-item
+      .mypage-content__list-img
+        =image_tag purchased[:url]
+      .mypage-content__list-body
+        .mypage-content__list-body--text
+          「#{purchased[:name]}」を購入しました。取引が完了しました
+        .mypage-content__list-body--state.done
+          取引完了
+      .mypage-content__list-body--icon.fas.fa-chevron-right

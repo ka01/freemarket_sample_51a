@@ -31,7 +31,7 @@ module MypageHelper
               {title: "ログアウト",url:"/logout/"}]
   end
 
-  def notification
+  def notifications
     #  titles = []
     titles = [{content: "登録済み電話番号の確認をお願いします",time:"22 時間前"},
               {content: "3日後、8%還元お得チケットの有効期限が切れます！タップして詳細を確認しましょう。",time:"1 日前"},
@@ -43,21 +43,21 @@ module MypageHelper
               {content: "事務局からの個別メッセージ「ログイン通知」",time:"14日前"},]
   end
 
-  def todo
+  def todos
     # titles=[]
     titles = [{content: "小松さんから「スマホケース」の取引メッセージがあります。返信をお願いします",time:"22 時間前"},
               {content: "菅原さんが「BenQ ディスプレイ（箱付き）」を購入しました。住所を確認の上、発送をお願いします",time:"1 日前"},
               {content: "鈴木さんから「Macbook Air 2011]の取引メッセージがあります。返信をお願いします",time:"2 日前"},]
   end
 
-  def purchase
+  def purchases
     # titles=[]
     titles = [{name: "コーラ",url:"http://placehold.jp/cc9999/993333/60x60.png",state:"発送待ち"},
               {name: "サイダー",url:"http://placehold.jp/cc9999/993333/60x60.png",state:"発送待ち"},
               {name: "ファンタグレープ",url:"http://placehold.jp/cc9999/993333/60x60.png",state:"受け取り評価待ち"},]
   end
 
-  def purchased
+  def purchaseds
     # titles=[]
     titles = [{name: "うまい棒",url:"http://placehold.jp/cc9999/993333/60x60.png"},
               {name: "5円チョコ",url:"http://placehold.jp/cc9999/993333/60x60.png"},

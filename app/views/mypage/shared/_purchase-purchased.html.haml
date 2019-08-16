@@ -1,22 +1,11 @@
 %ul#purchase-content.mypage-content__list
-  - if purchase ==[]
+  - if purchases ==[]
     .mypage-content__not-found
       取引中の処品はありません
   - else
-    - purchase.each do |m|
-      = content_tag(:li) do
-        = link_to "" do
-          .mypage-content__list-item
-            .mypage-content__list-img
-              %img{src: m[:url]}
-            .mypage-content__list-body
-              .mypage-content__list-body--text
-                =m[:name]
-              .mypage-content__list-body--state.doing
-                =m[:state]
-            .mypage-content__list-body--icon.fas.fa-chevron-right
+    = render partial:'mypage/shared/content-purchase', collection: purchases, as:'purchase'
   - if request.path == '/' || request.path == '/mypage'
-    - if purchase != []
+    - if purchases != []
       = content_tag(:li) do
         = link_to purchase_mypage_index_path do
           .mypage-content__go-list
@@ -24,24 +13,13 @@
               一覧を見る
 
 %ul#purchased-content.mypage-content__list
-  - if purchased ==[]
+  - if purchaseds ==[]
     .mypage-content__not-found
       過去の取引はありません
   - else
-    - purchased.each do |m|
-      = content_tag(:li) do
-        = link_to "" do
-          .mypage-content__list-item
-            .mypage-content__list-img
-              %img{src: m[:url]}
-            .mypage-content__list-body
-              .mypage-content__list-body--text
-                「#{m[:name]}」を購入しました。取引が完了しました
-              .mypage-content__list-body--state.done
-                取引完了
-            .mypage-content__list-body--icon.fas.fa-chevron-right
+    = render partial:'mypage/shared/content-purchased', collection: purchaseds, as:'purchased'
   - if request.path == '/' || request.path == '/mypage'
-    - if purchased != []
+    - if purchaseds != []
       = content_tag(:li) do
         = link_to purchased_mypage_index_path do
           .mypage-content__go-list

@@ -1,24 +1,11 @@
 %ul#notification-content.mypage-content__list
-  - if notification ==[]
+  - if notifications ==[]
     .mypage-content__not-found
       現在、お知らせはありません
   - else
-    - notification.each do |m|
-      = content_tag(:li) do
-        = link_to "" do
-          .mypage-content__list-item
-            .mypage-content__list-img
-              %img{src: "//static.mercdn.net/images/mercari_profile.png"}
-            .mypage-content__list-body
-              .mypage-content__list-body--text
-                =m[:content]
-              .mypage-content__list-body--time
-                .mypage-content__list-body--time-icon.far.fa-clock
-                .mypage-content__list-body--time-text
-                  =m[:time]
-            .mypage-content__list-body--icon.fas.fa-chevron-right
+    = render partial:'mypage/shared/content-notification', collection: notifications, as:'notification'
   - if request.path == '/' || request.path == '/mypage'
-    - if notification != []
+    - if notifications != []
       = content_tag(:li) do
         = link_to notification_mypage_index_path do
           .mypage-content__go-list
@@ -26,26 +13,13 @@
               一覧を見る
 
 %ul#todo-content.mypage-content__list
-  - if todo ==[]
+  - if todos ==[]
     .mypage-content__not-found
       現在、やることリストはありません
   - else
-    - todo.each do |m|
-      = content_tag(:li) do
-        = link_to "" do
-          .mypage-content__list-item
-            .mypage-content__list-img
-              %img{src: "//static.mercdn.net/images/mercari_profile.png"}
-            .mypage-content__list-body
-              .mypage-content__list-body--text
-                =m[:content]
-              .mypage-content__list-body--time
-                .mypage-content__list-body--time-icon.far.fa-clock
-                .mypage-content__list-body--time-text
-                  =m[:time]
-            .mypage-content__list-body--icon.fas.fa-chevron-right
+    = render partial:'mypage/shared/content-todo', collection: todos, as:'todo'
   - if request.path == '/' || request.path == '/mypage'
-    - if todo != []
+    - if todos != []
       = content_tag(:li) do
         = link_to todo_mypage_index_path do
           .mypage-content__go-list
