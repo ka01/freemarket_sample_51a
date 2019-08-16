@@ -7,7 +7,9 @@
   margin: 40px 0px 40px 0;
 
 }
-
+.my-content{
+  width: 700px;
+}
 @media screen and (min-width:768px){
   .container {
     width: 700px;
@@ -35,7 +37,9 @@
 }
 
 .mypage-purchase-purchased{
-  margin: 40px 0 0;
+  background: #fff;
+}
+.profile{
   background: #fff;
 }
 
