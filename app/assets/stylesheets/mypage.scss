@@ -1,0 +1,335 @@
+.container {
+  width:100%;
+  margin-top:24px;
+}
+.mypage-nav{
+  width: 100%;
+  margin: 40px 0px 40px 0;
+
+}
+.my-content{
+  width: 100%;
+}
+@media screen and (min-width:768px){
+  .container {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 24px auto 0;
+  }
+  .mypage-nav{
+    width: 700px;
+    margin: 40px 0px 40px 0;
+  }
+}
+@media screen and (min-width:1068px){
+  .container {
+    width: 1020px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 40px auto;
+  }
+  .mypage-nav{
+    width: 280px;
+    margin: 0 40px 40px 0;
+  }
+}
+
+.mypage-purchase-purchased{
+  background: #fff;
+  margin: 40px 0 0;
+}
+.profile{
+  background: #fff;
+}
+
+.mypage-tab { /*タブ切り替え全体のスタイル*/
+  background-color: #fff;
+  &__item{ /*タブのスタイル*/
+    width: calc(100%/2);
+    height: 72px;
+    line-height: 72px;
+    background-color: #d9d9d9;
+    font-size: 16px;
+    text-align: center;
+    color: #333;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    &:hover{ /*タブにホバーした際、透明度が増す*/
+      opacity: 0.75;
+    }
+  }
+}
+
+/*ラジオボタンを全て消す*/
+input[name="mypage-tab__item1"] {
+  display: none;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="mypage-tab__item2"] {
+  display: none;
+}
+
+/*選択されているタブのコンテンツのみを表示*/
+#notification:checked ~ #notification-content,
+#todo:checked ~ #todo-content {
+  display: block;
+}
+
+/*選択されているタブのコンテンツのみを表示*/
+#purchase:checked ~ #purchase-content,
+#purchased:checked ~ #purchased-content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.mypage-tab input:checked + .mypage-tab__item{
+  background-color: #fff;
+  border-top: 2px solid #ea352d;
+}
+
+
+.mypage-content{
+  &__list{
+    display: none;
+    clear: both;
+    overflow: hidden;
+  }
+  &__list-item {
+    box-sizing: border-box;
+    position: relative;
+    border-bottom: 1px solid #eee;
+    display: block;
+    min-height: 80px;
+    padding: 16px;
+    color: #333;
+  }
+  &__list-img{
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 48px;
+    height: 48px;
+    display: block;
+    & img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+    }
+  }
+  &__list-body{
+    margin: 0 40px 0 68px;
+    &--text{
+      overflow: hidden;
+      display: block;
+      display: -webkit-box;
+      max-height: 4.4em;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      line-height: 1.5;
+    }
+    &--time{
+      display: inline-block;
+      color: #888;
+      vertical-align: middle;
+    }
+    &--time-icon{
+      margin: 0 8px 0 0;
+      font-size: 16px;
+      line-height: 1;
+    }
+    &--time-text{
+      display: inline-block;
+    }
+    &--state{
+      &.doing{
+        background: red;
+      }
+      &.done{
+        background: #888;
+      }
+      display: inline-block;
+      margin: 8px 0 0 0;
+      padding: 5px 6px;
+      border-radius: 2px;
+      font-size: 12px;
+      color: #fff;
+      font-weight: 600;
+    }
+    &--icon{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 16px;
+    }
+  }
+  &__go-list{
+    padding: 16px;
+    &--text{
+      border: 0;
+      display: block;
+      height: 56px;
+      margin: 0 auto;
+      background: #eee;
+      color: #333;
+      line-height: 56px;
+      text-align: center;
+    }
+  }
+  &__not-found{
+    padding: 160px 0 60px;
+    background: url("//static.mercdn.net/images/mercari_profile.png");
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    background-size: 78px 85px;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+    font-weight: 600;
+  }
+}
+
+.mypage-user{
+  position: relative;
+  height: 200px;
+  padding: 20px;
+  background: url("http://placehold.jp/cc4999/994433/150x150.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  & a{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  color: #333;
+  }
+  &__img{
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+  &__name{
+    margin: 8px 0 0;
+    font-size: 14px;
+  }
+  &__number{
+    margin: 8px 0 0;
+    &--title{
+      display: inline-block;
+      font-size: 14px;
+      margin: 0 0 0 16px;
+    }
+    &--score{
+      display: inline-block;
+      margin: 0 0 0 8px;
+      font-size: 14px;
+      font-weight:600;
+    }
+  }
+}
+
+.profile {
+  &__head{
+    box-sizing: border-box;
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    margin: 0;
+    line-height: 1.4;
+  }
+  &__icon{
+    box-sizing: border-box;
+    padding: 72px 16px 24px;
+    background: url("http://placehold.jp/cc4999/994433/150x150.png");
+    background-size: cover;
+    text-align: center;
+    font-size: 0;
+    vertical-align: middle;
+  }
+  &__img{
+    display: inline-block;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin:0;
+  }
+  &__nickname{
+    box-sizing: border-box;
+    padding: 10px 16px 8px;
+    width: 220px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    margin: 0 0 0 8px;
+    vertical-align: middle;
+  }
+  &__content{
+    padding: 40px 16px;
+  }
+  &__introduction{
+    min-height: 216px;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    outline: 0;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  &__btn{
+    margin: 16px 0 0;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    transition: all ease-out .3s;
+    text-align: center;
+  }
+}
+
+.mypage-nav{
+  &__list li {
+    border-top: 1px solid #eee;
+  }
+  &__list-item {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    min-height: 48px;
+    padding: 16px;
+    background: #fff;
+    font-size: 14px;
+    color: #333;
+  }
+  &__list-icon{
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    color: #ccc;
+  }
+}

@@ -1,0 +1,27 @@
+%ul#notification-content.mypage-content__list
+  - if notifications ==[]
+    .mypage-content__not-found
+      現在、お知らせはありません
+  - else
+    = render partial:'mypage/shared/content-notification', collection: notifications, as:'notification'
+  - if request.path == '/' || request.path == '/mypage'
+    - if notifications != []
+      = content_tag(:li) do
+        = link_to notification_mypage_index_path do
+          .mypage-content__go-list
+            .mypage-content__go-list--text
+              一覧を見る
+
+%ul#todo-content.mypage-content__list
+  - if todos ==[]
+    .mypage-content__not-found
+      現在、やることリストはありません
+  - else
+    = render partial:'mypage/shared/content-todo', collection: todos, as:'todo'
+  - if request.path == '/' || request.path == '/mypage'
+    - if todos != []
+      = content_tag(:li) do
+        = link_to todo_mypage_index_path do
+          .mypage-content__go-list
+            .mypage-content__go-list--text
+              一覧を見る

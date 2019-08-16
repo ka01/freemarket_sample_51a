@@ -1,0 +1,15 @@
+- breadcrumb :profile
+%main.container.clearfix
+  .my-content
+    .profile
+      %h2.profile__head プロフィール
+      .profile__form
+        = form_with model: @user do |f|
+          .profile__icon
+            .profile__img
+              = image_tag "http://placehold.jp/cc9999/993333/60x60.png"
+            = f.text_field :nickname, class:'profile__nickname',placeholder:"例)AYA☆セール中"
+          .profile__content
+            = f.text_area :introduction, class:'profile__introduction',placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+            = f.submit '変更する',class:'profile__btn'
+  = render 'mypage/shared/sidemenu'

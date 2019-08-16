@@ -1,0 +1,27 @@
+%ul#purchase-content.mypage-content__list
+  - if purchases ==[]
+    .mypage-content__not-found
+      取引中の処品はありません
+  - else
+    = render partial:'mypage/shared/content-purchase', collection: purchases, as:'purchase'
+  - if request.path == '/' || request.path == '/mypage'
+    - if purchases != []
+      = content_tag(:li) do
+        = link_to purchase_mypage_index_path do
+          .mypage-content__go-list
+            .mypage-content__go-list--text
+              一覧を見る
+
+%ul#purchased-content.mypage-content__list
+  - if purchaseds ==[]
+    .mypage-content__not-found
+      過去の取引はありません
+  - else
+    = render partial:'mypage/shared/content-purchased', collection: purchaseds, as:'purchased'
+  - if request.path == '/' || request.path == '/mypage'
+    - if purchaseds != []
+      = content_tag(:li) do
+        = link_to purchased_mypage_index_path do
+          .mypage-content__go-list
+            .mypage-content__go-list--text
+              一覧を見る

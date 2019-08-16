@@ -1,0 +1,13 @@
+= content_tag(:li) do
+  = link_to "" do
+    .mypage-content__list-item
+      .mypage-content__list-img
+        = image_tag "//static.mercdn.net/images/mercari_profile.png"
+      .mypage-content__list-body
+        .mypage-content__list-body--text
+          = notification[:content]
+        .mypage-content__list-body--time
+          .mypage-content__list-body--time-icon.far.fa-clock
+          .mypage-content__list-body--time-text
+            =notification[:time]
+      .mypage-content__list-body--icon.fas.fa-chevron-right
