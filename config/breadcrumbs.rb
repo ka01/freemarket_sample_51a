@@ -34,7 +34,7 @@ crumb :profile do
 end
 
 crumb :logout do
-  link 'ログアウト', logput_mypage_index_path
+  link 'ログアウト', logout_mypage_index_path
   parent :mypage
 end
 # crumb :user do |user|
