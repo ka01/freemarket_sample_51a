@@ -1,25 +1,10 @@
 .sidemenu
   %nav.mypage-nav
     %ul.mypage-nav__list
-      - mypage.each do |m|
-        = content_tag(:li) do
-          = link_to m[:url] do
-            .mypage-nav__list-item
-              = m[:title]
-              .mypage-nav__list-icon.fas.fa-chevron-right
+      = render partial:'mypage/shared/content-mypage', collection: mypages, as:'mypage'
     %h3.mypage-nav__head メルペイ
     %ul.mypage-nav__list
-      - merupay.each do |m|
-        = content_tag(:li) do
-          = link_to m[:url] do
-            .mypage-nav__list-item
-              = m[:title]
-              .mypage-nav__list-icon.fas.fa-chevron-right
+      = render partial:'mypage/shared/content-merpay', collection: merpays, as:'merpay'
     %h3.mypage-nav__head 設定
     %ul.mypage-nav__list
-      - setting.each do |m|
-        = content_tag(:li) do
-          = link_to m[:url] do
-            .mypage-nav__list-item
-              = m[:title]
-              .mypage-nav__list-icon.fas.fa-chevron-right
+      = render partial:'mypage/shared/content-setting', collection: settings, as:'setting'

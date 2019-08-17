@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get "purchased"
       get "profile"
       get "logout"
+      get "card"
     end
   end
 end
