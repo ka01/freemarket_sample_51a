@@ -28,7 +28,7 @@ module MypageHelper
               {title: "メール/パスワード",url:"/jp/mypage/email_password/"},
               {title: "本人情報",url:"/jp/mypage/identification/"},
               {title: "電話番号の確認",url:"/jp/mypage/sms_confirmation/"},
-              {title: "ログアウト",url:"/logout/"}]
+              {title: "ログアウト",url:"/mypage/logout/"}]
   end
 
   def notifications
