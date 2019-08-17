@@ -1,5 +1,5 @@
 module MypageHelper
-  def mypage
+  def mypages
     titles = [{title: "マイページ",url: "/mypage"},
               {title: "お知らせ",url:"/mypage/notification/"},
               {title: "やることリスト",url:"/mypage/todo/"},
@@ -16,12 +16,12 @@ module MypageHelper
               {title: "お問い合わせ",url:"/mypage/support/"}]
   end
 
-  def merupay
+  def merpays
     titles = [{title: "残高・振込申請",url:"/jp/mypage/sales/"},
              {title: "ポイント",url:"/jp/mypage/point/"},]
   end
 
-  def setting
+  def settings
     titles = [{title: "プロフィール",url:"/mypage/profile/"},
               {title: "発送元・お届け先住所変更",url:"/jp/mypage/deliver_address/"},
               {title: "支払い方法",url:"/mypage/card/"},
