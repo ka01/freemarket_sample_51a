@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get "profile"
       get "logout"
       get "card"
+      get "identification"
     end
   end
 end

@@ -23,4 +23,7 @@ class MypageController < ApplicationController
   def card
   end
 
+  def identification
+  end
+
 end
