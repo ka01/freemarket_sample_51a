@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       get "profile"
       get "logout"
       get "card"
+      post "sell"
     end
   end
+  resources :items
 end
