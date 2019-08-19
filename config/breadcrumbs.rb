@@ -42,6 +42,11 @@ crumb :logout do
   link 'ログアウト', logout_mypage_index_path
   parent :mypage
 end
+
+crumb :logout do
+  link '本人情報の登録', logout_mypage_index_path
+  parent :mypage
+end
 # crumb :user do |user|
 #   link "@#{user.nickname}", user_path(user)
 #   parent :users
