@@ -1,0 +1,51 @@
+- breadcrumb :purchased
+%main.container.clearfix
+  .my-content
+    .id-chapter
+      .id-chapter__head 本人情報の登録
+      = form_with model: @user, class: "id-form" do |f|
+        %p
+          お客さまの本人情報をご登録ください。
+          %br>/
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          .id-form--text-right
+            = link_to "#" do
+              本人確認書類のアップロードについて
+              .fas.fa-chevron-right
+          .id-form-group
+            = f.label "お名前"
+            %p 加山 雄三
+          .id-form-group
+            = f.label "お名前カナ"
+            %p カヤマ ユウゾウ
+          .id-form-group
+            = f.label "生年月日"
+            %p 2000/07/31
+          .id-form-group
+            = f.label "郵便番号"
+            %span.id-form-group__arbitrary 任意
+            = f.text_field :zip_code, placeholder: "例）1234567", type: "text", class: "id-form-group__input-default"
+          .id-form-group
+            = f.label "都道府県"
+            %span.id-form-group__arbitrary 任意
+            .id-form-group__select-wrap
+              %i.id-form-group__select-wrap--icon-bottom
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: ""}, {class: "id-form-group__select-wrap--select-default"}
+          .id-form-group
+            = f.label "市区町村"
+            %span.id-form-group__arbitrary 任意
+            = f.text_field :city, placeholder: "例) 横浜市緑区", type: "text", class: "id-form-group__input-default"
+          .id-form-group
+            = f.label "番地"
+            %span.id-form-group__arbitrary 任意
+            = f.text_field :address1, placeholder: "例) 青山1−1−1", type: "text", class: "id-form-group__input-default"
+          .id-form-group
+            = f.label "建物名"
+            %span.id-form-group__arbitrary 任意
+            = f.text_field :address2, placeholder: "例) 柳ビル103", type: "text", class: "id-form-group__input-default"
+          = f.submit "登録する", class:"id-btn-default id-btn-default--btn-red" 
+          .id-form-group.id-form-group--text-right
+            = link_to "#" do
+              本人情報の登録について
+              .fas.fa-chevron-right
+  = render 'mypage/shared/sidemenu'
