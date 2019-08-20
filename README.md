@@ -8,7 +8,7 @@
 | first_name       | string   | null: false               |
 | family_name_kana | string   | null: false               |
 | first_name_kana  | string   | null: false               |
-| birth_year       | integer  | null: false               |
+| birth_year       | integer  | null: false               |ｖ
 | birth_month      | integer  | null: false               |
 | birth_day        | integer  | null: false               |
 | password         | string   | null: false               |
@@ -266,7 +266,7 @@ Association
 
 - has_many :item
 - belongs_to :category
-- belongs_to :brand-group
+- belongs_to :brand_group
 
 ***
 
@@ -285,13 +285,13 @@ Association
 
 ## shippingsテーブル
 
-| Column          | Type    | Options     |
-| --------------- | ------- | ----------- |
-| fee_burden      | boolian | null: false |
-| method          | integer | null: false |
-| area            | integer | null: false |
-| shipping_period | integer | null: false |
-|                 |         |             |
+| Column        | Type    | Options     |
+| ------------- | ------- | ----------- |
+| fee_burden    | boolean | null: false |
+| service       | integer | null: false |
+| area          | integer | null: false |
+| handling_time | integer | null: false |
+|               |         |             |
 
 Association
 
