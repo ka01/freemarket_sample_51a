@@ -1,0 +1,43 @@
+= form_for @user, url: signup_index_path, method: :post, html: {class: 'forth-main-wrapper__box'} do |f|
+  = f.fields_for :deliver_adress do |d|
+    .field
+      = f.label :名字
+      %br/
+      = d.text_field :family_name, placeholder: '例) めるかり'
+    .field
+      = f.label :名前
+      %br/
+    = d.text_field :first_name, placeholder: '例) 太郎'
+    .field
+      = f.label :名字のカナ
+      %br/
+    = d.text_field :family_name_kana, placeholder: '例) メルカリ'
+    .field
+      = f.label :名前のカナ
+      %br/
+    = d.text_field :first_name_kana, placeholder: '例) タロウ'
+    .field
+      = f.label :郵便番号
+      %br/
+    = d.text_field :zip_code
+    .field
+      = f.label :都道府県
+      %br/
+    = d.text_field :prefecture
+    .field
+      = f.label :市区町村
+      %br/
+    = d.text_field :city
+    .field
+      = f.label :番地
+      %br/
+    = d.text_field :adress1
+    .field
+      = f.label :建物名
+      %br/
+    = d.text_field :adress2
+    .field
+      = f.label :電話番号
+      %br/
+    = d.text_field :telephone
+    = f.submit "Sign up"
