@@ -1,0 +1,68 @@
+.new-member-registration__footer {
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding: 40px 0;
+  text-align: center;
+  &__menu {
+    font-size: 0;
+    padding-inline-start: 0;
+    &__list {
+      display: inline-block;
+      margin: 0 0 0 16px;
+      font-size: 12px;
+      & a {
+        text-decoration: none;
+      }
+      &--first {
+        margin: 0;
+      }
+    }
+  }
+  &__link {
+    display: block;
+    color: #333;
+  }
+}
+.new-member-registration__footer__logo {
+  display: block;
+  color: #333;
+  margin: 40px auto 0;
+}
+.new-member-registration__footer__copyright {
+  margin: 8px 0 0;
+}
+
+@media screen and (max-width: 767px){
+  .wrapper {
+    padding: 0 0 250px;
+  }
+
+  .registration__container {
+    width: 100%;
+  }
+  .registration__title {
+    padding: 16px;
+    font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+  }
+
+  .registration-form {
+    padding: 24px 16px 40px;
+    border-top: 1px solid #f5f5f5;
+    max-width: 343px;
+    margin: 0 auto;
+  }
+  .new-member-registration__footer {
+    width: 414px;
+  }
+  .new-member-registration__footer__menu__list {
+    display: block;
+    margin-top: 10px;
+  }
+}
