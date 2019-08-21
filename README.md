@@ -14,6 +14,7 @@
 |email|string|null: false, unique: true|
 |status|integer|null: false|
 |deleted_at|datetime|null :false|
+|nickname|string|null: false|
 ### Association
 - has_many :items
 - has_many :likes dependent: :destroy
@@ -44,12 +45,12 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|zip_code|integer|null: false|
+|zip_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |adress1|string|null: false|
 |adress2|string|
-|telephone|integer|unique: true|
+|telephone|string|unique: true|
 ### Association
 - belongs_to :user
 
