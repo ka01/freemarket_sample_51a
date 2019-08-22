@@ -89,7 +89,7 @@
   font-size: 16px;
 }
 // ToDo select部分も同じcssにしたい
-.new-member-registration__form input:focus {/*マウスカーソルを合わせてフォーカスしている最中の要素*/
+.new-member-registration-form-content input:focus {/*マウスカーソルを合わせてフォーカスしている最中の要素*/
   outline: 0;/*outline: 0;設定しないとメルカリのフォームみたくならない*/
     border-color: #0099e8;/*フォーカスした時の色を指定する*/
 }
