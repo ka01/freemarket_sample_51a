@@ -1,0 +1,131 @@
+header {
+  display: block;
+}
+.single-header {
+  text-align: center;
+}
+.img {
+  vertical-align: middle;
+}
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+nav ol, nav ul {
+  list-style: none;
+}
+.signup-bar.progress-bar {
+  padding: 16px 0;
+  border-top: 1px solid #eee;
+}
+.progress-bar {
+  font-size: 0;
+  text-align: center;
+}
+.progress-bar ol {
+  margin: 0;
+}
+*, ::before, ::after {
+  border-style: solid;
+  border-width: 0;
+}
+.progress-bar li.active {
+  font-weight: 600;
+  color: #ea352d;
+}
+.progress-bar li {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 40px;
+  margin: 0 5% 0 0;
+  font-size: 12px;
+  color: #888;
+}
+.progress-status, .progress-status-complete, .progress-status-payment {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  background: #ea352d;
+  border-radius: 50%;
+}
+.progress-status-payment:before {
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 90px;
+  height: 2px;
+  background: #ea352d;
+}
+.progress-status:before, .progress-status:after {
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 120px;
+  height: 2px;
+  background: #ea352d;
+  left: 50%;
+  right: 50%;
+}
+// display: inline-block;を追加
+.single-header h1 {
+  display: inline-block;
+  margin: 11px 0 12px;
+  width: 120px;
+  height: 33px;
+}
+@media screen and (min-width: 772px) {
+  .single-container {
+      padding: 0 0 220px;
+  }
+  .single-header {
+    height: 128px;
+  }
+  .single-header h1 {
+    margin: 40px 0 0 ;
+  }
+  .single-header a {
+    width: 185px;
+    height: 49px;
+    line-height: 49px;
+  }
+  .single-header img {
+    width: 185px;
+    height: 49px;
+  }
+  .signup-bar.progress-bar {
+    padding: 40px 0 0 100px;
+    border: 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .progress-bar li {
+    margin: 0 40px 0 0;
+  }
+  .progress-bar li {
+    min-width: 60px;
+  }
+  .new-member-registration__title {
+    font-size: 22px;
+    padding: 32px;
+  }
+.new-member-registration__container {
+  width: 700px;
+  margin: 0 auto;
+  }
+  .progress-status-payment:before {
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    content: '';
+    width: 110px;
+    height: 2px;
+    background: #ea352d;
+  }
+}
