@@ -159,6 +159,13 @@ Devise.setup do |config|
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
+  if Rails.env.production?
+    config.omniauth :facebook,ENV['FACEBOOK_APP_ID_PRO'],ENV['FACEBOOK_APP_SECRET_PRO']
+    config.omniauth :google_oauth2,ENV['GOOGLE_APP_ID_PRO'],ENV['GOOGLE_APP_SECRET_PRO']
+  else
+    config.omniauth :facebook,ENV['FACEBOOK_APP_ID_DEV'],ENV['FACEBOOK_APP_SECRET_DEV']
+    config.omniauth :google_oauth2,ENV['GOOGLE_APP_ID_DEV'],ENV['GOOGLE_APP_SECRET_DEV']
+  end
 
   # Options to be passed to the created cookie. For instance, you can set
   # secure: true in order to force SSL only cookies.
