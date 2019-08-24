@@ -1,4 +1,49 @@
-%form{ action: step7_signup_index_path ,method: :get}
-  %input{type: "submit", value: "支払い完了ページへ"}
-支払い方法  クレジットカード情報入力画面
-
+= render 'signup/shared/header'
+%body.new-member-registration-body
+  %main.new-member-registration-body__main
+    %section
+      .new-member-registration__title 支払い方法
+      %form#card-form.registration-form{ action: step7_signup_index_path ,method: :get }
+        %input{ name: "__csrf_value", type: "hidden", value: "" }/
+        .new-member-registration-form-content
+          .new-member-registration-form-content__group
+            %div
+              %label.card-number カード番号
+              %span.form-require 必須
+              %input.card-input-default{ name: "credit-card-number", placeholder: "半角数字のみ", type: "text", value: "" }/
+            .card-icon-group
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?615905397", width: "49", height: "20", alt: ""
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?615905397", width: "34", height: "20", alt: ""
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?615905397", width: "30", height: "20", alt: ""
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?615905397", width: "32", height: "20", alt: ""
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?615905397", width: "21", height: "20", alt: ""
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?615905397", width: "32", height: "20", alt: ""
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?615905397", width: "32", height: "20", alt: ""
+          .new-member-registration-form-content__group
+            %label.payment_card_expire 有効期限
+            %span.form-require 必須
+            %br
+            .card-select-wrap-half
+              %select#payment_card_expire_mm.card-select-default
+                %option{value: ""} 01
+              %span
+                月
+            .card-select-wrap-half
+              %select#payment_card_expire_yy.card-select-default
+                %option{value: ""} 19
+              %span
+                年
+          .new-member-registration-form-content__group
+            %div
+              %label.security-cord セキュリティコード
+              %span.form-require 必須
+              %input.card-input-default{ name: "card-security-cord", placeholder: "カードの背面4桁もしくは3桁の番号", type: "text", value: "" }/
+          .new-member-registration-form-content__group.whatnumber-text-right
+            %p
+              %i.fas.fa-question-circle{ style: "color:royalblue;" }
+              %a カード裏面の番号とは？
+          -# ここにクリックするとjsでappendする画像ある
+          .new-member-registration-form-content__group
+            .button
+              %input{ type: "submit", value: "支払い完了ページへ", class: "btn-default btn red" }
+= render 'signup/shared/footer'

@@ -1,0 +1,49 @@
+.card-select-wrap-half {
+  display: inline-block;
+  width: calc(50% - 2px );
+}
+.card-select-default {
+  width: calc(100% - 38px);
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  margin-top: 8px;
+  padding:0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.card-input-default {
+  height: 30px;
+  width: 300px;
+  padding: 10px 16px 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+.card-icon-group {
+  margin: 8px 0 0;
+}
+.whatnumber-text-right {
+  text-align: right;
+  margin: 0;
+  a {
+    font-size: 12px;
+    color: #0099e8;
+    text-decoration: none;
+  }
+}
+#card-form {
+  padding: 40px 40px 64px;
+  border-top: 1px solid #f5f5f5;
+  input:focus {
+    outline: 0;
+    border-color: #0099e8;
+  }
+}

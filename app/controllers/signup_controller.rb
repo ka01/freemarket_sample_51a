@@ -82,8 +82,13 @@ class SignupController < ApplicationController
   def validates_step2
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
-    session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
+    if  session[:provider] != nil
+      session[:password] = Devise.friendly_token.first(6)
+      session[:password_confirmation] =session[:password]
+    else
+      session[:password] = user_params[:password]
+      session[:password_confirmation] = user_params[:password_confirmation]
+    end
     session[:family_name] = user_params[:family_name]
     session[:first_name] = user_params[:first_name]
     session[:family_name_kana] = user_params[:family_name_kana]
