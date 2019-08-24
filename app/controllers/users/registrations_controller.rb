@@ -4,9 +4,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if  session[:provider] != nil
       params[:user][:password] =  Devise.friendly_token.first(6)
       params[:user][:password_confirmation] =  params[:user][:password]
-
     super #通常のDeviseによるuser登録
-      # @sns.save
+
     SocialProfile.create(
       uid: session[:uid],
       provider: session[:provider],
@@ -14,8 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       )
     else
       super
-
     end
   end
-
 end

@@ -11,7 +11,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def callback_for(provider)
     @user = User.find_omniauth(request.env["omniauth.auth"]) #メソッドの3パターンのどれか
     session[:uid] = request.env["omniauth.auth"][:uid]
-    session[:provider] = request.env["omniauth.auth"][:provider]
     session[:provider] = provider.to_s
     session[:user] = @user
 
