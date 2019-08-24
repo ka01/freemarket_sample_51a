@@ -1,0 +1,90 @@
+.complete-content {
+  max-width: 320px;
+  margin: 30px auto;
+  a {
+  display: block;
+  text-align: center;
+  margin: 8px;
+  font-size: 16px;
+  }
+}
+.complete-red-btn {
+  background-color: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 250px;
+  cursor: pointer;
+  margin: 30px auto;
+  a {
+    color: white;
+    text-decoration: none;
+    padding-left: 35px;
+    line-height: 48px;
+    font-size: 14px;
+  }
+}
+.banner {
+  background: url("https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?78373356");
+  background-position: center;
+  background-size: cover;
+  &__outer-frame {
+    overflow: hidden;
+    position: relative;
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    color: #fff;
+  }
+  &__inner-frame {
+    left: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    height: 166px;
+    &__title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 20px;
+      margin: 0;
+      height: 33px;
+    }
+    &__advertising {
+      font-size: 30px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      margin: 10px 0 0;
+    }
+  }
+  &__icon {
+    margin: 20px 0 0;
+    &__mercari {
+      float: left;
+      margin: 0;
+    }
+    &__menu {
+      float: left;
+      margin: 0 0 0 12px;
+      line-height: 68px;
+      list-style: none;
+      padding-inline-start: 0px;
+      &__AppStore-icon {
+        line-height: 100px;
+      }
+      &__GooglePlay-icon {
+        margin: 0 0 0 16px;
+        line-height: 100px;
+      }
+    }
+  }
+  &__visual {
+    position: absolute;
+    top: 0;
+    right: 48px;
+    bottom: 0;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    &__image {
+      width: 100%;
+    }
+  }
+}
