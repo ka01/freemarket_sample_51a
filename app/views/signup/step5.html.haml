@@ -1,43 +1,47 @@
-= form_for @user, url: signup_index_path, method: :post, html: {class: 'forth-main-wrapper__box'} do |f|
-  = f.fields_for :deliver_adress do |d|
-    .field
-      = f.label :名字
-      %br/
-      = d.text_field :family_name, placeholder: '例) めるかり'
-    .field
-      = f.label :名前
-      %br/
-    = d.text_field :first_name, placeholder: '例) 太郎'
-    .field
-      = f.label :名字のカナ
-      %br/
-    = d.text_field :family_name_kana, placeholder: '例) メルカリ'
-    .field
-      = f.label :名前のカナ
-      %br/
-    = d.text_field :first_name_kana, placeholder: '例) タロウ'
-    .field
-      = f.label :郵便番号
-      %br/
-    = d.text_field :zip_code
-    .field
-      = f.label :都道府県
-      %br/
-    = d.text_field :prefecture
-    .field
-      = f.label :市区町村
-      %br/
-    = d.text_field :city
-    .field
-      = f.label :番地
-      %br/
-    = d.text_field :adress1
-    .field
-      = f.label :建物名
-      %br/
-    = d.text_field :adress2
-    .field
-      = f.label :電話番号
-      %br/
-    = d.text_field :telephone
-    = f.submit "Sign up"
+= render 'signup/shared/header'
+%body.new-member-registration-body
+  %main.new-member-registration-body__main
+    %section
+      .new-member-registration__title 発送元・お届け先入力
+      = form_for @user, url: signup_index_path, method: :post, html: { class: 'registration-form' } do |f|
+        = f.fields_for :deliver_adress do |d|
+          .new-member-registration-form-content
+            .new-member-registration-form-content__group
+              = f.label :お名前, { class: 'new-registration-label adress-name' }
+              = f.label :必須, { class: 'form-require' }
+              = d.text_field :family_name, placeholder: '例) 安藤', class:"input-default"
+              = d.text_field :first_name, placeholder: '例) 拓也', class:"input-default"
+            .new-member-registration-form-content__group
+              = f.label :お名前カナ, { class: 'new-registration-label adress-name' }
+              = f.label :必須, { class: 'form-require' }
+              = d.text_field :family_name_kana, placeholder: '例) アンドウ', class: "input-default last-name-kana"
+              = d.text_field :first_name_kana, placeholder: '例) タクヤ', class: "input-default"
+            .new-member-registration-form-content__group
+              = f.label :郵便番号, { class: 'new-registration-label' }
+              = f.label :必須, { class: 'form-require' }
+              = d.text_field :zip_code, placeholder: '例）1234567', class: "input-default"
+            .new-member-registration-form-content__group
+              = f.label :都道府県, { class: 'new-registration-label' }
+              = f.label :必須, { class: 'form-require' }
+              .prefecture-select-wrap
+                .adress-select-wrap
+                  = d.collection_select :prefecture, Prefecture.all, :id, :name, class: "select-prefecture"
+            .new-member-registration-form-content__group
+              = f.label :市区町村, { class: 'new-registration-label' }
+              = f.label :必須, { class: 'form-require' }
+              = d.text_field :city, placeholder: '例）横浜市緑区', class: "input-default"
+            .new-member-registration-form-content__group
+              = f.label :番地, { class: 'new-registration-label' }
+              = f.label :必須, { class: 'form-require' }
+              = d.text_field :adress1, placeholder: "例）青山1-1-1", class: "input-default"
+            .new-member-registration-form-content__group
+              = f.label :建物名, { class: 'new-registration-label' }
+              = f.label :任意, { class: 'adress-form-require' }
+              = d.text_field :adress2, placeholder: "例）柳ビル103", class: "input-default"
+            .new-member-registration-form-content__group
+              = f.label :電話番号, { class: 'new-registration-label' }
+              = f.label :任意, { class: 'adress-form-require' }
+              = d.text_field :telephone, placeholder: "例）09012345678", class: "input-default"
+            .new-member-registration-form-content__group
+              = f.submit "次に進む", class:"btn-default btn-red"
+= render 'signup/shared/footer'
