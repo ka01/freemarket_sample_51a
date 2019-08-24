@@ -1,1 +1,29 @@
-会員登録完了画面
+= render 'signup/shared/header'
+%body.new-member-registration-body
+  %main.new-member-registration-body__main
+    %section
+      .new-member-registration__title 会員登録完了
+      .complete-content.complete-form-group
+        %a ありがとうございます。
+        %a 会員登録が完了しました。
+      .complete-form-group
+        .button.complete-red-btn
+          %a.complete-red-btn__text
+            =link_to "http://3.114.144.96/" do
+              メルカリを始める
+    %aside.banner
+      .banner__outer-frame
+        .banner__inner-frame
+          %h2.banner__inner-frame__title スマホでかんたんフリマアプリ
+          %p.banner__inner-frame__advertising 今すぐ無料ダウンロード！
+          .banner__icon
+            %ul.banner__icon__menu
+              %li.banner__icon__menu.banner__icon__menu__AppStore-icon
+                =link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8" do
+                  = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?863303983", width: "133", height: "40"
+              %li.banner__icon__menu.banner__icon__menu__GooglePlay-icon
+                =link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do
+                  = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?863303983", width: "133", height: "40"
+        %figure.banner__visual
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?863303983", class: 'banner__visual__image'
+= render 'signup/shared/footer'
