@@ -43,6 +43,13 @@ class SignupController < ApplicationController
     )
     @user.build_deliver_adress(user_params[:deliver_adress_attributes])
     if @user.save
+      if session[:provider] != nil
+        SocialProfile.create(
+          uid: session[:uid],
+          provider: session[:provider],
+          user_id: @user.id
+          )
+      end
       session[:id] = @user.id
       redirect_to step6_signup_index_path
     else
