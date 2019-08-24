@@ -8,11 +8,11 @@
           .new-member-registration-form-content__group
             = f.label :ニックネーム, { class: 'new-registration-label' }
             = f.label :必須, { class: 'form-require' }
-            = f.text_field :nickname, autofocus: true, placeholder: '例) あんたく', class: 'input-default'
+            = f.text_field :nickname, autofocus: true, placeholder: '例) あんたく', class: 'input-default',value: session[:nickname]
           .new-member-registration-form-content__group
             = f.label :メールアドレス, { class: 'new-registration-label' }
             = f.label :必須, { class: 'form-require' }
-            = f.email_field :email, placeholder: 'PC・携帯どちらでも可', class: 'input-default'
+            = f.email_field :email, placeholder: 'PC・携帯どちらでも可', class: 'input-default',value: session[:email]
           .new-member-registration-form-content__group
             = f.label :パスワード, { class: 'new-registration-label' }
             = f.label :必須, { class: 'form-require' }
