@@ -11,7 +11,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render 'layouts/header'
-    .breadcrumb
-      = breadcrumbs  separator: " #{content_tag(:i, '', class:'fas fa-chevron-right')} "
+    = render 'layouts/flash'
+    -# .breadcrumb
+      -# = breadcrumbs  separator: " #{content_tag(:i, '', class:'fas fa-chevron-right')} "
     = yield

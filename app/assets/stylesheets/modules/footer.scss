@@ -1,0 +1,44 @@
+.new-member-registration__footer {
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding: 40px 0;
+  text-align: center;
+  &__menu {
+    font-size: 0;
+    padding-inline-start: 0;
+    &__list {
+      display: inline-block;
+      margin: 0 0 0 16px;
+      font-size: 12px;
+      & a {
+        text-decoration: none;
+      }
+      &--first {
+        margin: 0;
+      }
+    }
+  }
+  &__link {
+    display: block;
+    color: #333;
+  }
+  &__logo {
+    display: block;
+    color: #333;
+    margin: 40px auto 0;
+  }
+  &__copyright {
+    margin: 8px 0 0;
+  }
+}
+@media screen and (max-width: 767px){
+  .new-member-registration__footer__menu__list {
+    display: block;
+    margin-top: 10px;
+  }
+}

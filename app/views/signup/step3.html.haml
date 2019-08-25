@@ -1,0 +1,24 @@
+= render 'signup/shared/header'
+%body.phone-registration-body
+  %main.phone-registration-body__main
+    %section
+      %h2.phone-registration-body__title 電話番号の確認
+      %form#phone-form{ action: step4_signup_index_path ,method: :get }
+        %input{name: "__csrf_value", type: "hidden", value: ""}
+        .phone-content-form
+          .phone-content-form__group
+            %div
+              %label.phone-content-form__number 携帯電話の番号
+              %input.phone-content-form__input-default{name: "phone-number", placeholder: "携帯電話の番号を入力", type: "text", value: ""}
+              %p.phone-text
+                本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          .phone-content-form__group
+            %button.phone-content-form__btn-default{type: "submit"} SMSを送信する
+            %p.phone-content-form__text
+              ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .phone-content-form__group.phone-text-right
+            %p
+              %a{href: "#", target: "_blank"}
+                電話番号の確認が必要な理由
+                %i.fa.fa-chevron-right
+= render 'signup/shared/footer'

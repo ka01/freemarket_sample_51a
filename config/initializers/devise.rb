@@ -88,7 +88,7 @@ Devise.setup do |config|
   # Notice that if you are skipping storage for all authentication paths, you
   # may want to disable generating routes to Devise's sessions controller by
   # passing skip: :sessions to `devise_for` in your config/routes.rb
-  config.skip_session_storage = [:http_auth]
+  # config.skip_session_storage = [:http_auth]
 
   # By default, Devise cleans up the CSRF token on authentication to
   # avoid CSRF token fixation attacks. This means that, when using AJAX
@@ -159,6 +159,13 @@ Devise.setup do |config|
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
+  if Rails.env.production?
+    config.omniauth :facebook,ENV['FACEBOOK_APP_ID_PRO'],ENV['FACEBOOK_APP_SECRET_PRO']
+    config.omniauth :google_oauth2,ENV['GOOGLE_APP_ID_PRO'],ENV['GOOGLE_APP_SECRET_PRO']
+  else
+    config.omniauth :facebook,ENV['FACEBOOK_APP_ID_DEV'],ENV['FACEBOOK_APP_SECRET_DEV']
+    config.omniauth :google_oauth2,ENV['GOOGLE_APP_ID_DEV'],ENV['GOOGLE_APP_SECRET_DEV']
+  end
 
   # Options to be passed to the created cookie. For instance, you can set
   # secure: true in order to force SSL only cookies.
