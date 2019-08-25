@@ -12,10 +12,9 @@
             %i.fa.fa-envelope.fa-2x
             メールアドレスで登録する
           =link_to user_facebook_omniauth_authorize_path, method: :post, class: "btn btn--facebook", id: "facebook-login" do
-            %i.fa.fa-facebook.fa-2x
+            = fa_icon 'facebook',class: 'fab fa-facebook-square'
             Facebookで登録する
           =link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn--google", id: "google-login" do
-            %i.fa.fa-google.fa-2x
             Googleで登録する
 
           -# = button_tag "Facebookで登録する", id:  "facebook-login", class:"btn btn--facebook"
