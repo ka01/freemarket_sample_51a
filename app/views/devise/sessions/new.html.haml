@@ -1,7 +1,7 @@
 .top-container
   %header.top-header
     %h1.top-header__logo
-      %a.top-header__logo__link{ href: "https://www.mercari.com/jp/" }
+      %a.top-header__logo__link{ href: "http://3.114.144.96/" }
         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?917505326", alt: "mercari", class: "header__logo__image"
   .top-main
     .top-main-login
@@ -16,9 +16,9 @@
           Googleでログイン
       .top-form
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          =f.email_field :email, class: 'login-input-text top-input-default', placeholder: 'メールアドレス'
+          =f.email_field :email, class: 'top-input-default', placeholder: 'メールアドレス'
           =f.password_field :password, class: "top-login-input-password top-input-default", placeholder: 'パスワード'
-          .g-recaptcha.signup-recaptcha{"data-sitekey" => "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
+          .g-recaptcha.signup-recaptcha{"data-sitekey": "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
             %div{style: "width: 304px; height: 78px;"}
               %div
                 %iframe{frameborder: "0", height: "78", name: "a-fkxeui3qjqob", role: "presentation", sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", scrolling: "no", src: "https://www.google.com/recaptcha/api2/anchor?ar=2&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1563777128698&size=normal&cb=z6qz81kxfhan", width: "304"}
