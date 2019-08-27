@@ -37,7 +37,7 @@ nav ol, nav ul {
   color: #ea352d;
 }
 // プログレスバーの◯部分を赤色・太字に変更するcss
-.progress-status.through, .progress-status.active, .progress-status-payment.active{
+.progress-status.through, .progress-status.active, .progress-status-payment.active, .progress-status-payment.through, .progress-status-complete.active {
   font-weight: 600;
   background: #ea352d;
 }
@@ -57,15 +57,25 @@ nav ol, nav ul {
   background: #888;
   border-radius: 50%;
 }
-.progress-status-payment:before {
+.progress-status-payment:before {// step2~6ページ用プログレスバーの支払い方法css
   position: absolute;
   bottom: 5px;
   z-index: -1;
   display: block;
   content: '';
-  width: 90px;
+  width: 85px;
   height: 2px;
   background: #888;
+}
+.progress-status-payment.through:before {// step7ページ用プログレスバーの支払い方法css
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 85px;
+  height: 2px;
+  background: #ea352d;
 }
 .progress-status:before, .progress-status:after {
   position: absolute;
@@ -137,7 +147,7 @@ nav ol, nav ul {
   width: 700px;
   margin: 0 auto;
   }
-  .progress-status-payment:before {
+  .progress-status-payment:before {// レスポンシブ対応step2~6ページ用プログレスバーの支払い方法css
     position: absolute;
     bottom: 5px;
     z-index: -1;
@@ -146,5 +156,15 @@ nav ol, nav ul {
     width: 110px;
     height: 2px;
     background: #888;
+  }
+  .progress-status-payment.through:before {// レスポンシブ対応step7ページ用プログレスバーの支払い方法css
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    content: '';
+    width: 110px;
+    height: 2px;
+    background: #ea352d;
   }
 }
