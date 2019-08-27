@@ -47,6 +47,13 @@ nav ol, nav ul {
   width: 12px;
   height: 12px;
   margin: 8px auto 0;
+  background: #888;
+  border-radius: 50%;
+}
+.progress-status.active {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
   background: #ea352d;
   border-radius: 50%;
 }
@@ -58,7 +65,7 @@ nav ol, nav ul {
   content: '';
   width: 90px;
   height: 2px;
-  background: #ea352d;
+  background: #888;
 }
 .progress-status:before, .progress-status:after {
   position: absolute;
@@ -68,7 +75,7 @@ nav ol, nav ul {
   content: '';
   width: 120px;
   height: 2px;
-  background: #ea352d;
+  background: #888;
   left: 50%;
   right: 50%;
 }
@@ -126,6 +133,6 @@ nav ol, nav ul {
     content: '';
     width: 110px;
     height: 2px;
-    background: #ea352d;
+    background: #888;
   }
 }
