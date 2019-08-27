@@ -1,4 +1,29 @@
-= render 'signup/shared/header'
+-# header部分
+-# =====================
+%header.single-header
+  %h1
+    =link_to "http://3.114.144.96/" do
+      =image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3791839826", alt: "mercari"
+  %nav.progress-bar.signup-bar
+    %ol.clearfix
+      %li.through
+        会員情報
+        .progress-status.through
+      %li.through
+        電話番号認証
+        .progress-status.through
+      %li.through
+        お届け先住所入力
+        .progress-status.through
+      %li.active
+        支払い方法
+        .progress-status-payment.active
+      %li
+        完了
+        .progress-status-complete
+-# =====================
+-# form部分
+-# =====================
 %body.new-member-registration-body
   %main.new-member-registration-body__main
     %section
@@ -10,7 +35,7 @@
             %div
               %label.card-number カード番号
               %span.form-require 必須
-              %input.card-input-default{ name: "credit-card-number", placeholder: "半角数字のみ", type: "text", value: "" }/
+              %input.card-input-default{ name: "credit-card-number", autofocus: true, placeholder: "半角数字のみ", type: "text", value: "" }/
             .card-icon-group
               =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?615905397", width: "49", height: "20", alt: ""
               =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?615905397", width: "34", height: "20", alt: ""

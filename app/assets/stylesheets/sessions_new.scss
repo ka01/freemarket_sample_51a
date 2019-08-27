@@ -1,0 +1,106 @@
+.top-header {
+  height: 128px;
+  text-align: center;
+  &__logo {
+    margin: 40px 0 0;
+    display: inline-block;
+    &__link {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      display: inline-block;
+      margin: 0 8px 0 0;
+    }
+    &__image {
+      width: 185px;
+      height: 49px;
+    }
+  }
+}
+.top-main-login {
+  margin: 0 auto;
+  background-color: #fff;
+  width: 456px;
+  &__login-no-account {
+    padding: 24px 32px;
+    text-align: center;
+  }
+  &__login-form-inner {
+    padding: 24px 32px;
+    border-top: 1px solid #eee;
+  }
+}
+.btn {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  &--facebook {
+    position: relative;
+    margin: 16px 0 0;
+    background: #385185;
+    color: #fff;
+    font-size: 13px;
+  }
+  &--google {
+    margin: 16px 0 0;
+    background: #fff url(https://www.mercari.com/jp/assets/img/common/common/google.svg) no-repeat 3px top;
+    border: #979797 solid 1px;
+    color: #333;
+    font-size: 13px;
+  }
+}
+.fa-facebook-square {
+  font-size: 21px;
+  width: 30px;
+  height: 30px;
+  line-height: 1.5;
+  border-radius: 4px;
+  top: 20%;
+  left: 10px;
+  color: #385185;
+  background-color: #fff;
+  position: absolute;
+}
+.new-user-registration {
+  display: block;
+  margin: 8px 0 0;
+  border: 1px solid #0099e8;
+  background-color: #0099e8;
+  color: #fff;
+  line-height: 40px;
+  text-decoration-line: none;
+}
+.top-form {
+    width: 100%;
+    padding: 24px 32px;
+  .top-input-default {
+    height: 48px;
+    width: 355px;
+    padding: 3px 16px 3px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+}
+.top-login-input-password {
+  margin: 20px 0;
+}
+.top-login-submit {
+  margin: 20px 0;
+  height: 48px;
+  width: 385px;
+  background-color: red;
+  color:white;
+}
+.top-forget-password {
+  display: block;
+  text-decoration: none;
+}

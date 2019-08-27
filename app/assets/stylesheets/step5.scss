@@ -13,8 +13,8 @@
   font-size: 12px;
 }
 #user_deliver_adress_attributes_prefecture {
-  height: 47px;
-  width: 335px;
+  height: 32px;
+  width: 300px;
   padding: 10px 16px 8px;
   margin-top: 8px;
   border-radius: 4px;
@@ -22,6 +22,22 @@
   background-color: #fff;
   line-height: 1.5;
   font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.prefecture-select-wrap {
+  position: relative;
+}
+.prefecture.fas.fa-chevron-down {
+  position: absolute;
+  right: 25px;
+  top: 60%;
+  z-index: 2;
+  color: #888;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  font-size: 18px;
 }
 #adress-form {
   padding: 40px 40px 64px;
