@@ -32,7 +32,7 @@ nav ol, nav ul {
 }
 // プログレスバー文字を赤色・太字に変更するcss
 // .activeは現在入力画面のクラス名。.throughは入力完了済みのクラス名
-.progress-bar li.active, .progress-bar li.through {
+.progress-bar li.active {
   font-weight: 600;
   color: #ea352d;
 }
