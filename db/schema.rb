@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_24_040619) do
+ActiveRecord::Schema.define(version: 2019_08_27_131237) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -42,13 +42,6 @@ ActiveRecord::Schema.define(version: 2019_08_24_040619) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image_url", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_item_images_on_user_id"
-
   create_table "deliver_adresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "family_name", null: false
@@ -66,6 +59,14 @@ ActiveRecord::Schema.define(version: 2019_08_24_040619) do
     t.index ["user_id"], name: "index_deliver_adresses_on_user_id"
   end
 
+  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image_url", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_item_images_on_user_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -74,16 +75,20 @@ ActiveRecord::Schema.define(version: 2019_08_24_040619) do
     t.integer "price", null: false
     t.string "condition", null: false
     t.bigint "user_id"
+    t.bigint "shipping_id"
+    t.index ["shipping_id"], name: "index_items_on_shipping_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.boolean "fee_burden", null: false
+    t.integer "fee_burden", null: false
     t.integer "service", null: false
     t.integer "area", null: false
     t.integer "handling_time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_shippings_on_item_id"
   end
 
   create_table "social_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -119,7 +124,9 @@ ActiveRecord::Schema.define(version: 2019_08_24_040619) do
 
   add_foreign_key "brands", "brands"
   add_foreign_key "brands", "categories"
-  add_foreign_key "item_images", "users"
-  add_foreign_key "items", "users"
   add_foreign_key "deliver_adresses", "users"
+  add_foreign_key "item_images", "users"
+  add_foreign_key "items", "shippings"
+  add_foreign_key "items", "users"
+  add_foreign_key "shippings", "items"
 end

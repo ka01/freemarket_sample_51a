@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -84,3 +85,4 @@ gem 'dotenv-rails'
 gem 'pry-rails'
 gem 'pry-byebug'
 gem 'pry-doc'
+gem 'carrierwave'

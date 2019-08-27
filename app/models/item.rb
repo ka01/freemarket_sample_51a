@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   # has_many :comments dependent: :destroy
   # has_many :messages dependent: :destroy
   has_one :shipping
+  accepts_nested_attributes_for :shipping
   # has_many :reviews
   has_many :item_images, dependent: :destroy
   # has_one :order
@@ -17,5 +18,12 @@ class Item < ApplicationRecord
     good: 3,
     poor: 4,
     damege: 5
-   }
+  }
+  
+  with_options presence: true do
+    validates :name
+    validates :text
+    validates :price
+    validates :condition
+  end
 end

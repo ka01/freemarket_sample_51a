@@ -1,55 +1,152 @@
-.item-pitcure
-  出品画像（必須）
-  %br
-  最も10枚までアップロードする！
-.item-form__head
-= form_with model: @item, local: true, class: "item-form" do |f|
-  .item-name
-    = f.label "商品名（必須）"
-    = f.text_field :name, value: "うどん"
-  .item-text
-    = f.label "商品の説明（必須）"
-    = f.text_area :text, value: "いいもの"
-  .item-details
-    商品の詳細
-    -# %ul
-    -#   %li カテゴリー（必須）
-    -#   %select{:name => "category"}
-    -#     %option{:value => "0"} ---
-    -#     %option{:value => "1"} レディース
-    -#     %option{:value => "2"} 生鮮食品
-    -#     %option{:value => "3"} 薬品
-    -#     %option{:value => "4"} 生物
-    .field
-      = f.label "状態（必須）"
-      = f.select :condition, Item.conditions.keys.to_a, {}
-  .shipping
-    配送について
-    %ul
-      %li 配送料の負担（必須）
-      %li 発送元の地域（必須）
-      %li 発送までの日数（必須）
-  .price
-    販売価格（300〜9,999,999,999,）
-    %ul
-      %li
-      = f.label "価格（必須）"
-      = f.text_field :price, value: 999999999
-      %li 販売手数料 (80%)
-      %li 販売利益
-
-  .notice
-    警告:
-    %br
-    禁止されているリストと行動を必ず確認しなさい。
-    %br
-    またブランド製品にシリアル番号などがある場合は記載しなさい。偽造ブランドの販売することは犯罪であり罰される可能性がある。
-    %br
-    さらに、あなたはリストによって商人契約に同意した。
-    %br
-    请务必确认禁止的列表和行为。
-    %br
-    如果品牌产品有序列号等，请注明。假冒品牌的销售是犯罪行为，可以受到惩罚。
-    %br
-    此外，您已通过列表同意商家协议。
-  = f.submit "登録しなさい"
+.product-container
+  =render 'items/modules/header'
+  %main.sell-main
+    %section.sell-main__container
+      #sell-container
+        .sell-container
+          %h2.sell-container__head 商品の情報を入力
+          = form_with model: @item, locale: true, class: "sell-form" do |f|
+            = f.fields_for :shipping do |s|
+              .sell-upload-box
+                %h3.sell-upload-box__head
+                  出品画像
+                  %span.sell-upload-box__head--require 必須
+                %p 最大10枚までアップロードできます
+                .sell-upload-box__dropbox.clearfix
+                  .sell-upload-items-container
+                    .sell-upload-items-container__items.have-item-0
+                      %ul
+                  .sell-upload-drop-box.have-item-0
+                    %input.sell-upload-drop-box__file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
+                    %pre.sell-upload-drop-box__visible-pc ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+                    %i.sell-upload-drop-box__icon--.fas.fa-camera
+              .sell-content
+                .sell-form-group
+                  = f.label "商品名"
+                  %span.sell-form-group__require 必須
+                  = f.text_field :name, class: "sell-form-group__input-default", placeholder: "商品名（必須 40文字まで)"
+                .sell-form-group
+                  = f.label "商品の説明"
+                  %span.sell-form-group__require 必須
+                  = f.text_area :text, class: "sell-form-group__textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。)", rows: "5"
+              .sell-content.clearfix
+                %h3.sell-content__sub-head 商品の詳細
+                .sell-content__form-box
+                  .sell-form-group
+                    = f.label "カテゴリー"
+                    %span.sell-form-group__require 必須
+                    .sell-form-group__select-wrap
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      %select.sell-form-group__select-wrap--default
+                        %option{:value => ""} ---
+                        %option{:value => "1"} レディース
+                        %option{:value => "2"} メンズ
+                        %option{:value => "3"} ベビー・キッズ
+                        %option{:value => "4"} インテリア・住まい・小物
+                        %option{:value => "5"} 本・音楽・ゲーム
+                        %option{:value => "1328"} おもちゃ・ホビー・グッズ
+                        %option{:value => "6"} コスメ・香水・美容
+                        %option{:value => "7"} 家電・スマホ・カメラ
+                        %option{:value => "8"} スポーツ・レジャー
+                        %option{:value => "9"} ハンドメイド
+                        %option{:value => "1027"} チケット
+                        %option{:value => "1318"} 自動車・オートバイ
+                        %option{:value => "10"} その他
+                  .sell-form-group
+                    = f.label "商品の状態"
+                    -# = f.select :condition, Item.conditions.keys.to_a, {}, class: "select.sell-form-group__select-wrap--default"
+                    %span.sell-form-group__require 必須
+                    .sell-form-group__select-wrap
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = f.select :condition, Item.conditions.keys.to_a, {}, class: "sell-form-group__select-wrap--default"
+                      -# %select.sell-form-group__select-wrap--default
+                      -#   %option{:value => ""} ---
+                      -#   %option{:value => "1"} 新品、未使用
+                      -#   %option{:value => "2"} 未使用に近い
+                      -#   %option{:value => "3"} 目立った傷や汚れなし
+                      -#   %option{:value => "4"} やや傷や汚れあり
+                      -#   %option{:value => "5"} 傷や汚れあり
+                      -#   %option{:value => "6"} 全体的に状態が悪い
+              .sell-content.clearfix
+                %h3.sell-content__sub-head 配送について
+                = link_to "/jp/help_center/article/68/", class: "sell-content__sub-head--question" do
+                  ?
+                .sell-content__form-box
+                  .sell-form-group
+                    = s.label "配送料の負担"
+                    %span.sell-form-group__require 必須
+                    .sell-form-group__select-wrap
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = s.select :fee_burden, Shipping.fee_burdens.keys.to_a, {}, class: "sell-form-group__select-wrap--default"
+                      -# %select.sell-form-group__select-wrap--default
+                      -#   %option{:value => ""} ---
+                      -#   %option{:value => "2"} 送料込み(出品者負担)
+                      -#   %option{:value => "1"} 着払い(購入者負担)
+                  .sell-form-group
+                    = s.label "配送の方法"
+                    %span.sell-form-group__require 必須
+                    .sell-form-group__select-wrap
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = s.select :service, Shipping.services.keys.to_a, {}, class: "sell-form-group__select-wrap--default"
+                  .sell-form-group
+                    = s.label "発送元の地域"
+                    %span.sell-form-group__require 必須
+                    .sell-form-group__select-wrap
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = s.collection_select :area, Prefecture.all, :id, :name, {prompt: ""}, {class: "sell-form-group__select-wrap--default"}
+                  .sell-form-group
+                    = s.label "発送までの日数"
+                    %span.sell-form-group__require 必須
+                    .sell-form-group__select-wrap
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = s.select :handling_time, Shipping.handling_times.keys.to_a, {}, class: "sell-form-group__select-wrap--default"
+                      -# %select.sell-form-group__select-wrap--default
+                      -#   %option{:value => ""} ---
+                      -#   %option{:value => "1"} 1~2日で発送
+                      -#   %option{:value => "2"} 2~3日で発送
+                      -#   %option{:value => "3"} 4~7日で発送
+              .sell-content.clearfix
+                %h3.sell-content__sub-head 販売価格(300〜9,999,999)
+                = link_to "/jp/help_center/article/64/", class:"sell-content__sub-head--question" do
+                  ?
+                .sell-content__form-box
+                  %ul.sell-price
+                    %li.sell-form-group
+                      .clearfix
+                        .sell-form-group__left
+                          = f.label "価格"
+                          %span.sell-form-group__require 必須
+                        .sell-form-group__right.sell-price-input
+                          ¥
+                          %div
+                            = f.text_field :price, class:"sell-form-group__right--input-default", placeholder:"例）300", value:""
+                    %li.clearfix
+                      .sell-fee-left 販売手数料 (10%)
+                      .sell-fee-right -
+                    %li.clearfix.sell-bold
+                      .sell-fee-left 販売利益
+                      .sell-fee-right -
+              .sell-modal{role: "dialog", tabindex: "-1"}
+                .sell-modal__inner
+              .sell-content.sell-btn
+                .sell-content__attention
+                  = link_to "/jp/help_center/getting_started/prohibited_items/", class:"sell-content__attention--link" do
+                    禁止されている出品
+                  = link_to "/jp/help_center/getting_started/prohibited_conduct/", class:"sell-content__attention--link" do
+                    行為
+                  を必ずご確認ください。
+                .sell-content__attention
+                  またブランド品でシリアルナンバー等がある場合はご記載ください。
+                  = link_to "/jp/help_center/getting_started/counterfeit_goods/", class:"sell-content__attention--link" do
+                    偽ブランド
+                  の販売は犯罪であり処罰される可能性があります。
+                .sell-content__attention
+                  また、出品をもちまして
+                  = link_to "/jp/seller_terms/", class:"sell-content__attention--link" do
+                    加盟店規約
+                  に同意したことになります。
+                = f.submit "出品する", class:"sell-btn__default sell-btn__btn-red"
+                = link_to "#", class:"sell-btn__default sell-btn__btn-gray" do
+                  もどる
+              .overlay
+      = render 'items/modules/footer'
