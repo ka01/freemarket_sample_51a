@@ -37,7 +37,7 @@ nav ol, nav ul {
   color: #ea352d;
 }
 // プログレスバーの◯部分を赤色・太字に変更するcss
-.progress-status.through, .progress-status.active {
+.progress-status.through, .progress-status.active, .progress-status-payment.active{
   font-weight: 600;
   background: #ea352d;
 }
