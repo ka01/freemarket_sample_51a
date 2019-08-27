@@ -30,9 +30,16 @@ nav ol, nav ul {
   border-style: solid;
   border-width: 0;
 }
-.progress-bar li.active {
+// プログレスバー文字を赤色・太字に変更するcss
+// .activeは現在入力画面のクラス名。.throughは入力完了済みのクラス名
+.progress-bar li.active, .progress-bar li.through {
   font-weight: 600;
   color: #ea352d;
+}
+// プログレスバーの◯部分を赤色・太字に変更するcss
+.progress-status.through, .progress-status.active {
+  font-weight: 600;
+  background: #ea352d;
 }
 .progress-bar li {
   position: relative;
@@ -48,13 +55,6 @@ nav ol, nav ul {
   height: 12px;
   margin: 8px auto 0;
   background: #888;
-  border-radius: 50%;
-}
-.progress-status.active {
-  width: 12px;
-  height: 12px;
-  margin: 8px auto 0;
-  background: #ea352d;
   border-radius: 50%;
 }
 .progress-status-payment:before {
@@ -76,6 +76,18 @@ nav ol, nav ul {
   width: 120px;
   height: 2px;
   background: #888;
+  left: 50%;
+  right: 50%;
+}
+.progress-status.through:after {
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 120px;
+  height: 2px;
+  background: #ea352d;
   left: 50%;
   right: 50%;
 }
