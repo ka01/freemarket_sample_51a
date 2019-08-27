@@ -9,7 +9,3 @@
     })
   end
 end
-
-def set_invalid_omniauth
-  OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
-end
