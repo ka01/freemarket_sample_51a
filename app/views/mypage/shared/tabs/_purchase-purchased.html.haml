@@ -3,7 +3,7 @@
     .mypage-content__not-found
       取引中の処品はありません
   - else
-    = render partial:'mypage/shared/content-purchase', collection: purchases, as:'purchase'
+    = render partial:'mypage/shared//tabs/contents/purchase', collection: purchases, as:'purchase'
   - if request.path == '/' || request.path == '/mypage'
     - if purchases != []
       = content_tag(:li) do
@@ -17,7 +17,7 @@
     .mypage-content__not-found
       過去の取引はありません
   - else
-    = render partial:'mypage/shared/content-purchased', collection: purchaseds, as:'purchased'
+    = render partial:'mypage/shared/tabs/contents/purchased', collection: purchaseds, as:'purchased'
   - if request.path == '/' || request.path == '/mypage'
     - if purchaseds != []
       = content_tag(:li) do

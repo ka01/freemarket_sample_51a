@@ -3,7 +3,7 @@
     .mypage-content__not-found
       現在、お知らせはありません
   - else
-    = render partial:'mypage/shared/content-notification', collection: notifications, as:'notification'
+    = render partial:'mypage/shared/tabs/contents/notification', collection: notifications, as:'notification'
   - if request.path == '/' || request.path == '/mypage'
     - if notifications != []
       = content_tag(:li) do
@@ -17,7 +17,7 @@
     .mypage-content__not-found
       現在、やることリストはありません
   - else
-    = render partial:'mypage/shared/content-todo', collection: todos, as:'todo'
+    = render partial:'mypage/shared/tabs/contents/todo', collection: todos, as:'todo'
   - if request.path == '/' || request.path == '/mypage'
     - if todos != []
       = content_tag(:li) do
