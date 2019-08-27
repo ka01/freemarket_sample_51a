@@ -35,7 +35,7 @@
             .new-member-registration-form-content__group
               = f.label :お名前, { class: 'new-registration-label adress-name' }
               = f.label :必須, { class: 'form-require' }
-              = d.text_field :family_name, placeholder: '例) 安藤', class:"input-default"
+              = d.text_field :family_name, autofocus: true, placeholder: '例) 安藤', class:"input-default"
               = d.text_field :first_name, placeholder: '例) 拓也', class:"input-default"
             .new-member-registration-form-content__group
               = f.label :お名前カナ, { class: 'new-registration-label adress-name' }
