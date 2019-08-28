@@ -1,3 +1,4 @@
+= render 'layouts/header'
 - breadcrumb :purchased
 %main.container.clearfix
   .my-content
@@ -43,9 +44,9 @@
             = f.label "建物名"
             %span.id-form-group__arbitrary 任意
             = f.text_field :address2, placeholder: "例) 柳ビル103", type: "text", class: "id-form-group__input-default"
-          = f.submit "登録する", class:"id-btn-default id-btn-default--btn-red" 
+          = f.submit "登録する", class:"id-btn-default id-btn-default--btn-red"
           .id-form-group.id-form-group--text-right
             = link_to "#" do
               本人情報の登録について
               .fas.fa-chevron-right
-  = render 'mypage/shared/sidemenu'
+  = render 'mypage/shared/sidemenus/sidemenu'
