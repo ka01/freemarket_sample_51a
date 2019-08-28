@@ -8,7 +8,7 @@
       %h2.registration__title 新規会員登録
       .registration-form
         .registration-form__content
-          =link_to step2_signup_index_path, class: "btn btn--mail" do
+          =link_to reset_signup_index_path, class: "btn btn--mail" do
             %i.fa.fa-envelope.fa-2x
             メールアドレスで登録する
           =link_to user_facebook_omniauth_authorize_path, method: :post, class: "btn btn--facebook", id: "facebook-login" do

@@ -5,6 +5,15 @@ class SignupController < ApplicationController
   def step1
   end
 
+  def reset
+    session[:nickname]=nil
+    session[:email]=nil
+    session[:provider]=nil
+    session[:password]=nil
+    session[:password_confirmation]=nil
+    redirect_to step2_signup_index_path
+  end
+
   def step2
     @user = User.new
   end
@@ -85,6 +94,7 @@ class SignupController < ApplicationController
                                   :telephone]
     )
   end
+
 
   def validates_step2
     session[:nickname] = user_params[:nickname]
