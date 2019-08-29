@@ -24,12 +24,12 @@
         %label.mypage-tab__item{for: "notification"} お知らせ
         %input#todo{name: "mypage-tab__item1", type: "radio"}/
         %label.mypage-tab__item{for: "todo"} やることリスト
-        = render 'mypage/shared/notification-todo'
+        = render 'mypage/shared/tabs/notification-todo'
     %section.mypage-purchase-purchased
       .mypage-tab
         %input#purchase{name: "mypage-tab__item2", type: "radio",checked: "checked" }/
         %label.mypage-tab__item{for: "purchase"} 取引中
         %input#purchased{name: "mypage-tab__item2", type: "radio"}/
         %label.mypage-tab__item{for: "purchased"} 過去の取引
-        = render 'mypage/shared/purchase-purchased'
-  = render 'mypage/shared/sidemenu'
+        = render 'mypage/shared/tabs/purchase-purchased'
+  = render 'mypage/shared/sidemenus/sidemenu'

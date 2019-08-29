@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :nickname,                presence: true, length: {maximum: 20}
   validates :email,                   presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password,                presence: true, length: {minimum: 6, maximum: 128},on: :save_to_session_before_phone
-  validates :password_confirmation,   presence: true, length: {minimum: 6, maximum: 128},on: :save_to_session_before_phone
+  validates :password_confirmation,   presence: true, confirmation: true, presence: true
   validates :family_name,             presence: true
   validates :first_name,              presence: true
   validates :family_name_kana,        presence: true, format: { with: VALID_KANA_REGEX }

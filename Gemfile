@@ -45,6 +45,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'faker'
+   gem 'capybara', '>= 2.15'
 end
 
 group :development do
@@ -84,3 +89,4 @@ gem 'dotenv-rails'
 gem 'pry-rails'
 gem 'pry-byebug'
 gem 'pry-doc'
+gem 'jquery-rails'
