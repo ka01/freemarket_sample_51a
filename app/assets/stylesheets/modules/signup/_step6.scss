@@ -33,10 +33,12 @@
 .whatnumber-text-right {
   text-align: right;
   margin: 0;
-  a {
+  .signup-seqcode-text {
+    display: inline;
     font-size: 12px;
     color: #0099e8;
     text-decoration: none;
+    position: relative;
   }
 }
 #card-form {
@@ -45,5 +47,21 @@
   input:focus {
     outline: 0;
     border-color: #0099e8;
+  }
+}
+.signup-seqcode-info.is-show {
+  width: 300px;
+  display: none;
+  position: absolute;
+  top: 6px;
+  z-index: 1;
+  padding: 16px;
+  border-radius: 6px;
+  background: #eee;
+  text-align: center;
+  color: #333;
+  line-height: 1.5;
+  img {
+    padding-top: 10px;
   }
 }
