@@ -201,3 +201,7 @@ input[name="mypage-tab__item2"] {
     }
   }
 }
+.mypage-user:hover a {//白い半透明のホバー
+  opacity: 0.7;
+  text-decoration: underline;
+}
