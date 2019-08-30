@@ -168,3 +168,60 @@ nav ol, nav ul {
     background: #ea352d;
   }
 }
+
+
+.active{
+  display: block;
+}
+.active2{
+  display: block;
+}
+
+
+
+.pc-header__nav-root :hover{
+    color:blue;
+}
+
+
+.category-1{
+  display: none;
+  background-color:white;
+  width:auto;
+  position: absolute;
+  &__item{
+    width:180px;
+    &:hover{
+      background-color: red;
+    }
+  }
+  &__text{
+    height: 44px;
+    line-height: 44px;
+    margin-left: 8px;
+    font-size: 14px;
+    color:black;
+    &:hover{
+      color:white;
+    }
+  }
+}
+
+.category-2{
+  display: none;
+  width: auto;
+  position: absolute;
+  top:0;
+  left:180px;
+  bottom:0;
+  background-color: #fff;
+  .__item{
+    width:279px;
+    height: 70px;
+    line-height: 70px;
+    &:hover{
+      background-color: red;
+    }
+
+  }
+}
