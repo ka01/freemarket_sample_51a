@@ -29,4 +29,7 @@
     right: 9px;// デフォルト位置より4px分右に動く
     border-color: black;// デフォルトの灰色から黒色へ変化させる
   }
+  &__list-item:hover {//ホバーしたら背景色を変化させる
+    background: #eeeeee;
+  }
 }
