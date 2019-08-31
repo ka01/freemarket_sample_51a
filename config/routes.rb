@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get "identification"
     end
   end
+  resources :items
   resources :signup do
     collection do
       get 'reset'

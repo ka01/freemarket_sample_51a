@@ -10,11 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_122804) do
+ActiveRecord::Schema.define(version: 2019_08_31_043404) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
     t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "brand_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "category_id"
+    t.bigint "brand_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_brands_on_brand_id"
+    t.index ["category_id"], name: "index_brands_on_category_id"
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "path", null: false
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,10 +59,36 @@ ActiveRecord::Schema.define(version: 2019_08_23_122804) do
     t.index ["user_id"], name: "index_deliver_adresses_on_user_id"
   end
 
+  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image_url", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_item_images_on_item_id"
+    t.index ["user_id"], name: "index_item_images_on_user_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "text", null: false
+    t.integer "price", null: false
+    t.string "condition", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "fee_burden", null: false
+    t.integer "service", null: false
+    t.integer "area", null: false
+    t.integer "handling_time", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_shippings_on_item_id"
   end
 
   create_table "social_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,5 +122,11 @@ ActiveRecord::Schema.define(version: 2019_08_23_122804) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "brands", "brands"
+  add_foreign_key "brands", "categories"
   add_foreign_key "deliver_adresses", "users"
+  add_foreign_key "item_images", "items"
+  add_foreign_key "item_images", "users"
+  add_foreign_key "items", "users"
+  add_foreign_key "shippings", "items"
 end

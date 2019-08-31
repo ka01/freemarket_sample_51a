@@ -1,3 +1,5 @@
+= render 'layouts/header'
+
 .default-container
   %main.contents{role: "main"}
     %section.upper-content
@@ -144,4 +146,101 @@
         .view__all
           =link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/"
       = render 'layouts/footer'
+
+  %aside.banner
+    .banner__outer-frame
+      .banner__inner-frame
+        %h2.banner__inner-frame__title スマホでかんたんフリマアプリ
+        %p.banner__inner-frame__advertising 今すぐ無料ダウンロード！
+        .banner__icon
+          %figure.banner__icon__mercari
+            = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?863303983", width: "68"
+          %ul.banner__icon__menu
+            %li.banner__icon__menu.banner__icon__menu__AppStore-icon
+              =link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8" do
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?863303983", width: "133", height: "40"
+            %li.banner__icon__menu.banner__icon__menu__GooglePlay-icon
+              =link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?863303983", width: "133", height: "40"
+      %figure.banner__visual
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?863303983", class: 'banner__visual__image'
+
+  %footer.footer
+    %nav.footer__nav
+      .footer__cell
+        %h2.footer__cell__title メルカリについて
+        %ul
+          %li
+            =link_to "会社概要（運営会社)", "https://about.mercari.com/"
+          %li
+            =link_to "採用情報", "https://www.mercari.com/jp/jobs/"
+          %li
+            =link_to "プレスリリース","https://about.mercari.com/press/news/"
+          %li
+            =link_to "公式ブログ", "https://jp-news.mercari.com/"
+          %li
+            =link_to "メルカリロゴ利用ガイドライン", "https://www.mercari.com/jp/logo-guidelines/"
+          %li.footer__cell__social-link
+            =link_to "https://twitter.com/mercari_jp" do
+              = fa_icon "twitter", class: "fa-3x"
+          %li.footer__cell__social-link
+            =link_to "https://www.facebook.com/mercarijp" do
+              =fa_icon "facebook", class: "fa-2x"
+      .footer__cell
+        %h2.footer__cell__title ヘルプ＆ガイド
+        %ul
+          %li
+            =link_to "メルカリガイド", "https://www.mercari.com/jp/help_center/"
+          %li
+            =link_to "らくらくメルカリ便", "https://www.mercari.com/jp/rakuraku-mercari/"
+          %li
+            =link_to "ゆうゆうメルカリ便", "https://www.mercari.com/jp/yuyu-mercari/"
+          %li
+            =link_to "大型メルカリ便", "https://www.mercari.com/jp/rakuraku-ogata/"
+          %li
+            =link_to "車体取引ガイド", "https://www.mercari.com/jp/guide/car/"
+          %li
+            =link_to "メルカリあんしん・あんぜん宣言！", "https://www.mercari.com/jp/safe/description/"
+          %li
+            =link_to "偽ブランド品撲滅への取り組み", "https://www.mercari.com/jp/authenticity/"
+          %li
+            =link_to "メルカリボックス", "https://www.mercari.com/jp/box/"
+      .footer__cell.footer__cell__full-width
+        %h2.footer__cell__title プライバシーと利用規約
+        .footer__cell__outer-frame
+          .inner-footer__cell__left-box
+            %ul
+              %li
+                =link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/"
+              %li
+                =link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/"
+              %li
+                =link_to "あんしんスマホサポート制度に関する利用特約", "https://www.mercari.com/jp/tos_smartphone_support/"
+              %li
+                =link_to "コンプライアンスポリシー", "https://www.mercari.com/jp/compliance/"
+          .inner-footer-cell__right-box
+            %ul
+              %li
+                =link_to "個人データの安全管理に係る基本方針", "https://www.mercari.com/jp/data_security/"
+              %li
+                =link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
+              %li
+                =link_to "資金決済法に基づく表示", "https://www.mercari.com/jp/shikin_kessai/"
+              %li
+                =link_to "法令順守と犯罪抑止のために", "https://about.mercari.com/csr/safety/"
+      .footer__cell.footer-nav-lang
+        %h2.footer__cell__title 国
+        %ul
+          %li
+            =link_to "日本", "https://www.mercari.com/jp/", class: "active"
+          %li
+            =link_to "United States", "https://www.mercari.com/"
+    .footer__bottom
+      =link_to "https://www.mercari.com/jp/", class:"footer-logo" do
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?863303983", width: "124", height: "33", alt: "mercari"
+      %span.footer-copyright
+        %small © 2019 Mercari
+  =link_to new_item_path, class: "footer__sell-btn" do
+    .footer__sell-btn__title 出品
+    = fa_icon 'camera', class: "fa-3x"
 
