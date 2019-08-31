@@ -1,0 +1,35 @@
+.mypage-nav{
+  &__list li {
+    border-top: 1px solid #eee;
+  }
+  &__list-item {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    min-height: 48px;
+    padding: 16px;
+    background: #fff;
+    font-size: 14px;
+    color: #333;
+  }
+  &__list-item::after {// list-item(「マイページ」等の文字後ろ)へ矢印(::after)を作成
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all .2s;
+  }
+  &__list-item:hover::after {// ホバーしたら矢印(::after)動く
+    right: 9px;// デフォルト位置より4px分右に動く
+    border-color: black;// デフォルトの灰色から黒色へ変化させる
+  }
+  &__list-item:hover {//ホバーしたら背景色を変化させる
+    background: #f7f6fb;
+  }
+}

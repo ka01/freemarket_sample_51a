@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :items
   resources :signup do
     collection do
+      get 'reset'
       get 'step1' # 1ページ目 (メールアドレスで登録する、ファイスブックで登録する、グーグルで登録する。)
       get 'step2' # 会員情報登録画面
       get 'step3' # 電話番号の確認画面

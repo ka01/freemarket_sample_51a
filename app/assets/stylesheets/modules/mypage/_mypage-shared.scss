@@ -1,0 +1,45 @@
+.container {
+  width:100%;
+  margin-top:24px;
+}
+.mypage-nav{
+  width: 100%;
+  margin: 40px 0px 40px 0;
+
+}
+.my-content{
+  width: 100%;
+}
+
+
+.mypage-purchase-purchased{
+  background: #fff;
+  margin: 40px 0 0;
+}
+
+
+@media screen and (min-width:768px){
+  .container {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 24px auto 0;
+  }
+  .mypage-nav{
+    width: 700px;
+    margin: 40px 0px 40px 0;
+  }
+}
+@media screen and (min-width:1068px){
+  .container {
+    width: 1020px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 40px auto;
+  }
+  .mypage-nav{
+    width: 280px;
+    margin: 0 40px 40px 0;
+  }
+}

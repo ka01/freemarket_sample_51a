@@ -145,6 +145,7 @@
                     %span 14
         .view__all
           =link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/"
+      = render 'layouts/footer'
 
   %aside.banner
     .banner__outer-frame
@@ -242,3 +243,4 @@
   =link_to new_item_path, class: "footer__sell-btn" do
     .footer__sell-btn__title 出品
     = fa_icon 'camera', class: "fa-3x"
+
