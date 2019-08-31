@@ -49,7 +49,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'faker'
-   gem 'capybara', '>= 2.15'
+  gem 'capybara', '>= 2.15'
 end
 
 group :development do
@@ -91,3 +91,4 @@ gem 'pry-byebug'
 gem 'pry-doc'
 gem 'carrierwave'
 gem 'jquery-rails'
+gem 'mini_magick', '4.9.3'
