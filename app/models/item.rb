@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :shipping
   # has_many :reviews
   has_many :item_images, dependent: :destroy
+  accepts_nested_attributes_for :item_images
   # has_one :order
 
   enum condition: { 

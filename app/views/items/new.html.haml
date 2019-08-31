@@ -20,6 +20,8 @@
                     %input.sell-upload-drop-box__file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
                     %pre.sell-upload-drop-box__visible-pc ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
                     %i.sell-upload-drop-box__icon--.fas.fa-camera
+                    = form_with model: @item_image, locale: true, class: "image-form"
+                    = f.file_field :image_url, class: 'hidden'
               .sell-content
                 .sell-form-group
                   = f.label "商品名"

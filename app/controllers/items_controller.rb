@@ -4,13 +4,15 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.build_item_image
     @item.build_shipping
   end
 
   def create
     @item = Item.new(item_params)
-    # Item.create(item_params[:shipping_attributes])
     @item.build_shipping(item_params[:shipping_attributes])
+    # @item.build_item_images(item_params[:item_images_attributes])
+    @item.build_item_images(image_url)
     binding.pry
     if @item.save
       redirect_to action: :index
@@ -29,7 +31,9 @@ class ItemsController < ApplicationController
                             :fee_burden,
                             :service,
                             :area,
-                            :handling_time]
+                            :handling_time],
+      item_image_attributes: [:id,
+                              :image_url]
     ).merge(user_id: current_user.id)
   end
 end
