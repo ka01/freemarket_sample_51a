@@ -5,4 +5,5 @@
         .category-title
           = fa_icon 'list', class: 'icon-list'
           %span カテゴリーから探す
-    = render 'layouts/multinav/category-1'
+    %ul.category-1
+      = render partial:'layouts/multinav/category-1', collection: categories, as:'category'
