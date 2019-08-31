@@ -170,16 +170,18 @@ nav ol, nav ul {
 }
 
 
-.active{
+.hover-category-title{
   display: block;
 }
-.active2{
+.hover-category-1{
+  display: block;
+}
+.hover-category-2{
   display: block;
 }
 
 
-
-.pc-header__nav-root :hover{
+.category-title :hover{
     color:blue;
 }
 
@@ -189,6 +191,7 @@ nav ol, nav ul {
   background-color:white;
   width:auto;
   position: absolute;
+  box-shadow: 0 0 1px gray;
   &__item{
     width:180px;
     &:hover{
@@ -215,13 +218,50 @@ nav ol, nav ul {
   left:180px;
   bottom:0;
   background-color: #fff;
-  .__item{
-    width:279px;
-    height: 70px;
-    line-height: 70px;
+  box-shadow: 0 0 1px gray;
+  &__item{
+    width:240px;
     &:hover{
-      background-color: red;
+      background-color:#f5f5f5;
     }
+  }
+  &__text{
+    height: 35px;
+    line-height: 35px;
+    margin-left: 8px;
+    font-size: 14px;
+    color:black;
+    &:hover{
+      color:black;
 
+    }
+  }
+}
+
+.category-3{
+  display: none;
+  width: auto;
+  position: absolute;
+  top:0;
+  left:180px;
+  bottom:0;
+  background-color: #fff;
+  box-shadow: 0 0 1px gray;
+  &__item{
+    width:240px;
+    &:hover{
+      background-color:#f5f5f5;
+    }
+  }
+  &__text{
+    height: 35px;
+    line-height: 35px;
+    margin-left: 8px;
+    font-size: 14px;
+    color:black;
+    &:hover{
+      color:black;
+
+    }
   }
 }

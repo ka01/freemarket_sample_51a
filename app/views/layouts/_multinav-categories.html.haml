@@ -1,7 +1,8 @@
-%ul.pc-header__nav-root
+%ul
   .nav-category
-    .pc-header__nav-root
-      =link_to '#' do
-        = fa_icon 'list', class: 'icon-list'
-        %span カテゴリーから探す
+    .category-title
+      =link_to '#'  do
+        .category-title
+          = fa_icon 'list', class: 'icon-list'
+          %span カテゴリーから探す
     = render 'layouts/multinav/category-1'
