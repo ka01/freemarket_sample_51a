@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :item_images
   # has_one :order
 
-  enum condition: { 
+  enum condition: {
     brandnew: 0,
     mint: 1,
     verygood: 2,
@@ -20,7 +20,7 @@ class Item < ApplicationRecord
     poor: 4,
     damege: 5
   }
-  
+
   with_options presence: true do
     validates :name
     validates :text
