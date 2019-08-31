@@ -124,27 +124,23 @@
 .select-wrap {
   display: inline-block;
   position: relative;
+  &__icon.fas.fa-chevron-down {
+    position: absolute;
+    right: 10px;
+    top: 60%;
+    z-index: 2;
+    color: #888;
+    font-size: 8px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    font-size: 18px;
+  }
 }
-// プルダウンの矢印を消すcss
-// input[name="mypage-tab__item1"]
-select[name="day"], [name="month"], [name="year"]{
+.select-default-birth {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  }
-select::-ms-expand{
-  display: none;
-  }
-// ToDo 矢印のアイコンをfontawsomeで表示
-.fa-angle-down {
-  right: 12px;
-  position: absolute;
-  top: 50%;
-  z-index: 2;
-  color: #888;
-  font-size: 8px;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
+  width: 60px;
 }
 .new-member-registration-info {
   font-size: 14px;
@@ -174,4 +170,3 @@ select::-ms-expand{
   text-decoration:underline;
   }
 }
-
