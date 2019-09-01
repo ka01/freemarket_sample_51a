@@ -1,0 +1,13 @@
+%section.items__box
+  = link_to  item_path(item), method: :get do
+    %figure.items__box__photo
+      = image_tag item.item_images.first.image_url.url
+    .items__box__body
+      %h3.items__box__name
+        = item.name
+      .items__box__num
+        .items__box__price
+          ¥#{item.price}
+        .items__box__icon
+          = fa_icon 'heart', class: "icon-like-border"
+          %span 14

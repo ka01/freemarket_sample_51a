@@ -1,4 +1,5 @@
 class MypageController < ApplicationController
+  before_action :authenticate_user!
   def index
   end
 
@@ -24,6 +25,10 @@ class MypageController < ApplicationController
   end
 
   def identification
+  end
+
+  def user_params
+    params.require(:user).permit(:nickname)
   end
 
 end

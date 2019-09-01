@@ -36,113 +36,18 @@
       %h2.pickup__container__title ピックアップカテゴリー
       %section.items
         %h3.items__heading
-          = link_to "/jp/category/1/" do
+          = link_to "#" do
             レディース 新着アイテム
         .items__boxs
-          %section.items__box
-            = link_to "https://item.mercari.com/jp/m74747117568/" do
-              %figure.items__box__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
-              .items__box__body
-                %h3.items__box__name
-                  新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L
-                .items__box__num
-                  .items__box__price ¥ 1,100
-                  .items__box__icon
-                    = fa_icon 'heart', class: "icon-like-border"
-                    %span 14
-          %section.items__box
-            = link_to "https://item.mercari.com/jp/m74747117568/" do
-              %figure.items__box__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
-              .items__box__body
-                %h3.items__box__name
-                  新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L
-                .items__box__num
-                  .items__box__price ¥ 1,100
-                  .items__box__icon
-                    = fa_icon 'heart', class: "icon-like-border"
-                    %span 14
-          %section.items__box
-            = link_to "https://item.mercari.com/jp/m74747117568/" do
-              %figure.items__box__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
-              .items__box__body
-                %h3.items__box__name
-                  新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L
-                .items__box__num
-                  .items__box__price ¥ 1,100
-                  .items__box__icon
-                    = fa_icon 'heart', class: "icon-like-border"
-                    %span 14
-          %section.items__box
-            = link_to "https://item.mercari.com/jp/m74747117568/" do
-              %figure.items__box__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
-              .items__box__body
-                %h3.items__box__name
-                  新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L
-                .items__box__num
-                  .items__box__price ¥ 1,200
-                  .items__box__icon
-                    = fa_icon 'heart', class: "icon-like-border"
-                    %span 14
+          = render partial: 'items/partial/item_box', collection: @items, as:'item'
         .view__all
           =link_to "すべての商品を見る","https://www.mercari.com/jp/category/1/"
-
       %section.items
         %h3.items__heading
           =link_to "/jp/category/1/" do
-            レディース 新着アイテム
+            メンズ 新着アイテム
         .items__boxs
-          %section.items__box
-            =link_to "https://item.mercari.com/jp/m74747117568/" do
-              %figure.items__box__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
-              .items__box__body
-                %h3.items__box__name
-                  新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L
-                .items__box__num
-                  .items__box__price ¥ 1,100
-                  .items__box__icon
-                    = fa_icon 'heart', class: "icon-like-border"
-                    %span 14
-          %section.items__box
-            =link_to "https://item.mercari.com/jp/m74747117568/" do
-              %figure.items__box__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
-              .items__box__body
-                %h3.items__box__name
-                  新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L
-                .items__box__num
-                  .items__box__price ¥ 1,100
-                  .items__box__icon
-                    = fa_icon 'heart', class: "icon-like-border"
-                    %span 14
-          %section.items__box
-            =link_to  "https://item.mercari.com/jp/m74747117568/" do
-              %figure.items__box__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
-              .items__box__body
-                %h3.items__box__name
-                  新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L
-                .items__box__num
-                  .items__box__price ¥ 1,100
-                  .items__box__icon
-                    = fa_icon 'heart', class: "icon-like-border"
-                    %span 14
-          %section.items__box
-            =link_to "https://item.mercari.com/jp/m74747117568/" do
-              %figure.items__box__photo
-                = image_tag "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614", class: " is-higher-height lazyloaded", alt: "新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L", width: "213", height: "251.13", data: {src: "https://static.mercdn.net/thumb/photos/m74747117568_1.jpg?1562932614"}
-              .items__box__body
-                %h3.items__box__name
-                  新品❇︎コムサイズム❇︎半袖T❇︎フロントタック❇︎L
-                .items__box__num
-                  .items__box__price ¥ 1,100
-                  .items__box__icon
-                    = fa_icon 'heart', class: "icon-like-border"
-                    %span 14
+          = render partial: 'items/partial/item_box', collection: @items, as:'item'
         .view__all
           =link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/"
       = render 'layouts/footer'
@@ -243,4 +148,3 @@
   =link_to new_item_path, class: "footer__sell-btn" do
     .footer__sell-btn__title 出品
     = fa_icon 'camera', class: "fa-3x"
-
