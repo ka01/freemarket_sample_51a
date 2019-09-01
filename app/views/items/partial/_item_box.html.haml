@@ -1,5 +1,5 @@
 %section.items__box
-  = link_to "/items/#{item.id}" , method: :get do
+  = link_to  item_path(item), method: :get do
     %figure.items__box__photo
       = image_tag item.item_images.first.image_url.url
     .items__box__body
