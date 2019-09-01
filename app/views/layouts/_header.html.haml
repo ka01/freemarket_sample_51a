@@ -12,13 +12,11 @@
         %ul.pc-header__nav-box__left__menu
           %li.pc-header__nav-box__left__menu__list
             %h2.pc-header__nav-box__left__menu__list__search
-              =link_to "https://www.mercari.com/jp/category/", class: "pc-header__nav-root.list-parent" do
-                = fa_icon 'list', class: 'icon-list'
-                %spanカテゴリーから探す
+              = render 'layouts/multinav-categories'
             %ul.pc-header__nav-box__left__menu{ data: {mega: "1"}, style: "width: auto;"}
           %li.pc-header__nav-box__left__menu__list.pc-header__nav-box__left__menu__list--second
             %h2.pc-header__nav-box__left__menu__list__search
-              =link_to "https://www.mercari.com/jp/brand/", class: "pc-header__nav-root.list-parent" do
+              =link_to "/", class: "pc-header__nav-root.list-parent" do
                 = fa_icon 'tag', class: 'icon-tag'
                 %spanブランドから探す
       .pc-header__nav-box__right
