@@ -1,4 +1,3 @@
-
 .hover-category-title{
   display: block;
 }
@@ -8,13 +7,9 @@
 .hover-category-2{
   display: block;
 }
-
-
 .category-title :hover{
     color:blue;
 }
-
-
 .category-1{
   display: none;
   background-color:white;
@@ -38,7 +33,6 @@
     }
   }
 }
-
 .category-2{
   display: none;
   width: auto;
@@ -62,11 +56,9 @@
     color:black;
     &:hover{
       color:black;
-
     }
   }
 }
-
 .category-3{
   display: none;
   width: auto;
