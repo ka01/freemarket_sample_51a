@@ -1,5 +1,7 @@
 class MypageController < ApplicationController
+  before_action :authenticate_user!
   def index
+    @user
   end
 
   def profile

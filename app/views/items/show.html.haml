@@ -1,5 +1,7 @@
+= render 'layouts/header'
 .item-box-container.l-single-container
-  %h1.item-name ショルダーバック なこびす
+  %h1.item-name
+    =@item.name
   .item-main-content.clearfix
     .item-photo
       .owl-carousel.owl-loaded.owl-drag
@@ -7,28 +9,14 @@
           .owl-stage
             .owl-item.active{style: "width: 300px;"}
               .owl-item-inner
-                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m32062559021_1.jpg?1566990900", alt: "ショルダーバッグ", class: "owl-lazy", style: "opacity: 1;", data: {src: "https://static.mercdn.net/item/detail/orig/photos/m32062559021_1.jpg?1566990900"}
-            .owl-item-java{style: "width: 300px;"}
-              .owl-item-inner
-                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m32062559021_2.jpg?1566990900", alt: "ショルダーバッグ", class: "owl-lazy", style: "opacity: 1;", data: {src: "https://static.mercdn.net/item/detail/orig/photos/m32062559021_2.jpg?1566990900"}
-        .owl-nav.disabled
-          .owl-prev
-          .owl-next
-        .owl-dots
-          .owl-dot.active
-            %span
-            .owl-dot-inner
-              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m32062559021_1.jpg?1566990900"
-          .owl-dot
-            %span
-            .owl-dot-inner
-              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m32062559021_2.jpg?1566990900"
+                = image_tag @item.item_images.first.image_url.url
     %table.item-detail-table
       %tbody
         %tr
           %th 出品者
           %td
-            = link_to 'なこびす', "#"
+            = link_to '/' do
+              =@item.user.nickname
             .div
               .item-user-ratings
                 %i.fa.fa-smile
@@ -43,42 +31,48 @@
           %th カテゴリー
           %td
             = link_to "#" do
-              .div レディース
+              .div (仮)レディース
             = link_to "#" do
               .item-detail-table-sub-category
                 %i.fa.fa-angle-right
-                バッグ
+                (仮)バッグ
             = link_to "#" do
               .item-detail-table-sub-sub-category
                 %i.fa.fa-angle-right
-                ショルダーバッグ
+                (仮)ショルダーバッグ
         %tr
           %th ブランド
           %td
             = link_to "#" do
-              フォーエバートゥエンティーワン
+              (仮)フォーエバートゥエンティーワン
         %tr
           %th  商品の状態
-          %td 目立った傷や汚れ無し
+          %td
+            =@item.condition
         %tr
           %th  配送料の負担
-          %td 送料込み（出品者負担）
+          %td
+            =@item.shipping.fee_burden
         %tr
           %th 配送の方法
           %td 未定
         %tr
           %th 配送元地域
-          %td 未定
+          %td
+            =@item.shipping.area
         %tr
           %th 発送日の目安
-          %td 2~3日で発送
+          %td
+            =@item.shipping.handling_time
   .item-price-box.text-center
-    %span.item-price.bold ¥1,200
+    %span.item-price.bold
+      =@item.price
     %span.item-tax （税込）
-    %span.item-shipping-fee 送料込み
-  = link_to "購入画面に進む", "https://www.mercari.com/jp/transaction/buy/m32062559021/?_s=U2FsdGVkX1_BGYD_5_kfaamibA29iBGTJ7hp6RFf-LXwCDYFkrasMLfvBDSISPVPoQB00rbfDhYCmkYfoV3fwMvnzMRhjLxF2aOdri_9jdEYXGIxVaZxUppraWh6kejA", class: "item-buy-btn"
+    %span.item-shipping-fee (仮)送料込み
+  = link_to "購入画面に進む", "#", class: "item-buy-btn"
   .item-description.f14
-    %p.item-description-inner forever21で購入しました!
+    %p.item-description-inner
+      =@item.text
   .item-button-container.clearfix
     .item-button-left
       = button_tag "", type: "button", name: "like", data: {toggle: "like"}, data: {id: "m32062559021"}, data: {ga: "element"}, data: {'ga-category': "LIKE"}, class: "item-button item-button-like is-liked" do
