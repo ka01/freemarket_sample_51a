@@ -5,6 +5,7 @@ class MypageController < ApplicationController
   end
 
   def profile
+    @user=User.find(current_user.id)
   end
 
   def notification
@@ -26,6 +27,10 @@ class MypageController < ApplicationController
   end
 
   def identification
+  end
+
+  def user_params
+    params.require(:user).permit(:nickname)
   end
 
 end

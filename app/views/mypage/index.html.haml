@@ -7,7 +7,8 @@
       = link_to  "https://www.mercari.com/jp/u/952910795/" do
         .mypage-user__img
           =image_tag "http://placehold.jp/cc9999/993333/60x60.png"
-        %h2.mypage-user__name AYA☆セールしてない
+        %h2.mypage-user__name
+          =@user.nickname
         .mypage-user__number
           .mypage-user__number--title
             評価
