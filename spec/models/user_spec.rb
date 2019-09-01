@@ -89,9 +89,9 @@ describe User do
     # 登録不可能(一意性)
     it "is invalid with a duplicate email address" do
       user = create(:user)
-      another_user = build(:user, email: user.email)
-      another_user.valid?
-      expect(another_user.errors[:email]).to include("はすでに存在します")
+      user2 = build(:user, email: user.email)
+      user2.valid?
+      expect(user2.errors[:email]).to include("はすでに存在します")
     end
 
     # 登録不可能（フォーマットエラー：email、@なし）
