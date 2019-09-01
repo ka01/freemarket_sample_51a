@@ -6,4 +6,34 @@
           = fa_icon 'list', class: 'icon-list'
           %span カテゴリーから探す
     %ul.category-1
-      = render partial:'layouts/multinav/category-1', collection: categories, as:'category'
+      %li.category-1__item
+        =link_to '/'  do
+          .category-1__text 1
+        %ul.category-2
+          %li.category-2__item
+            =link_to '/'  do
+              .category-2__text 1-1
+            %ul.category-3
+              %li.category-3__item
+                =link_to '/'  do
+                  .category-3__text 1-1-1
+          %li.category-2__item
+            =link_to '/'  do
+              .category-2__text 1-2
+            %ul.category-3
+              %li.category-3__item
+                =link_to '/'  do
+                  .category-3__text 1-2-1
+              %li.category-3__item
+                =link_to '/' do
+                  .category-3__text 1-2-2
+      %li.category-1__item
+        =link_to '/' do
+          .category-1__text 2
+        %ul.category-2
+          %li.category-2__item
+            =link_to '/'  do
+              .category-2__text 2-1
+      %li.category-1__item
+        =link_to '/' do
+          .category-1__text 3
