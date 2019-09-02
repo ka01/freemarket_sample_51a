@@ -10,7 +10,11 @@ require "csv"
 
 CSV.foreach('db/category.csv', headers: true) do |row|
   Category.create(
-    path: row[0],
-    name: row[1]
+    name: row[1],
+    path: row[2]
   )
 end
+
+# row[]の数字はcsvファイルの行を指定している
+# どの行をどこのカラム名に入れたらいいのか、を上で書いている
+# ここでrow[0]を指定するとcsvで言うところのidの行を入れてしまうことになる
