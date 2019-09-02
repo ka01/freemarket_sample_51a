@@ -276,9 +276,9 @@
 }
 
 .item-detail-message {
-  width: 700px;
+  // width: 700px;
     // 上は幅広画面用のscss
-    // width: 100vw;
+  width: 100%;
   margin: 8px auto;
 }
 
@@ -361,7 +361,8 @@
 // }
 
 .nav-item-link-prev-next li {
-  width: 45%
+  width: 45%;
+  word-wrap: break-word;
 }
 
 .nav-item-link-prev-next li:first-child {
@@ -437,6 +438,7 @@
   color: #fff;
   background: #385185;
   font-size: 18px;
+  position: static;
 }
 
 .fa-twitter-square {
@@ -470,6 +472,18 @@
 
   .item-btn-float-area {
     display: none;
+  }
+
+  .item-detail-message {
+    width: 700px;
+  }
+
+  .nav-item-link-prev-next.clearfix {
+    width: 700px;
+  }
+
+  .freemarket_sample_51a {
+    width: 700px;
   }
 }
 
@@ -539,6 +553,7 @@
   }
   .item-button-left {
     float: none;
+    width: 100vw;
   }
 
   .item-button-right {
@@ -549,6 +564,17 @@
     margin-top: 0;
   }
 
+  .nav-item-link-prev-next li:first-child {
+    margin-right: 60px;
+    margin-left: 0px;
+  }
+
+//   .fa.fa-angle-right {
+//     font-size: 25px;
+//     position: absolute;
+//     bottom: 0px;
+//     right: -13px;
+// }
   .visible-sp {
     width: 649px;
   }
@@ -558,7 +584,8 @@
     bottom: 0;
     left: 0;
     padding: 6px 16px;
-    width: 100%;
+    // width: 100%;
+    width: 100vw;
     background-color: #fff;
     z-index: 3;
     -webkit-box-shadow: 0 -1px 3px 0 rgba(0,0,0,0.16);
@@ -578,4 +605,12 @@
     transition: all ease-out .3s;
     // width: 100vw;
   }
+}
+@media screen and (max-width: 581px) {
+  .fa.fa-angle-right {
+    font-size: 25px;
+    position: absolute;
+    bottom: 10px;
+    right: -13px;
+}
 }
