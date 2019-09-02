@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require "csv"
+
+CSV.foreach('db/category.csv', headers: true) do |row|
+  Category.create(
+    path: row[0],
+    name: row[1]
+  )
+end
