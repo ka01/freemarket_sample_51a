@@ -16,7 +16,8 @@
 |email|string|null: false, unique: true|
 |status|integer|null: false|
 |deleted_at|datetime|null :false|
-### Association
+
+Association
 
 - has_many :items
 - has_many :likes dependent: :destroy
@@ -41,12 +42,12 @@
 | provider | string     | null :false           |
 |          |            |                       |
 
-### Association
+Association
 
 - belongs_to :user
 
-
 ## deliver_addressesテーブル
+
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, FK: true|
@@ -61,7 +62,7 @@
 |adress2|string|
 |telephone|string|unique: true|
 
-### Association
+Association
 
 - belongs_to :user
 
