@@ -2,20 +2,20 @@
 
 ## usersテーブル
 
-|Column|Type|Options|
-|------|----|-------|
-|nickname|string|null: false|
-|family_name|string|null: false|
-|first_name|string|null: false|
-|family_name_kana|string|null: false|
-|first_name_kana|string|null: false|
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
-|password|string|null: false|
-|email|string|null: false, unique: true|
-|status|integer|null: false|
-|deleted_at|datetime|null :false|
+| Column           | Type     | Options                   |
+| ---------------- | -------- | ------------------------- |
+| nickname         | string   | null: false               |
+| family_name      | string   | null: false               |
+| first_name       | string   | null: false               |
+| family_name_kana | string   | null: false               |
+| first_name_kana  | string   | null: false               |
+| birth_year       | integer  | null: false               |
+| birth_month      | integer  | null: false               |
+| birth_day        | integer  | null: false               |
+| password         | string   | null: false               |
+| email            | string   | null: false, unique: true |
+| status           | integer  | null: false               |
+| deleted_at       | datetime | null :false               |
 
 Association
 
@@ -48,19 +48,19 @@ Association
 
 ## deliver_addressesテーブル
 
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, FK: true|
-|family_name|string|null: false|
-|first_name|string|null: false|
-|family_name_kana|string|null: false|
-|first_name_kana|string|null: false|
-|zip_code|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|adress1|string|null: false|
-|adress2|string|
-|telephone|string|unique: true|
+| Column           | Type       | Options               |
+| ---------------- | ---------- | --------------------- |
+| user_id          | references | null: false, FK: true |
+| family_name      | string     | null: false           |
+| first_name       | string     | null: false           |
+| family_name_kana | string     | null: false           |
+| first_name_kana  | string     | null: false           |
+| zip_code         | string     | null: false           |
+| prefecture       | string     | null: false           |
+| city             | string     | null: false           |
+| adress1          | string     | null: false           |
+| adress2          | string     |                       |
+| telephone        | string     | unique: true          |
 
 Association
 
