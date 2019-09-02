@@ -6,11 +6,11 @@
     .profile
       .profile__head プロフィール
       .profile__form
-        = form_with url:mypage_index_path ,locale: true do |f|
+        = form_with model: @user, url:profile_update_mypage_index_path, method: :patch ,locale: true do |f|
           .profile__icon
             .profile__img
               = image_tag "http://placehold.jp/cc9999/993333/60x60.png"
-            = f.text_field :nickname, class:'profile__nickname', value: "#{@user.nickname}",placeholder:"例)AYA☆セール中"
+            = f.text_field :nickname, class:'profile__nickname', value: current_user.nickname,placeholder:"例)AYA☆セール中"
           .profile__content
             -# = f.text_area :introduction, class:'profile__introduction',placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
             = f.submit '変更する',class:'profile__btn'

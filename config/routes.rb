@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get "purchase"
       get "purchased"
       get "profile"
+      patch "profile_update"
       get "logout"
       get "card"
       get "identification"

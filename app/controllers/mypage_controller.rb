@@ -4,6 +4,17 @@ class MypageController < ApplicationController
   end
 
   def profile
+    @user=current_user
+  end
+
+  def profile_update
+    @user=current_user
+    binding.pry
+    if @user.update(profile_params)
+      redirect_to root_path
+    else
+      render :profile
+    end
   end
 
   def notification
@@ -27,7 +38,7 @@ class MypageController < ApplicationController
   def identification
   end
 
-  def user_params
+  def profile_params
     params.require(:user).permit(:nickname)
   end
 
