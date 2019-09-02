@@ -9,9 +9,10 @@ class MypageController < ApplicationController
 
   def profile_update
     @user=current_user
-    binding.pry
     if @user.update(profile_params)
-      redirect_to root_path
+      flash[:notice] = 'プロフィールを更新しました'
+      redirect_to profile_mypage_index_path
+
     else
       render :profile
     end
@@ -38,8 +39,10 @@ class MypageController < ApplicationController
   def identification
   end
 
+  private
+
   def profile_params
-    params.require(:user).permit(:nickname)
+    params.require(:user).permit(:nickname,:introduction)
   end
 
 end
