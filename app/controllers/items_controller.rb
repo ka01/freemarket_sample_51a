@@ -1,11 +1,10 @@
 class ItemsController < ApplicationController
-  
+  before_action :set_item, only: [:show, :purchase, :pay]
   def index
     @items = Item.order('id DESC').limit(4)
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
 
@@ -23,11 +22,9 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @item = Item.find(params[:id])
   end
 
   def pay
-    @item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
     amount: @item.price,
@@ -41,6 +38,9 @@ class ItemsController < ApplicationController
   end
 
   private
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(
