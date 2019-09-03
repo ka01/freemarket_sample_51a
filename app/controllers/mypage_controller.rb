@@ -12,7 +12,6 @@ class MypageController < ApplicationController
     if @user.update(profile_params)
       flash[:notice] = 'プロフィールを更新しました'
       redirect_to profile_mypage_index_path
-
     else
       render :profile
     end
