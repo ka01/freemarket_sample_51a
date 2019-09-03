@@ -67,11 +67,12 @@
   .details-item__price-box.text-center
     %span.details-item-price.bold
       ¥#{@item.price}
-    %span.details-item-tax （税込）
-    %span.details-item-shipping-fee (仮)送料込み
-  = link_to "購入画面に進む", "#", class: "item-buy-btn"
-  .details-item__description.f14
-    %p.details-item__description__inner
+    %span.item-tax （税込）
+    %span.item-shipping-fee (仮)送料込み
+    = form_tag(action: :pay, method: :post) do
+      %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_0aec1705941f705de4711050"}
+  .item-description.f14
+    %p.item-description-inner
       =@item.text
   .details-item-button__container.clearfix
     .details-item-button__left
