@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  
   def index
     @items = Item.order('id DESC').limit(4)
   end
@@ -24,6 +25,17 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to action: :index
     end
+  end
+
+  def pay
+    @item = Item.find(params[:id])
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @item.price,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+    redirect_to action: :index
   end
 
   private
