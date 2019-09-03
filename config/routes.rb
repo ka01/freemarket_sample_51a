@@ -26,8 +26,11 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  resources :items
+  resources :items do
+    collection do
+      post 'pay/:id' => 'items#pay', as: 'pay'
+    end
+  end
   resources :signup do
     collection do
       get 'reset'
