@@ -4,6 +4,17 @@ class MypageController < ApplicationController
   end
 
   def profile
+    @user=current_user
+  end
+
+  def profile_update
+    @user=current_user
+    if @user.update(profile_params)
+      flash[:notice] = 'プロフィールを更新しました'
+      redirect_to profile_mypage_index_path
+    else
+      render :profile
+    end
   end
 
   def notification
@@ -27,8 +38,10 @@ class MypageController < ApplicationController
   def identification
   end
 
-  def user_params
-    params.require(:user).permit(:nickname)
+  private
+
+  def profile_params
+    params.require(:user).permit(:nickname,:introduction)
   end
 
 end

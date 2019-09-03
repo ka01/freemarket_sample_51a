@@ -17,11 +17,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # @item.build_shipping(item_params[:shipping_attributes])
-    # # @item.build_item_images(item_params[:item_images_attributes])
-    # @item.item_images.build(item_params[:item_image_attributes])
-    # binding.pry
-
     if @item.save
       redirect_to action: :index
     end
@@ -46,6 +41,7 @@ class ItemsController < ApplicationController
       :text,
       :price,
       :condition,
+      :category_id,
       shipping_attributes: [:id,
                             :fee_burden,
                             :service,

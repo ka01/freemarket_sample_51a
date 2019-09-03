@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'profile/edit'
   devise_for :users,  controllers: {
     registrations: 'users/registrations' ,
     omniauth_callbacks: 'users/omniauth_callbacks'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
       get "purchase"
       get "purchased"
       get "profile"
+      patch "profile_update"
       get "logout"
       get "card"
       get "identification"

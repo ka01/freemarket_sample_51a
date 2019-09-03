@@ -1,16 +1,16 @@
 = render 'layouts/header'
-.item-box-container.l-single-container
-  %h1.item-name
+.details-item-box__container
+  %h1.details-item-name
     =@item.name
-  .item-main-content.clearfix
-    .item-photo
-      .owl-carousel.owl-loaded.owl-drag
+  .details-item__main-content.clearfix
+    .details-item-photo
+      .owl-carousel
         .owl-stage-outer
           .owl-stage
             .owl-item.active{style: "width: 300px;"}
               .owl-item-inner
                 = image_tag @item.item_images.first.image_url.url
-    %table.item-detail-table
+    %table.details-item__table
       %tbody
         %tr
           %th 出品者
@@ -33,12 +33,12 @@
             = link_to "#" do
               .div (仮)レディース
             = link_to "#" do
-              .item-detail-table-sub-category
-                %i.fa.fa-angle-right
+              .details-item__table__sub-category1
+                %i.fa.fa-chevron-right
                 (仮)バッグ
             = link_to "#" do
-              .item-detail-table-sub-sub-category
-                %i.fa.fa-angle-right
+              .details-item__table__sub-category2
+                %i.fa.fa-chevron-right
                 (仮)ショルダーバッグ
         %tr
           %th ブランド
@@ -64,8 +64,8 @@
           %th 発送日の目安
           %td
             =@item.shipping.handling_time
-  .item-price-box.text-center
-    %span.item-price.bold
+  .details-item__price-box.text-center
+    %span.details-item-price.bold
       ¥#{@item.price}
     %span.item-tax （税込）
     %span.item-shipping-fee (仮)送料込み
@@ -74,8 +74,8 @@
   .item-description.f14
     %p.item-description-inner
       =@item.text
-  .item-button-container.clearfix
-    .item-button-left
+  .details-item-button__container.clearfix
+    .details-item-button__left
       = button_tag "", type: "button", name: "like", data: {toggle: "like"}, data: {id: "m32062559021"}, data: {ga: "element"}, data: {'ga-category': "LIKE"}, class: "item-button item-button-like is-liked" do
         %i.fa.fa-heart
         %span いいね！
@@ -86,46 +86,45 @@
         %input{ type: "hidden"}
         %input{ type: "hidden"}
         %input{ type: "hidden"}
-    .item-button-right
+    .details-item-button__right
       = link_to "https://www.mercari.com/jp/safe/description/", target: "_blank" do
         %i.fa.fa-lock
         %span あんしん・あんぜんへの取り組み
-.item-detail-message
-  .message-container
-    .message-content
-      %form.message-form{action: "https://www.mercari.com/jp/comment/add/", method: "POST"}
+.details-item__message
+  .details-item__message__container
+    .details-item__message__content
+      %form.details-item__message__content__form{action: "https://www.mercari.com/jp/comment/add/", method: "POST"}
         %input{ type: "hidden"}
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         %input{ type: "hidden"}
         %input{ type: "hidden"}
         %textarea{ type: "text", name: "body", class: "textarea-default"}
         = button_tag "コメントする", type: "submit",  class: "message-submit btn-default btn-gray"
-%ul.nav-item-link-prev-next.clearfix
-  %li.nav-item-link-prev
+%ul.details-item__link.clearfix
+  %li.details-item__link__prev
     =link_to "#" do
       %i.fa.fa-angle-left
       ウォール KM2 SPEED ペット用バリカン
-  %li.nav-item-link-next
+  %li.details-item__link__next
     = link_to "#"  do
       プティマイン トップス 90 記名あり
       %i.fa.fa-angle-right
-.item-social-media-box
+.details-item__social-media__boxs
   .text-center
-  %ul.social-media-box
+  %ul.details-item__social-media__box
     %li
       = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm32062559021%2F", target: "_blank", class: "share-btn", data: {'window-name': "facebook_window"} do
         %i.fa.fa-facebook-square
     %li
       = link_to "http://twitter.com/share?count=horizontal&original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm32062559021%2F&text=%E3%82%B7%E3%83%A7%E3%83%AB%E3%83%80%E3%83%BC%E3%83%90%E3%83%83%E3%82%B0%20%28%C2%A51%2C200%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm32062559021%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89", target:"_blank", class: "share-btn", data: { 'window-name': "twitter_window" } do
         %i.fa.fa-twitter-square
-    %li.social-hidden-item
+    %li.details-item__social-hidden
       = link_to "http://line.me/R/msg/text/?ショルダーバッグ%20%7C%20%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%E3%82%B9%E3%83%9E%E3%83%9B%E3%81%A7%E3%81%8B%E3%82%93%E3%81%9F%E3%82%93%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%0D%0Ahttps://item.mercari.com/jp/m32062559021/", target: "_blank" do
         %i.fab.fa-line
     %li
       = link_to href="http://line.me/R/msg/text/?ショルダーバッグ%20%7C%20%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%E3%82%B9%E3%83%9E%E3%83%9B%E3%81%A7%E3%81%8B%E3%82%93%E3%81%9F%E3%82%93%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%0D%0Ahttps://item.mercari.com/jp/m32062559021/", target: "_blank" do
         %i.fa.fa-pinterest-square
-.items-in-user-profile
 .visible-sp
-  .item-btn-float-area
+  .details-item__float-btn
     = link_to "購入画面に進む", "https://www.mercari.com/jp/transaction/buy/m32062559021/?_s=U2FsdGVkX1_BGYD_5_kfaamibA29iBGTJ7hp6RFf-LXwCDYFkrasMLfvBDSISPVPoQB00rbfDhYCmkYfoV3fwMvnzMRhjLxF2aOdri_9jdEYXGIxVaZxUppraWh6kejA", class: "item-buy-btn "
-  -# = render 'layouts/footer'
+= render 'layouts/footer'
