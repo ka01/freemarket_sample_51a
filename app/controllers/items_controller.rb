@@ -22,6 +22,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def purchase
+    @item = Item.find(params[:id])
+  end
+
   def pay
     @item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
@@ -30,7 +34,10 @@ class ItemsController < ApplicationController
     card: params['payjp-token'],
     currency: 'jpy'
     )
-    redirect_to action: :index
+    redirect_to action: :done
+  end
+
+  def done
   end
 
   private
