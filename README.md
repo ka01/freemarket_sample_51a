@@ -66,20 +66,6 @@ Association
 
 - belongs_to :user
 
-***
-
-## user_detailテーブル
-
-| Column       | Type       | Options               |
-| ------------ | ---------- | --------------------- |
-| user_id      | references | null: false, FK: true |
-| nickname     | string     | null: false           |
-| introduction | text       |                       |
-|              |            |                       |
-
-Association
-
-- belongs_to :user
 
 ***
 
@@ -304,4 +290,4 @@ Association
 
 ## ER図
 
-[![ER図](https://imgur.com/a/O1PBNDZ)
+[Imgur](https://imgur.com/bIaAf9t)
