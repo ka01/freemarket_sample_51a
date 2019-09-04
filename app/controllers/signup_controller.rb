@@ -30,7 +30,12 @@ class SignupController < ApplicationController
   end
 
   def step6
-    sign_in User.find(session[:id]) unless user_signed_in?
+  # sign_in User.find(session[:id]) unless user_signed_in?
+    if session[:id]
+
+    else
+      redirect_to root_path
+    end
   end
 
   def step7
