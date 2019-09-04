@@ -63,7 +63,6 @@
                       .sell-form-group__select-wrap
                         %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
                         = s.select :service, Shipping.services.keys.map { |k| [I18n.t("enums.shipping.service.#{k}"), k]}, {prompt: "---"}, class: "sell-form-group__select-wrap--default"
-                        = s.select :service, Shipping.services_i18n.invert.keys.to_a, {prompt: "---"}, class: "sell-form-group__select-wrap--default"
                     .sell-form-group
                       = s.label "発送元の地域"
                       %span.sell-form-group__require 必須
@@ -76,7 +75,6 @@
                       .sell-form-group__select-wrap
                         %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
                         = s.select :handling_time, Shipping.handling_times.keys.map { |k| [I18n.t("enums.shipping.handling_time.#{k}"), k]}, {prompt: "---"}, class: "sell-form-group__select-wrap--default"
-                        = s.select :handling_time, Shipping.handling_times_i18n.invert.keys.to_a, {prompt: "---"}, class: "sell-form-group__select-wrap--default"
                 .sell-content.clearfix
                   %h3.sell-content__sub-head 販売価格(300〜9,999,999)
                   = link_to "/jp/help_center/article/64/", class:"sell-content__sub-head--question" do
