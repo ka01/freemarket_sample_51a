@@ -150,6 +150,17 @@
     vertical-align: top;
     font-weight: 600;
   }
+  &__arbitrary {
+    box-sizing: border-box;
+    background: #ccc;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+    font-weight: 600;
+  }
   &__input-default {
     box-sizing: border-box;
     width: 100%;
@@ -244,6 +255,9 @@
     margin: 0 0 0 5%;
   }
 }
+// .visible {
+//   display: none;
+// }
 .sell-fee-left {
   float: left;
   width: 50%;
@@ -344,7 +358,6 @@
     white-space: pre-wrap;
     word-wrap: break-word;
   }
- 
   .sell-content {
     &__sub-head {
       float: left;
