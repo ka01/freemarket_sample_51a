@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'profile/edit'
   devise_for :users,  controllers: {
     registrations: 'users/registrations' ,
     omniauth_callbacks: 'users/omniauth_callbacks'
@@ -17,7 +18,11 @@ Rails.application.routes.draw do
       get "identification"
     end
   end
-  resources :items
+  resources :items do
+    collection do
+      post 'pay/:id' => 'items#pay', as: 'pay'
+    end
+  end
   resources :signup do
     collection do
       get 'reset'

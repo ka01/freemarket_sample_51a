@@ -4,18 +4,15 @@
   clear: both;
 }
 
-.item-box-container {
+.details-item-box__container {
   background: #fff;
   margin: 40px auto 0;
   padding: 24px 40px 40px;
-}
-
-.l-single-container {
   width: 700px;
   box-sizing: border-box;
 }
 
-.item-name {
+.details-item-name {
   font-size: 24px;
   text-align: center;
   word-wrap: break-word;
@@ -23,11 +20,11 @@
   font-weight: bold;
 }
 
-.item-main-content {
+.details-item__main-content{
   margin: 16px 0 0;
 }
 
-.item-photo {
+.details-item-photo {
   float: left;
   min-width: 300px;
   max-width: 300px;
@@ -75,7 +72,6 @@
   width: 60px;
   height: 60px;
   max-height: none;
-// 上は幅広画面用のscss
   position: relative;
   overflow: hidden;
   display: inline-block;
@@ -87,10 +83,6 @@
   cursor: default;
 }
 
-// .active {
-//   opacity: 10;
-// }
-
 .owl-dot span {
   display: none;
 }
@@ -100,40 +92,33 @@
   width: auto;
   height: auto;
   padding: 0;
-  // 上は幅広画面用のscss
 }
 
-.item-detail-table {
+.details-item__table {
   float: right;
   max-width: 300px;
   height: 420px;
   margin: 0 auto;
-    // 上は幅広画面用のscss
   width: 100%;
   border-collapse: collapse;
   border: 1px solid #f5f5f5;
-}
-
-.item-detail-table th {
-  padding: 8px;
-    // 上は幅広画面用のscss
-  width: 39%;
-  text-align: left;
-  font-weight: 400;
-  background: #fafafa;
-  border-collapse: collapse;
-  border: 1px solid #f5f5f5;
-}
-
-.item-detail-table td {
-  padding: 8px;
-    // 上は幅広画面用のscss
-  width: 61%;
-  background: #fff;
-}
-
-.item-detail-table a:first-child {
-  margin: 0;
+  & th {
+    padding: 8px;
+    width: 39%;
+    text-align: left;
+    font-weight: 400;
+    background: #fafafa;
+    border-collapse: collapse;
+    border: 1px solid #f5f5f5;
+  }
+  & td {
+    padding: 8px;
+    width: 61%;
+    background: #fff;
+  }
+  & a:first-child {
+    margin: 0;
+  }
 }
 
 .fa.fa-smile {
@@ -151,41 +136,36 @@
 .item-user-ratings {
   display: inline-block;
   margin: 8px 0 0 16px;
+  &:first-child {
+    margin: 0;
+  }
+  & span {
+    vertical-align: middle;
+  }
+  & i {
+    font-size: 16px;
+    vertical-align: middle;
+  }
 }
 
-.item-user-ratings:first-child {
-  margin: 0;
-}
-
-.item-user-ratings span {
-  vertical-align: middle;
-}
-
-.item-user-ratings i {
-  font-size: 16px;
-  vertical-align: middle;
-}
-
-.item-price-box {
+.details-item__price-box {
   margin: 24px 0 0;
-  // width: 100vw;
 }
 
 .text-center {
   text-align: center;
 }
 
-.item-price {
+.details-item-price {
   margin: 0 16px 0 0;
   font-size: 50px;
-    // 上は幅広画面用のscss
 }
 
-.item-tax {
+.details-item-tax {
   font-size: 10px;
 }
 
-.item-shipping-fee {
+.details-item-shipping-fee {
   display: inline-block;
   font-size: 16px;
 }
@@ -193,40 +173,42 @@
 .item-buy-btn {
   font-size: 24px;
   line-height: 60px;
-   // 上は幅広画面用のscss
   display: block;
   margin-top: 16px;
   background: #ea352d;
-  // font-size: 14px;
   color: #fff;
-  // line-height: 56px;
   text-align: center;
   font-weight: 600;
   -webkit-transition: all ease-out .3s;
   transition: all ease-out .3s;
-  // width: 100vw;
 }
 
-.item-description {
+.details-item__description {
   padding: 32px 0 0;
   font-size: 18px;
-     // 上は幅広画面用のscss
-  // padding: 24px 0 0;
   line-height: 1.5;
+  &__inner {
+    white-space: pre-wrap;
+  }
 }
 
-.item-description-inner {
-  white-space: pre-wrap;
-}
-
-.item-button-container {
+.details-item-button__container {
   margin: 16px 0 0;
   font-size: 0;
+  & span {
+    font-size: 14px;
+    display: inline-block;
+    margin: 1px 0 0 8px;
+    vertical-align: middle;
+  }
+  & i {
+    font-size: 14px;
+    vertical-align: middle;
+  }
 }
 
-.item-button-left {
+.details-item-button__left {
   float: left;
-     // 上は幅広画面用のscss
 }
 
 .item-button {
@@ -235,6 +217,11 @@
   border-radius: 40px;
   -webkit-transition: all ease-out .3s;
   transition: all ease-out .3s;
+  &-report {
+    margin: 0 0 0 16px;
+    color: #333;
+    background: #f5f5f5;
+  }
 }
 
 .item-button-like.is-liked {
@@ -243,63 +230,29 @@
   color: #ea352d;
 }
 
-.item-button-container span {
-  font-size: 14px;
-   // 上は幅広画面用のscss
-  display: inline-block;
-  margin: 1px 0 0 8px;
-  // font-size: 12px;
-  vertical-align: middle;
-}
-
-.item-button-report {
-  margin: 0 0 0 16px;
-    // 上は幅広画面用のscss
-  // margin: 0 0 0 8px;
-  color: #333;
-  background: #f5f5f5;
-}
-
-.item-button-right {
+.details-item-button__right {
   margin: 8px 0 0;
   float: right;
-      // 上は幅広画面用のscss
+  & span {
+    color:  #0099e8;
+  }
 }
 
-.item-button-right span {
-  color:  #0099e8;
-}
-
-.item-button-container i {
-  font-size: 14px;
-  vertical-align: middle;
-}
-
-.item-detail-message {
-  width: 700px;
-    // 上は幅広画面用のscss
-    // width: 100vw;
+.details-item__message {
+  width: 100%;
   margin: 8px auto;
+  &__content {
+    padding: 24px;
+    background: #fff;
+    &__form p {
+      padding: 8px;
+      font-size: 14px;
+      background: #fff6de;
+    }
+  }
 }
 
-.message-container {
-  // width: 100vw;
-}
-
-.message-content {
-  padding: 24px;
-     // 上は幅広画面用のscss
-  // padding: 24px 7.5%;
-  background: #fff;
-}
-
-.message-form p {
-  padding: 8px;
-  font-size: 14px;
-  background: #fff6de;
-}
-
-.message-form .textarea-default {
+.details-item__message__content__form .textarea-default {
   margin: 8px 0 0;
   display: block;
   width: 100%;
@@ -337,40 +290,28 @@
   text-align: center;
 }
 
-.nav-item-link-prev-next {
+.details-item__link {
   margin: 24px auto 0;
-  // width: 700px;
   list-style-type: none;
   width: 100vw;
   display: flex;
-  // width: 45%;
   padding: 0;
-}
-
-.nav-item-link-prev {
-  position: relative;
-  padding-left: 5px;
-}
-
-// .nav-item-link-prev-next li, .nav-user-link-prev-next li {
-//   width: 45%;
-//    上は幅広画面用のscss
-//   position: relative;
-//   width: 43%;
-//   word-wrap: break-word;
-// }
-
-.nav-item-link-prev-next li {
-  width: 45%
-}
-
-.nav-item-link-prev-next li:first-child {
-  margin-right: 60px;
-  margin-left: 20px;
-}
-.nav-item-link-next {
-  text-align: right;
-  position: relative;
+  &__prev {
+    position: relative;
+    padding-left: 5px;
+  }
+  & li {
+    width: 43%;
+    word-wrap: break-word;
+    &:first-child {
+      margin-right: 60px;
+      margin-left: 20px;
+    }
+  }
+  &__next {
+    text-align: right;
+    position: relative;
+  }
 }
 
 .fa.fa-angle-left {
@@ -387,12 +328,10 @@
   right: -13px;
 }
 
-.item-social-media-box {
+.details-item__social-media__boxs {
   margin: 24px auto;
   padding: 32px 0 24px;
-  // width: 700px;
-   // 上は幅広画面用のscss
-   width: 100vw;
+  width: 100vw;
   background: #fff;
 }
 
@@ -400,43 +339,34 @@
   text-align: center;
 }
 
-.social-media-box {
+.details-item__social-media__box {
   margin: 16px 0 0;
   text-align: center;
   font-size: 0;
   list-style: none;
+  & li {
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    vertical-align: middle;
+    text-align: center;
+    & a {
+      background: #385185!important;
+    }
+  }
+  & i {
+    font-size: 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    line-height: 44px;
+  }
 }
 
-.social-media-box li {
-  display: inline-block;
-  margin: 0 8px 8px 0;
-  vertical-align: middle;
-  text-align: center;
-}
-
-.social-media-box i {
-  font-size: 44px;
-  width: 44px;
-  height: 44px;
-  border-radius: 4px;
-  line-height: 44px;
-}
-
-.social-media-box li a {
-  background: #385185!important;
-}
-
-// .social-media-box a:first-child {
-//   background: #385185;
-// }
-
-// .share-btn {
-//   background: #385185;
-// }
 .fa-facebook-square {
   color: #fff;
   background: #385185;
   font-size: 18px;
+  position: static;
 }
 
 .fa-twitter-square {
@@ -457,46 +387,43 @@
   font-size: 18px;
 }
 
-// @media screen and (min-width: 1068px) {
-//   .fab.fa-line {
-//     display: none;
-//   }
-// }
-
 @media screen and (min-width: 769px) {
-  .social-media-box li.social-hidden-item {
+  .details-item__social-media__box li.details-item__social-hidden {
       display: none;
   }
 
-  .item-btn-float-area {
+  .details-item__float-btn {
     display: none;
+  }
+
+  .details-item__message {
+    width: 700px;
+  }
+
+  .details-item__link.clearfix {
+    width: 700px;
+  }
+
+  .freemarket_sample_51a {
+    width: 700px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .item-box-container {
-      // padding: 24px 40px 40px;
+  .details-item-box__container {
     background: #fff;
     margin: 40px auto 0;
     padding: 24px 16px 55px 16px;
-  }
-  .l-single-container {
-    // width: 700px;
     width: 100vw;
     margin: 0 auto;
   }
-  .item-photo {
+
+  .details-item-photo {
     float: none;
     margin: 0 auto;
   }
 
-//   .owl-carousel .owl-item-inner {
-//     position: relative;
-//     width: 100%;
-//     height: 0;
-//     padding: 0 0 100%;
-// }
-  .item-detail-table {
+  .details-item__table {
     width: 100%;
     max-width: 360px;
     margin: 8px auto 0;
@@ -505,60 +432,53 @@
     float: none;
   }
 
-  .item-price {
+  .details-item-price {
     margin: 0 8px 0 0;
     font-size: 32px;
   }
 
-  // .item-description p{
-  //   font-size: smaller;
-  // }
 
-  .item-description-inner {
-    // border-style: solid;
+  .details-item__description__inner {
     font-size: smaller;
     white-space: pre-wrap;
     word-wrap: break-word;
   }
-  // .item-description-inner p {
-  //   font-size: smaller;
-  // }
 
-  // .item-shipping-fee {
-  //   display: inline-block;
-  //   font-size: 16px;
-  // }
-  // .item-button-right
-
-  .message-container {
+  .details-item__message__container {
     width: 100vw;
   }
-  .message-content {
+  .details-item__message__content {
     padding: 24px 7.5%;
     background: #fff;
   }
-  .item-button-left {
+  .details-item-button__left {
     float: none;
+    width: 100vw;
   }
 
-  .item-button-right {
+  .details-item-button__right {
     float: none;
     margin: 16px 0 0;
   }
-  .item-btn-float-area>.item-buy-btn {
+  .details-item__float-btn>.item-buy-btn {
     margin-top: 0;
+  }
+
+  .details-item__link li:first-child {
+    margin-right: 60px;
+    margin-left: 0px;
   }
 
   .visible-sp {
     width: 649px;
   }
 
-  .item-btn-float-area {
+  .details-item__float-btn {
     position: fixed;
     bottom: 0;
     left: 0;
     padding: 6px 16px;
-    width: 100%;
+    width: 100vw;
     background-color: #fff;
     z-index: 3;
     -webkit-box-shadow: 0 -1px 3px 0 rgba(0,0,0,0.16);
@@ -576,6 +496,13 @@
     font-weight: 600;
     -webkit-transition: all ease-out .3s;
     transition: all ease-out .3s;
-    // width: 100vw;
+  }
+}
+@media screen and (max-width: 581px) {
+  .fa.fa-angle-right {
+    font-size: 25px;
+    position: absolute;
+    bottom: 10px;
+    right: -13px;
   }
 }
