@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2019_09_03_214146) do
     t.index ["category_id"], name: "index_brands_on_category_id"
   end
 
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "customer_id"
+    t.string "card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "path", null: false
     t.string "name", null: false
@@ -120,12 +129,14 @@ ActiveRecord::Schema.define(version: 2019_09_03_214146) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname", null: false
+    t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "brands", "brands"
   add_foreign_key "brands", "categories"
+  add_foreign_key "cards", "users"
   add_foreign_key "deliver_adresses", "users"
   add_foreign_key "item_images", "items"
   add_foreign_key "item_images", "users"
