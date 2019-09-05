@@ -18,4 +18,4 @@
   ¥#{@item.price}
 .hoge
 = form_tag(action: :pay, method: :post) do
-  %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_0aec1705941f705de4711050"}
+  %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_0aec1705941f705de4711050"}
