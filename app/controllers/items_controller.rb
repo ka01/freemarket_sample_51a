@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  
+
   def index
     @items = Item.order('id DESC').limit(4)
   end
@@ -30,7 +30,14 @@ class ItemsController < ApplicationController
     card: params['payjp-token'],
     currency: 'jpy'
     )
+    @item.upadate(status:1)
     redirect_to action: :index
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to root_path
   end
 
   private
