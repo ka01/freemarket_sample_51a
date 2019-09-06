@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       post 'pay/:id' => 'items#pay', as: 'pay'
+      get 'purchase'
     end
   end
   resources :signup do

@@ -33,6 +33,10 @@ class ItemsController < ApplicationController
     redirect_to action: :index
   end
 
+  def purchase
+  end
+
+
   private
 
   def item_params
