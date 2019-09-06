@@ -74,30 +74,8 @@
   .item-description.f14
     %p.item-description-inner
       =@item.text
-  / モーダルウィンドウを開くボタン
-  %p
-    %a.modal-open{:href => "#modal-delete"} この商品を削除する
-  / モーダルウィンドウ
-  #modal-delete.modal
-    / モーダルウィンドウが開いている時のオーバーレイ
-    .overLay.modalClose
-    / モーダルウィンドウの中身
-    .inner
-      = link_to "キャンセル","", class:"modal-close-btn"
-      .delete-byn
-      = link_to "削除", item_path(@item), method: :DELETE, id: 'item-delete-btn'
-    %a.modalClose{:href => ""} Close
 
-  -# %button#modal-open-btn この商品を削除する
-  -# = link_to "", item_path(@item), method: :DELETE, id: 'item-delete-btn'
-  -# #overlay
-  -#   #modalWindow
-  -#     .modal-message-box
-  -#       %div 確認
-  -#       %div 本当に削除しますか？
-  -#     %button#modal-close-btn キャンセル
-  -#     %button#delete-comformation-btn 削除する
-  -#     = link_to "削除", item_path(@item), method: :DELETE, id: 'item-delete-btn'
+
   .details-item-button__container.clearfix
     .details-item-button__left
       = button_tag "", type: "button", name: "like", data: {toggle: "like"}, data: {id: "m32062559021"}, data: {ga: "element"}, data: {'ga-category': "LIKE"}, class: "item-button item-button-like is-liked" do
@@ -114,16 +92,12 @@
       = link_to "https://www.mercari.com/jp/safe/description/", target: "_blank" do
         %i.fa.fa-lock
         %span あんしん・あんぜんへの取り組み
-.details-item__message
-  .details-item__message__container
-    .details-item__message__content
-      %form.details-item__message__content__form{action: "https://www.mercari.com/jp/comment/add/", method: "POST"}
-        %input{ type: "hidden"}
-        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %input{ type: "hidden"}
-        %input{ type: "hidden"}
-        %textarea{ type: "text", name: "body", class: "textarea-default"}
-        = button_tag "コメントする", type: "submit",  class: "message-submit btn-default btn-gray"
+- if user_signed_in?
+  - if @item.user= current_user
+    =render 'items/partial/item_status_edit'
+  -else
+    =render 'items/partial/item_comment'
+
 %ul.details-item__link.clearfix
   %li.details-item__link__prev
     =link_to "#" do

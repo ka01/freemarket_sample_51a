@@ -1,0 +1,26 @@
+.listing-item-change-box
+  %a.btn-default.btn-red{:href => "https://www.mercari.com/jp/sell/edit/m57221496842/"} 商品の編集
+  %p.text-center_edit-bottom or
+  %form{:action => "/jp/items/activate/m57221496842/", :method => "POST", :novalidate => "novalidate"}
+    %input{:name => "__csrf_value", :type => "hidden", :value => "246c00d4a382b4f756822809263ad782584d3e2db64fab11670c0a707483248d4c661cedeb14caa0da40a653de15fbb09a6c7337b03f0b11f2ffe0e8e46a07aba"}/
+    %button.btn-default.btn-red{:type => "submit"} 出品を再開する
+    / モーダルウィンドウを開くボタン
+  = link_to "この商品を削除する","#item-delete", class:"modal-open-btn btn-default btn-gray"
+  / モーダルウィンドウ
+  #item-delete.modal
+    / モーダルウィンドウが開いている時のオーバーレイ
+    .modal--overlay.modalClose
+    / モーダルウィンドウの中身
+    .modal--inner
+      .modal--body
+        .modal--head
+          確認
+        削除すると二度と復活できません。
+        %br>/
+        削除する代わりに停止することもできます。
+        %br/
+        %br>/
+        本当に削除しますか？
+        %br/
+      = link_to "キャンセル","", class:"modal-close-btn"
+      = link_to "削除する", item_path(@item), method: :delete, class: 'item-delete-btn'
