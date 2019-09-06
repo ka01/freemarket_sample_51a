@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :purchase, :pay]
+  before_action :set_item, only: [:show]
   def index
     @items = Item.order('id DESC').limit(4)
   end
@@ -20,23 +20,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to action: :index
     end
-  end
-
-  def purchase
-    @seller = User.find(@item.seller_id)
-  end
-
-  def pay
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    charge = Payjp::Charge.create(
-    amount: @item.price,
-    card: params['payjp-token'],
-    currency: 'jpy'
-    )
-    redirect_to action: :done
-  end
-
-  def done
   end
 
   private

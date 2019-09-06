@@ -20,9 +20,9 @@ Rails.application.routes.draw do
   end
   resources :items do
     collection do
-      get  'purchase/:id'=>  'items#purchase', as: 'purchase'
-      post 'pay/:id'=>   'items#pay', as: 'pay'
-      get  'done'=>      'items#done', as: 'done'
+      get  'confirmation/:id'=>  'purchases#confirmation', as: 'confirmation'
+      post 'pay/:id'=>   'purchases#pay', as: 'pay'
+      get  'done'=>      'purchases#done', as: 'done'
     end
   end
   resources :signup do
