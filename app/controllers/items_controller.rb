@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @seller = User.find(@item.seller_id)
   end
 
 
@@ -22,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    @seller = User.find(@item.seller_id)
   end
 
   def pay
@@ -56,6 +58,6 @@ class ItemsController < ApplicationController
                             :handling_time],
       item_images_attributes: [:id,
                               :image_url]
-    ).merge(user_id: current_user.id)
+    ).merge(seller_id: current_user.id)
   end
 end
