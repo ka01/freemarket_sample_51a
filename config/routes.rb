@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'listings/listing'
   get 'profile/edit'
   devise_for :users,  controllers: {
     registrations: 'users/registrations' ,
@@ -16,11 +17,20 @@ Rails.application.routes.draw do
       get "logout"
       get "card"
       get "identification"
+      resources :listings do
+        collection do
+          get "listing"
+          get "in_progress"
+          get "completed"
+        end
+      end
     end
   end
   resources :items do
     collection do
-      post 'pay/:id' => 'items#pay', as: 'pay'
+      get  'confirmation/:id'=>  'purchases#confirmation', as: 'confirmation'
+      post 'pay/:id'=>   'purchases#pay', as: 'pay'
+      get  'done'=>      'purchases#done', as: 'done'
     end
   end
   resources :signup do

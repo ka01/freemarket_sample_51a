@@ -76,11 +76,24 @@ ActiveRecord::Schema.define(version: 2019_09_07_110445) do
     t.string "text", null: false
     t.integer "price", null: false
     t.integer "condition", null: false
-    t.bigint "user_id"
     t.bigint "category_id"
     t.integer "trading_status", null: false
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
+  end
+
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "seller_id", null: false
+    t.bigint "buyer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_purchases_on_buyer_id"
+    t.index ["item_id"], name: "index_purchases_on_item_id"
+    t.index ["seller_id"], name: "index_purchases_on_seller_id"
   end
 
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -138,6 +151,10 @@ ActiveRecord::Schema.define(version: 2019_09_07_110445) do
   add_foreign_key "item_images", "items"
   add_foreign_key "item_images", "users"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "users"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
+  add_foreign_key "purchases", "items"
+  add_foreign_key "purchases", "users", column: "buyer_id"
+  add_foreign_key "purchases", "users", column: "seller_id"
   add_foreign_key "shippings", "items"
 end

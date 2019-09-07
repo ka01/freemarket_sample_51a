@@ -16,7 +16,7 @@
           %th 出品者
           %td
             = link_to '/' do
-              =@item.user.nickname
+              =@seller.nickname
             .div
               .item-user-ratings
                 %i.fa.fa-smile
@@ -69,11 +69,13 @@
       ¥#{@item.price}
     %span.item-tax （税込）
     %span.item-shipping-fee (仮)送料込み
-    = form_tag(action: :pay, method: :post) do
-      %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_0aec1705941f705de4711050"}
-  .item-description.f14
+    = link_to confirmation_items_path, class: "item-buy-btn" do
+      購入画面に進む
+  .item-description.f14z
     %p.item-description-inner
       =@item.text
+
+
   .details-item-button__container.clearfix
     .details-item-button__left
       = button_tag "", type: "button", name: "like", data: {toggle: "like"}, data: {id: "m32062559021"}, data: {ga: "element"}, data: {'ga-category': "LIKE"}, class: "item-button item-button-like is-liked" do
@@ -90,16 +92,12 @@
       = link_to "https://www.mercari.com/jp/safe/description/", target: "_blank" do
         %i.fa.fa-lock
         %span あんしん・あんぜんへの取り組み
-.details-item__message
-  .details-item__message__container
-    .details-item__message__content
-      %form.details-item__message__content__form{action: "https://www.mercari.com/jp/comment/add/", method: "POST"}
-        %input{ type: "hidden"}
-        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %input{ type: "hidden"}
-        %input{ type: "hidden"}
-        %textarea{ type: "text", name: "body", class: "textarea-default"}
-        = button_tag "コメントする", type: "submit",  class: "message-submit btn-default btn-gray"
+- if user_signed_in?
+  - if @item.user= current_user
+    =render 'items/partial/item_status_edit'
+  -else
+    =render 'items/partial/item_comment'
+
 %ul.details-item__link.clearfix
   %li.details-item__link__prev
     =link_to "#" do

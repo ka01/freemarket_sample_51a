@@ -1,0 +1,45 @@
+.listing-tab-head{
+  margin:0;
+  padding: 0 16px;
+  background: #fafafa;
+  font-size: 16px;
+  line-height: 72px;
+}
+.listing-tab { /*タブ切り替え全体のスタイル*/
+  background-color: #fff;
+  &__item{ /*タブのスタイル*/
+    width: calc(100%/3);
+    height: 72px;
+    line-height: 72px;
+    background-color: #d9d9d9;
+    font-size: 16px;
+    text-align: center;
+    color: #333;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    &:hover{ /*タブにホバーした際、透明度が増す*/
+      opacity: 0.75;
+    }
+  }
+}
+
+/*ラジオボタンを全て消す*/
+input[name="listing-tab__item"] {
+  display: none;
+}
+
+/*選択されているタブのコンテンツのみを表示*/
+#listing:checked ~ #listings-content,
+#in_progress:checked ~ #listings-content,
+#completed:checked ~ #listings-content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.listing-tab input:checked + .listing-tab__item{
+  background-color: #fff;
+  border-top: 2px solid #ea352d;
+}
