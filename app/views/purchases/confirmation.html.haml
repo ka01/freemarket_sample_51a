@@ -1,21 +1,54 @@
-.hoge
-  =@item.name
-.hoge
-= image_tag @item.item_images.first.image_url.url
-.hoge
-  =@seller.nickname
-.hoge
-  =@item.condition
-.hoge
-  =@item.shipping.fee_burden
-.hoge
-  =@item.shipping.area
-.hoge
-  =@item.shipping.handling_time
-.hoge
-  =@item.text
-.hoge
-  ¥#{@item.price}
-.hoge
-= form_tag(action: :pay, method: :post) do
-  %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_0aec1705941f705de4711050"}
+.single-container
+  =render 'items/modules/header'
+  %main.purchase__main
+    %section.purchase__container
+      %h2.purchase__container__head 購入内容の確認
+      %section.purchase__content
+        .purchase-item
+          %h3.purchase-item__image
+            = image_tag @item.item_images.first.image_url.url
+          %p.purchase-item__name.bold
+            =@item.name
+          .purchase-item__form
+            %p.purchase-item__price.bold
+              ¥#{@item.price}
+            %span.purchase-item__shipping-fee 送料込み
+            %ul.buy__accordion
+              %li.buy__accordion__outer
+                .buy__accordion__inner ポイントはありません
+            %ul.buy-price__container
+              %li.buy-price__contents.bold
+                .buy-price__content 支払い金額
+                .buy-price__content ¥#{@item.price}
+            = form_tag(action: :pay, method: :post) do
+              %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_0aec1705941f705de4711050"}
+      %section.purchase__content.buy-user__contents
+        .buy-user__content
+          %h3 配送先
+          %address.buy-user__content__text
+            〒234-0052
+            %br
+            神奈川県 横浜市南区下田1-20-12 港北荘205
+            %br
+            =@seller.family_name
+            =@seller.first_name
+          %p.buy-user__content__text
+          -# リンク先は配送先住所変更。未実装の為、仮置きのlink_to
+          = link_to "#", class: "buy-user__content__fix" do
+            %span 変更する
+            %i.fa.fa-angle-right.purchase-page__first-arrow
+      %section.purchase__content.buy-user__contents
+        .buy-user__content
+          %h3 支払い方法
+          %p.buy-user__content__text
+            ************1234
+            %br
+            12 / 22
+          %figure.credit-card-image
+            = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2394192159", width: "26", height: "20", alt: "jcb"
+          %p
+          -# リンク先はクレジットカード変更。未実装の為、仮置きのlink_to
+          = link_to "#", class: "buy-user__content__fix" do
+            %span 変更する
+            %i.fa.fa-angle-right.purchase-page__second-arrow
+  = render 'items/modules/footer'
