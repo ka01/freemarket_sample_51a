@@ -44,13 +44,16 @@
     margin: 16px auto 0;
   }
 }
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
 .sell-upload-items-container {
   display: inline;
-}
-.sell-upload-drop-box.have-item-0 {
-  width: 100%;
   margin-left: 0;
 }
+
 .sell-upload-drop-box {
   position: relative;
   min-height: 162px;
@@ -64,6 +67,13 @@
   cursor: pointer;
   float: right;
   margin-left: 2%;
+  &__imagebox {
+    min-height: 162px;
+    width:100%;
+  }
+  &__file {
+    display: none;
+  }
   &__visible-pc {
     display: none;
     font-family: monospace,monospace;
@@ -77,6 +87,7 @@
     transform: translate(-50%, -50%);
     font-size: 14px;
   }
+
 }
 .sell-content {
   box-sizing: border-box;

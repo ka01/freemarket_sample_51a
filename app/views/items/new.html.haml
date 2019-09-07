@@ -12,14 +12,12 @@
             %p 最大10枚までアップロードできます
             .sell-upload-box__dropbox.clearfix
               .sell-upload-items-container
-                .sell-upload-items-container__items.have-item-0
-                  %ul
-              .sell-upload-drop-box.have-item-0
-                %input.sell-upload-drop-box__file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
-                %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
-                %i.sell-upload-drop-box__icon--.fas.fa-camera
                 = f.fields_for :item_images do |i|
-                  = i.file_field :image_url
+                  %label.sell-upload-drop-box
+                    = i.file_field :image_url, class:"sell-upload-drop-box__file",multiple: "multiple", type: "file"
+                    .sell-upload-drop-box__image
+                      %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
+                      %i.sell-upload-drop-box__icon--.fas.fa-camera
           .sell-content
             .sell-form-group
               = f.label "商品名"
@@ -38,6 +36,22 @@
                 .sell-form-group__select-wrap
                   %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
                   = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}
+                .sell-form-group__select-wrap
+                  %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                  = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}
+                .sell-form-group__select-wrap
+                  %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                  = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}
+              .sell-form-group
+                = f.label "サイズ"
+                %span.sell-form-group__require 必須
+                .sell-form-group__select-wrap
+                  %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                  = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}#仮置き
+              .sell-form-group
+              = f.label "ブランド"
+              %span.sell-form-group__arbitrary 任意
+              = f.text_field :name, class: "sell-form-group__input-default", placeholder: "例）ポンティヌ"
               .sell-form-group
                 = f.label "商品の状態"
                 %span.sell-form-group__require 必須
