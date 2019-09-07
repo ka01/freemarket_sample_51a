@@ -5,11 +5,13 @@
   .my-content
     %section.notification-todo
       .mypage-tab
-        %input#notification{name: "mypage-tab__item1", type: "radio",checked: "checked" }/
-        %label.mypage-tab__item{for: "notification"} お知らせ
-        %input#todo{name: "mypage-tab__item1", type: "radio"}/
-        = link_to  todo_mypage_index_path do
-          %label.mypage-tab__item{for: "todo"} やることリスト
+        #active-tab.mypage-tab__item お知らせ
+        = link_to 'やることリスト',todo_mypage_index_path , class:"mypage-tab__item",id: "todo"
+        %ul#notification-content.mypage-content__list
+          - if notifications ==[]
+            .mypage-content__not-found
+              現在、お知らせはありません
+          - else
+            = render partial:'mypage/shared/tabs/contents/notification', collection: notifications, as:'notification'
 
-        = render 'mypage/shared/tabs/notification-todo'
   = render 'mypage/shared/sidemenus/sidemenu'

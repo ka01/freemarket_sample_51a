@@ -5,11 +5,12 @@
   .my-content
     %section.purchase-purchased
       .mypage-tab
-        %input#purchase{name: "mypage-tab__item2", type: "radio",checked: "checked" }/
-        %label.mypage-tab__item{for: "purchase"} 取引中
-        %input#purchased{name: "mypage-tab__item2", type: "radio"}/
-        = link_to  purchased_mypage_index_path do
-          %label.mypage-tab__item{for: "purchased"} 過去の取引
-
-        = render 'mypage/shared/tabs/purchase-purchased'
+        #active-tab.mypage-tab__item 取引中
+        = link_to '過去の取引',purchased_mypage_index_path, class:"mypage-tab__item",id: "purchased"
+        %ul#purchase-content.mypage-content__list
+          - if purchases ==[]
+            .mypage-content__not-found
+              取引中の処品はありません
+          - else
+            = render partial:'mypage/shared//tabs/contents/purchase', collection: purchases, as:'purchase'
   = render 'mypage/shared/sidemenus/sidemenu'

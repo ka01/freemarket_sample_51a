@@ -29,7 +29,7 @@ input[name="mypage-tab__item2"] {
   display: none;
 }
 
-/*選択されているタブのコンテンツのみを表示*/
+/*選択されているタブのコンテンツのみを表示(index.html.haml用)*/
 #notification:checked ~ #notification-content,
 #todo:checked ~ #todo-content {
   display: block;
@@ -40,6 +40,14 @@ input[name="mypage-tab__item2"] {
 #purchased:checked ~ #purchased-content {
   display: block;
 }
+/*選択されているタブのコンテンツのみを表示(各個別ファイル用)*/
+#active-tab~ #notification-content,
+#active-tab~ #todo-content,
+#active-tab~ #purchase-content,
+#active-tab~ #purchased-content {
+  display: block;
+}
+
 
 /*選択されているタブのスタイルを変える*/
 .mypage-tab input:checked + .mypage-tab__item{
