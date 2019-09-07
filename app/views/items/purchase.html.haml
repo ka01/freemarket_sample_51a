@@ -1,0 +1,80 @@
+.single-container
+  =render 'items/modules/header'
+  %main.purchase__main
+    %section.purchase__container
+      %h2.purchase__container__head 購入内容の確認
+      %section.purchase__content
+        .purchase-item
+          %h3.purchase-item__image
+            = image_tag "https://static.mercdn.net/thumb/photos/m32062559021_1.jpg?1566990900", data: { src: "https://static.mercdn.net/thumb/photos/m32062559021_1.jpg?1566990900" }, class: "lazyloaded"
+          %p.purchase-item__name.bold ショルダーバッグ
+          %form.purchase-item__form{ action: "#", method: "POST", novalidate: "novalidate"}
+            %p.purchase-item__price.bold ¥1,200
+            %span.purchase-item__shipping-fee 送料込み
+            %ul.buy__accordion
+              %li.buy__accordion__outer
+                .buy__accordion__inner ポイントはありません
+            %ul.buy-price__container
+              %li.buy-price__contents.bold
+                .buy-price__content 支払い金額
+                .buy-price__content
+                  %span{ data: { 'buy-pay': "1200"}} ¥1200
+            %input{type: "hidden", name: "seller_id"}
+            %input{type: "hidden", name: "payment_fee"}
+            %input{type: "hidden", name: "payment_amount"}
+            %input{type: "hidden", name: "price"}
+            %input{type: "hidden", name: "category_id"}
+            %input{type: "hidden", name: "item_condition"}
+            %input{type: "hidden", name: "shipping_payer"}
+            %input{type: "hidden", name: "shipping_method"}
+            %input{type: "hidden", name: "shipping_duration"}
+            %input{type: "hidden", name: "shipping_class"}
+            %input{type: "hidden", name: "zip_code1"}
+            %input{type: "hidden", name: "zip_code2"}
+            %input{type: "hidden", name: "paid_method"}
+            %input{type: "hidden", name: "checksum"}
+            %input{type: "hidden", name: "payment_card_sequence_no"}
+            %input{type: "hidden", name: "payment_use_last_card_base64"}
+            %input{type: "hidden", name: "item_name_base64"}
+            %input{type: "hidden", name: "description_base64"}
+            %input{type: "hidden", name: "brand_name_base64"}
+            %input{type: "hidden", name: "shipping_from_area_base64"}
+            %input{type: "hidden", name: "family_name_base64"}
+            %input{type: "hidden", name: "first_name_base64"}
+            %input{type: "hidden", name: "family_name_kana_base64"}
+            %input{type: "hidden", name: "first_name_kana_base64"}
+            %input{type: "hidden", name: "prefecture_base64"}
+            %input{type: "hidden", name: "city_base64"}
+            %input{type: "hidden", name: "address1_base64"}
+            %input{type: "hidden", name: "address2_base64"}
+            %input{type: "hidden", name: "telephone_base64"}
+            %input{type: "hidden", name: "__csrf_value"}
+            %input{type: "hidden", name: "_s"}
+            = button_tag "購入する", type: "submit", class: "btn-default btn-red bold"
+      %section.purchase__content.buy-user__contents
+        .buy-user__content
+          %h3 配送先
+          %address.buy-user__content__text
+            〒234-0052
+            %br
+            神奈川県 横浜市南区下田1-20-12 港北荘205
+            %br
+            山田 太郎
+          %p.buy-user__content__text
+          = link_to "#", class: "buy-user__content__fix" do
+            %span 変更する
+            %i.fa.fa-angle-right.purchase-page__first-arrow
+      %section.purchase__content.buy-user__contents{ data: { buy: "pay-method" }}
+        .buy-user__content
+          %h3 支払い方法
+          %p.buy-user__content__text
+            ************1234
+            %br
+            12 / 22
+          %figure.credit-card-image
+            = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2394192159", width: "26", height: "20", alt: "jcb"
+          %p
+          = link_to "#", class: "buy-user__content__fix" do
+            %span 変更する
+            %i.fa.fa-angle-right.purchase-page__second-arrow
+  = render 'items/modules/foote
