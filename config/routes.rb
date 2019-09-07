@@ -28,8 +28,9 @@ Rails.application.routes.draw do
   end
   resources :items do
     collection do
-      post 'pay/:id' => 'items#pay', as: 'pay'
-      get 'purchase'
+      get  'confirmation/:id'=>  'purchases#confirmation', as: 'confirmation'
+      post 'pay/:id'=>   'purchases#pay', as: 'pay'
+      get  'done'=>      'purchases#done', as: 'done'
     end
   end
   resources :signup do

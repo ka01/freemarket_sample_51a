@@ -1,0 +1,21 @@
+.hoge
+  =@item.name
+.hoge
+= image_tag @item.item_images.first.image_url.url
+.hoge
+  =@seller.nickname
+.hoge
+  =@item.condition
+.hoge
+  =@item.shipping.fee_burden
+.hoge
+  =@item.shipping.area
+.hoge
+  =@item.shipping.handling_time
+.hoge
+  =@item.text
+.hoge
+  ¥#{@item.price}
+.hoge
+= form_tag(action: :pay, method: :post) do
+  %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_0aec1705941f705de4711050"}

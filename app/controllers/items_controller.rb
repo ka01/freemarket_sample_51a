@@ -1,13 +1,14 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item, only: [:show]
+
   def index
     @items = Item.order('id DESC').limit(4)
   end
 
   def show
-    @item = Item.find(params[:id])
+    @seller = User.find(@item.seller_id)
   end
-
 
   def new
     @item = Item.new
@@ -22,21 +23,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def pay
-    @item = Item.find(params[:id])
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    charge = Payjp::Charge.create(
-    amount: @item.price,
-    card: params['payjp-token'],
-    currency: 'jpy'
-    )
-    @item.upadate(status:1)
-    redirect_to action: :index
-  end
-
-  def purchase
-  end
-
   def destroy
     @item = Item.find(params[:id])
     if @item.destroy
@@ -49,6 +35,10 @@ class ItemsController < ApplicationController
   end
 
   private
+  
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(
@@ -64,6 +54,6 @@ class ItemsController < ApplicationController
                             :handling_time],
       item_images_attributes: [:id,
                               :image_url]
-    ).merge(user_id: current_user.id)
+    ).merge(seller_id: current_user.id)
   end
 end
