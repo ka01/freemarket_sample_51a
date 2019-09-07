@@ -21,6 +21,13 @@ class Item < ApplicationRecord
     damege: 5
   }
 
+  enum trading_status: {
+      selling: 0,
+      stop_deal: 1,
+      deal: 2,
+      complete: 3
+  }
+
   with_options presence: true do
     validates :name
     validates :text
