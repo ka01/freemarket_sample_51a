@@ -30,7 +30,8 @@ class SignupController < ApplicationController
   end
 
   def step6
-  # sign_in User.find(session[:id]) unless user_signed_in?
+    #非ログインユーザーでもsignup/step6に飛べてしまうバグを発見した為
+    #sessionを持っていない場合はindexにリダイレクトするよう修正
     if session[:id]
 
     else
