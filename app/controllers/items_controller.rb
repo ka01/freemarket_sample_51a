@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
+
   before_action :set_item, only: [:show]
+
   def index
     @items = Item.order('id DESC').limit(4)
   end
@@ -7,7 +9,6 @@ class ItemsController < ApplicationController
   def show
     @seller = User.find(@item.seller_id)
   end
-
 
   def new
     @item = Item.new
@@ -22,7 +23,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      flash[:notice] = '商品を削除しました'
+      redirect_to listing_listings_path
+    else
+      flash[:notice] = '商品の削除に失敗しました'
+      redirect_to root_path
+    end
+  end
+
   private
+  
   def set_item
     @item = Item.find(params[:id])
   end

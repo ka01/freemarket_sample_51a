@@ -17,7 +17,7 @@
                     %ul
                 .sell-upload-drop-box.have-item-0
                   %input.sell-upload-drop-box__file{multiple: "multiple", name: "image1", style: "display: none;", type: "file"}/
-                  %pre.sell-upload-drop-box__visible-pc ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+                  %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
                   %i.sell-upload-drop-box__icon--.fas.fa-camera
                   = f.fields_for :item_images do |i|
                     = i.file_field :image_url
@@ -35,13 +35,16 @@
               .sell-content__form-box
                 .sell-form-group
                   = f.label "カテゴリー"
-                  = f.collection_select :category_id, Category.all, :id, :name, {prompt: ""}, {class: "sell-form-group__select-wrap--default"}
+                  %span.sell-form-group__require 必須
+                  .sell-form-group__select-wrap
+                    %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                    = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}
                 .sell-form-group
                   = f.label "商品の状態"
                   %span.sell-form-group__require 必須
                   .sell-form-group__select-wrap
                     %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                    = f.select :condition, Item.conditions.keys.to_a, {}, class: "sell-form-group__select-wrap--default"
+                    = f.select :condition, Item.conditions.keys.map { |k| [I18n.t("enums.item.condition.#{k}"), k]}, {prompt: "---"}, class: "sell-form-group__select-wrap--default"
               .sell-content.clearfix
                 %h3.sell-content__sub-head 配送について
                 = link_to "/jp/help_center/article/68/", class: "sell-content__sub-head--question" do
@@ -53,25 +56,25 @@
                       %span.sell-form-group__require 必須
                       .sell-form-group__select-wrap
                         %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                        = s.select :fee_burden, Shipping.fee_burdens.keys.to_a, {}, class: "sell-form-group__select-wrap--default"
+                        = s.select :fee_burden, Shipping.fee_burdens.keys.map { |k| [I18n.t("enums.shipping.fee_burden.#{k}"), k]}, {prompt: "---"}, class: "sell-form-group__select-wrap--default"
                     .sell-form-group
                       = s.label "配送の方法"
                       %span.sell-form-group__require 必須
                       .sell-form-group__select-wrap
                         %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                        = s.select :service, Shipping.services.keys.to_a, {}, class: "sell-form-group__select-wrap--default"
+                        = s.select :service, Shipping.services.keys.map { |k| [I18n.t("enums.shipping.service.#{k}"), k]}, {prompt: "---"}, class: "sell-form-group__select-wrap--default"
                     .sell-form-group
                       = s.label "発送元の地域"
                       %span.sell-form-group__require 必須
                       .sell-form-group__select-wrap
                         %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                        = s.collection_select :area, Prefecture.all, :id, :name, {prompt: ""}, {class: "sell-form-group__select-wrap--default"}
+                        = s.collection_select :area, Prefecture.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}
                     .sell-form-group
                       = s.label "発送までの日数"
                       %span.sell-form-group__require 必須
                       .sell-form-group__select-wrap
                         %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                        = s.select :handling_time, Shipping.handling_times.keys.to_a, {}, class: "sell-form-group__select-wrap--default"
+                        = s.select :handling_time, Shipping.handling_times.keys.map { |k| [I18n.t("enums.shipping.handling_time.#{k}"), k]}, {prompt: "---"}, class: "sell-form-group__select-wrap--default"
                 .sell-content.clearfix
                   %h3.sell-content__sub-head 販売価格(300〜9,999,999)
                   = link_to "/jp/help_center/article/64/", class:"sell-content__sub-head--question" do
