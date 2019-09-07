@@ -15,9 +15,8 @@
                 = f.fields_for :item_images do |i|
                   %label.sell-upload-drop-box
                     = i.file_field :image_url, class:"sell-upload-drop-box__file",multiple: "multiple", type: "file"
-                    .sell-upload-drop-box__image
-                      %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
-                      %i.sell-upload-drop-box__icon--.fas.fa-camera
+                    %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
+                    %i.sell-upload-drop-box__icon--.fas.fa-camera
           .sell-content
             .sell-form-group
               = f.label "商品名"
