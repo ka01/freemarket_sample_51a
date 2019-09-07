@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   has_many :users, through: :purchases
   belongs_to :category
   has_many :purchases
+  #以下アソシエーションは今後の実装で必要な為、コメントアウトを残しています
   # belongs_to :brand
   # has_many :likes dependent: :destroy
   # has_many :comments dependent: :destroy
