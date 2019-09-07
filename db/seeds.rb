@@ -18,3 +18,9 @@ end
 # row[]の数字はcsvファイルの列を指定している
 # どの行をどこのカラム名に入れたらいいのか、を上で書いている
 # ここでrow[0]を指定するとcsvで言うところのidの列を入れてしまうことになる
+
+CSV.foreach('db/size.csv', headers: true) do |row|
+  Size.create(
+    size: row["size"]
+  )
+end
