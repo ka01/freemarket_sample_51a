@@ -1,0 +1,18 @@
+= render 'layouts/header'
+- breadcrumb :in_progress
+= render 'layouts/breadcrumbs'
+%main.container.clearfix
+  .my-content
+    %h2.listing-tab-head 出品した商品
+    %section
+      .listing-tab
+        %input#listing{name: "listing-tab__item", type: "radio"}/
+        = link_to  listing_listings_path do
+          %label.listing-tab__item{for: "listing"} 出品中
+        %input#in_progress{name: "listing-tab__item", type: "radio",checked: "checked" }/
+        %label.listing-tab__item{for: "in_progress"} 取引中
+        %input#completed{name: "listing-tab__item", type: "radio"}/
+        = link_to  completed_listings_path do
+          %label.listing-tab__item{for: "completed"} 売却済み
+        = render 'listings/shared/listings-content'
+  = render 'mypage/shared/sidemenus/sidemenu'

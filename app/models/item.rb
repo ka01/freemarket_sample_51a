@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   # has_many :likes dependent: :destroy
   # has_many :comments dependent: :destroy
   # has_many :messages dependent: :destroy
-  has_one :shipping
+  has_one :shipping, dependent: :destroy
   accepts_nested_attributes_for :shipping
   # has_many :reviews
   has_many :item_images, dependent: :destroy
