@@ -1,7 +1,6 @@
 $(function(){
   // モーダルウィンドウが開くときの処理
   $(".modal-open-btn").click(function(){
-
       var navClass = $(this).attr("class"),
           href = $(this).attr("href");
           $(href).fadeIn();
@@ -16,5 +15,4 @@ $(function(){
       $(".modalOpen").removeClass("open");
       return false;
   });
-
-  });
+});
