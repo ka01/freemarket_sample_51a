@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   end
 
   def in_progress
-    @items=Item.find(8,11)
+    @items=Item.where(user_id:current_user.id)
   end
 
   def completed
