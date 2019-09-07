@@ -93,7 +93,7 @@
         %i.fa.fa-lock
         %span あんしん・あんぜんへの取り組み
 - if user_signed_in?
-  - if @item.seller_id= current_user
+  - if @item.seller_id = current_user
     =render 'items/partial/item_status_edit'
   -else
     =render 'items/partial/item_comment'
@@ -124,5 +124,6 @@
         %i.fa.fa-pinterest-square
 .visible-sp
   .details-item__float-btn
-    = link_to "購入画面に進む", "https://www.mercari.com/jp/transaction/buy/m32062559021/?_s=U2FsdGVkX1_BGYD_5_kfaamibA29iBGTJ7hp6RFf-LXwCDYFkrasMLfvBDSISPVPoQB00rbfDhYCmkYfoV3fwMvnzMRhjLxF2aOdri_9jdEYXGIxVaZxUppraWh6kejA", class: "item-buy-btn "
+    = link_to confirmation_items_path, class: "item-buy-btn" do
+      購入画面にすすむ
 = render 'layouts/footer'
