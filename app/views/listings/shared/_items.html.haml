@@ -1,0 +1,11 @@
+= content_tag(:li) do
+  = link_to item_path(item) do
+    .mypage-content__list-item
+      .mypage-content__list-img
+        = image_tag item.item_images.first.image_url.url
+      .mypage-content__list-body
+        .mypage-content__list-body--text
+          =item.name
+        .mypage-content__list-body--state.doing
+          公開停止中
+      .mypage-content__list-body--icon.fas.fa-chevron-right

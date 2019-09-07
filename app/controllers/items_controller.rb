@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  
+
   def index
     @items = Item.order('id DESC').limit(4)
   end
@@ -30,10 +30,22 @@ class ItemsController < ApplicationController
     card: params['payjp-token'],
     currency: 'jpy'
     )
+    @item.upadate(status:1)
     redirect_to action: :index
   end
 
   def purchase
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      flash[:notice] = '商品を削除しました'
+      redirect_to listing_listings_path
+    else
+      flash[:notice] = '商品の削除に失敗しました'
+      redirect_to root_path
+    end
   end
 
   private

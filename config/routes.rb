@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'listings/listing'
   get 'profile/edit'
   devise_for :users,  controllers: {
     registrations: 'users/registrations' ,
@@ -16,6 +17,13 @@ Rails.application.routes.draw do
       get "logout"
       get "card"
       get "identification"
+      resources :listings do
+        collection do
+          get "listing"
+          get "in_progress"
+          get "completed"
+        end
+      end
     end
   end
   resources :items do
