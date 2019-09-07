@@ -1,0 +1,6 @@
+%ul#listings-content.mypage-content__list
+  - if @items ==[]
+    .mypage-content__not-found
+      取引中の処品はありません
+  - else
+    = render partial:'listings/shared/items', collection: @items, as:'item'

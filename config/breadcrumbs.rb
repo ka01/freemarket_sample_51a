@@ -14,7 +14,7 @@ crumb :notification do
 end
 
 crumb :todo do
-  link 'やることリスト', notification_mypage_index_path
+  link 'やることリスト', todo_mypage_index_path
   parent :mypage
 end
 
@@ -43,8 +43,23 @@ crumb :logout do
   parent :mypage
 end
 
-crumb :logout do
-  link '本人情報の登録', logout_mypage_index_path
+crumb :identification do
+  link '本人情報の登録', identification_mypage_index_path
+  parent :mypage
+end
+
+crumb :listing do
+  link '出品した商品-出品中', listing_listings_path
+  parent :mypage
+end
+
+crumb :in_progress do
+  link '出品した商品-取引中', in_progress_listings_path
+  parent :mypage
+end
+
+crumb :completed do
+  link '出品した商品-売却済み', completed_listings_path
   parent :mypage
 end
 # crumb :user do |user|
