@@ -4,7 +4,7 @@ module MypageHelper
               {title: "お知らせ",url:"/mypage/notification/"},
               {title: "やることリスト",url:"/mypage/todo/"},
               {title: "いいね！一覧",url:"/mypage/like/history/"},
-              {title: "出品する",url:"/mypage/sell/"},
+              {title: "出品する",url:"/items/new"},
               {title: "出品した商品 - 出品中",url:"/mypage/listings/listing/"},
               {title: "出品した商品 - 取引中",url:"/mypage/listings/in_progress/"},
               {title: "出品した商品 - 売却済み",url:"/mypage/listings/completed/"},
