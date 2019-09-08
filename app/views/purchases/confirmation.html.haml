@@ -27,9 +27,12 @@
         .buy-user__content
           %h3 配送先
           %address.buy-user__content__text
-            〒234-0052
+            〒#{@user.deliver_adress.zip_code}
             %br
-            神奈川県 横浜市南区下田1-20-12 港北荘205
+            =@user.deliver_adress.prefecture
+            =@user.deliver_adress.city
+            =@user.deliver_adress.adress1
+            =@user.deliver_adress.adress2
             %br
             =@seller.family_name
             =@seller.first_name

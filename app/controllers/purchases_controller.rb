@@ -3,6 +3,7 @@ class PurchasesController < ApplicationController
   before_action :set_purchase, except: [:done]
 
   def confirmation
+    @user = User.find(params[:id])
   end
 
   def pay
