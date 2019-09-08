@@ -19,7 +19,8 @@
             %ul.buy-price__container
               %li.buy-price__contents.bold
                 .buy-price__content 支払い金額
-                .buy-price__content ¥#{@item.price}
+                .buy-price__content
+                  %span ¥#{@item.price}
             = form_tag(action: :pay, method: :post) do
               %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_0aec1705941f705de4711050"}
       %section.purchase__content.buy-user__contents
