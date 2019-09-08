@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   # has_many :messages dependent: :destroy
   has_one :shipping, dependent: :destroy
   accepts_nested_attributes_for :shipping
+  has_many :sizes,  dependent: :destroy
   # has_many :reviews
   has_many :item_images, dependent: :destroy
   accepts_nested_attributes_for :item_images
