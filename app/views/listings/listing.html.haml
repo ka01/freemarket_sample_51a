@@ -6,13 +6,8 @@
     %h2.listing-tab-head 出品した商品
     %section
       .listing-tab
-        %input#listing{name: "listing-tab__item", type: "radio",checked: "checked" }/
-        %label.listing-tab__item{for: "listing"} 出品中
-        %input#in_progress{name: "listing-tab__item", type: "radio"}/
-        = link_to  in_progress_listings_path do
-          %label.listing-tab__item{for: "in_progress"} 取引中
-        %input#completed{name: "listing-tab__item", type: "radio"}/
-        = link_to  in_progress_listings_path do
-          %label.listing-tab__item{for: "completed"} 売却済み
+        #active-tab.listing-tab__item 出品中
+        = link_to '取引中',in_progress_listings_path, class:"listing-tab__item",id: "in_progress"
+        = link_to '売却済み',completed_listings_path, class:"listing-tab__item",id: "completed"
         = render 'listings/shared/listings-content'
   = render 'mypage/shared/sidemenus/sidemenu'

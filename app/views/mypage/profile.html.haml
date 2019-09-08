@@ -6,7 +6,7 @@
     .profile
       .profile__head プロフィール
       .profile__form
-        = form_with model: @user, url:profile_update_mypage_index_path, method: :patch ,locale: true do |f|
+        = form_for(@user, url:profile_update_mypage_index_path(@user),html:{ method: "patch"} ) do |f|
           .profile__icon
             .profile__img
               = image_tag "http://placehold.jp/cc9999/993333/60x60.png"

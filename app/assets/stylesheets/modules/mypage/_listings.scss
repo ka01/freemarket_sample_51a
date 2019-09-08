@@ -5,7 +5,7 @@
   font-size: 16px;
   line-height: 72px;
 }
-.listing-tab { /*タブ切り替え全体のスタイル*/
+.listing-tab {
   background-color: #fff;
   &__item{ /*タブのスタイル*/
     width: calc(100%/3);
@@ -26,20 +26,13 @@
   }
 }
 
-/*ラジオボタンを全て消す*/
-input[name="listing-tab__item"] {
-  display: none;
-}
 
-/*選択されているタブのコンテンツのみを表示*/
-#listing:checked ~ #listings-content,
-#in_progress:checked ~ #listings-content,
-#completed:checked ~ #listings-content {
-  display: block;
-}
 
 /*選択されているタブのスタイルを変える*/
-.listing-tab input:checked + .listing-tab__item{
+#active-tab{
   background-color: #fff;
   border-top: 2px solid #ea352d;
+}
+#listings-content {
+  display: block;
 }
