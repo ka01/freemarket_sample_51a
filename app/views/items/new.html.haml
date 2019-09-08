@@ -46,7 +46,7 @@
                 %span.sell-form-group__require 必須
                 .sell-form-group__select-wrap
                   %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                  = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}#仮置き
+                  = f.collection_select :size_id, Size.all, :id, :size, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}#仮置き
               .sell-form-group
               = f.label "ブランド"
               %span.sell-form-group__arbitrary 任意
