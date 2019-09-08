@@ -19,16 +19,20 @@
             %ul.buy-price__container
               %li.buy-price__contents.bold
                 .buy-price__content 支払い金額
-                .buy-price__content ¥#{@item.price}
+                .buy-price__content
+                  %span ¥#{@item.price}
             = form_tag(action: :pay, method: :post) do
               %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_0aec1705941f705de4711050"}
       %section.purchase__content.buy-user__contents
         .buy-user__content
           %h3 配送先
           %address.buy-user__content__text
-            〒234-0052
+            〒#{@user.deliver_adress.zip_code}
             %br
-            神奈川県 横浜市南区下田1-20-12 港北荘205
+            =@user.deliver_adress.prefecture
+            =@user.deliver_adress.city
+            =@user.deliver_adress.adress1
+            =@user.deliver_adress.adress2
             %br
             =@seller.family_name
             =@seller.first_name
