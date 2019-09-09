@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
   end
 
   private
-  
+
   def set_item
     @item = Item.find(params[:id])
   end
@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
       :text,
       :price,
       :condition,
-      :category_id,
+      # :category_id,
       shipping_attributes: [:id,
                             :fee_burden,
                             :service,
@@ -54,6 +54,6 @@ class ItemsController < ApplicationController
                             :handling_time],
       item_images_attributes: [:id,
                               :image_url]
-    ).merge(seller_id: current_user.id)
+    ).merge(seller_id: current_user.id,trading_status:0,category_id:2)
   end
 end

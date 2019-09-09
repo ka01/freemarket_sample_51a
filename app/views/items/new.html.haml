@@ -14,7 +14,7 @@
               .sell-upload-items-container
                 = f.fields_for :item_images do |i|
                   %label.sell-upload-drop-box
-                    = i.file_field :image_url, class:"sell-upload-drop-box__file",multiple: "multiple", type: "file"
+                    = i.file_field :image_url, class:"sell-upload-drop-box__file", type: "file"
                     %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
                     %i.sell-upload-drop-box__icon--.fas.fa-camera
           .sell-content
@@ -29,28 +29,28 @@
           .sell-content.clearfix
             %h3.sell-content__sub-head 商品の詳細
             .sell-content__form-box
-              .sell-form-group
-                = f.label "カテゴリー"
-                %span.sell-form-group__require 必須
-                .sell-form-group__select-wrap
-                  %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                  = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}
-                .sell-form-group__select-wrap
-                  %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                  = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}
-                .sell-form-group__select-wrap
-                  %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                  = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}
-              .sell-form-group
-                = f.label "サイズ"
-                %span.sell-form-group__require 必須
-                .sell-form-group__select-wrap
-                  %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                  = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}#仮置き
-              .sell-form-group
-              = f.label "ブランド"
-              %span.sell-form-group__arbitrary 任意
-              = f.text_field :name, class: "sell-form-group__input-default", placeholder: "例）ポンティヌ"
+              -# .sell-form-group
+              -#   = f.label "カテゴリー"
+              -#   %span.sell-form-group__require 必須
+              -#   .sell-form-group__select-wrap
+              -#     %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+              -#     = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}
+              -#   .sell-form-group__select-wrap
+              -#     %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+              -#     = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}
+              -#   .sell-form-group__select-wrap
+              -#     %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+              -#     = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}
+              -# .sell-form-group
+              -#   = f.label "サイズ"
+              -#   %span.sell-form-group__require 必須
+              -#   .sell-form-group__select-wrap
+              -#     %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+              -#     = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default"}#仮置き
+              -# .sell-form-group
+              -# = f.label "ブランド"
+              -# %span.sell-form-group__arbitrary 任意
+              -# = f.text_field :name, class: "sell-form-group__input-default", placeholder: "例）ポンティヌ"
               .sell-form-group
                 = f.label "商品の状態"
                 %span.sell-form-group__require 必須
