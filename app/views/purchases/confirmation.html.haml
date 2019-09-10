@@ -34,8 +34,8 @@
             =@user.deliver_adress.adress1
             =@user.deliver_adress.adress2
             %br
-            =@seller.family_name
-            =@seller.first_name
+            =@user.family_name
+            =@user.first_name
           %p.buy-user__content__text
           -# リンク先は配送先住所変更。未実装の為、仮置きのlink_to
           = link_to "#", class: "buy-user__content__fix" do
