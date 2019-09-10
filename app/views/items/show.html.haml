@@ -93,7 +93,7 @@
         %i.fa.fa-lock
         %span あんしん・あんぜんへの取り組み
 - if user_signed_in?
-  - if @item.seller_id = current_user
+  -if @item.seller_id == current_user.id
     =render 'items/partial/item_status_edit'
   -else
     =render 'items/partial/item_comment'
