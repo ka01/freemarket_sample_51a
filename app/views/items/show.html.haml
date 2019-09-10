@@ -69,8 +69,14 @@
       ¥#{@item.price}
     %span.item-tax （税込）
     %span.item-shipping-fee (仮)送料込み
-    = link_to confirmation_items_path, class: "item-buy-btn" do
-      購入画面に進む
+  -# 出品者は自分の商品は購入できないように条件分岐
+  - if user_signed_in?
+    - if @item.seller_id == current_user.id
+      %button#item-delete.modal-open-btn.btn-default.btn-gray
+        この商品は購入できません
+    - else
+      = link_to confirmation_items_path, class: "item-buy-btn" do
+        購入画面に進む
   .item-description.f14z
     %p.item-description-inner
       =@item.text
@@ -92,6 +98,7 @@
       = link_to "https://www.mercari.com/jp/safe/description/", target: "_blank" do
         %i.fa.fa-lock
         %span あんしん・あんぜんへの取り組み
+-# 出品者は商品の編集・出品の再開・商品を削除できるよう条件分岐
 - if user_signed_in?
   -if @item.seller_id == current_user.id
     =render 'items/partial/item_status_edit'
