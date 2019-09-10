@@ -133,80 +133,90 @@ categorys=[
                                       ]
             },
                         {level1:"コスメ・香水・美容",level1_children:[
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]}
+                                        {level2:"ベースメイク",level2_children:["ファンデーション","化粧下地","コントロールカラー","BBクリーム","CCクリーム","コンシーラー","フェイスパウダー","トライアルセット/サンプル","その他"]},
+                                        {level2:"メイクアップ",level2_children:["アイシャドウ","口紅","リップグロス","リップライナー","チーク","フェイスカラー","マスカラ","アイライナー","つけまつげ","アイブロウペンシル","パウダーアイブロウ","眉マスカラ","トライアルセット/サンプル","メイク道具/化粧小物","美顔用品/美顔ローラー","その他"]},
+                                        {level2:"ネイルケア",level2_children:["ネイルカラー","カラージェル","ネイルベースコート/トップコート","ネイルアート用品","ネイルパーツ","ネイルチップ/付け爪","手入れ用具","除光液","その他"]},
+                                        {level2:"香水",level2_children:["香水(女性用)","香水(男性用)","ユニセックス","ボディミスト","その他"]},
+                                        {level2:"スキンケア/基礎化粧品",level2_children:["化粧水/ローション","乳液/ミルク","美容液","フェイスクリーム","洗顔料","クレンジング/メイク落とし","パック/フェイスマスク","ジェル/ゲル","ブースター/導入液","アイケア","リップケア","トライアルセット/サンプル","洗顔グッズ","その他"]},
+                                        {level2:"ヘアケア",level2_children:["シャンプー","トリートメント","コンディショナー","リンス","スタイリング剤","カラーリング剤","ブラシ","その他"]},
+                                        {level2:"ボディケア",level2_children:["オイル/クリーム","ハンドクリーム","ローション","日焼け止め/サンオイル","ボディソープ","入浴剤","制汗/デオドラント","フットケア","その他"]},
+                                        {level2:"オーラルケア",level2_children:["口臭防止/エチケット用品","歯ブラシ","その他"]},
+                                        {level2:"リラクゼーション",level2_children:["エッセンシャルオイル","芳香器","お香/香炉","キャンドル","リラクゼーショングッズ","その他"]},
+                                        {level2:"ダイエット",level2_children:["ダイエット食品","エクササイズ用品","体重計","体脂肪計","その他"]},
+                                        {level2:"その他",level2_children:["健康用品","看護/介護用品","救急/衛生用品","その他"]}
                                       ]
             },
                         {level1:"家電・スマホ・カメラ",level1_children:[
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]}
+                                        {level2:"スマートフォン/携帯電話",level2_children:[]},
+                                        {level2:"スマホアクセサリー",level2_children:[]},
+                                        {level2:"PC/タブレット",level2_children:[]},
+                                        {level2:"カメラ",level2_children:[]},
+                                        {level2:"テレビ/映像機器",level2_children:[]},
+                                        {level2:"オーディオ機器",level2_children:[]},
+                                        {level2:"美容/健康",level2_children:[]},
+                                        {level2:"冷暖房/空調",level2_children:[]},
+                                        {level2:"生活家電",level2_children:[]},
+                                        {level2:"その他",level2_children:[]}
                                       ]
             },
                                     {level1:"スポーツ・レジャー",level1_children:[
                                         {level2:"ゴルフ",level2_children:["クラブ","ウエア(男性用)","ウエア(女性用)","バッグ","シューズ(男性用)","シューズ(女性用)","アクセサリー","その他"]},
                                         {level2:"フィッシング",level2_children:["ロッド","リール","ウエア(女性用)","ルアー用品","ウエア","釣り糸/ライン","その他"]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]}
+                                        {level2:"自転車",level2_children:[]},
+                                        {level2:"トレーニング/エクササイズ",level2_children:[]},
+                                        {level2:"野球",level2_children:[]},
+                                        {level2:"サッカー/フットサル",level2_children:[]},
+                                        {level2:"テニス",level2_children:[]},
+                                        {level2:"スノーボード",level2_children:[]},
+                                        {level2:"スキー",level2_children:[]},
+                                        {level2:"その他スポーツ",level2_children:[]},
+                                        {level2:"アウトドア",level2_children:[]},
+                                        {level2:"その他",level2_children:[]}
                                       ]
             },
                         {level1:"ハンドメイド",level1_children:[
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]}
+                                        {level2:"アクセサリー(女性用)",level2_children:[]},
+                                        {level2:"ファッション/小物",level2_children:[]},
+                                        {level2:"アクセサリー/時計",level2_children:[]},
+                                        {level2:"日用品/インテリア",level2_children:[]},
+                                        {level2:"趣味/おもちゃ",level2_children:[]},
+                                        {level2:"キッズ/ベビー",level2_children:[]},
+                                        {level2:"素材/材料",level2_children:[]},
+                                        {level2:"二次創作物",level2_children:[]},
+                                        {level2:"その他",level2_children:[]}
                                       ]
             },
                         {level1:"チケット",level1_children:[
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]}
+                                        {level2:"音楽",level2_children:[]},
+                                        {level2:"スポーツ",level2_children:[]},
+                                        {level2:"演劇/芸能",level2_children:[]},
+                                        {level2:"イベント",level2_children:[]},
+                                        {level2:"映画",level2_children:[]},
+                                        {level2:"施設利用券",level2_children:[]},
+                                        {level2:"優待券/割引券",level2_children:[]},
+                                        {level2:"その他",level2_children:[]}
                                       ]
             },
                                     {level1:"自動車・オートバイ",level1_children:[
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]}
+                                        {level2:"自動車本体",level2_children:[]},
+                                        {level2:"自動車タイヤ/ホイール",level2_children:[]},
+                                        {level2:"自動車パーツ",level2_children:[]},
+                                        {level2:"自動車アクセサリー",level2_children:[]},
+                                        {level2:"オートバイ車体",level2_children:[]},
+                                        {level2:"オートバイパーツ",level2_children:[]},
+                                        {level2:"オートバイアクセサリー",level2_children:[]}
                                       ]
             },
                         {level1:"その他",level1_children:[
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]}
+                                        {level2:"まとめ売り",level2_children:[]},
+                                        {level2:"ペット用品",level2_children:[]},
+                                        {level2:"食品",level2_children:[]},
+                                        {level2:"飲料/酒",level2_children:[]},
+                                        {level2:"日用品/生活雑貨/旅行",level2_children:[]},
+                                        {level2:"アンティーク/コレクション",level2_children:[]},
+                                        {level2:"文房具/事務用品",level2_children:[]},
+                                        {level2:"事務/店舗用品",level2_children:[]},
+                                        {level2:"その他",level2_children:[]}
                                       ]
             }
           ]
