@@ -3,7 +3,8 @@ class PurchasesController < ApplicationController
   before_action :set_purchase, except: [:done]
 
   def confirmation
-    @user = User.find(params[:id])
+    # 配送先住所と名前にはcurrent_userの情報を渡す変数
+    @user = User.find(current_user.id)
   end
 
   def pay
@@ -13,7 +14,10 @@ class PurchasesController < ApplicationController
     card: params['payjp-token'],
     currency: 'jpy'
     )
+    # payjpで購入するとbuyer_idにはcurrent_userのidがセットされる
     @item.buyer_id = current_user.id
+    # payjpで購入するとtrading_statusに3(complete)がセットされる
+    @item.trading_status = 3
     @item.save
     redirect_to action: :done
   end
