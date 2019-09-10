@@ -109,14 +109,13 @@ categorys=[
                                       ]
             },
                         {level1:"本・音楽・ゲーム",level1_children:[
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]},
-                                        {level2:"",level2_children:[]}
+                                        {level2:"本",level2_children:["文学/小説","人文/社会","ノンフィクション/教養","地図/旅行ガイド","ビジネス/経済","健康/医学","コンピュータ/IT","趣味/スポーツ/実用","住まい/暮らし/子育て","アート/エンタメ","洋書","絵本","参考書","その他"]},
+                                        {level2:"漫画",level2_children:["全巻セット","少年漫画","少女漫画","青年漫画","女性漫画","同人誌","その他"]},
+                                        {level2:"雑誌",level2_children:["アート/エンタメ/ホビー","ファッション","ニュース/総合","趣味/スポーツ","その他"]},
+                                        {level2:"CD",level2_children:["邦楽","洋楽","アニメ","クラシック","K-POP/アジア","キッズ/ファミリー","その他"]},
+                                        {level2:"DVD/ブルーレイ",level2_children:["外国映画","日本映画","アニメ","TVドラマ","ミュージック","お笑い/バラエティ","スポーツ/フィットネス","キッズ/ファミリー","その他"]},
+                                        {level2:"レコード",level2_children:["邦楽","洋楽","その他"]},
+                                        {level2:"テレビゲーム",level2_children:["家庭用ゲーム本体","家庭用ゲームソフト","携帯用ゲーム本体","携帯用ゲームソフト","PCゲーム","その他"]}
                                       ]
             },
             {level1:"おもちゃ・ホビー・グッズ",level1_children:[
