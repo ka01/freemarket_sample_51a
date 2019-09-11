@@ -187,19 +187,19 @@ categorys=[
                                       ]
             },
                         {level1:"チケット",level1_children:[
-                                        {level2:"音楽",level2_children:[]},
-                                        {level2:"スポーツ",level2_children:[]},
-                                        {level2:"演劇/芸能",level2_children:[]},
-                                        {level2:"イベント",level2_children:[]},
-                                        {level2:"映画",level2_children:[]},
-                                        {level2:"施設利用券",level2_children:[]},
-                                        {level2:"優待券/割引券",level2_children:[]},
+                                        {level2:"音楽",level2_children:["男性アイドル","女性アイドル","韓流","国内アーティスト","海外アーティスト","音楽フェス","声優/アニメ","その他"]},
+                                        {level2:"スポーツ",level2_children:["サッカー","野球","テニス","格闘技/プロレス","相撲/武道","ゴルフ","バレーボール","バスケットボール","モータースポーツ","ウィンタースポーツ","その他"]},
+                                        {level2:"演劇/芸能",level2_children:["ミュージカル","演劇","伝統芸能","落語","お笑い","オペラ","サーカス","バレエ","その他"]},
+                                        {level2:"イベント",level2_children:["声優/アニメ","キッズ/ファミリー","トークショー/講演会","その他"]},
+                                        {level2:"映画",level2_children:["邦画","洋画","その他"]},
+                                        {level2:"施設利用券",level2_children:["遊園地/テーマパーク","美術館/博物館","スキー場","ゴルフ場","フィットネスクラブ","プール","ボウリング場","水族館","動物園","その他"]},
+                                        {level2:"優待券/割引券",level2_children:["ショッピング","レストラン/食事券","フード/ドリンク券","宿泊券","その他"]},
                                         {level2:"その他",level2_children:[]}
                                       ]
             },
                                     {level1:"自動車・オートバイ",level1_children:[
-                                        {level2:"自動車本体",level2_children:[]},
-                                        {level2:"自動車タイヤ/ホイール",level2_children:[]},
+                                        {level2:"自動車本体",level2_children:["国内自動車本体","外国自動車本体"]},
+                                        {level2:"自動車タイヤ/ホイール",level2_children:["タイヤ/ホイールセット","タイヤ","ホイール","その他"]},
                                         {level2:"自動車パーツ",level2_children:[]},
                                         {level2:"自動車アクセサリー",level2_children:[]},
                                         {level2:"オートバイ車体",level2_children:[]},
