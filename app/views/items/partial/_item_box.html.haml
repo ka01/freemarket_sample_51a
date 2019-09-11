@@ -1,7 +1,12 @@
 %section.items__box
   = link_to  item_path(item), method: :get do
     %figure.items__box__photo
-      = image_tag item.item_images.first.image_url.url
+      - if item.trading_status == "complete"
+        = image_tag "soldout_tag.png", class: "photo-main--soldout"
+        = image_tag item.item_images.first.image_url.url
+      -else
+        = image_tag item.item_images.first.image_url.url
+
     .items__box__body
       %h3.items__box__name
         = item.name

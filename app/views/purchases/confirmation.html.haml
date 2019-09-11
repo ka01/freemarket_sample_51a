@@ -27,15 +27,15 @@
         .buy-user__content
           %h3 配送先
           %address.buy-user__content__text
-            〒#{@user.deliver_adress.zip_code}
+            〒#{current_user.deliver_adress.zip_code}
             %br
-            =@user.deliver_adress.prefecture
-            =@user.deliver_adress.city
-            =@user.deliver_adress.adress1
-            =@user.deliver_adress.adress2
+            =current_user.deliver_adress.prefecture
+            =current_user.deliver_adress.city
+            =current_user.deliver_adress.adress1
+            =current_user.deliver_adress.adress2
             %br
-            =@seller.family_name
-            =@seller.first_name
+            =current_user.family_name
+            =current_user.first_name
           %p.buy-user__content__text
           -# リンク先は配送先住所変更。未実装の為、仮置きのlink_to
           = link_to "#", class: "buy-user__content__fix" do
