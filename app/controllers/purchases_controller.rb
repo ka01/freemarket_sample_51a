@@ -3,8 +3,6 @@ class PurchasesController < ApplicationController
   before_action :set_purchase, except: [:done]
 
   def confirmation
-    # 配送先住所と名前にはcurrent_userの情報を渡す変数
-    @user = User.find(current_user.id)
   end
 
   def pay
