@@ -663,7 +663,78 @@ figure {
   font-size: 54px;
 }
 
+.login-pc-header__nav-box__right__menu__list {
+  height: 44px;
+  padding: 0px 7px;
+  &:first-child {
+    padding-left: 0px;
+  }
+  &:nth-child(3) {
+    padding-right: 0px;
+  }
+  & a {
+    color:#333;;
+  }
+}
+
+.header-bell {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  fill: rgb(204, 204, 204);
+  margin-right: 10px;
+  width: 17px;
+}
+
+.header-svg-config {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  height: 32px;
+  transform: scale(1);
+  transition: all 0.3s ease-out 0s;
+}
+
+.header-point {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  fill: rgb(204, 204, 204);
+  margin-right: 10px;
+}
+
+.header-svg-hover:hover {
+  color: #0099e8;
+  fill: #0099e8;
+}
+
+.header-face {
+  margin-right: 10px;
+  width: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1069px) {
+  .pc-header__box {
+    width: 1020px;
+  }
+
+  .login-pc-header__nav-box__right__menu__list {
+    padding: 0px 14px;
+  }
+
+  .responsive-header {
+    display: none;
+  }
+}
+
 @media screen and (min-width:769px) and (max-width: 1068px){
+  .responsive-header {
+    display: none;
+  }
+
   .footer {
     box-sizing: border-box;
     &__nav {
@@ -728,6 +799,51 @@ figure {
 }
 
 @media screen and (max-width: 768px){
+    .pc-header {
+    display: none;
+    &__box {
+      width: 100%;
+      &__form {
+        position: relative;
+        margin-left: 0px;
+        width: 100%;
+        -webkit-box-flex: 1;
+        flex: 1;
+      }
+    }
+  }
+
+  .responsive-header {
+    position: relative;
+    z-index: 1001;
+    background: #fff;
+    position: sticky;
+    top: 0px;
+    z-index: 3;
+    &-link {
+      margin-left: 10px;
+    }
+  }
+
+  .responsive-form {
+    max-width: 760px;
+    padding: 0px 10px 8px;
+  }
+
+  .pc-header__nav-box__left {
+    float: none;
+    margin: 0;
+    padding: 0;
+    border-style: solid;
+    border-width: 0;
+    &__menu__list {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      width: 50%;
+      text-align: center;
+    }
+  }
   .banner {
     display: none;
   }
