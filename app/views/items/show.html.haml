@@ -9,15 +9,11 @@
           .owl-stage
             .owl-item.active{style: "width: 300px;"}
               .owl-item-inner
-                -# = image_tag @item.item_images.first.image_url.url
                 - if @item.trading_status == "complete"
                   = image_tag "soldout_tag.png", class: "photo-main--soldout"
                   = image_tag @item.item_images.first.image_url.url
                 - else
                   = image_tag @item.item_images.first.image_url.url
-                  -# .items-box_photo__sold
-                  -#   .items-box_photo__sold__inner
-                  -#     SOLD
 
     %table.details-item__table
       %tbody
@@ -137,10 +133,11 @@
     %li
       = link_to "http://line.me/R/msg/text/?ショルダーバッグ%20%7C%20%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%E3%82%B9%E3%83%9E%E3%83%9B%E3%81%A7%E3%81%8B%E3%82%93%E3%81%9F%E3%82%93%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%0D%0Ahttps://item.mercari.com/jp/m32062559021/", target: "_blank" do
         %i.fa.fa-pinterest-square
-- if @item.seller_id == current_user.id || @item.trading_status == "complete"
--else
-  .visible-sp
-    .details-item__float-btn
-      = link_to confirmation_items_path, class: "item-buy-btn" do
-        購入画面にすすむ
+-if user_signed_in?
+  - if @item.seller_id == current_user.id || @item.trading_status == "complete"
+  -else
+    .visible-sp
+      .details-item__float-btn
+        = link_to confirmation_items_path, class: "item-buy-btn" do
+          購入画面にすすむ
 = render 'layouts/footer'
