@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'listings/listing'
-  get 'profile/edit'
   devise_for :users,  controllers: {
     registrations: 'users/registrations' ,
     omniauth_callbacks: 'users/omniauth_callbacks'
