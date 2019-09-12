@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.build
     @item.build_shipping
+    @parents=Category.where(ancestry:nil)
   end
 
   def create
@@ -32,6 +33,18 @@ class ItemsController < ApplicationController
       flash[:notice] = '商品の削除に失敗しました'
       redirect_to root_path
     end
+  end
+
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+      @category_children = Category.find(params[:parent_id]).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+      #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   private

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       get  'confirmation/:id'=>  'purchases#confirmation', as: 'confirmation'
       post 'pay/:id'=>   'purchases#pay', as: 'pay'
       get  'done'=>      'purchases#done', as: 'done'
+      get 'get_category_children', defaults: { format: 'json' }
     end
   end
   resources :signup do
