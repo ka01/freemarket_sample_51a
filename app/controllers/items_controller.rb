@@ -41,11 +41,6 @@ class ItemsController < ApplicationController
       @category_children = Category.find(params[:parent_id]).children
   end
 
-  # 子カテゴリーが選択された後に動くアクション
-  def get_category_grandchildren
-      #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-      @category_grandchildren = Category.find("#{params[:child_id]}").children
-  end
 
   private
 
@@ -59,7 +54,7 @@ class ItemsController < ApplicationController
       :text,
       :price,
       :condition,
-      # :category_id,
+      :category_id,
       shipping_attributes: [:id,
                             :fee_burden,
                             :service,
@@ -67,6 +62,6 @@ class ItemsController < ApplicationController
                             :handling_time],
       item_images_attributes: [:id,
                               :image_url]
-    ).merge(seller_id: current_user.id,trading_status:0,category_id:2)
+    ).merge(seller_id: current_user.id,trading_status:0)
   end
 end
