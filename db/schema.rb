@@ -77,9 +77,9 @@ ActiveRecord::Schema.define(version: 2019_09_07_115237) do
     t.integer "price", null: false
     t.integer "condition", null: false
     t.bigint "category_id"
-    t.integer "trading_status", null: false
     t.bigint "seller_id"
     t.bigint "buyer_id"
+    t.integer "trading_status", null: false
     t.bigint "size_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
