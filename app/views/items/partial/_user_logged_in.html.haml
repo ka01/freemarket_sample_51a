@@ -1,0 +1,9 @@
+- if @item.seller_id == current_user.id
+  %button#item-delete.modal-open-btn.btn-default.btn-gray
+    #{@seller.nickname}さんが出品した商品です。
+-elsif @item.trading_status == "complete"
+  %button#item-delete.modal-open-btn.btn-default.btn-gray
+    売り切れました。
+- else
+  = link_to confirmation_items_path, class: "item-buy-btn" do
+    購入画面に進む
