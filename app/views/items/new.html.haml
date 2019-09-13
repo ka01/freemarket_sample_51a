@@ -35,6 +35,16 @@
                 .sell-form-group__select-wrap.level1_category--form
                   %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
                   = f.collection_select :category_id, @parents, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default",id: 'level1_category'}
+              .sell-form-group.size-forms
+                = f.label "サイズ"
+                %span.sell-form-group__require 必須
+                .sell-form-group__select-wrap
+                  %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                  = f.collection_select :size_id, @parents, :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default",id: 'level1_category'}
+              .sell-form-group
+              = f.label "ブランド"
+              %span.sell-form-group__arbitrary 任意
+              = f.text_field :name, class: "sell-form-group__input-default", placeholder: "例）ポンティヌ"
               .sell-form-group
                 = f.label "商品の状態"
                 %span.sell-form-group__require 必須
