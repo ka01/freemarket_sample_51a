@@ -183,8 +183,7 @@
   transition: all ease-out .3s;
 }
 
-.details-item__description {
-  padding: 32px 0 0;
+.item-description {
   font-size: 18px;
   line-height: 1.5;
   &__inner {
@@ -407,6 +406,10 @@
   .listing-item-change-box{
     width: 700px;
   }
+}
+
+.forbidden {
+  cursor: not-allowed;
 }
 
 @media screen and (max-width: 768px) {

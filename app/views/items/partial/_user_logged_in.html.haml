@@ -1,0 +1,9 @@
+- if @item.seller_id == current_user.id
+  .btn-default.btn-gray.forbidden
+    #{@seller.nickname}さんが出品した商品です。
+-elsif @item.trading_status == "complete"
+  .btn-default.btn-gray.forbidden
+    売り切れました。
+- else
+  = link_to confirmation_items_path, class: "item-buy-btn" do
+    購入画面に進む

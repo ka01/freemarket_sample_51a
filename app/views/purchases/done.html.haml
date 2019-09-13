@@ -1,4 +1,11 @@
-.hoge
-  購入ありがとうございます！
-=link_to root_path do
-  メルカリに戻る
+-# ToDo:payjpボタンが仮起きの為、doneページ用意。モーダルウィンドウで購入完了画面実装予定
+.single-container
+  =render 'items/modules/header'
+  %main.purchase__main
+    %section.purchase__container
+      %h2.purchase__container__head 購入ありがとうございます！
+      %section.purchase__content
+        .purchase-item
+          =link_to root_path, class: "btn-default" do
+            メルカリに戻る
+  = render 'items/modules/footer'
