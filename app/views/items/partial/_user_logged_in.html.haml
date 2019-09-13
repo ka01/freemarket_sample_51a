@@ -1,8 +1,8 @@
 - if @item.seller_id == current_user.id
-  %button#item-delete.modal-open-btn.btn-default.btn-gray
+  .btn-default.btn-gray.forbidden
     #{@seller.nickname}さんが出品した商品です。
 -elsif @item.trading_status == "complete"
-  %button#item-delete.modal-open-btn.btn-default.btn-gray
+  .btn-default.btn-gray.forbidden
     売り切れました。
 - else
   = link_to confirmation_items_path, class: "item-buy-btn" do

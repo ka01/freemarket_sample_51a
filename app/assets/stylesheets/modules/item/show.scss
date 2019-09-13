@@ -409,6 +409,10 @@
   }
 }
 
+.forbidden {
+  cursor: not-allowed;
+}
+
 @media screen and (max-width: 768px) {
   .details-item-box__container {
     background: #fff;
