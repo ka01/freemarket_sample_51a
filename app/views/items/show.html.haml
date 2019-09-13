@@ -81,8 +81,8 @@
     = link_to new_user_session_path, class: "item-buy-btn" do
       購入画面に進む
   .item-description.f14z
-    %p.item-description-inner
-      =@item.text
+    %p.item-description__inner
+      = simple_format(h(@item.text))
 
 
   .details-item-button__container.clearfix
