@@ -207,7 +207,7 @@ categorys.each.with_index(1) do |category,i|
 end
 
 sizes=[
-        {level1:"洋服のサイズ",level1_children:["XXS以下", "XS(SS)","S","M","L","XL(LL)","2XL(3L)","3XL(4L)","4XL(5L)以上","FREE SIZE"]},
+        {level1:"洋服のサイズ",level1_children:["XXS以下","XS(SS)","S","M","L","XL(LL)","2XL(3L)","3XL(4L)","4XL(5L)以上","FREE SIZE"]},
         {level1:"メンズ靴のサイズ",level1_children:["23.5cm以下","24cm","24.5cm","25cm","25.5cm","26cm","26.5cm","27cm","27.5cm","28cm","28.5cm","29cm","29.5cm","30cm","30.5cm","31cm以上"]},
         {level1:"レディース靴のサイズ",level1_children:["20cm以下","20.5cm","21cm","21.5cm","22cm","22.5cm","23cm","23.5cm","24cm","24.5cm","25cm","25.5cm","26cm","26.5cm","27cm","27.5cm以上"]},
         {level1:"スカートのサイズ",level1_children:["60cm以下","~70cm","~80cm","~90cm","90cm以上"]},
@@ -222,8 +222,8 @@ sizes=[
         {level1:"スキーのサイズ",level1_children:["140cm～","150cm～","160cm～","170cm～","スキーボード","子ども用","その他"]},
         {level1:"スノーボードのサイズ",level1_children:["135cm-140cm未満","140cm-145cm未満","145cm-150cm未満","150cm-155cm未満","155cm-160cm未満","160cm-165cm未満","165cm-170cm未満"]}
       ]
-size.each.with_index(1) do |size,i|
-  level1_var="@size#{i}"
+sizes.each.with_index(1) do |size,k|
+  level1_var="@size#{k}"
   level1_val=Size.create(kind:"#{size[:level1]}")
   eval("#{level1_var} = level1_val")
   size[:level1_children].each do |level1_child_val|

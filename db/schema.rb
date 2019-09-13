@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_13_094422) do
+ActiveRecord::Schema.define(version: 2019_09_13_113303) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -113,8 +113,8 @@ ActiveRecord::Schema.define(version: 2019_09_13_094422) do
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "kind"
     t.string "ancestry"
+    t.string "kind"
     t.index ["ancestry"], name: "index_sizes_on_ancestry"
   end
 
