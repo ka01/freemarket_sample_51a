@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.build
     @item.build_shipping
+    @parents=Category.where(ancestry:nil)
   end
 
   def create
@@ -34,6 +35,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+      @category_children = Category.find(params[:parent_id]).children
+  end
+
+
   private
 
   def set_item
@@ -46,7 +54,7 @@ class ItemsController < ApplicationController
       :text,
       :price,
       :condition,
-      # :category_id,
+      :category_id,
       shipping_attributes: [:id,
                             :fee_burden,
                             :service,
@@ -54,6 +62,6 @@ class ItemsController < ApplicationController
                             :handling_time],
       item_images_attributes: [:id,
                               :image_url]
-    ).merge(seller_id: current_user.id,trading_status:0,category_id:2)
+    ).merge(seller_id: current_user.id,trading_status:0)
   end
 end
