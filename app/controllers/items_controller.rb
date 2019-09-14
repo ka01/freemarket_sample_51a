@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @item = Item.new(item_params)
     if @item.save
       redirect_to action: :index
@@ -59,7 +58,7 @@ class ItemsController < ApplicationController
       :price,
       :condition,
       :category_id,
-      # :size_id,
+      :size_id,
       shipping_attributes: [:id,
                             :fee_burden,
                             :service,

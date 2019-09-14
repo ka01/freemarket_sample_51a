@@ -19,19 +19,19 @@ $(function(){
     </div>`;
     $('.category-forms').append(childSelectHtml);
   }
-  // function appendSizeForm(insertHTML){
-  //   var childSelectHtml = '';
-  //   childSelectHtml = `<div class="sell-form-group size-forms">
-  //   <label for="item_サイズ">サイズ</label>
-  //   <span class="sell-form-group__require">必須</span>
-  //   <div class="sell-form-group__select-wrap">
-  //   <i class="sell-form-group__select-wrap--icon fas fa-chevron-down"></i>
-  //   <select class="sell-form-group__select-wrap--default" name="item[size_id]">
-  //     <option value="">---</option>
-  //     ${insertHTML}
-  //   </div>`
-  //   $('.category-forms').after(childSelectHtml);
-  // }
+  function appendSizeForm(insertHTML){
+    var childSelectHtml = '';
+    childSelectHtml = `<div class="sell-form-group size-forms">
+    <label for="item_サイズ">サイズ</label>
+    <span class="sell-form-group__require">必須</span>
+    <div class="sell-form-group__select-wrap">
+    <i class="sell-form-group__select-wrap--icon fas fa-chevron-down"></i>
+    <select class="sell-form-group__select-wrap--default" name="item[size_id]">
+      <option value="">---</option>
+      ${insertHTML}
+    </div>`
+    $('.category-forms').after(childSelectHtml);
+  }
 
   $('#level1_category').on('change',function(e){
     e.preventDefault();
