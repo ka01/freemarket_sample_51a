@@ -12,12 +12,12 @@ categorys=[
             {level1:"レディース",level1_children:[
                                                   {level2:"トップス",level2_children:["Tシャツ/カットソー(半袖/袖なし)","Tシャツ/カットソー(七分/長袖)","シャツ/ブラウス(半袖/袖なし)","シャツ/ブラウス(七分/長袖)","ポロシャツ","キャミソール","タンクトップ","ホルターネック","ニット/セーター","チュニック","カーディガン/ボレロ","アンサンブル","ベスト/ジレ","パーカー","トレーナー/スウェット","ベアトップ/チューブトップ","ジャージ","その他"]},
                                                   {level2:"ジャケット/アウター",level2_children:["テーラードジャケット","ノーカラージャケット","Gジャン/デニムジャケット","レザージャケット","ダウンジャケット","ライダースジャケット","ミリタリージャケット","ダウンベスト","ジャンパー/ブルゾン","ポンチョ","ロングコート","トレンチコート","ダッフルコート","ピーコート","チェスターコート","モッズコート","スタジャン","毛皮/ファーコート","スプリングコート","スカジャン","その他"]},
-                                                  {level2:"パンツ	",level2_children:["デニム/ジーンズ","ショートパンツ","カジュアルパンツ","ハーフパンツ","チノパン","ワークパンツ/カーゴパンツ","クロップドパンツ","サロペット/オーバーオール","オールインワン","サルエルパンツ","ガウチョパンツ","その他"]},
-                                                  {level2:"スカート	",level2_children:["ミニスカート","ひざ丈スカート","ロングスカート","キュロット","その他"]},
+                                                  {level2:"パンツ",level2_children:["デニム/ジーンズ","ショートパンツ","カジュアルパンツ","ハーフパンツ","チノパン","ワークパンツ/カーゴパンツ","クロップドパンツ","サロペット/オーバーオール","オールインワン","サルエルパンツ","ガウチョパンツ","その他"]},
+                                                  {level2:"スカート",level2_children:["ミニスカート","ひざ丈スカート","ロングスカート","キュロット","その他"]},
                                                   {level2:"ワンピース",level2_children:["ミニワンピース","ひざ丈ワンピース","ロングワンピース","その他",]},
                                                   {level2:"靴",level2_children:["ハイヒール/パンプス","ブーツ","サンダル","スニーカー","ミュール","モカシン","ローファー/革靴","フラットシューズ/バレエシューズ","長靴/レインシューズ","その他"]},
                                                   {level2:"ルームウェア/パジャマ",level2_children:["パジャマ","ルームウェア"]},
-                                                  {level2:"レッグウェア	",level2_children:["ソックス","スパッツ/レギンス","ストッキング/タイツ","レッグウォーマー","その他"]},
+                                                  {level2:"レッグウェア",level2_children:["ソックス","スパッツ/レギンス","ストッキング/タイツ","レッグウォーマー","その他"]},
                                                   {level2:"帽子",level2_children:["ニットキャップ/ビーニー","ハット","ハンチング/ベレー帽","キャップ","キャスケット","麦わら帽子","その他"]},
                                                   {level2:"バッグ",level2_children:["ハンドバッグ","トートバッグ","エコバッグ","リュック/バックパック","ボストンバッグ","スポーツバッグ","ショルダーバッグ","クラッチバッグ","ポーチ/バニティ","ボディバッグ/ウェストバッグ","マザーズバッグ","メッセンジャーバッグ","ビジネスバッグ","旅行用バッグ/キャリーバッグ","ショップ袋","和装用バッグ","かごバッグ","その他"]},
                                                   {level2:"アクセサリー",level2_children:["ネックレス","ブレスレット","バングル/リストバンド","リング","ピアス(片耳用)","ピアス(両耳用)","イヤリング","アンクレット","ブローチ/コサージュ","チャーム","その他"]},
@@ -43,16 +43,18 @@ categorys=[
                                               {level2:"小物",level2_children:["長財布","折り財布","マネークリップ","コインケース/小銭入れ","名刺入れ/定期入れ","キーケース","キーホルダー","ネクタイ","手袋","ハンカチ","ベルト","マフラー","ストール","バンダナ","ネックウォーマー","サスペンダー","ウォレットチェーン","サングラス/メガネ","モバイルケース/カバー","手帳","ストラップ","ネクタイピン","カフリンクス","イヤマフラー","傘","レインコート","ミラー","タバコグッズ","その他"]},
                                               {level2:"時計",level2_children:["腕時計(アナログ)","腕時計(デジタル)","ラバーベルト","レザーベルト","金属ベルト","その他"]},
                                               {level2:"水着",level2_children:["一般水着","スポーツ用","アクセサリー","その他"]},
-                                              {level2:"レッグウェア",level2_children:["ソックス","レギンス/スパッツ","レッグウォーマー","その他"]}
+                                              {level2:"レッグウェア",level2_children:["ソックス","レギンス/スパッツ","レッグウォーマー","その他"]},
+                                              {level2:"アンダーウェア",level2_children:["トランクス","ボクサーパンツ","その他"]},
+                                              {level2:"その他",level2_children:[]}
                                             ]
             },
             {level1:"ベビー・キッズ",level1_children:[
-                                                    {level2:"ベビー服(女の子用)  ~95cm",level2_children:["トップス","アウター","パンツ","スカート","ワンピース","ベビードレス","おくるみ","下着/肌着","パジャマ","ロンパース","その他"]},
-                                                    {level2:"ベビー服(男の子用)  ~95cm",level2_children:["トップス","アウター","パンツ","スカート","ワンピース","ベビードレス","おくるみ","下着/肌着","パジャマ","ロンパース","その他"]},
-                                                    {level2:"ベビー服(男女兼用)  ~95cm",level2_children:["トップス","アウター","パンツ","スカート","ワンピース","ベビードレス","おくるみ","下着/肌着","パジャマ","ロンパース","その他"]},
-                                                    {level2:"キッズ服(女の子用) 100cm~",level2_children:["コート","ジャケット/上着","トップス(Tシャツ/カットソー)","トップス(トレーナー)","トップス(チュニック)","トップス(タンクトップ)","トップス(その他)","スカート","パンツ","ワンピース","セットアップ","パジャマ","フォーマル/ドレス","和服","浴衣","甚平","水着","その他"]},
-                                                    {level2:"キッズ服(男の子用) 100cm~",level2_children:["コート","ジャケット/上着","トップス(Tシャツ/カットソー)","トップス(トレーナー)","トップス(チュニック)","トップス(タンクトップ)","トップス(その他)","スカート","パンツ","ワンピース","セットアップ","パジャマ","フォーマル/ドレス","和服","浴衣","甚平","水着","その他"]},
-                                                    {level2:"キッズ服(男女兼用) 100cm~",level2_children:["コート","ジャケット/上着","トップス(Tシャツ/カットソー)","トップス(トレーナー)","トップス(その他)","ボトムス","パジャマ","その他"]},
+                                                    {level2:"ベビー服(女の子用)~95cm",level2_children:["トップス","アウター","パンツ","スカート","ワンピース","ベビードレス","おくるみ","下着/肌着","パジャマ","ロンパース","その他"]},
+                                                    {level2:"ベビー服(男の子用)~95cm",level2_children:["トップス","アウター","パンツ","スカート","ワンピース","ベビードレス","おくるみ","下着/肌着","パジャマ","ロンパース","その他"]},
+                                                    {level2:"ベビー服(男女兼用)~95cm",level2_children:["トップス","アウター","パンツ","スカート","ワンピース","ベビードレス","おくるみ","下着/肌着","パジャマ","ロンパース","その他"]},
+                                                    {level2:"キッズ服(女の子用)100cm~",level2_children:["コート","ジャケット/上着","トップス(Tシャツ/カットソー)","トップス(トレーナー)","トップス(チュニック)","トップス(タンクトップ)","トップス(その他)","スカート","パンツ","ワンピース","セットアップ","パジャマ","フォーマル/ドレス","和服","浴衣","甚平","水着","その他"]},
+                                                    {level2:"キッズ服(男の子用)100cm~",level2_children:["コート","ジャケット/上着","トップス(Tシャツ/カットソー)","トップス(トレーナー)","トップス(チュニック)","トップス(タンクトップ)","トップス(その他)","スカート","パンツ","ワンピース","セットアップ","パジャマ","フォーマル/ドレス","和服","浴衣","甚平","水着","その他"]},
+                                                    {level2:"キッズ服(男女兼用)100cm~",level2_children:["コート","ジャケット/上着","トップス(Tシャツ/カットソー)","トップス(トレーナー)","トップス(その他)","ボトムス","パジャマ","その他"]},
                                                     {level2:"キッズ靴",level2_children:["スニーカー","サンダル","ブーツ","長靴","その他"]},
                                                     {level2:"子ども用ファッション小物",level2_children:["靴下/スパッツ","帽子","エプロン","サスペンダー","タイツ","ハンカチ","ベルト","バンダナ","マフラー","傘","手袋","スタイ","バッグ","その他"]},
                                                     {level2:"おむつ/トイレ/バス",level2_children:["おむつ用品","おまる/補助便座","トレーニングパンツ","ベビーバス","お風呂用品","その他"]},
@@ -212,15 +214,15 @@ sizes=[
         {level1:"レディース靴のサイズ",level1_children:["20cm以下","20.5cm","21cm","21.5cm","22cm","22.5cm","23cm","23.5cm","24cm","24.5cm","25cm","25.5cm","26cm","26.5cm","27cm","27.5cm以上"]},
         {level1:"スカートのサイズ",level1_children:["60cm以下","~70cm","~80cm","~90cm","90cm以上"]},
         {level1:"キッズ服のサイズ",level1_children:["100cm","110cm","120cm","130cm","140cm","150cm","160cm"]},
-        {level1:"ベビー・キッズ靴のサイズ",level1_children:["10.5cm以下","11cm・11.5cm","12cm・12.5cm","13cm・13.5cm","14cm・14.5cm","15cm・15.5cm","16cm・16.5cm","17cm以上"]},
+        {level1:"キッズ靴のサイズ",level1_children:["10.5cm以下","11cm・11.5cm","12cm・12.5cm","13cm・13.5cm","14cm・14.5cm","15cm・15.5cm","16cm・16.5cm","17cm以上"]},
         {level1:"ベビー服のサイズ",level1_children:["60cm","70cm","80cm","90cm","95cm"]},
         {level1:"テレビのサイズ",level1_children:["～20インチ","20～26インチ","26～32インチ","32～37インチ","37～40インチ","40～42インチ","42～46インチ","46～52インチ","52～60インチ","60インチ～"]},
         {level1:"カメラレンズのサイズ",level1_children:["ニコンFマウント","キヤノンEFマウント","ペンタックスKマウント","ペンタックスQマウント","フォーサーズマウント","マイクロフォーサーズマウント","α Aマウント","α Eマウント","ニコン1マウント","キヤノンEF-Mマウント","Xマウント","シグマSAマウント"]},
-        {level1:"オートバイのサイズ",level1_children:["50cc以下","51cc-125cc","126cc-250cc","251cc-400cc","401cc-750cc","751cc以上"]},
-        {level1:"ヘルメットのサイズ",level1_children:["XSサイズ以下","Sサイズ","Mサイズ","Lサイズ","XLサイズ","XXLサイズ以上","フリーサイズ","子ども用"]},
-        {level1:"タイヤのサイズ",level1_children:["12インチ","13インチ","14インチ","15インチ","16インチ","17インチ","18インチ","19インチ","20インチ","21インチ","22インチ","23インチ","24インチ"]},
+        {level1:"スノーボードのサイズ",level1_children:["135cm-140cm未満","140cm-145cm未満","145cm-150cm未満","150cm-155cm未満","155cm-160cm未満","160cm-165cm未満","165cm-170cm未満"]},
         {level1:"スキーのサイズ",level1_children:["140cm～","150cm～","160cm～","170cm～","スキーボード","子ども用","その他"]},
-        {level1:"スノーボードのサイズ",level1_children:["135cm-140cm未満","140cm-145cm未満","145cm-150cm未満","150cm-155cm未満","155cm-160cm未満","160cm-165cm未満","165cm-170cm未満"]}
+        {level1:"タイヤのサイズ",level1_children:["12インチ","13インチ","14インチ","15インチ","16インチ","17インチ","18インチ","19インチ","20インチ","21インチ","22インチ","23インチ","24インチ"]},
+        {level1:"オートバイのサイズ",level1_children:["50cc以下","51cc-125cc","126cc-250cc","251cc-400cc","401cc-750cc","751cc以上"]},
+        {level1:"ヘルメットのサイズ",level1_children:["XSサイズ以下","Sサイズ","Mサイズ","Lサイズ","XLサイズ","XXLサイズ以上","フリーサイズ","子ども用"]}
       ]
 sizes.each.with_index(1) do |size,k|
   level1_var="@size#{k}"
@@ -230,3 +232,130 @@ sizes.each.with_index(1) do |size,k|
     eval("#{level1_var}.children.create(kind:level1_child_val)")
   end
 end
+
+# 洋服のサイズ(通常)
+level2_for_size=Category.where(name:["トップス","ジャケット/アウター","パンツ","スカート","ワンピース","ルームウェア/パジャマ","浴衣/水着","スーツ/フォーマル/ドレス","マタニティ","スーツ","水着","アンダーウェア",])
+level2_for_size.each do |level3_for_size|
+  @size = Size.find_by(kind:"洋服のサイズ")
+  for_sizes=level3_for_size.children.where.not(name:["その他","浴衣","着物","振袖","長襦袢/半襦袢","アクセサリー"])
+  for_sizes.each do |for_size|
+    CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+  end
+end
+# 洋服のサイズ(スポーツ関連のもの)
+for_sizes=Category.where(name:["ウエア(男性用)","ウエア(女性用)","ウエア/装備(男性用)","ウエア/装備(女性用)"])
+@size = Size.find_by(kind:"洋服のサイズ")
+for_sizes.each do |for_size|
+  CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+end
+
+# メンズ靴のサイズ
+for_sizes=Category.find_by(name:"メンズ").children.find_by(name:"靴").children
+@size = Size.find_by(kind:"メンズ靴のサイズ")
+  for_sizes.each do |for_size|
+    CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+  end
+
+# メンズ靴のサイズ(スポーツ関連のもの)
+for_sizes=Category.where(name:"ブーツ(男性用)")
+@size = Size.find_by(kind:"メンズ靴のサイズ")
+  for_sizes.each do |for_size|
+    CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+  end
+# レディース靴のサイズ
+for_sizes=Category.find_by(name:"レディース").children.find_by(name:"靴").children
+@size = Size.find_by(kind:"レディース靴のサイズ")
+  for_sizes.each do |for_size|
+    CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+  end
+
+# レディース靴のサイズ(スポーツ関連のもの)
+for_size=Category.where(name:"ブーツ(女性用)")
+@size = Size.find_by(kind:"レディース靴のサイズ")
+  for_sizes.each do |for_size|
+    CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+  end
+
+# スカートのサイズ
+for_sizes=Category.find_by(name:"スカート").children
+@size = Size.find_by(kind:"スカートのサイズ")
+  for_sizes.each do |for_size|
+    CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+  end
+
+# キッズ服のサイズ
+level2_for_size=Category.where(name:["キッズ服(女の子用)100cm~","キッズ服(男の子用)100cm~","キッズ服(男女兼用)100cm~"])
+level2_for_size.each do |level3_for_size|
+@size = Size.find_by(kind:"キッズ服のサイズ")
+  for_sizes=level3_for_size.children
+  for_sizes.each do |for_size|
+    CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+  end
+end
+
+# キッズ服のサイズ(スポーツ関連のもの)
+for_size=Category.where(name:["ウエア(子ども用)","ウエア/装備(子ども用)"])
+@size = Size.find_by(kind:"キッズ服のサイズ")
+  for_sizes.each do |for_size|
+    CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+  end
+
+# キッズ靴のサイズ
+for_sizes=Category.find_by(name:"キッズ靴").children
+@size = Size.find_by(kind:"キッズ靴のサイズ")
+  for_sizes.each do |for_size|
+    CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+  end
+# キッズ靴のサイズ(スポーツ関連のもの)
+for_size=Category.find_by(name:"ブーツ(子ども用)")
+@size = Size.find_by(kind:"キッズ靴のサイズ")
+  CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+
+
+# ベビー服のサイズ
+level2_for_size=Category.where(name:["ベビー服(女の子用)~95cm","ベビー服(男の子用)~95cm","ベビー服(男女兼用)~95cm"])
+level2_for_size.each do |level3_for_size|
+@size = Size.find_by(kind:"ベビー服のサイズ")
+  for_sizes=level3_for_size.children
+  for_sizes.each do |for_size|
+    CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+  end
+end
+
+# テレビのサイズ
+for_size=Category.find_by(name:"テレビ")
+@size = Size.find_by(kind:"テレビのサイズ")
+  CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+
+# カメラレンズのサイズ"
+for_sizes=Category.where(name:["レンズ(単焦点)","レンズ(ズーム)"])
+@size = Size.find_by(kind:"カメラレンズのサイズ")
+  for_sizes.each do |for_size|
+    CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+  end
+
+# タイヤのサイズ
+for_sizes=Category.where(name:["タイヤ/ホイールセット","タイヤ","ホイール","その他"])
+@size = Size.find_by(kind:"タイヤのサイズ")
+  for_sizes.each do |for_size|
+    CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+  end
+# オートバイのサイズ
+for_size=Category.find_by(name:"オートバイ車体")
+@size = Size.find_by(kind:"オートバイのサイズ")
+  CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+
+# ヘルメットのサイズ
+for_size=Category.find_by(name:"ヘルメット/シールド")
+@size = Size.find_by(kind:"ヘルメットのサイズ")
+  CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+
+# スノーボードのサイズ
+for_size=Category.find_by(name:"ボード")
+@size = Size.find_by(kind:"スノーボードのサイズ")
+  CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
+
+# スキーのサイズ
+for_size=Category.find_by(name:"板")
+@size = Size.find_by(kind:"スキーのサイズ")
+  CategorySize.create(size_id:@size[:id],category_id: for_size[:id])
