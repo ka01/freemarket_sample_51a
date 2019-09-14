@@ -11,25 +11,27 @@ $(function(){
   function appendCategoryForm(insertHTML,level){
     var childSelectHtml = '';
     childSelectHtml = `<div class="sell-form-group__select-wrap ${level}--form">
-      <i class="sell-form-group__select-wrap--icon fas fa-chevron-down"></i>
-      <select class="sell-form-group__select-wrap--default" id=${level} name="item[category_id]">
-        <option value="">---</option>
-        ${insertHTML}
-      </select>
-    </div>`;
+                        <i class="sell-form-group__select-wrap--icon fas fa-chevron-down"></i>
+                        <select class="sell-form-group__select-wrap--default" id=${level} name="item[category_id]">
+                          <option value="">---</option>
+                          ${insertHTML}
+                        </select>
+                      </div>`;
     $('.category-forms').append(childSelectHtml);
   }
   function appendSizeForm(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `<div class="sell-form-group size-forms">
-    <label for="item_サイズ">サイズ</label>
-    <span class="sell-form-group__require">必須</span>
-    <div class="sell-form-group__select-wrap">
-    <i class="sell-form-group__select-wrap--icon fas fa-chevron-down"></i>
-    <select class="sell-form-group__select-wrap--default" name="item[size_id]">
-      <option value="">---</option>
-      ${insertHTML}
-    </div>`
+                        <label for="item_サイズ">サイズ</label>
+                        <span class="sell-form-group__require">必須</span>
+                        <div class="sell-form-group__select-wrap">
+                          <i class="sell-form-group__select-wrap--icon fas fa-chevron-down"></i>
+                          <select class="sell-form-group__select-wrap--default" name="item[size_id]">
+                            <option value="">---</option>
+                            ${insertHTML}
+                          </select>
+                        </div>
+                      </div>`
     $('.category-forms').after(childSelectHtml);
   }
 
