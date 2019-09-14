@@ -41,6 +41,11 @@ class ItemsController < ApplicationController
       @category_children = Category.find(params[:parent_id]).children
   end
 
+  def get_size_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category = Category.find(params[:parent_id])
+    @size_children = @category.size.childeren
+
 
   private
 
