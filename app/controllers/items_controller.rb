@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
     if @item.save
       redirect_to action: :index
@@ -35,16 +36,14 @@ class ItemsController < ApplicationController
     end
   end
 
-  # 親カテゴリーが選択された後に動くアクション
   def get_category_children
-      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find(params[:parent_id]).children
   end
 
   def get_size_children
-    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
     @category = Category.find(params[:parent_id])
-    @size_children = @category.size.childeren
+    @size_children = @category.size.children if @category.size
+  end
 
 
   private
@@ -60,6 +59,7 @@ class ItemsController < ApplicationController
       :price,
       :condition,
       :category_id,
+      # :size_id,
       shipping_attributes: [:id,
                             :fee_burden,
                             :service,
