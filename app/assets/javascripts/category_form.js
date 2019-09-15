@@ -32,13 +32,24 @@ $(function(){
                           </select>
                         </div>
                       </div>`
-    $('.category-forms').after(childSelectHtml);
+    $('.add-forms').append(childSelectHtml);
   }
-
+  function appendBrandForm(){
+    var childSelectHtml = '';
+    childSelectHtml = `<div class="sell-form-group band-forms">
+                        <label for="item_ブランド">ブランド</label>
+                        <span class="sell-form-group__arbitrary">任意</span>
+                          <div class="sell-form-group__select-wrap level1_category--form">
+                            <input class="sell-form-group__input-default" placeholder="例）入力禁止。brand_id:2が自動入力されます" type="text" name="item[brand_id]" id="item_brand_id">
+                          </div>
+                      </div>`
+    $('.add-forms').append(childSelectHtml);
+  }
   $('#level1_category').on('change',function(e){
     e.preventDefault();
     $('.level1_category--form').nextAll().remove();
     $('.size-forms').remove();
+    $('.band-forms').remove();
     var level1_category_val = Number($(this).val())
     if (level1_category_val !=""){
       $.ajax({
@@ -65,6 +76,7 @@ $(function(){
     e.preventDefault();
     $('.level2_category--form').nextAll().remove();
     $('.size-forms').remove();
+    $('.band-forms').remove();
     var level2_category_val = Number($(this).val());
     $.ajax({
       type:'GET',
@@ -100,6 +112,7 @@ $(function(){
           insertHTML += appendOption(child,option_type);
         });
         appendSizeForm(insertHTML);
+        appendBrandForm();
       }
     })
     .fail(function(){
@@ -109,6 +122,7 @@ $(function(){
   $(document).on('change','#level3_category',function(e){
     e.preventDefault();
     $('.size-forms').remove();
+    $('.band-forms').remove();
     var level3_category_val = Number($(this).val());
     $.ajax({
       type:'GET',
@@ -126,6 +140,7 @@ $(function(){
         });
         appendSizeForm(insertHTML);
       }
+      appendBrandForm();
     })
     .fail(function(){
       alert('失敗しました')
