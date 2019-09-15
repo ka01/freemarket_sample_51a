@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, only: [:show]
-
+  before_action :authenticate_user!, only:[:new]
   def index
     @items = Item.order('id DESC').limit(4)
   end
@@ -35,10 +35,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  # 親カテゴリーが選択された後に動くアクション
   def get_category_children
-      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find(params[:parent_id]).children
+  end
+
+  def get_size_children
+    @category = Category.find(params[:parent_id])
+    @size_children = @category.size.children if @category.size
   end
 
 
@@ -55,6 +58,8 @@ class ItemsController < ApplicationController
       :price,
       :condition,
       :category_id,
+      :size_id,
+      # :brand_id,
       shipping_attributes: [:id,
                             :fee_burden,
                             :service,
@@ -62,6 +67,6 @@ class ItemsController < ApplicationController
                             :handling_time],
       item_images_attributes: [:id,
                               :image_url]
-    ).merge(seller_id: current_user.id,trading_status:0)
+    ).merge(seller_id: current_user.id,trading_status:0,brand_id:2)
   end
 end

@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       post 'pay/:id'=>   'purchases#pay', as: 'pay'
       get  'done'=>      'purchases#done', as: 'done'
       get 'get_category_children', defaults: { format: 'json' }
+      get 'get_size_children', defaults: { format: 'json' }
     end
   end
   resources :signup do
