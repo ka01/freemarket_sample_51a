@@ -19,9 +19,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-      redirect_to action: :index
-    end
+        if @item.save
+          params[:item_images]['image_url'].each do |a|
+            @item_image = @item.item_images.create!(image_url: a)
+          end
+        end
+    redirect_to root_path
   end
 
   def destroy
@@ -64,4 +67,6 @@ class ItemsController < ApplicationController
                               :image_url]
     ).merge(seller_id: current_user.id,trading_status:0)
   end
+
+
 end
