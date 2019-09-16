@@ -32,3 +32,53 @@
     }
   }
 }
+
+
+
+
+.categories-level1-box{
+  &__part{
+  border-radius: 4px;
+  margin: 30px auto;
+  background-color: #fff;
+  }
+  &__head{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 7px 30px 0 30px;
+    height: 40px;
+    font-size: 22px;
+    background-color: #ea352d;
+    color: #fff;
+    line-height: 40px;
+    margin:0;
+  }
+}
+
+.categories-level2-box{
+  padding: 24px 30px 10px 30px;
+  &__all{
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  &__head{
+    padding-top: 15px;
+    padding-bottom: 5px;
+    font-weight: bold;
+  }
+}
+.categories-level3-box{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  &__part{
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width:50%;
+  }
+}

@@ -6,5 +6,6 @@
   %nav.categories__level1-list
     - @categories.each do |category|
       = link_to category.name, "#", class: 'categories__level1-list--link'
-  %ul.categories__level1-box
-    = render partial: 'level1-box', collection: @categories, as: 'level1'
+  .categories-level1-box
+    %ul.categories-level1-box__wrapper
+      = render partial: 'level1-box', collection: @categories, as: 'level1'

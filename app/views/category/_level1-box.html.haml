@@ -1,2 +1,7 @@
-%li.categories__level1-box
-  %h3.categories__level1-box__head{ id: "category-#{level1.id}" }= level1.name
+%li.categories-level1-box__part
+  %h3.categories-level1-box__head{ id: "category-#{level1.id}" }= level1.name
+  .categories-level2-box
+    .categories-level2-box__all
+      =link_to 'すべて',category_path(level1),class: 'categories__link'
+    %ul.categories-level2-box__wrapper
+      = render partial: 'level2-box', collection: level1.children, as: 'level2'
