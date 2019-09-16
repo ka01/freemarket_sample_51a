@@ -37,16 +37,18 @@ module CategoryHelper
     if category.depth==0
       return "人気のあるカテゴリーは#{category.indirects.sort_by{rand}[0].name}と#{category.indirects.sort_by{rand}[0].name}です。"
     elsif category.depth==1
-      return "よく見られているカテゴリーは#{category.indirects.sort_by{rand}[0].name}と#{category.indirects.sort_by{rand}[0].name}です。特に"
+      if category.children
+        return "よく見られているカテゴリーは#{category.children.sort_by{rand}[0].name}と#{category.children.sort_by{rand}[0].name}です。特に"
+      else
+        return "特に"
+      end
     else
       return "特に"
     end
   end
 
   def forth_sentence(items)
-    return "人気の商品は「#{items[0].name if items[0]}」
-    や「#{items[1].name if items[1]}」や「#{items[2].name if items[2]}」があります。"
-
+    return "人気の商品は「#{items[0].name if items[0]}」や「#{items[1].name if items[1]}」や「#{items[2].name if items[2]}」があります。"
   end
 
   def fifth_sentence(category)
