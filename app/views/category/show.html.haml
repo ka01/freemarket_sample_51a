@@ -1,0 +1,17 @@
+= render 'layouts/header'
+- breadcrumb :category
+= render 'layouts/breadcrumbs'
+.category
+  .category__children
+    - @children.take(9).each do |child|
+      =link_to child.name ,category_path(child),class:'category__child--link'
+  .category__head
+    ="#{@category.name}の商品一覧"
+  .category__content
+    = render partial: 'items/partial/item_box', collection: @items, as:'item'
+  .category__discription
+    .category__discription--head
+      = discription_name(@category)
+    .category__discription--text
+      = discription_text(@category,@items)
+= render 'layouts/footer'

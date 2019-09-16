@@ -5,7 +5,8 @@
   %h2.categories__head カテゴリー一覧
   %nav.categories__level1-list
     - @categories.each do |category|
-      = link_to category.name, "#", class: 'categories__level1-list--link'
+      = link_to category.name, "#category-#{category.id}", class: 'categories__level1-list--link'
   .categories-level1-box
     %ul.categories-level1-box__wrapper
       = render partial: 'level1-box', collection: @categories, as: 'level1'
+= render 'layouts/footer'

@@ -1,5 +1,6 @@
 %li.categories-level2-box__part
-  %h4.categories-level2-box__head{ id: "category-#{level2.id}" }= level2.name
+  %h4.categories-level2-box__head
+    = level2.name
   .categories-level3-box
     =link_to 'すべて',category_path(level2),class: 'categories-level3-box__part'
     = render partial: 'level3-box', collection: level2.children, as: 'level3'
