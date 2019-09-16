@@ -11,12 +11,13 @@
 }
 .breadcrumbs {
   margin-left: 16px;
+  white-space: nowrap;
 }
 .breadcrumbs a {
   color: #333;
-  display: inline-block;
 
 }
+
 .breadcrumbs .fa-chevron-right {
   font-size: 10px;
   color: #888;
