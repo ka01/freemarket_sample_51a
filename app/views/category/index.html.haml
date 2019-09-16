@@ -1,3 +1,10 @@
 = render 'layouts/header'
 - breadcrumb :category
 = render 'layouts/breadcrumbs'
+.categories
+  %h2.categories__head カテゴリー一覧
+  %nav.categories__level1-list
+    - @categories.each do |category|
+      = link_to category.name, "#", class: 'categories__level1-list--link'
+  %ul.categories__level1-box
+    = render partial: 'level1-box', collection: @categories, as: 'level1'
