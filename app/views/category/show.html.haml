@@ -1,5 +1,11 @@
 = render 'layouts/header'
-- breadcrumb :category
+- if @category.depth == 0
+  - breadcrumb :category_level1, @category
+- elsif @category.depth == 1
+  - breadcrumb :category_level2, @category
+- else
+  - breadcrumb :category_level3, @category
+
 = render 'layouts/breadcrumbs'
 .category
   .category__children
