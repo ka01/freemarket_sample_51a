@@ -15,6 +15,7 @@
     ="#{@category.name}の商品一覧"
   .category__content
     = render partial: 'items/partial/item_box', collection: @items, as:'item'
+  = paginate(@items)
   .category__discription
     .category__discription--head
       = discription_name(@category)
