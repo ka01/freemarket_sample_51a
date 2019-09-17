@@ -19,7 +19,7 @@
                   = fa_icon 'list', class: 'icon-list'
                   %span カテゴリーから探す
                   %ul.category-1
-                    = render partial: 'partial/accordion-level1', collection: @categories, as: "category"
+                    = render partial: 'partial/accordion-level1', collection: @categories, as: "level1"
             %ul.pc-header__nav-box__left__menu{ data: {mega: "1"}, style: "width: auto;"}
           %li.pc-header__nav-box__left__menu__list.pc-header__nav-box__left__menu__list--second
             %h2.pc-header__nav-box__left__menu__list__search
@@ -90,7 +90,7 @@
                   = fa_icon 'list', class: 'icon-list'
                   %span カテゴリーから探す
                   %ul.category-1
-                    = render partial: 'partial/accordion-level1', collection: @categories, as: "category"
+                    = render partial: 'partial/accordion-level1', collection: @categories, as: "level1"
           %ul.pc-header__nav-box__left__menu{ data: {mega: "1"}, style: "width: auto;"}
         %li.pc-header__nav-box__left__menu__list.pc-header__nav-box__left__menu__list--second
           %h2.pc-header__nav-box__left__menu__list__search

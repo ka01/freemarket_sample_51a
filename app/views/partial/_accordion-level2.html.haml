@@ -1,6 +1,6 @@
 %li.category-2__item
-  = link_to category_path(child) do
+  = link_to category_path(level2) do
     .category-2__text
-      =child.name
+      =level2.name
   %ul.category-3
-    = render partial: 'partial/accordion-level3', collection: child.children, as: "grandchild"
+    = render partial: 'partial/accordion-level3', collection: level2.children, as: "level3"
