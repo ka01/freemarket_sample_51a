@@ -23,6 +23,6 @@ class ApplicationController < ActionController::Base
   end
 
   def multinav_category
-    @categories=Category.where(ancestry:nil)
+    @categories = Category.where(ancestry: nil)
   end
 end

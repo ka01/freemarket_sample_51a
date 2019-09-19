@@ -3,6 +3,6 @@
     = level1.name
   .categories-level2-box
     .categories-level2-box__all
-      =link_to 'すべて',category_path(level1),class: 'categories__link'
+      = link_to 'すべて',category_path(level1),class: 'categories__link'
     %ul.categories-level2-box__wrapper
       = render partial: 'level2-box', collection: level1.children, as: 'level2'
