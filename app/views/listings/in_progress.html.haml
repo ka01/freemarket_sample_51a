@@ -10,4 +10,5 @@
         #active-tab.listing-tab__item 取引中
         = link_to '売却済み',completed_listings_path, class:"listing-tab__item",id: "completed"
         = render 'listings/shared/listings-content'
+  = paginate(@items)
   = render 'mypage/shared/sidemenus/sidemenu'
