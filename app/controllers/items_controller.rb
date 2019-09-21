@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
   def get_category_children
       @category_children = Category.find(params[:parent_id]).children
   end
-
+  
   def get_size_children
     @category = Category.find(params[:parent_id])
     @size_children = @category.size.children if @category.size
@@ -51,6 +51,28 @@ class ItemsController < ApplicationController
     @new_items = Item.order('id DESC').limit(24)
   end
 
+  def details_search
+    @parents = Category.where(ancestry:nil)
+    @items = Item.includes(:images).order("created_at DESC")
+    @q = Item.ransack(params[:q])
+    if params[:q].present?
+      @q = Item.ransack(search_params)
+      @searchs = @q.result(distinct: true)
+    else
+      params[:q] = { sorts: 'id desc'}
+      @q = Item.ransack()
+      @items = Item.all
+    end
+  end
+
+  def search_result
+    @parents = Category.where(ancestry:nil)
+    @q = Item.ransack(search_params)
+    @searchs = @q.result(distinct: true)
+    # 検索後に検索内容をリセット
+    @q = Item.ransack({})
+  end
+  
   private
 
   def set_item
@@ -77,10 +99,18 @@ class ItemsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit(:name_cont)
+
+    params.require(:q).permit(:name_cont,
+                              :price_gteq,
+                              :price_lteq,
+                              :sorts,
+                              condition_id_in:[],
+                              category:[:category_id_eq]
+                              )
   end
 
   def set_search
     @q = Item.search(params[:q])
   end
+
 end

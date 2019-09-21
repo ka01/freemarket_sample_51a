@@ -1,0 +1,37 @@
+= render 'layouts/header'
+
+.details-search-container
+  .search-side
+    = render 'items/partial/search'
+  %main.search-content
+    = render 'items/partial/responsive'
+    %section.details-search-result
+      %h2 検索結果
+      .back-search
+        = link_to details_search_items_path, class:"back-search__link" do
+          新着商品一覧へ戻る(仮置き)
+      .search-count
+        = "#{@searchs.size}件"
+    %section.search-items
+      .search-items__boxs
+        - @searchs.each do |search|
+          %section.items__box.search
+            =link_to item_path(search.id) do
+              %figure.items__box__photo
+                - if search.trading_status == "complete"
+                  = image_tag "soldout_tag.png", class: "photo-main--soldout"
+                  = image_tag search.item_images[-1].image_url.url, class:"item-photo__img"
+                - else
+                  = image_tag search.item_images[-1].image_url.url, class:"item-photo__img"
+              .items__box__body
+                %h3.items__box__name
+                  = search.name
+                .items__box__num
+                  .items__box__price
+                    ¥
+                    = search.price
+                  .items__box__icon
+                    = fa_icon 'heart', class: "icon-like-border"
+                    %span 14
+
+= render 'layouts/footer'
