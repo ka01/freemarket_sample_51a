@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :set_item, only: [:show]
   before_action :authenticate_user!, only:[:new]
+  before_action :set_search
   def index
     @items = Item.order('id DESC').limit(4)
   end
@@ -44,6 +45,12 @@ class ItemsController < ApplicationController
     @size_children = @category.size.children if @category.size
   end
 
+  def search
+    @q = Item.ransack(search_params)
+    @search_result = @q.result(distinct: true).order('id DESC')
+    @new_items = Item.order('id DESC').limit(24)
+  end
+
   def details_search
     @parents=Category.where(ancestry:nil)
     @items = Item.includes(:images).order("created_at DESC")
@@ -56,7 +63,6 @@ class ItemsController < ApplicationController
       @q = Item.ransack()
       @items = Item.all
     end
-  end
 
   def search_result
     @parents=Category.where(ancestry:nil)
@@ -92,6 +98,7 @@ class ItemsController < ApplicationController
   end
 
   def search_params
+
     params.require(:q).permit(:name_cont,
                               :price_gteq,
                               :price_lteq,
@@ -99,6 +106,10 @@ class ItemsController < ApplicationController
                               condition_id_in:[],
                               category:[:category_id_eq]
                               )
+  end
+
+  def set_search
+    @q = Item.search(params[:q])
   end
 
 end
