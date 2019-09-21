@@ -2,12 +2,27 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :multinav_category
+  before_action :set_search
 
   def configure_permitted_parameters
     added_attrs=[:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day]
     devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
     devise_parameter_sanitizer.permit(:sign_in, keys: added_attrs)
 
+  end
+
+  def search
+    @q = Item.ransack()
+    @parents = Category.where(ancestry:nil)
+    @new_items = Item.order('id DESC').limit(24)
+    if params[:q].present?
+      @q = Item.ransack(search_params)
+      @search_result = @q.result(distinct: true).order('id DESC')
+    else
+      params[:q] = { sorts: 'id desc'}
+      @q = Item.ransack()
+      @items = Item.all
+    end
   end
 
   private
@@ -24,5 +39,9 @@ class ApplicationController < ActionController::Base
 
   def multinav_category
     @categories = Category.where(ancestry: nil)
+  end
+
+  def set_search
+    @q = Item.search(params[:q])
   end
 end
