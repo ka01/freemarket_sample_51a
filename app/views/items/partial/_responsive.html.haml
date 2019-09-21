@@ -11,7 +11,7 @@
     .hidden-select-box__name 詳細検索
     %button.hidden-select-box__search-box
 %section.items-box-container
-  = search_form_for @q, url:search_result_items_path do |f|
+  = search_form_for @q, url:search_items_path do |f|
     .search-form-group-top
       %lavel
         %i.fas.fa-plus
