@@ -31,6 +31,8 @@ Rails.application.routes.draw do
       get  'done'=>      'purchases#done', as: 'done'
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_size_children', defaults: { format: 'json' }
+      get 'search'
+      get 'details_search'
     end
   end
   resources :signup do
