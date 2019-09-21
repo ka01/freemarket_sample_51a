@@ -1,5 +1,4 @@
 @category_sizes=CategorySize.all
-# @size=Size.where(ancestry: nil).chi
 (1..5).each do |m|
   @category_sizes.each.with_index(1) do |category_size,n|
     @item=Item.create!(name:"商品#{m}-#{n}_のカテゴリは"+Category.find(category_size.category_id).name,
