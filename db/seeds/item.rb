@@ -1,4 +1,5 @@
 @category_sizes=CategorySize.all
+# @size=Size.where(ancestry: nil).chi
 (1..5).each do |m|
   @category_sizes.each.with_index(1) do |category_size,n|
     @item=Item.create!(name:"商品#{m}-#{n}_のカテゴリは"+Category.find(category_size.category_id).name,
@@ -7,7 +8,7 @@
                         condition:rand(6),
                         category_id:category_size.category_id,
                         trading_status:rand(4),
-                        size_id:category_size.size_id,
+                        size_id:Size.find(category_size.size_id).children.first.id,
                         brand_id:Brand.where( 'id >= ?', rand( Brand.first.id..Brand.last.id) ).first.id,
                         seller_id:User.where( 'id >= ?', rand( User.find(1).id..User.find(2).id) ).first.id,
     )
