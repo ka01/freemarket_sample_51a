@@ -1,11 +1,11 @@
 = render 'layouts/header'
 
-.search-container
+.details-search-container
   .search-side
     = render 'items/partial/search'
   %main.search-content
     = render 'items/partial/responsive'
-    %section.search-result
+    %section.details-search-result
       %h2 検索結果
       .back-search
         = link_to details_search_items_path, class:"back-search__link" do
