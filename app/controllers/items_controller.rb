@@ -3,11 +3,17 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
   before_action :authenticate_user!, only:[:new]
   def index
-    @items = Item.order('id DESC').limit(4)
+    @ladies = Category.find_by(name:'レディース')
+    @mens = Category.find_by(name:'メンズ')
+    @item = Item.order('id DESC')
+    @ladies_items = @item.inject([]){|result,n| result << n if n.category.root.name=="レディース";result}.take(4)
+    @mens_items = @item.inject([]){|result,n| result << n if n.category.root.name=="メンズ";result}.take(4)
   end
 
   def show
     @seller = User.find(@item.seller_id)
+    @before_item = Item.where.not(seller_id: current_user.id).where.not(id: @item.id).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
+    @after_item = Item.where.not(seller_id: current_user.id).where.not(id: [@item.id,@before_item.id]).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
   end
 
   def new

@@ -1,0 +1,6 @@
+-if user_signed_in?
+  - unless @item.seller_id == current_user.id || @item.trading_status == "complete"
+    .visible-sp
+      .details-item__float-btn
+        = link_to confirmation_items_path, class: "item-buy-btn" do
+          購入画面に進む
