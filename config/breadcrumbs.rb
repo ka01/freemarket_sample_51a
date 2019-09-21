@@ -7,6 +7,7 @@ crumb :mypage do
   link "マイページ", mypage_index_path
   parent :root
 end
+
 #3階層
 crumb :notification do
   link 'お知らせ', notification_mypage_index_path
@@ -62,6 +63,28 @@ crumb :completed do
   link '出品した商品-売却済み', completed_listings_path
   parent :mypage
 end
+
+crumb :category do
+  link "カテゴリー一覧", category_index_path
+  parent :root
+end
+
+crumb :category_level1 do |level1|
+  link level1.name, category_path(level1)
+  parent :category
+end
+
+crumb :category_level2 do |level2|
+  link level2.name, category_path(level2)
+  parent :category_level1,level2.parent
+end
+
+crumb :category_level3 do |level3|
+  link level3.name, category_path(level3)
+  parent :category_level2,level3.parent
+end
+
+
 # crumb :user do |user|
 #   link "@#{user.nickname}", user_path(user)
 #   parent :users
