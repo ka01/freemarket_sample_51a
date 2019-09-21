@@ -1,6 +1,8 @@
 $(function(){
-  var dropzone = $('.sell-upload-items-container');
-  var dropzone2 = $('.sell-upload-items-container2');
+  var dropzone = $('.sell-upload-drop-box');
+  var dropzone2 = $('.sell-upload-drop-box2');
+  // var dropzone = $('.sell-upload-items-container');
+  // var dropzone2 = $('.sell-upload-items-container2');
   var dropzone_box = $('.dropzone-box');
   var images = [];
   var inputs = [];
@@ -12,19 +14,16 @@ $(function(){
     var file = $(this).prop('files')[0];
     var reader = new FileReader();
     inputs.push($(this));
-    var img = $(`<div class= "img_view"><img></div>`);
+    var img = $(`<div class= "img_view"><img width="114" height="116"></div>`);
     reader.onload = function(e) {
       var btn_wrapper = $('<div class="btn_wrapper"><div class="btn edit">編集</div><div class="btn delete">削除</div></div>');
       img.append(btn_wrapper);
       img.find('img').attr({
-        scr: e.target.result
+        src: e.target.result
       })
     }
     reader.readAsDataURL(file);
     images.push(img);
-    console.log(e.target.result);
-
-
     
     if(images.length >= 5) {
       dropzone2.css({
@@ -62,7 +61,7 @@ $(function(){
       })
       return;
     }
-    var new_image = $(`<input multiple= "multiple" name="item_images[image_url][]", class:"sell-upload-drop-box__file" data-image= ${images.length} type="file" id="sell-upload-drop-box__filege">`);
+    var new_image = $(`<input multiple="multiple" name="item_images[image_url][]" id="sell-upload-drop-box__file" class="sell-upload-drop-box__file" type="file" data-image= ${images.length}>`);
     input_area.prepend(new_image);
   });
   $(document).on('click', '.delete', function() {
@@ -75,7 +74,7 @@ $(function(){
         images.splice(num, 1);
         inputs.splice(num, 1);
         if (inputs.length == 0) {
-          $('input[type= "file"].sell-upload-drop-box__filege').attr({
+          $('input[type= "file"].sell-upload-drop-box__file').attr({
             'data-image': 0
           })
         }
