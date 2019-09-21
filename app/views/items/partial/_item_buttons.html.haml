@@ -1,0 +1,17 @@
+- if @seller.id != current_user.id
+  .details-item-button__container.clearfix
+    .details-item-button__left
+      = button_tag "", type: "button", name: "like", data: {toggle: "like"}, data: {id: "m32062559021"}, data: {ga: "element"}, data: {'ga-category': "LIKE"}, class: "item-button item-button-like is-liked" do
+        %i.fa.fa-heart
+        %span いいね！
+        %span{ class: "fade-in-down", data: {num: "like"} } 2
+      = button_tag "",  class: "item-button item-button-report clearfix", data: {open: "modal"}, data: {modal: "report-item"} do
+        %i.fa.fa-flag
+        %span 不適切な商品の報告
+        %input{ type: "hidden"}
+        %input{ type: "hidden"}
+        %input{ type: "hidden"}
+    .details-item-button__right
+      = link_to "https://www.mercari.com/jp/safe/description/", target: "_blank" do
+        %i.fa.fa-lock
+        %span あんしん・あんぜんへの取り組み
