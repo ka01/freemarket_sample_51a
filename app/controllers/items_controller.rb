@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
   end
 
   def details_search
-    @parents=Category.where(ancestry:nil)
+    @parents = Category.where(ancestry:nil)
     @items = Item.includes(:images).order("created_at DESC")
     @q = Item.ransack(params[:q])
     if params[:q].present?
@@ -66,7 +66,7 @@ class ItemsController < ApplicationController
   end
 
   def search_result
-    @parents=Category.where(ancestry:nil)
+    @parents = Category.where(ancestry:nil)
     @q = Item.ransack(search_params)
     @searchs = @q.result(distinct: true)
     # 検索後に検索内容をリセット
