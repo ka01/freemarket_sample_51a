@@ -1,7 +1,8 @@
 = render 'layouts/header'
 
 .search-container.clearfix
-  .search-container__left
+  .search-side
+    = render 'items/partial/search'
   .search-container__right
     %h2.search-result
       = @q.name_cont

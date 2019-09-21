@@ -15,7 +15,7 @@
 .search-side {
   display: none !important;
 }
-.details_search-container {
+.search-container {
   position: relative;
   margin: 24px auto 0;
   padding: 0 0 40px;
@@ -151,7 +151,7 @@
   .items-box-container {
     display: none !important;
   }
-  .details-search-container {
+  .search-container {
     margin: 40px auto 0;
     padding: 0 0 40px;
     height: auto;
@@ -163,7 +163,7 @@
     display: block !important;
     width: 280px;
     height: auto;
-    margin: 0 40px 0 0;
+    margin: 0 40px 20px 0;
   }
   .search-content {
     width: 100%;

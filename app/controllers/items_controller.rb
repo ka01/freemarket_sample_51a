@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
   end
 
   def search
+    @parents = Category.where(ancestry:nil)
     @q = Item.ransack(search_params)
     @search_result = @q.result(distinct: true).order('id DESC')
     @new_items = Item.order('id DESC').limit(24)

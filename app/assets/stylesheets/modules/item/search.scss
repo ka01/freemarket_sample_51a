@@ -2,12 +2,7 @@
   position: relative;
   margin: 40px auto 0;
   width: 1020px;
-  &__left {
-    float: left;
-    width: 280px;
-    height: auto;
-    background-color: pink;
-  }
+  display: flex;
   &__right {
     float: right;
     width: 700px;
