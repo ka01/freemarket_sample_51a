@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :set_item, only: [:show]
   before_action :authenticate_user!, only:[:new]
+  before_action :set_search
   def index
     @items = Item.order('id DESC').limit(4)
   end
@@ -44,6 +45,11 @@ class ItemsController < ApplicationController
     @size_children = @category.size.children if @category.size
   end
 
+  def search
+    @q = Item.ransack(search_params)
+    @search_result = @q.result(distinct: true).order('id DESC')
+    @new_items = Item.order('id DESC').limit(24)
+  end
 
   private
 
@@ -68,5 +74,13 @@ class ItemsController < ApplicationController
       item_images_attributes: [:id,
                               :image_url]
     ).merge(seller_id: current_user.id,trading_status:0,brand_id:2)
+  end
+
+  def search_params
+    params.require(:q).permit(:name_cont)
+  end
+
+  def set_search
+    @q = Item.search(params[:q])
   end
 end
