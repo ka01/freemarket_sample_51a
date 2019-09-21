@@ -11,4 +11,5 @@
         = link_to '取引中',in_progress_listings_path, class:"listing-tab__item",id: "in_progress"
         #active-tab.listing-tab__item 売却済み
         = render 'listings/shared/listings-content'
+      = paginate(@items)
   = render 'mypage/shared/sidemenus/sidemenu'

@@ -36,19 +36,18 @@
       %h2.pickup__container__title ピックアップカテゴリー
       %section.items
         %h3.items__heading
-          = link_to "#" do
+          = link_to category_path(@ladies) do
             レディース 新着アイテム
         .items__boxs
-          = render partial: 'items/partial/item_box', collection: @items, as:'item'
+          = render partial: 'items/partial/item_box', collection: @ladies_items, as:'item'
         .view__all
           =link_to "すべての商品を見る","https://www.mercari.com/jp/category/1/"
       %section.items
         %h3.items__heading
-          =link_to "/jp/category/1/" do
+          =link_to category_path(@mens) do
             メンズ 新着アイテム
         .items__boxs
-          = render partial: 'items/partial/item_box', collection: @items, as:'item'
+          = render partial: 'items/partial/item_box', collection: @mens_items, as:'item'
         .view__all
           =link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/"
       = render 'layouts/footer'
-
