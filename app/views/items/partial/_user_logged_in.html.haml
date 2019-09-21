@@ -1,4 +1,4 @@
-- if @item.seller_id == current_user.id
+- if @seller.id == current_user.id
   .btn-default.btn-gray.forbidden
     #{@seller.nickname}さんが出品した商品です。
 -elsif @item.trading_status == "complete"

@@ -108,7 +108,7 @@ figure {
 .fa-search {
   position: absolute;
   top: 13px;
-  right: -13px;
+  right: 0px;
   display: flex;
   -webkit-box-align: center;
   align-items: center;
@@ -371,6 +371,10 @@ figure {
     overflow: hidden;
     position: relative;
     margin: 0;
+    >img  {
+      max-width: 213px;
+      height: auto;
+    }
   }
   &__body {
     padding: 16px;

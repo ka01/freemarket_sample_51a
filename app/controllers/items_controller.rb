@@ -1,13 +1,20 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, only: [:show]
-
+  before_action :authenticate_user!, only:[:new]
+  before_action :set_search
   def index
-    @items = Item.order('id DESC').limit(4)
+    @ladies = Category.find_by(name:'レディース')
+    @mens = Category.find_by(name:'メンズ')
+    @item = Item.order('id DESC')
+    @ladies_items = @item.inject([]){|result,n| result << n if n.category.root.name=="レディース";result}.take(4)
+    @mens_items = @item.inject([]){|result,n| result << n if n.category.root.name=="メンズ";result}.take(4)
   end
 
   def show
     @seller = User.find(@item.seller_id)
+    @before_item = Item.where.not(seller_id: current_user.id).where.not(id: @item.id).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
+    @after_item = Item.where.not(seller_id: current_user.id).where.not(id: [@item.id,@before_item.id]).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
   end
 
   def new
@@ -38,13 +45,44 @@ class ItemsController < ApplicationController
     end
   end
 
-  # 親カテゴリーが選択された後に動くアクション
   def get_category_children
-      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find(params[:parent_id]).children
   end
+  
+  def get_size_children
+    @category = Category.find(params[:parent_id])
+    @size_children = @category.size.children if @category.size
+  end
 
+  def search
+    @parents = Category.where(ancestry:nil)
+    @q = Item.ransack(search_params)
+    @search_result = @q.result(distinct: true).order('id DESC')
+    @new_items = Item.order('id DESC').limit(24)
+  end
 
+  def details_search
+    @parents = Category.where(ancestry:nil)
+    @items = Item.includes(:images).order("created_at DESC")
+    @q = Item.ransack(params[:q])
+    if params[:q].present?
+      @q = Item.ransack(search_params)
+      @searchs = @q.result(distinct: true)
+    else
+      params[:q] = { sorts: 'id desc'}
+      @q = Item.ransack()
+      @items = Item.all
+    end
+  end
+
+  def search_result
+    @parents = Category.where(ancestry:nil)
+    @q = Item.ransack(search_params)
+    @searchs = @q.result(distinct: true)
+    # 検索後に検索内容をリセット
+    @q = Item.ransack({})
+  end
+  
   private
 
   def set_item
@@ -58,6 +96,8 @@ class ItemsController < ApplicationController
       :price,
       :condition,
       :category_id,
+      :size_id,
+      # :brand_id,
       shipping_attributes: [:id,
                             :fee_burden,
                             :service,
@@ -65,8 +105,22 @@ class ItemsController < ApplicationController
                             :handling_time],
       item_images_attributes: [:id,
                               :image_url]
-    ).merge(seller_id: current_user.id,trading_status:0)
+    ).merge(seller_id: current_user.id,trading_status:0,brand_id:2)
   end
 
+  def search_params
+
+    params.require(:q).permit(:name_cont,
+                              :price_gteq,
+                              :price_lteq,
+                              :sorts,
+                              condition_id_in:[],
+                              category:[:category_id_eq]
+                              )
+  end
+
+  def set_search
+    @q = Item.search(params[:q])
+  end
 
 end

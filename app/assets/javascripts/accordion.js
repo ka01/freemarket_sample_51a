@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('.nav-category').hover(function(){
+  $('.category-title').hover(function(){
     $(this).addClass('hover-category-title');
     $('.hover-category-title').children('.category-1').show();
   },function(){

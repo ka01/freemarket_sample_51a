@@ -1,0 +1,57 @@
+.pager{
+  margin: 40px 0 0;
+}
+.pagination{
+  width:100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+}
+.pages{
+  white-space: nowrap;
+}
+.page{
+  display: inline;
+}
+.pager-cell{
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 42px;
+  text-align:center;
+  & a{
+    color: #333;
+  }
+  &:hover{
+    background: #ccc
+  }
+}
+.pager-cell.current{
+  color: #fff;
+  background: #ea352d;
+}
+
+.prev-first{
+  white-space: nowrap;
+}
+.prev{
+  display: inline;
+}
+.first{
+  display: inline;
+}
+
+.next-last{
+  white-space: nowrap;
+}
+.next{
+  display: inline;
+}
+.last{
+  display: inline;
+}

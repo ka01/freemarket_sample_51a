@@ -16,8 +16,8 @@
           Googleでログイン
       .top-form
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          =f.email_field :email, class: 'top-input-default', placeholder: 'メールアドレス'
-          =f.password_field :password, class: "top-login-input-password top-input-default", placeholder: 'パスワード'
+          =f.email_field :email, class: 'top-input-default', placeholder: 'メールアドレス', value:'sample1@sample.com'
+          =f.password_field :password, class: "top-login-input-password top-input-default", placeholder: 'パスワード', value:'password'
           .g-recaptcha.signup-recaptcha{"data-sitekey": "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
             %div{style: "width: 304px; height: 78px;"}
               %div
