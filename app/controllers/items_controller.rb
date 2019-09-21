@@ -63,6 +63,7 @@ class ItemsController < ApplicationController
       @q = Item.ransack()
       @items = Item.all
     end
+  end
 
   def search_result
     @parents=Category.where(ancestry:nil)
