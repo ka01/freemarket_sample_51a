@@ -2,14 +2,14 @@ class Item < ApplicationRecord
   has_many :users, through: :purchases
   belongs_to :category
   has_many :purchases
-  belongs_to :brand
+  belongs_to :brand, optional: true
   #以下アソシエーションは今後の実装で必要な為、コメントアウトを残しています
   # has_many :likes dependent: :destroy
   # has_many :comments dependent: :destroy
   # has_many :messages dependent: :destroy
   has_one :shipping, dependent: :destroy
   accepts_nested_attributes_for :shipping
-  belongs_to :size
+  belongs_to :size, optional: true
   # has_many :reviews
   has_many :item_images, dependent: :destroy
   accepts_nested_attributes_for :item_images

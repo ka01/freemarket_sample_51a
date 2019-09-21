@@ -47,4 +47,5 @@ Rails.application.routes.draw do
       get 'step7' # 登録完了画面
     end
   end
+  resources :category, only: [:index, :show]
 end

@@ -14,11 +14,18 @@
         %ul.pc-header__nav-box__left__menu
           %li.pc-header__nav-box__left__menu__list
             %h2.pc-header__nav-box__left__menu__list__search
-              = render 'layouts/multinav-categories'
+          .nav-category
+            .category-title
+              = link_to category_index_path  do
+                .category-title
+                  = fa_icon 'list', class: 'icon-list'
+                  %span カテゴリーから探す
+                  %ul.category-1
+                    = render partial: 'partial/accordion-level1', collection: @categories, as: "level1"
             %ul.pc-header__nav-box__left__menu{ data: {mega: "1"}, style: "width: auto;"}
           %li.pc-header__nav-box__left__menu__list.pc-header__nav-box__left__menu__list--second
             %h2.pc-header__nav-box__left__menu__list__search
-              =link_to "/", class: "pc-header__nav-root.list-parent" do
+              = link_to "/", class: "pc-header__nav-root.list-parent" do
                 = fa_icon 'tag', class: 'icon-tag'
                 %spanブランドから探す
       .pc-header__nav-box__right
@@ -35,16 +42,16 @@
                   %path{ fill: "currentColor", fill: {rule: "nonzero"}, d: "M6.682 12.657L1.67 7.642 0 9.313 6.682 16 21 1.672 19.33 0z"}
                 やることリスト
             %li.login-pc-header__nav-box__right__menu__list
-              =link_to "#", class: "header-svg-config header-svg-hover" do
+              = link_to "#", class: "header-svg-config header-svg-hover" do
                 = image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "sc-gwVKww header-face ")
                 マイページ
             %li.pc-header__nav-box__right__menu__list
-              =link_to "ログアウト", destroy_user_session_path, class: "pc-header__nav__btn pc-header__nav__btn--red", method: :delete
+              = link_to "ログアウト", destroy_user_session_path, class: "pc-header__nav__btn pc-header__nav__btn--red", method: :delete
           - else
             %li.pc-header__nav-box__right__menu__list
-              =link_to "新規会員登録", step1_signup_index_path, class: "pc-header__nav__btn pc-header__nav__btn--red"
+              = link_to "新規会員登録", step1_signup_index_path, class: "pc-header__nav__btn pc-header__nav__btn--red"
             %li.pc-header__nav-box__right__menu__list
-              =link_to "ログイン", new_user_session_path, class: "pc-header__nav__btn pc-header__nav__btn--login"
+              = link_to "ログイン", new_user_session_path, class: "pc-header__nav__btn pc-header__nav__btn--login"
 %header.responsive-header
   .pc-header__box
     .pc-header__box__top
@@ -62,13 +69,13 @@
                 %svg{ aria: {hidden: "true"}, width: "21", height: "16", viewBox: "0 0 21 16", class: "sc-dxgOiQ sc-bwCtUz header-point header-svg-hover"}
                   %path{ fill: "currentColor", fill: {rule: "nonzero"}, d: "M6.682 12.657L1.67 7.642 0 9.313 6.682 16 21 1.672 19.33 0z"}
             %li.login-pc-header__nav-box__right__menu__list
-              =link_to "#", class: "header-svg-config header-svg-hover" do
+              = link_to "#", class: "header-svg-config header-svg-hover" do
                 = image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "sc-gwVKww header-face ")
           - else
             %li.pc-header__nav-box__right__menu__list
-              =link_to "新規会員", step1_signup_index_path, class: "pc-header__nav__btn pc-header__nav__btn--red"
+              = link_to "新規会員", step1_signup_index_path, class: "pc-header__nav__btn pc-header__nav__btn--red"
             %li.pc-header__nav-box__right__menu__list
-              =link_to "ログイン", new_user_session_path, class: "pc-header__nav__btn pc-header__nav__btn--login"
+              = link_to "ログイン", new_user_session_path, class: "pc-header__nav__btn pc-header__nav__btn--login"
   .responsive-form
     %form.pc-header__box__form
       %input.pc-header__box__form__input-box{ type: "search", name: "keyword", placeholder: "何かお探しですか？", kl_vkbd_parsed: "true" }
@@ -78,10 +85,17 @@
       %ul.pc-header__nav-box__left__menu
         %li.pc-header__nav-box__left__menu__list
           %h2.pc-header__nav-box__left__menu__list__search
-            = render 'layouts/multinav-categories'
+          .nav-category
+            .category-title
+              = link_to category_index_path  do
+                .category-title
+                  = fa_icon 'list', class: 'icon-list'
+                  %span カテゴリーから探す
+                  %ul.category-1
+                    = render partial: 'partial/accordion-level1', collection: @categories, as: "level1"
           %ul.pc-header__nav-box__left__menu{ data: {mega: "1"}, style: "width: auto;"}
         %li.pc-header__nav-box__left__menu__list.pc-header__nav-box__left__menu__list--second
           %h2.pc-header__nav-box__left__menu__list__search
-            =link_to "/", class: "pc-header__nav-root.list-parent" do
+            = link_to "/", class: "pc-header__nav-root.list-parent" do
               = fa_icon 'tag', class: 'icon-tag'
               %spanブランドから探す

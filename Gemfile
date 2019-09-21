@@ -50,6 +50,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'faker'
   gem 'capybara', '>= 2.15'
+
+
 end
 
 group :development do
@@ -97,3 +99,5 @@ gem 'payjp'
 gem 'fog-aws'
 gem 'ancestry'
 gem 'ransack'
+gem 'gimei'
+gem 'kaminari', '~> 0.17.0'
