@@ -1,8 +1,6 @@
 $(function(){
   var dropzone = $('.sell-upload-drop-box');
   var dropzone2 = $('.sell-upload-drop-box2');
-  // var dropzone = $('.sell-upload-items-container');
-  // var dropzone2 = $('.sell-upload-items-container2');
   var dropzone_box = $('.dropzone-box');
   var images = [];
   var inputs = [];
