@@ -1,4 +1,4 @@
-- if @seller.id == current_user.id
+- if @seller.id != current_user.id
   %ul.details-item__link.clearfix
     %li.details-item__link__prev
       = link_to item_path(@before_item) do
