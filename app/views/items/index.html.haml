@@ -41,7 +41,7 @@
         .items__boxs
           = render partial: 'items/partial/item_box', collection: @ladies_items, as:'item'
         .view__all
-          =link_to category_path(@ladies) ,do
+          =link_to category_path(@ladies) do
             すべての商品を見る
       %section.items
         %h3.items__heading
