@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.build
     @item.build_shipping
-    @parents=Category.where(ancestry:nil)
+    @level1_categories = Category.where(ancestry:nil)
   end
 
   def create
@@ -45,8 +45,27 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    @level1_categories = @item.category.root.siblings
+    @level2_categories = @item.category.parent.siblings
+    @level3_categories = @item.category.siblings
+    @size = @item.size.siblings
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      flash[:notice] = '更新しました'
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+  end
+
+
   def get_category_children
-      @category_children = Category.find(params[:parent_id]).children
+    @category_children = Category.find(params[:parent_id]).children
   end
 
   def get_size_children
