@@ -373,3 +373,29 @@
     }
   }
 }
+.img_view {
+  position: absolute;
+  height: 162px;
+  width: 114px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  margin: 0 0 10px;
+  background: #f5f5f5;
+  line-height: 44px;
+  border: 1px solid #ccc;
+    & > img{
+      display: inline-block;
+      // height: 100%;
+      width: 100%;
+    }
+    .btn_wrapper {
+      display: flex;
+      justify-content: space-between;
+      color: #0099e8;
+      text-decoration: none;
+        .delete {
+          border-left: 1px solid rgb(238, 238, 238);
+        }
+  }
+}
