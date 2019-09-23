@@ -3,9 +3,9 @@
     %figure.items__box__photo
       - if item.trading_status == "complete"
         = image_tag "soldout_tag.png", class: "photo-main--soldout"
-        = image_tag item.item_images.first.image_url.url
+        = image_tag item.item_images.first.image_url.url, class: "items__box__photo--size"
       -else
-        = image_tag item.item_images.first.image_url.url
+        = image_tag item.item_images.first.image_url.url, class: "items__box__photo--size"
 
     .items__box__body
       %h3.items__box__name

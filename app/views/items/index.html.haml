@@ -41,7 +41,8 @@
         .items__boxs
           = render partial: 'items/partial/item_box', collection: @ladies_items, as:'item'
         .view__all
-          =link_to "すべての商品を見る","https://www.mercari.com/jp/category/1/"
+          =link_to category_path(@ladies) do
+            すべての商品を見る
       %section.items
         %h3.items__heading
           =link_to category_path(@mens) do
@@ -49,5 +50,6 @@
         .items__boxs
           = render partial: 'items/partial/item_box', collection: @mens_items, as:'item'
         .view__all
-          =link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/"
+          =link_to category_path(@mens) do
+            すべての商品を見る
       = render 'layouts/footer'

@@ -32,8 +32,6 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_size_children', defaults: { format: 'json' }
       get 'search'
-      match 'details_search' => 'items#details_search', via: [:get, :post]
-      get 'search_result'
     end
   end
   resources :signup do
