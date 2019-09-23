@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
   before_action :authenticate_user!, only:[:new]
+  before_action :set_search
 
   def index
     @ladies = Category.find_by(name:'レディース')
@@ -25,9 +26,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-      redirect_to action: :index
-    end
+      if @item.save
+        params[:item_images]['image_url'].each do |img|
+          @item_image = @item.item_images.create!(image_url: img)
+        end
+        redirect_to root_path
+      end
   end
 
   def destroy
@@ -70,8 +74,7 @@ class ItemsController < ApplicationController
                             :service,
                             :area,
                             :handling_time],
-      item_images_attributes: [:id,
-                              :image_url]
+      item_images_attributes: [:image_url]
     ).merge(seller_id: current_user.id,trading_status:0,brand_id:2)
   end
 
