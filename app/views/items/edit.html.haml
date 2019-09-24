@@ -11,21 +11,21 @@
               出品画像
               %span.sell-upload-box__head--require 必須
             %p 最大10枚までアップロードできます
-            = f.fields_for :item_images do |i|
-              .sell-upload-box__dropbox.clearfix
-                #preview
-                .sell-upload-items-container
-                  = i.label :image, class: "dropzone-box", for: "sell-upload-drop-box__file" do
-                    %label.sell-upload-drop-box
-                      = i.file_field :image_url, multiple: true, name: "item_images[image_url][]", id: "sell-upload-drop-box__file", class:"sell-upload-drop-box__file", type: "file", 'data-image': 0
-                      %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
-                      %i.sell-upload-drop-box__icon--.fas.fa-camera
-                #preview2
-                .sell-upload-items-container2
-                  = i.label :image, class: "dropzone-box", for: "sell-upload-drop-box__file" do
-                    %label.sell-upload-drop-box2
-                      %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
-                      %i.sell-upload-drop-box__icon--.fas.fa-camera
+            -# = f.fields_for :item_images do |i|
+            -#   .sell-upload-box__dropbox.clearfix
+            -#     #preview
+            -#     .sell-upload-items-container
+            -#       = i.label :image, class: "dropzone-box", for: "sell-upload-drop-box__file" do
+            -#         %label.sell-upload-drop-box
+            -#           = i.file_field :image_url, multiple: true, name: "item_images[image_url][]", id: "sell-upload-drop-box__file", class:"sell-upload-drop-box__file", type: "file", 'data-image': 0
+            -#           %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
+            -#           %i.sell-upload-drop-box__icon--.fas.fa-camera
+            -#     #preview2
+            -#     .sell-upload-items-container2
+            -#       = i.label :image, class: "dropzone-box", for: "sell-upload-drop-box__file" do
+            -#         %label.sell-upload-drop-box2
+            -#           %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
+            -#           %i.sell-upload-drop-box__icon--.fas.fa-camera
           .sell-content
             .sell-form-group
               = f.label "商品名"
@@ -52,18 +52,25 @@
                   .sell-form-group__select-wrap.level1_category--form
                     %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
                     = f.collection_select :category_id, @level1_categories, :id, :name, {prompt: "---",selected:@item.category.root.id}, {class: "sell-form-group__select-wrap--default",id: 'level1_category'}
-                  .sell-form-group__select-wrap.level2_category--form
-                    %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                    = f.collection_select :category_id, @level2_categories, :id, :name, {prompt: "---",selected:@item.category.parent.id}, {class: "sell-form-group__select-wrap--default",id: 'level2_category'}
-                  .sell-form-group__select-wrap.level3_category--form
-                    %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                    = f.collection_select :category_id, @level3_categories, :id, :name, {prompt: "---",selected:@item.category.id}, {class: "sell-form-group__select-wrap--default",id: 'level3_category'}
-                .sell-form-group.size-forms
-                  = f.label "サイズ"
-                  %span.sell-form-group__require 必須
-                  .sell-form-group__select-wrap
-                    %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                    = f.collection_select :size_id, @size, :id, :kind, {prompt: "---"}, {class: "sell-form-group__select-wrap--default",id: 'level1_category'}
+                  - if @item.category.depth == 1
+                    .sell-form-group__select-wrap.level2_category--form
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = f.collection_select :category_id, @level3_categories, :id, :name, {prompt: "---",selected:@item.category.id}, {class: "sell-form-group__select-wrap--default",id: 'level2_category'}
+                  - else
+                    .sell-form-group__select-wrap.level2_category--form
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = f.collection_select :category_id, @level2_categories, :id, :name, {prompt: "---",selected:@item.category.parent.id}, {class: "sell-form-group__select-wrap--default",id: 'level2_category'}
+                    .sell-form-group__select-wrap.level3_category--form
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = f.collection_select :category_id, @level3_categories, :id, :name, {prompt: "---",selected:@item.category.id}, {class: "sell-form-group__select-wrap--default",id: 'level3_category'}
+                - if @item.size
+                  .sell-form-group.size-forms
+                    = f.label "サイズ"
+                    %span.sell-form-group__require 必須
+                    .sell-form-group__select-wrap
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = f.collection_select :size_id, @size, :id, :kind, {prompt: "---"}, {class: "sell-form-group__select-wrap--default",id: 'level1_category'}
+
                 .sell-form-group.brand-forms
                   = f.label "ブランド"
                   %span.sell-form-group__arbitrary 任意

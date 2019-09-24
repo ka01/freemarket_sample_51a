@@ -36,7 +36,7 @@ $(function(){
   }
   function appendBrandForm(){
     var childSelectHtml = '';
-    childSelectHtml = `<div class="sell-form-group band-forms">
+    childSelectHtml = `<div class="sell-form-group brand-forms">
                         <label for="item_ブランド">ブランド</label>
                         <span class="sell-form-group__arbitrary">任意</span>
                           <div class="sell-form-group__select-wrap level1_category--form">
@@ -76,7 +76,7 @@ $(function(){
     e.preventDefault();
     $('.level2_category--form').nextAll().remove();
     $('.size-forms').remove();
-    $('.band-forms').remove();
+    $('.brand-forms').remove();
     var level2_category_val = Number($(this).val());
     $.ajax({
       type:'GET',
@@ -122,7 +122,7 @@ $(function(){
   $(document).on('change','#level3_category',function(e){
     e.preventDefault();
     $('.size-forms').remove();
-    $('.band-forms').remove();
+    $('.brand-forms').remove();
     var level3_category_val = Number($(this).val());
     $.ajax({
       type:'GET',

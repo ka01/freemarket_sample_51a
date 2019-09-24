@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
     @level1_categories = @item.category.root.siblings
     @level2_categories = @item.category.parent.siblings
     @level3_categories = @item.category.siblings
-    @size = @item.size.siblings
+    @size = @item.size.siblings if @item.size
   end
 
   def update
