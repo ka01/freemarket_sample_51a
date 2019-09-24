@@ -2,7 +2,7 @@ $(function() {
   $('.hidden-select-box__search-box').click(function() {
     $('.items-box-container').toggle();
   })
-  // カテゴリー検索用Js実装途中です。
+  // カテゴリー検索用Js実装途中です。コメントアウトしているコードは使用します
   function appendOption(child,option_type){
     if (option_type =='category'){
       var option_value = child.name
@@ -26,6 +26,7 @@ $(function() {
 
   $('#q_category_id_eq_any').on('change',function(e){
     e.preventDefault();
+    // 以下3行は親要素のセレクトを変更した際に使うコード
     // $('.level1_category--form').nextAll().remove();
     // $('.size-forms').remove();
     // $('.band-forms').remove();
@@ -53,6 +54,7 @@ $(function() {
   })
   $(document).on('change','#level2_category',function(e){
     e.preventDefault();
+    // 以下3行は親要素のセレクトを変更した際に使うコード
     // $('.level2_category--form').nextAll().remove();
     // $('.size-forms').remove();
     // $('.band-forms').remove();
