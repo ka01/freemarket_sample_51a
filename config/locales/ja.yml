@@ -215,6 +215,11 @@ ja:
         good: やや傷や穢れあり
         poor: 傷や穢れあり
         damege: 全体的に状態が悪い
+      trading_status:
+        selling:   販売中
+        stop_deal: 販売停止中
+        deal:      取引中
+        complete:  取引終了
 
     shipping:
       fee_burden:

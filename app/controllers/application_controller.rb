@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
       @search_result = @q.result(distinct: true).order('id DESC')
     else
       params[:q] = { sorts: 'id desc'}
-      @q = Item.ransack()
       @items = Item.all
     end
   end
@@ -44,4 +43,17 @@ class ApplicationController < ActionController::Base
   def set_search
     @q = Item.search(params[:q])
   end
+
+  def search_params
+    params.require(:q).permit(:name_cont,
+                              :price_gteq,
+                              :price_lteq,
+                              :sorts,
+                              :trading_status_eq_any,
+                              :condition_eq_any,
+                              :shipping_fee_burden_eq_any,
+                              :category_id_eq_any
+                              )
+  end
+
 end

@@ -49,7 +49,7 @@ $(function(){
     e.preventDefault();
     $('.level1_category--form').nextAll().remove();
     $('.size-forms').remove();
-    $('.band-forms').remove();
+    $('.brand-forms').remove();
     var level1_category_val = Number($(this).val())
     if (level1_category_val !=""){
       $.ajax({
