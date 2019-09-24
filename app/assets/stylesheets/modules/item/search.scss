@@ -298,7 +298,7 @@
     display: block;
     padding: 16px;
   }
-  .search-dropdown-content .search-form-group {
+  .search-dropdown-content,.search-form-group {
     margin: 24px 0 0;
   }
   .search-extend i {
@@ -307,7 +307,7 @@
     font-size: 16px;
     vertical-align: middle;
   }
-  .search-form-group .search-input-default {
+  .search-input-default, #q_condition_eq_any, #q_trading_status_eq_any,#q_shipping_fee_burden_eq_any {
     margin: 8px 0 0;
     height: 48px;
     width: 215px;
