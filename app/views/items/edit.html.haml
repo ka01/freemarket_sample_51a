@@ -70,13 +70,11 @@
                     .sell-form-group__select-wrap
                       %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
                       = f.collection_select :size_id, @size, :id, :kind, {prompt: "---"}, {class: "sell-form-group__select-wrap--default",id: 'level1_category'}
-
                 .sell-form-group.brand-forms
                   = f.label "ブランド"
                   %span.sell-form-group__arbitrary 任意
                   .sell-form-group__select-wrap
                     %input#item_brand_id.sell-form-group__input-default{:name => "item[brand_id]", :placeholder => "例）入力禁止。brand_id:2が自動入力されます", :type => "text"}/
-
               .sell-form-group
                 = f.label "商品の状態"
                 %span.sell-form-group__require 必須
