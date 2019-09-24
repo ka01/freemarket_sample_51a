@@ -75,14 +75,4 @@ class ItemsController < ApplicationController
     ).merge(seller_id: current_user.id,trading_status:0,brand_id:2)
   end
 
-  def search_params
-    params.require(:q).permit(:name_cont,
-                              :price_gteq,
-                              :price_lteq,
-                              :sorts,
-                              condition_id_in:[],
-                              category:[:category_id_eq]
-                              )
-  end
-
 end
