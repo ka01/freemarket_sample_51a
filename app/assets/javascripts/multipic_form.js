@@ -63,6 +63,7 @@ $(function(){
 
     var new_image = $(`<input multiple="multiple" name="item[item_images_attributes][1][image_url]" class="sell-upload-drop-box__file" data-image= ${images.length}> type="file" id="sell-upload-drop-box__file"`);
 
+
     input_area.prepend(new_image);
   });
   $(document).on('click', '.delete', function() {
