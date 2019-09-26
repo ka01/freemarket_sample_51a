@@ -60,7 +60,7 @@ $(function(){
       })
       return;
     }
-    var new_image = $(`<input multiple="multiple" name="item_images[image_url][]" id="sell-upload-drop-box__file" class="sell-upload-drop-box__file" type="file" data-image= ${images.length}>`);
+    var new_image = $(`<input multiple="multiple" name="item_images[image_url][]" class="sell-upload-drop-box__file" data-image= ${images.length}> type="file" id="sell-upload-drop-box__file"`);
     input_area.prepend(new_image);
   });
   $(document).on('click', '.delete', function() {
@@ -104,7 +104,7 @@ $(function(){
         dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
       }
       if(images.length == 8) {
-        dropzone2.find('p').replaceWith('<p>ココをクリックしなさい</p>')
+        dropzone2.find('i').replaceWith('<p>ココをクリックしなさい</p>')
       }
     } else {
       dropzone.css({

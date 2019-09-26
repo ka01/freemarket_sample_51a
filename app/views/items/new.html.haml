@@ -7,25 +7,28 @@
           %h2.sell-container__head
             商品の情報を入力
           .sell-upload-box
-            %h3.sell-upload-box__head
+            %label.sell-upload-box__head
               出品画像
-              %span.sell-upload-box__head--require 必須
+            %span.sell-upload-box__head--require 必須
             %p 最大10枚までアップロードできます
             = f.fields_for :item_images do |i|
               .sell-upload-box__dropbox.clearfix
                 #preview
                 .sell-upload-items-container
                   = i.label :image, class: "dropzone-box", for: "sell-upload-drop-box__file" do
-                    %label.sell-upload-drop-box
+                    .sell-upload-drop-box
+                      -# %label.sell-upload-drop-box
                       = i.file_field :image_url, multiple: true, name: "item_images[image_url][]", id: "sell-upload-drop-box__file", class:"sell-upload-drop-box__file", type: "file", 'data-image': 0
-                      %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
-                      %i.sell-upload-drop-box__icon--.fas.fa-camera
+                    %p.pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
+                    -# %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
+                    %i.sell-upload-drop-box__icon--.fas.fa-camera
                 #preview2
                 .sell-upload-items-container2
                   = i.label :image, class: "dropzone-box", for: "sell-upload-drop-box__file" do
-                    %label.sell-upload-drop-box2
-                      %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
-                      %i.sell-upload-drop-box__icon--.fas.fa-camera
+                    -# %label.sell-upload-drop-box2
+                    %p.pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
+                    -# %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
+                    %i.sell-upload-drop-box__icon--.fas.fa-camera
           .sell-content
             .sell-form-group
               = f.label "商品名"
