@@ -26,12 +26,13 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-      if @item.save
-        params[:item_images]['image_url'].each do |img|
-          @item_image = @item.item_images.create!(image_url: img)
-        end
-        redirect_to root_path
-      end
+    @item.save
+      # if @item.save
+      #   params[:item_images]['image_url'].each do |img|
+      #     @item_image = @item.item_images.create!(image_url: img)
+      #   end
+      #   redirect_to root_path
+      # end
   end
 
   def destroy
@@ -47,6 +48,9 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    # require 'base64'
+    # binary_data = File.read(@item.item_images[0].image_url)
+    # @item_images =  Base64.strict_encode64(binary_data)
     @level1_categories = @item.category.root.siblings
     @level2_categories = @item.category.parent.siblings
     @level3_categories = @item.category.siblings
@@ -93,7 +97,9 @@ class ItemsController < ApplicationController
                             :service,
                             :area,
                             :handling_time],
-      item_images_attributes: [:image_url]
+      item_images_attributes: [:id,
+                              :image_url,
+                              :item_id]
     ).merge(seller_id: current_user.id,trading_status:0,brand_id:2)
   end
 

@@ -22,7 +22,7 @@ $(function(){
     }
     reader.readAsDataURL(file);
     images.push(img);
-    
+
     if(images.length >= 5) {
       dropzone2.css({
         'display': 'block'
@@ -59,7 +59,7 @@ $(function(){
       })
       return;
     }
-    var new_image = $(`<input multiple="multiple" name="item_images[image_url][]" id="sell-upload-drop-box__file" class="sell-upload-drop-box__file" type="file" data-image= ${images.length}>`);
+    var new_image = $(`<input  name="item[item_images_attributes][1][image_url]" id="sell-upload-drop-box__file" class="sell-upload-drop-box__file" type="file" data-image= ${images.length}>`);
     input_area.prepend(new_image);
   });
   $(document).on('click', '.delete', function() {
