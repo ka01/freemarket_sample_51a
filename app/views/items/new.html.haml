@@ -15,12 +15,10 @@
               .sell-upload-box__dropbox.clearfix
                 #preview
                 .sell-upload-items-container
-                  = i.label :image, class: "dropzone-box", for: "sell-upload-drop-box__file" do
+                  = i.label :image_url, class: "dropzone-box", for: "sell-upload-drop-box__file" do
                     .sell-upload-drop-box
                       -# %label.sell-upload-drop-box
-
-                      = i.file_field :image_url, multiple: true, id: "sell-upload-drop-box__file", class:"sell-upload-drop-box__file", type: "file", 'data-image': 0
-
+                      = i.file_field :image_url, id: "sell-upload-drop-box__file", class:"sell-upload-drop-box__file", type: "file", 'data-image': 0
                     %p.pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
                     -# %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
                     %i.sell-upload-drop-box__icon--.fas.fa-camera
