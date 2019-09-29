@@ -9,6 +9,7 @@ $(function(){
   var preview2 = $('#preview2');
 
   $(document).on('change', 'input[type= "file"].sell-upload-drop-box__file',function(e) {
+    console.log("ok")
     var file = $(this).prop('files')[0];
     var reader = new FileReader();
     inputs.push($(this));
