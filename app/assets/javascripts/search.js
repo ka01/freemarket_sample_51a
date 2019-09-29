@@ -6,7 +6,7 @@ $(function(){
   }
 
   function buildBOX2(){
-    var category_box = `<i class="fas fa-chevron-down"></i><select maxlength="40" name="q[category_id_eq]" id="category_box_6" class="ransack-select"><option value="">---</option>`
+    var category_box = `<div id="icon"><i class="fas fa-chevron-down"></i></div><select maxlength="40" name="q[category_id_eq]" id="category_box_6" class="ransack-select"><option value="">---</option>`
     return category_box;
   }
 
@@ -26,6 +26,7 @@ $(function(){
       .done(function(data){
         $('#category_box_5').remove();
         $('#category_box_6').remove();
+        $('#icon').remove();
         html = buildBOX1(data)
         $("#category_children").append(html);
         data.forEach(function( children ) {
