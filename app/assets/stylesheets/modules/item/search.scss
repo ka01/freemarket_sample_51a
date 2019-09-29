@@ -1,3 +1,25 @@
+.ransack-select {
+  margin-top: 5px;
+  width: 95%;
+  height: 50px;
+  background-color: white;
+  background-size: 14px;
+  border-radius: 4px;
+  border: solid 1px #ccc;
+  cursor: pointer;
+  padding-left: 10px;
+  -webkit-appearance: none;
+}
+#category_children, #category_grandchildren {
+  position: relative;
+  .fas.fa-chevron-down{
+    font-size: 18px;
+    position: absolute;
+    right: 12px;
+    top: 40%;
+  }
+}
+
 .search-container {
   position: relative;
   margin: 40px auto 0;
