@@ -10,7 +10,7 @@ $(function(){
     $('.add__sell-upload-drop-box').remove()
     $('.re__sell-upload-items').append(dropboxHtml);
     $('.add__sell-upload-drop-box').css({
-          'width': `calc(620px - (130px * ${(image_count+1) % 5 }))`
+          'width': `calc(620px - (125px * ${(image_count+1) % 5 }))`
         })
   }
   function renumbering(){

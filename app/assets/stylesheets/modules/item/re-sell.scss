@@ -359,7 +359,7 @@
   border-style: solid;
   border-color: rgb(238, 238, 238);
   border-image: initial;
-  &:first-child{
+  &:nth-child(5n+1){
     margin-left: 0;
   }
 }
@@ -384,7 +384,7 @@
   transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
   cursor: pointer;
   float: right;
-  margin-left: 2%;
+  // margin-left: 2%;
   &__file {
     display: none;
   }
@@ -417,6 +417,7 @@
   transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
   cursor: pointer;
   float: right;
+  margin-right: 10px;
   &__file {
     display: none;
   }
