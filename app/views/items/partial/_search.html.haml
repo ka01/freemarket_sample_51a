@@ -19,9 +19,9 @@
           カテゴリーを選択する
         .search-select-wrap
           .search-select-wrap__icon.fas.fa-chevron-down
-          -# カテゴリー検索は実装途中です
-          -# = f.fields_for :category do |category|
-          = f.collection_select :category_id_eq_any, @parents, :id, :name, {prompt: "全て"}, {class: "search-input-default select"}
+          = f.collection_select :category_id_eq, @categories, :id, :name, {prompt: "---"}, class: "search-input-default select", id: "ransack_category_id"
+        #category_children
+        #category_grandchildren
     .search-form-group
       %lavel
         %i.fas.fa-tags
@@ -33,10 +33,10 @@
         %i.fas.fa-expand
         %span
           サイズを指定する
-        .search-select-wrap{"data-search" => "parent"}
+        .search-select-wrap{"data-search": "parent"}
           .search-select-wrap__icon.fas.fa-chevron-down
-          %select.search-input-default.select{:name => "size_group"}
-            %option{:value => ""} まだ実装できてない
+          %select.search-input-default.select{name: "size_group"}
+            %option{value: ""} まだ実装できてない
     .search-form-group
       %lavel
       %i.fas.fa-coins
@@ -60,9 +60,9 @@
           %option{value: "six"}
             50000~
       .search-select-wrap.half
-        = f.number_field:price_gteq, placeholder: "¥Min", class:"search-input-default price"
+        = f.search_field:price_gteq, placeholder: "¥Min", class:"search-input-default price"
         %span ~
-        = f.number_field:price_lteq, placeholder: "¥Max", class:"search-input-default price"
+        = f.search_field:price_lteq, placeholder: "¥Max", class:"search-input-default price"
     .search-form-group
       %lavel
       %i.fas.fa-star
