@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def search
     @q = Item.ransack()
-    @parents = Category.where(ancestry:nil)
+    @categories = Category.where(ancestry: nil)
     @new_items = Item.order('id DESC').limit(24)
     if params[:q].present?
       @q = Item.ransack(search_params)
@@ -48,11 +48,11 @@ class ApplicationController < ActionController::Base
     params.require(:q).permit(:name_cont,
                               :price_gteq,
                               :price_lteq,
+                              :category_id_eq,
                               :sorts,
                               :trading_status_eq_any,
                               :condition_eq_any,
-                              :shipping_fee_burden_eq_any,
-                              :category_id_eq_any
+                              :shipping_fee_burden_eq_any
                               )
   end
 

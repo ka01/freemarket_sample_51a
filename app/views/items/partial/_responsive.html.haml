@@ -26,7 +26,7 @@
         .search-select-wrap{"data-search": "parent"}
           .search-select-wrap__icon.fas.fa-chevron-down
           = f.fields_for :category do |category|
-            = category.collection_select :category_id_eq, @parents, :id, :name, {prompt: "全て"}, {class: "search-input-default select"}
+            = category.collection_select :category_id_eq, @categories, :id, :name, {prompt: "全て"}, {class: "search-input-default select"}
         -# Jsで実装する部分%div{"data-search" => "child"}
         -# Jsで実装する部分%div{"data-search" => "grand-child"}
     .search-form-group
