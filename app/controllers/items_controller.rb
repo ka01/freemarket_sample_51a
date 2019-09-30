@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @item_images = @item.item_images
     # require 'base64'
     # binary_data = File.read(@item.item_images[0].image_url)
     # @item_images =  Base64.strict_encode64(binary_data)

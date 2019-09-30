@@ -24,15 +24,16 @@
               .re__sell-dropbox-container.clearfix.state-image-number-10
                 .re__sell-upload-items-container
                   %ul.re__sell-upload-items
-                    = f.fields_for :item_images do |i|
-                      %li.re__sell-upload-item
-                        = image_tag i.object.image_url.url,size:'114x116'
-                        .re__btn_wrapper
-                          = i.label :image_url, class: "btn re__edit", for: "re__sell-upload-drop-box__file" do
-                            編集
-                            = i.file_field :image_url, id: "re__sell-upload-drop-box__file", class:"re__sell-upload-drop-box__file", type: "file", 'data-image': i.index
-                            = i.hidden_field :id, value: i.object.id
-                          .btn.re__delete 削除
+                    - @item_images.each.each_with_index do |item_image,index|
+                      = f.fields_for :item_images,item_image do |i|
+                        %li.re__sell-upload-item
+                          = image_tag i.object.image_url.url,size:'114x116'
+                          .re__btn_wrapper
+                            = i.label :image_url, class: "btn re__edit", for: "re__sell-upload-drop-box__file_#{index}" do
+                              編集
+                              = i.file_field :image_url, id: "re__sell-upload-drop-box__file_#{index}", class:"re__sell-upload-drop-box__file", type: "file", 'data-image': i.index
+                              = i.hidden_field :id, value: i.object.id
+                            .btn.re__delete 削除
                     -# %li
                     -#   .re__sell-upload-drop-box.have-item
                     -#     %label.sell-upload-drop-box__visible-pc{:for => "add__sell-upload-drop-box__file"}

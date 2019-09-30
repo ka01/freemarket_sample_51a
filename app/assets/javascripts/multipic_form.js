@@ -63,7 +63,7 @@ $(function(){
     }
 
     // var new_image = $(`<input name="item[item_images_attributes][1][image_url]" class="sell-upload-drop-box__file" data-image= ${images.length}> type="file" id="sell-upload-drop-box__file"`);
-    var new_image = $(`<input name="item[item_images_attributes][${images.length}]][image_url]" id="sell-upload-drop-box__file" class="sell-upload-drop-box__file" type="file" data-image= ${images.length}>`);
+    var new_image = $(`<input name="item[item_images_attributes][${images.length}][image_url]" id="sell-upload-drop-box__file" class="sell-upload-drop-box__file" type="file" data-image= ${images.length}>`);
 
     input_area.prepend(new_image);
   });
