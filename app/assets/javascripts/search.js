@@ -26,7 +26,6 @@ $(function(){
       .done(function(data){
         $('#category_box_5').remove();
         $('.append_box').remove();
-        // $('#category_box_6').remove();
         html = buildBOX1(data)
         $("#category_children").append(html);
         data.forEach(function( children ) {
