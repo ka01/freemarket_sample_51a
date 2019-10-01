@@ -31,8 +31,8 @@
                           .re__btn_wrapper
                             = i.label :image_url, class: "btn re__edit", for: "re__sell-upload-drop-box__file_#{index}" do
                               編集
-                              = i.file_field :image_url, id: "re__sell-upload-drop-box__file_#{index}", class:"re__sell-upload-drop-box__file", type: "file", 'data-image': i.index
-                              = i.hidden_field :id, value: i.object.id
+                              = i.file_field :image_url, id: "re__sell-upload-drop-box__file_#{index}", class:"re__sell-upload-drop-box__file", type: "file", 'data-image': i.index,value: i.object.id
+                              -# = i.hidden_field :id, value: i.object.id
                             .btn.re__delete 削除
                     -# %li
                     -#   .re__sell-upload-drop-box.have-item

@@ -3,7 +3,7 @@ $(function(){
     var dropboxHtml = '';
     dropboxHtml = `<li class="re__sell-upload-drop-box drophere">
                     <input id="re__sell-upload-drop-box__file_${image_count}" class="re__sell-upload-drop-box__file" data-image="${image_count}" name="item[item_images_attributes][${image_count}][image_url]" type="file">
-                    <label class="re__sell-upload-drop-box__text" for="re__sell-upload-drop-box__file">
+                    <label class="re__sell-upload-drop-box__text" for="re__sell-upload-drop-box__file_${image_count}">
                       <p >ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード</p>
                     </label>
                   </li>`;
@@ -39,6 +39,8 @@ $(function(){
   function renumbering(){
     var i = 0;
     $('.re__sell-upload-drop-box__file').each(function(i,elem){
+      $(elem).attr('id',`re__sell-upload-drop-box__file_${i}`);
+      $(elem).attr('name',`item[item_images_attributes][${i}][image_url]`);
       $(elem).attr('data-image',i);
       i++;
     })
@@ -72,8 +74,7 @@ $(function(){
   })
 
   $(document).on('click', '.re__delete', function() {
-    var target_image = $(this).parent().parent();
-    target_image.remove();
+    $(this).parent().parent().remove();
     $.when(
     renumbering()
     ).done(function(){
