@@ -2,11 +2,11 @@ $(function(){
   function appendDropBox(image_count){
     var dropboxHtml = '';
     dropboxHtml = `<li class="re__sell-upload-drop-box drophere">
-                        <input class="re__sell-upload-drop-box__file" id="re__sell-upload-drop-box__file" name="item[item_images_attributes][${image_count+1}][image_url]" type="file">
-                        <label class="re__sell-upload-drop-box__text" for="re__sell-upload-drop-box__file">
-                          <p >ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード</p>
-                        </label>
-                    </li>`;
+                    <input class="re__sell-upload-drop-box__file" id="re__sell-upload-drop-box__file" name="item[item_images_attributes][${image_count+1}][image_url]" type="file">
+                    <label class="re__sell-upload-drop-box__text" for="re__sell-upload-drop-box__file">
+                      <p >ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード</p>
+                    </label>
+                  </li>`;
     $('.drophere').remove()
     $('.re__sell-upload-items').append(dropboxHtml);
     $('.drophere').css({
@@ -23,6 +23,15 @@ $(function(){
                     <input  type="hidden" name="item[item_images_attributes][${image_count+1}][id]" id="item_item_images_attributes_${image_count+1}_id">
                     </label><div class="btn re__delete">削除</div>
                   </div>
+                  </li>
+                  <li class="re__sell-upload-item">
+                    <img src="/uploads/item_image/image_url/848/ninjawanko.jpg" width="114" height="116">
+                    <div class="re__btn_wrapper">
+                    <label class="btn re__edit" for="re__sell-upload-drop-box__file_0">編集
+                    <input id="re__sell-upload-drop-box__file_0" class="re__sell-upload-drop-box__file" type="file" data-image="0" name="item[item_images_attributes][0][image_url]">
+                    </label>
+                    <div class="btn re__delete">削除</div>
+                    </div>
                   </li>
                   <input name="item[item_images_attributes][${image_count+1}][image_url]" id="re__sell-upload-drop-box__file" class="re__sell-upload-drop-box__file" type="file" data-image="2">`
 
@@ -46,8 +55,21 @@ $(function(){
 
     var file = $(this).prop('files')[0];
     var blobUrl = window.URL.createObjectURL(file);
-    var test =`<img src="${blobUrl}" width="114" height="116">`
-    $('.re__sell-upload-drop-box').append(test)
+    var preview =`<img src="${blobUrl}" width="114" height="116">`
+    $('.re__sell-upload-drop-box__text').remove();
+
+    $(this).wrap('<div class="re__btn_wrapper"><label class="btn re__edit" for="re__sell-upload-drop-box__file_7">編集</label><div class="btn re__delete">削除</div></div>')
+    $('.re__sell-upload-drop-box').prepend(preview);
+    $('.re__sell-upload-drop-box').removeAttr('style');
+    $('.re__sell-upload-drop-box').removeClass("re__sell-upload-drop-box drophere").addClass("re__sell-upload-item")
+
+
+    // var btn =`<div class="re__btn_wrapper">
+    //   <label class="btn re__edit" for="re__sell-upload-drop-box__file_7">編集
+    //   <input id="re__sell-upload-drop-box__file_7" class="re__sell-upload-drop-box__file" type="file" data-image="7" name="item[item_images_attributes][7][image_url]">
+    //   </label><div class="btn re__delete">削除</div>
+    //   </div>`
+
 
     $.when(
     renumbering()
@@ -56,8 +78,8 @@ $(function(){
     })
 
     // appendPreview(blobUrl,image_count)
-    // image_count = $('.re__sell-upload-drop-box__file').length - 1
-    // appendDropBox(image_count)
+    image_count = $('.re__sell-upload-drop-box__file').length - 1
+    appendDropBox(image_count)
   })
 
   $(document).on('click', '.re__delete', function() {
