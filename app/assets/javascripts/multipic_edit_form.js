@@ -52,24 +52,23 @@ $(function(){
     }
   });
   $(document).on('change', 'input[type= "file"]',function(e) {
-    var image_count = $('.re__sell-upload-drop-box__file').length  //既存5枚の場合,drophereも含めて"6"
-    console.log(image_count)
+    if ($(this).parent().hasClass('drophere')){
+      var image_count = $('.re__sell-upload-drop-box__file').length  //既存5枚の場合,drophereも含めて"6"
+      var file = $(this).prop('files')[0];
+      var blobUrl = window.URL.createObjectURL(file);
+      var preview =`<img src="${blobUrl}" width="114" height="116">`
+      $('.re__sell-upload-drop-box__text').remove();
+      $(this).wrap(`<div class="re__btn_wrapper"><label class="btn re__edit" for="re__sell-upload-drop-box__file_${image_count-1}">編集</label><div class="btn re__delete">削除</div></div>`)
+      $('.re__sell-upload-drop-box').prepend(preview).removeAttr('style').removeClass("re__sell-upload-drop-box drophere").addClass("re__sell-upload-item")
 
-    var file = $(this).prop('files')[0];
-    var blobUrl = window.URL.createObjectURL(file);
-    var preview =`<img src="${blobUrl}" width="114" height="116">`
-    $('.re__sell-upload-drop-box__text').remove();
-
-    $(this).wrap(`<div class="re__btn_wrapper"><label class="btn re__edit" for="re__sell-upload-drop-box__file_${image_count-1}">編集</label><div class="btn re__delete">削除</div></div>`)
-    $('.re__sell-upload-drop-box').prepend(preview).removeAttr('style').removeClass("re__sell-upload-drop-box drophere").addClass("re__sell-upload-item")
-
-    $.when(
-    renumbering()
-    ).done(function(){
-    image_count=$('.re__sell-upload-drop-box__file').length - 1
-    })
-    image_count = $('.re__sell-upload-drop-box__file').length
-    appendDropBox(image_count)
+      $.when(
+      renumbering()
+      ).done(function(){
+      image_count=$('.re__sell-upload-drop-box__file').length - 1
+      })
+      image_count = $('.re__sell-upload-drop-box__file').length
+      appendDropBox(image_count)
+    }
   })
 
   $(document).on('click', '.re__delete', function() {
@@ -78,7 +77,7 @@ $(function(){
     $.when(
     renumbering()
     ).done(function(){
-    image_count=$('.re__sell-upload-drop-box__file').length
+    image_count = $('.re__sell-upload-drop-box__file').length //既存5枚で1枚削除した場合,drophereも含めて"5"
     appendDropBox(image_count - 1)
     })
 
