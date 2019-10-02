@@ -1,6 +1,6 @@
 $(function(){
-  picture_num = ""
-  delete_item =[]
+  var picture_num = ""
+  var delete_items =[]
 
   function appendDropBox(image_count,picture_num){
     var dropboxHtml = '';
@@ -53,8 +53,11 @@ $(function(){
   })
     $(document).on('click', '.re__delete', function() {
       $(this).parent().parent().remove();                                         //削除ボタンの親の親ごと削除
-      var test = $(this).prev().children().attr('value')                          //削除ボタンの上隣の子どものvalue取得
-      console.log(test)
+      var delete_item = $(this).prev().children().attr('value')                   //削除ボタンの上隣の子どものvalue取得
+      if (delete_item){
+      delete_items.push(delete_item)
+      console.log(delete_items)
+      }
       $.when(
       renumbering()                                                               //idとimage-data,親のlabelのforの連番を再配布
       ).done(function(){
