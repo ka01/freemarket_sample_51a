@@ -57,6 +57,12 @@ $(function(){
       if (delete_item){
       delete_items.push(delete_item)
       console.log(delete_items)
+      $.ajax({
+        type:'get',
+        url:'/item_images/destroy',
+        data: {ids: delete_items},
+        dataType:'json'
+      })
       }
       $.when(
       renumbering()                                                               //idとimage-data,親のlabelのforの連番を再配布
