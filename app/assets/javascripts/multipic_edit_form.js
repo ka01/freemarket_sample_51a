@@ -51,20 +51,19 @@ $(function(){
       })
     }
   })
-    $(document).on('click', '.re__delete', function() {
-      $(this).parent().parent().hide();                                         //削除ボタンの親の親ごと削除
-      $(this).find('.re__sell-upload-drop-box__delete-flag').prop('checked', true);
-      var delete_item = $(this).prev().children().attr('value')                   //削除ボタンの上隣の子どものvalue取得
-      if (delete_item){                                                           //削除対象にvalueがあれば(既存は有り、新規はなし)
+  $(document).on('click', '.re__delete', function() {
+    $(this).parent().parent().hide();                                             //削除ボタンの親の親ごと非表示 removeだと_destroyを設定してるcheck_boxも消えてしまうためNG
+    $(this).prev().remove()                                                       //削除ボタンの直上の編集ボタンを削除 '.re__sell-upload-drop-box__file'の数を削除の分だけ減らすため
+    $(this).find('.re__sell-upload-drop-box__delete-flag').prop('checked', true)  //削除対象のcheck_boxにチェックを入れる
+    var delete_item = $(this).prev().children().attr('value')                     //削除ボタンの上隣の子どものvalue取得
+    if (delete_item){                                                             //削除対象にvalueがあれば(既存は有り、新規はなし)
       delete_items.push(delete_item)                                              //削除対象のvalueを配列に追加
-      console.log(delete_items)
-
-      }
-      $.when(
-      renumbering()                                                               //idとimage-data,親のlabelのforの連番を再配布
-      ).done(function(){
-      image_count = $('.re__sell-upload-drop-box__file').length                   //既存5枚で1枚削除した場合,drophereも含めて"5"
-      appendDropBox(image_count - 1, picture_num + 1)
-      })
+    }
+    $.when(
+    renumbering()                                                                 //idとimage-data,親のlabelのforの連番を再配布
+    ).done(function(){
+    image_count = $('.re__sell-upload-drop-box__file').length                     //既存5枚で1枚削除した場合,drophereも含めて"5"
+    appendDropBox(image_count - 1, picture_num + 1)
     })
   })
+})
