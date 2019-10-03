@@ -32,8 +32,13 @@
                             = i.label :image_url, class: "btn re__edit", for: "re__sell-upload-drop-box__file_#{index}" do
                               編集
                               = i.file_field :image_url, id: "re__sell-upload-drop-box__file_#{index}", class:"re__sell-upload-drop-box__file", type: "file", 'data-image': i.index,value: i.object.id
+                              -# = i.check_box :_destroy,class:"re__sell-upload-drop-box__delete-flag"
                               -# = i.hidden_field :id, value: i.object.id
-                            .btn.re__delete 削除
+                            .btn.re__delete
+                              削除
+                              = i.check_box :_destroy, class:"re__sell-upload-drop-box__delete-flag"
+
+
                     -# %li
                     -#   .re__sell-upload-drop-box.have-item
                     -#     %label.sell-upload-drop-box__visible-pc{:for => "add__sell-upload-drop-box__file"}
@@ -167,7 +172,7 @@
               = link_to "/jp/seller_terms/", class:"sell-content__attention--link" do
                 加盟店規約
               に同意したことになります。
-            = f.submit "出品する", class:"sell-btn__default sell-btn__btn-red"
+            = f.submit "出品する", class:"sell-btn__default sell-btn__btn-red",id:'edit_item'
             = link_to "/", class:"sell-btn__default sell-btn__btn-gray" do
               もどる
       = render 'items/modules/footer'

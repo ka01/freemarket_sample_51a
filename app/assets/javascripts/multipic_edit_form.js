@@ -52,17 +52,13 @@ $(function(){
     }
   })
     $(document).on('click', '.re__delete', function() {
-      $(this).parent().parent().remove();                                         //削除ボタンの親の親ごと削除
+      $(this).parent().parent().hide();                                         //削除ボタンの親の親ごと削除
+      $(this).find('.re__sell-upload-drop-box__delete-flag').prop('checked', true);
       var delete_item = $(this).prev().children().attr('value')                   //削除ボタンの上隣の子どものvalue取得
-      if (delete_item){
-      delete_items.push(delete_item)
+      if (delete_item){                                                           //削除対象にvalueがあれば(既存は有り、新規はなし)
+      delete_items.push(delete_item)                                              //削除対象のvalueを配列に追加
       console.log(delete_items)
-      $.ajax({
-        type:'get',
-        url:'/item_images/destroy',
-        data: {ids: delete_items},
-        dataType:'json'
-      })
+
       }
       $.when(
       renumbering()                                                               //idとimage-data,親のlabelのforの連番を再配布

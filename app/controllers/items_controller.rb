@@ -98,6 +98,7 @@ class ItemsController < ApplicationController
                             :handling_time],
       item_images_attributes: [:id,
                               :image_url,
+                              :_destroy,
                               :item_id]
     ).merge(seller_id: current_user.id,trading_status:0,brand_id:2)
   end
