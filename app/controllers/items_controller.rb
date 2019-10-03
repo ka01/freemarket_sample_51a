@@ -47,9 +47,6 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @item_images = @item.item_images
-    # require 'base64'
-    # binary_data = File.read(@item.item_images[0].image_url)
-    # @item_images =  Base64.strict_encode64(binary_data)
     @level1_categories = @item.category.root.siblings
     @level2_categories = @item.category.parent.siblings
     @level3_categories = @item.category.siblings
@@ -98,7 +95,7 @@ class ItemsController < ApplicationController
                             :handling_time],
       item_images_attributes: [:id,
                               :image_url,
-                              :_destroy,
+                              :_destroy, #newとの共存可能
                               :item_id]
     ).merge(seller_id: current_user.id,trading_status:0,brand_id:2)
   end

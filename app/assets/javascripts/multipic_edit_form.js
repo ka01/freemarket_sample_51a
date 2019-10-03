@@ -25,21 +25,21 @@ $(function(){
       i++;
     })
   }
-
   $(window).bind("load", function(){
     if(document.URL.match(/\/items\/\d+\/edit/)) {
-        var image_count = $('.re__sell-upload-drop-box__file').last().data('image')  //既存5枚の場合,drophereはこの時点でないので"5" ※①
-        picture_num = image_count                                                    //Editビュー初期表示ではpicture_numとimage_countは揃える"5" ※②
-        appendDropBox(image_count+1,picture_num+1)                                   //※②①を引数にDrophereを作成
+      var image_count = $('.re__sell-upload-drop-box__file').last().data('image')  //既存5枚の場合,drophereはこの時点でないので"5" ※①
+      picture_num = image_count                                                    //Editビュー初期表示ではpicture_numとimage_countは揃える"5" ※②
+      appendDropBox(image_count+1,picture_num+1)                                   //※②①を引数にDrophereを作成
     }
   });
-  $(document).on('change', 'input[type= "file"]',function(e) {
-    if ($(this).parent().hasClass('drophere')){
-      var image_count = $('.re__sell-upload-drop-box__file').last().data('image')  //既存5枚の場合,drophereも含めて"6"
-      picture_num += 1                                                             //inputに画像が１枚入ったのでpicture_numに1+する 既存5枚の場合"6" ※③
-      var file = $(this).prop('files')[0];                                         //以下inputタグに写真データを入れたままゴリ押しでプレビュー表示まで成形(inputデータ自体を取得するのはできないらしい)
-      var blobUrl = window.URL.createObjectURL(file);
-      var preview =`<img src="${blobUrl}" width="114" height="116">`
+  $(document).on('change', 'input[type= "file"]',function() {
+    var image_count = $('.re__sell-upload-drop-box__file').last().data('image')   //既存5枚の場合,drophereも含めて"6"
+    picture_num += 1                                                              //inputに画像が１枚入ったのでpicture_numに1+する 既存5枚の場合"6" ※③
+    var file = $(this).prop('files')[0];                                          //以下プレビュー作成
+    var blobUrl = window.URL.createObjectURL(file);
+    var preview =`<img src="${blobUrl}" width="114" height="116">`
+    $(this).parent().parent().prev('img').replaceWith(preview)                    //inputタグの親の親の兄要素が"img"ならpreviewと差し替え
+    if ($(this).parent().hasClass('drophere')){                                   //drophereのinputタグに写真データを入れたままゴリ押しでプレビュー表示まで成形(inputデータ自体を取得するのはできないらしい)
       $('.re__sell-upload-drop-box__text').remove();
       $(this).wrap(`<div class="re__btn_wrapper"><label class="btn re__edit" for="re__sell-upload-drop-box__file_${image_count-1}">編集</label><div class="btn re__delete">削除</div></div>`)
       $('.re__sell-upload-drop-box').prepend(preview).removeAttr('style').removeClass("re__sell-upload-drop-box drophere").addClass("re__sell-upload-item")
@@ -63,7 +63,7 @@ $(function(){
     renumbering()                                                                 //idとimage-data,親のlabelのforの連番を再配布
     ).done(function(){
     image_count = $('.re__sell-upload-drop-box__file').length                     //既存5枚で1枚削除した場合,drophereも含めて"5"
-    appendDropBox(image_count - 1, picture_num + 1)
+    appendDropBox(image_count - 1, picture_num + 1)                               //削除後の写真の数-1 と 一度も追加したことない場合②+1,一度でも追加したら③+1を引数にDrophereを作成
     })
   })
 })
