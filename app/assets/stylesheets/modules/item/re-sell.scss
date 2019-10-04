@@ -34,7 +34,7 @@
   float: right;
   margin-left: 10px;
   &__file {
-    display: none;
+    // display: none;
   }
   &__text {
     height:100%;
@@ -95,4 +95,9 @@
   background: rgb(245, 245, 245);
   color: rgb(0, 153, 232);
   text-decoration: none;
+}
+
+.has-error-text{
+  display:none;
+  color:red;
 }

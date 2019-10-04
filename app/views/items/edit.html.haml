@@ -9,51 +9,24 @@
           .sell-upload-box
             %h3.sell-upload-box__head
               出品画像
-              -# %img{:src => "data:image/png;base64,#{@item.item_images[0].image_url}"}/
               %span.sell-upload-box__head--require 必須
             %p 最大10枚までアップロードできます
-            -# .sell-upload-box__dropbox.clearfix
-            -#   #preview
-              -# - @item.item_images.each_with_index do |image,n|
-              -#   .img_view{"data-image":n}
-              -#     = image_tag "#{image.image_url}" ,size:'114x116'
-              -#     .btn_wrapper
-              -#       .btn.edit 編集
-              -#       .btn.delete 削除
-            #re__preview
-              .re__sell-dropbox-container.clearfix.state-image-number-10
-                .re__sell-upload-items-container
-                  %ul.re__sell-upload-items
-                    - @item_images.each.each_with_index do |item_image,index|
-                      = f.fields_for :item_images,item_image do |i|
-                        %li.re__sell-upload-item
-                          = image_tag i.object.image_url.url,size:'114x116'
-                          .re__btn_wrapper
-                            = i.label :image_url, class: "btn re__edit", for: "re__sell-upload-drop-box__file_#{index}" do
-                              編集
-                              = i.file_field :image_url, id: "re__sell-upload-drop-box__file_#{index}", class:"re__sell-upload-drop-box__file", type: "file", 'data-image': i.index,value: i.object.id
-                              -# = i.check_box :_destroy,class:"re__sell-upload-drop-box__delete-flag"
-                              -# = i.hidden_field :id, value: i.object.id
-                            .btn.re__delete
-                              削除
-                              = i.check_box :_destroy, class:"re__sell-upload-drop-box__delete-flag"
-
-
-                    -# %li
-                    -#   .re__sell-upload-drop-box.have-item
-                    -#     %label.sell-upload-drop-box__visible-pc{:for => "add__sell-upload-drop-box__file"}
-                    -#       ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
-                    -#       %input#add__sell-upload-drop-box__file.add__sell-upload-drop-box__file{"data-image" => "4", :name => "item[item_images_attributes][4][image_url]", :type => "file"}/
-                    -# %li
-                    -# %li.re__sell-upload-drop-box.have-item
-                    -#   %input#add__sell-upload-drop-box__file.add__sell-upload-drop-box__file{"data-image" => "4", :name => "item[item_images_attributes][4][image_url]", :type => "file"}
-                    -#   %label.add__sell-upload-drop-box__visible-pc{:for => "add__sell-upload-drop-box__file"}
-                    -#     ドラッグアンドドラッグドロップまたはクリックしてファイルをアップロード
-                    -# %input#item_item_images_attributes_4_id{:name => "item[item_images_attributes][4][id]", :type => "hidden", :value => "843"}
-                  -# %input#sell-upload-drop-box__file.sell-upload-drop-box__file{type:"file", "data-image": "4", name:"item[item_images_attributes][4][image_url]"}
-                  -# %p.pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
-                  -# %i.sell-upload-drop-box__icon--.fas.fa-camera
-
+            .re__sell-dropbox-container.clearfix.state-image-number-10
+              .re__sell-upload-items-container
+                %ul.re__sell-upload-items
+                  - @item_images.each.each_with_index do |item_image,index|
+                    = f.fields_for :item_images,item_image do |i|
+                      %li.re__sell-upload-item
+                        = image_tag i.object.image_url.url,size:'114x116'
+                        .re__btn_wrapper
+                          = i.label :image_url, class: "btn re__edit", for: "re__sell-upload-drop-box__file_#{index}" do
+                            編集
+                            = i.file_field :image_url, id: "re__sell-upload-drop-box__file_#{index}", class:"re__sell-upload-drop-box__file", type: "file", 'data-image': i.index,value: i.object.id
+                          .btn.re__delete
+                            削除
+                            = i.check_box :_destroy, class:"re__sell-upload-drop-box__delete-flag"
+                %ul.has-error-text
+                  %li ファイル形式はjpeg、またはpngが使用できます
           .sell-content
             .sell-form-group
               = f.label "商品名"
