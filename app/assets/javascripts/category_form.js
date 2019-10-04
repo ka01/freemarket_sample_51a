@@ -90,12 +90,19 @@ $(function(){
     $('.brand-forms').remove();
     $('.add-forms').append(childSelectHtml);
   }
+  function resetSizeBrandForm(){
+    var resetBrandValueHtml =''
+    resetBrandValueHtml =`<div class="sell-form-group brand-forms">
+                            <input id="brand-form" class="sell-form-group__input-default" value="" type="hidden" name="item[brand_id]">
+                          </div>`
+    $('.size-forms').remove();
+    $('.brand-forms').remove();
+    $('.add-forms').append(resetBrandValueHtml)
+  }
   $('#level1_category').on('change',function(e){
     e.preventDefault();
     $('.level1_category--form').nextAll().remove();
-    $('.size-forms').remove();
-    $('.brand-forms').remove();
-    $('.add-forms').append(`<div class="sell-form-group brand-forms"><input id="brand-form" class="sell-form-group__input-default" value="" type="hidden" name="item[brand_id]"></div>`)
+    resetSizeBrandForm()
     var level1_category_val = Number($(this).val())
     if (level1_category_val !=""){
       $.ajax({
@@ -121,9 +128,7 @@ $(function(){
   $(document).on('change','#level2_category',function(e){
     e.preventDefault();
     $('.level2_category--form').nextAll().remove();
-    $('.size-forms').remove();
-    $('.brand-forms').remove();
-    $('.add-forms').append(`<div class="sell-form-group brand-forms"><input id="brand-form" class="sell-form-group__input-default" value="" type="hidden" name="item[brand_id]"></div>`)
+    resetSizeBrandForm()
     var level2_category_val = Number($(this).val());
     $.ajax({
       type:'GET',
@@ -170,9 +175,7 @@ $(function(){
   })
   $(document).on('change','#level3_category',function(e){
     e.preventDefault();
-    $('.size-forms').remove();
-    $('.brand-forms').remove();
-    $('.add-forms').append(`<div class="sell-form-group brand-forms"><input id="brand-form" class="sell-form-group__input-default" value="" type="hidden" name="item[brand_id]"></div>`)
+    resetSizeBrandForm()
     var level3_category_val = Number($(this).val());
     $.ajax({
       type:'GET',

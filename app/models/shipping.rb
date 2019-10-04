@@ -4,12 +4,12 @@ class Shipping < ApplicationRecord
 # 上記の文字列はプッシュ時にコンフリクトとして出てきたもの。
 # 思い当たるフシがないので一応問題ないことがわかるまでコメントアウト
 
-enum fee_burden: { 
+enum fee_burden: {
   seller: 0,
   buyer: 1
 }
 
-enum service: { 
+enum service: {
   undecided: 0,
   rakuraku: 1,
   yumail: 2,
