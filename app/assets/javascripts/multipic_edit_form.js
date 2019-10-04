@@ -9,12 +9,12 @@ $(function(){
                       <p >ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード</p>
                     </label>
                   </li>`;
-    $('.drophere').remove()
-    $('.re__sell-upload-items').append(dropboxHtml);
+    $('.drophere').remove()                                                         //削除した場合もdrophereを追加するので、既存のdrophereは削除
+    $('.re__sell-upload-items').append(dropboxHtml);                                //ul要素であるre__sell-upload-itemsクラスの子どもの最後尾追加
     $('.drophere').css({
-          'width': `calc(620px - (134px * ${(image_count) % 5 }))`
+          'width': `calc(620px - (134px * ${(image_count) % 5 }))`                  //drophereの幅をimage_countの数を5で割った余りで計算して適用
     })
-    if (image_count == 4 ||image_count == 9 ){
+    if (image_count == 4 ||image_count == 9 ){                                      //image_countが4か9(各行の最終画像)のときpaddingを変える
       $('.re__sell-upload-drop-box__text').css({
         'padding': '10px'
       })
@@ -36,7 +36,7 @@ $(function(){
       'display': 'none'
     })
   }
-//🔥発火点---ビュー読み込み----------------------------------------------------------------------------------------------------------------------
+//🔥発火点---Editビュー読み込み----------------------------------------------------------------------------------------------------------------------
   $(window).bind("load", function(){
     if(document.URL.match(/\/items\/\d+\/edit/)) {                                  //正規表現でeditのpathの場合発火する
       var image_count = $('.re__sell-upload-drop-box__file').last().data('image')   //既存5枚の場合,drophereはこの時点でないので"5" ※①
@@ -67,10 +67,10 @@ $(function(){
           }
         })
       }
-    }else{                                                                          //正規表現でjpg,jpeg,pngに該当しないとき値をクリア
-      $(this).val('')
+    }else{
+      $(this).val('')                                                               //正規表現でjpg,jpeg,pngに該当しないとき値をクリア
       $(this).parent().parent().next('.has-error-text').css({
-        'display': 'block'
+        'display': 'block'                                                          //アラート表示
       })
     }
   })
