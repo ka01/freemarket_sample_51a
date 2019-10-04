@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :destrpy, :edit ,:update]
   before_action :authenticate_user!, only:[:new]
   before_action :set_search
 
@@ -34,7 +34,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.destroy
       flash[:notice] = '商品を削除しました'
       redirect_to listing_listings_path
@@ -45,7 +44,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     @item_images = @item.item_images
     @level1_categories = @item.category.root.siblings
     @level2_categories = @item.category.parent.siblings
@@ -54,7 +52,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       flash[:notice] = '更新しました'
       redirect_to item_path(@item)

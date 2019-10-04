@@ -84,7 +84,6 @@ $(function(){
       renumbering()                                                                 //idとimage-data,親のlabelのforの連番を再配布
     ).done(function(){
       image_count = $('.re__sell-upload-drop-box__file').length                     //既存5枚で1枚削除した場合,drophereも含めて"5"
-      console.log(image_count )
       if (image_count == 9 && !$('.re__sell-upload-drop-box__file').last().parent().hasClass("drophere")){  //削除の後のimage_countが9かつdrophereがない(画像10枚がフル投入されてたとき)
         appendDropBox(image_count , picture_num + 1)                                //削除後の写真の数 と 一度も追加したことない場合②+1,一度でも追加したら③+1を引数にDrophereを作成
       }else{
