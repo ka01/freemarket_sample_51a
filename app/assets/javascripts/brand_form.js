@@ -46,7 +46,6 @@ $(function(){
   $(document).on('keyup', "#item_brand_id",function() {
     var brand_group_id=''
     brand_group_id = getBrandGroupId()
-    console.log(brand_group_id)
     var input=$(this).val();
     $.ajax({
       type:'GET',
@@ -71,7 +70,6 @@ $(function(){
     })
   })
   $(document).on('click',".brand_select",function(){
-    console.log("ok")
     $("#item_brand_id").val($(this).text())
     $("#brand-form").val($(this).attr('id'))
     $(".sell-brand-suggest").children().remove()
