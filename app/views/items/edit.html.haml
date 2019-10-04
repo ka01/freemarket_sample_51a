@@ -7,35 +7,35 @@
           %h2.sell-container__head
             商品の情報を入力
           .sell-upload-box
-            %label.sell-upload-box__head
+            %h3.sell-upload-box__head
               出品画像
-            %span.sell-upload-box__head--require 必須
+              %span.sell-upload-box__head--require 必須
             %p 最大10枚までアップロードできます
-            = f.fields_for :item_images do |i|
-              .sell-upload-box__dropbox.clearfix
-                #preview
-                .sell-upload-items-container
-                  = i.label :image_url, class: "dropzone-box", for: "sell-upload-drop-box__file" do
-                    .sell-upload-drop-box
-                      -# %label.sell-upload-drop-box
-                      = i.file_field :image_url, id: "sell-upload-drop-box__file", class:"sell-upload-drop-box__file", type: "file", 'data-image': 0
-                    %p.pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
-                    -# %pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
-                    %i.sell-upload-drop-box__icon--.fas.fa-camera
-                #preview2
-                .sell-upload-items-container2
-                  = i.label :image, class: "dropzone-box", for: "sell-upload-drop-box__file" do
-                    %p.pre.sell-upload-drop-box__visible-pc ドラッグアンドドラッグドロップ<br>またはクリックしてファイルをアップロード
-                    %i.sell-upload-drop-box__icon--.fas.fa-camera
+            .re__sell-dropbox-container.clearfix.state-image-number-10
+              .re__sell-upload-items-container
+                %ul.re__sell-upload-items
+                  - @item_images.each.each_with_index do |item_image,index|
+                    = f.fields_for :item_images,item_image do |i|
+                      %li.re__sell-upload-item
+                        = image_tag i.object.image_url.url,size:'114x116'
+                        .re__btn_wrapper
+                          = i.label :image_url, class: "btn re__edit", for: "re__sell-upload-drop-box__file_#{index}" do
+                            編集
+                            = i.file_field :image_url, id: "re__sell-upload-drop-box__file_#{index}", class:"re__sell-upload-drop-box__file", type: "file", 'data-image': i.index,value: i.object.id
+                          .btn.re__delete
+                            削除
+                            = i.check_box :_destroy, class:"re__sell-upload-drop-box__delete-flag"
+                %ul.has-error-text
+                  %li ファイル形式はjpeg、またはpngが使用できます
           .sell-content
             .sell-form-group
               = f.label "商品名"
               %span.sell-form-group__require 必須
-              = f.text_field :name, class: "sell-form-group__input-default", placeholder: "商品名（必須 40文字まで)"
+              = f.text_field :name, class: "sell-form-group__input-default", placeholder: "商品名（必須 40文字まで)", value: @item.name
             .sell-form-group
               = f.label "商品の説明"
               %span.sell-form-group__require 必須
-              = f.text_area :text, class: "sell-form-group__textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。)", rows: "5"
+              = f.text_area :text, class: "sell-form-group__textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。)", value: @item.text, rows: "5"
           .sell-content.clearfix
             %h3.sell-content__sub-head 商品の詳細
             .sell-content__form-box
@@ -45,7 +45,30 @@
                   %span.sell-form-group__require 必須
                   .sell-form-group__select-wrap.level1_category--form
                     %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
-                    = f.collection_select :category_id, @level1_categories , :id, :name, {prompt: "---"}, {class: "sell-form-group__select-wrap--default",id: 'level1_category'}
+                    = f.collection_select :category_id, @level1_categories, :id, :name, {prompt: "---",selected:@item.category.root.id}, {class: "sell-form-group__select-wrap--default",id: 'level1_category'}
+                  - if @item.category.depth == 1
+                    .sell-form-group__select-wrap.level2_category--form
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = f.collection_select :category_id, @level3_categories, :id, :name, {prompt: "---",selected:@item.category.id}, {class: "sell-form-group__select-wrap--default",id: 'level2_category'}
+                  - else
+                    .sell-form-group__select-wrap.level2_category--form
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = f.collection_select :category_id, @level2_categories, :id, :name, {prompt: "---",selected:@item.category.parent.id}, {class: "sell-form-group__select-wrap--default",id: 'level2_category'}
+                    .sell-form-group__select-wrap.level3_category--form
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = f.collection_select :category_id, @level3_categories, :id, :name, {prompt: "---",selected:@item.category.id}, {class: "sell-form-group__select-wrap--default",id: 'level3_category'}
+                - if @item.size
+                  .sell-form-group.size-forms
+                    = f.label "サイズ"
+                    %span.sell-form-group__require 必須
+                    .sell-form-group__select-wrap
+                      %i.sell-form-group__select-wrap--icon.fas.fa-chevron-down
+                      = f.collection_select :size_id, @size, :id, :kind, {prompt: "---"}, {class: "sell-form-group__select-wrap--default",id: 'level1_category'}
+                .sell-form-group.brand-forms
+                  = f.label "ブランド"
+                  %span.sell-form-group__arbitrary 任意
+                  .sell-form-group__select-wrap
+                    %input#item_brand_id.sell-form-group__input-default{:name => "item[brand_id]", :placeholder => "例）入力禁止。brand_id:2が自動入力されます", :type => "text"}/
               .sell-form-group
                 = f.label "商品の状態"
                 %span.sell-form-group__require 必須
@@ -96,7 +119,7 @@
                     .sell-form-group__right.sell-price-input
                       ¥
                       %div
-                        = f.text_field :price, class:"sell-form-group__right--input-default", placeholder:"例）300", value:""
+                        = f.text_field :price, class:"sell-form-group__right--input-default", placeholder:"例）300", value: @item.price
                 %li.clearfix
                   .sell-fee-left 販売手数料 (10%)
                   .sell-fee-right -
@@ -122,7 +145,7 @@
               = link_to "/jp/seller_terms/", class:"sell-content__attention--link" do
                 加盟店規約
               に同意したことになります。
-            = f.submit "出品する", class:"sell-btn__default sell-btn__btn-red"
+            = f.submit "出品する", class:"sell-btn__default sell-btn__btn-red",id:'edit_item'
             = link_to "/", class:"sell-btn__default sell-btn__btn-gray" do
               もどる
       = render 'items/modules/footer'

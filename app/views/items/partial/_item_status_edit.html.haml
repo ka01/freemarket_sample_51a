@@ -1,5 +1,5 @@
 .listing-item-change-box
-  = link_to "商品の編集","#", class:"btn-default btn-red"
+  = link_to "商品の編集",edit_item_path(@item), class:"btn-default btn-red"
   %p.text-center_edit-bottom or
   %form{action: "/jp/items/activate/m57221496842/", method: "POST", novalidate: "novalidate"}
     %input{name: "__csrf_value", type: "hidden", value: "246c00d4a382b4f756822809263ad782584d3e2db64fab11670c0a707483248d4c661cedeb14caa0da40a653de15fbb09a6c7337b03f0b11f2ffe0e8e46a07aba"}/

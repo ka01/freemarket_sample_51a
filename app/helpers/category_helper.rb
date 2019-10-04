@@ -37,8 +37,10 @@ module CategoryHelper
     if category.depth == 0
       return "人気のあるカテゴリーは#{category.indirects.sort_by{rand}[0].name}と#{category.indirects.sort_by{rand}[0].name}です。"
     elsif category.depth == 1
-      if category.children
+      if category.children != []
         return "よく見られているカテゴリーは#{category.children.sort_by{rand}[0].name}と#{category.children.sort_by{rand}[0].name}です。特に"
+      elsif category.children == []
+        return "よく見られているカテゴリーは#{category.name}と#{category.name}です。特に"
       else
         return "特に"
       end
