@@ -1,4 +1,44 @@
 $(function(){
+  function getBrandGroupId(){
+    var level1_id = $("#level1_category").find('option:selected').text()
+    var level2_id = $("#level2_category").find('option:selected').text()
+    var level3_id = $("#level3_category").find('option:selected').text()
+    if (level3_id == '国内自動車本体'){
+      return 15
+    }else if (level3_id == '外国自動車本体'){
+      return 16
+    }else if (level2_id == 'キッチン・食器'){
+      return 5
+    }else if (level2_id == '時計'){
+      return 6
+    }else if (level2_id == 'テレビゲーム'){
+      return 8
+    }else if (level2_id.match(/オートバイ/)){
+      return 11
+    }else if (level2_id.match(/楽器/)){
+      return 12
+    }else if (level2_id.match(/自動車/)){
+      return 13
+    }else if (level2_id == '食品'){
+      return 14
+    }else if (level1_id == 'レディース'){
+        return 1
+    }else if (level1_id == 'メンズ'){
+      return 2
+    }else if (level1_id == 'ベビー・キッズ'){
+      return 3
+    }else if (level1_id == 'インテリア・住まい・雑貨'){
+      return 4
+    }else if (level1_id == 'コスメ・香水・美容'){
+      return 7
+    }else if (level1_id == 'スポーツ・レジャー'){
+      return 9
+    }else if (level1_id == '家電・スマホ・カメラ'){
+      return 10
+    }else{
+      return 0
+    }
+  }
   function appendOption(child,option_type){
     if (option_type =='category'){
       var option_value = child.name
@@ -39,17 +79,30 @@ $(function(){
     childSelectHtml = `<div class="sell-form-group brand-forms">
                         <label for="item_ブランド">ブランド</label>
                         <span class="sell-form-group__arbitrary">任意</span>
-                          <div class="sell-form-group__select-wrap level1_category--form">
-                            <input class="sell-form-group__input-default" placeholder="例）入力禁止。brand_id:2が自動入力されます" type="text" name="item[brand_id]" id="item_brand_id">
+                        <div class="sell-form-group__select-wrap">
+                            <input class="sell-form-group__input-default" id="item_brand_id" placeholder="例) シャネル" type="text" >
+                            <input id="brand-form" class="sell-form-group__input-default" value="" type="hidden" name="item[brand_id]">
+                          <div>
+                            <ul class="sell-brand-suggest form-suggest-list"></ul>
                           </div>
+                        </div>
                       </div>`
+    $('.brand-forms').remove();
     $('.add-forms').append(childSelectHtml);
+  }
+  function resetSizeBrandForm(){
+    var resetBrandValueHtml =''
+    resetBrandValueHtml =`<div class="sell-form-group brand-forms">
+                            <input id="brand-form" class="sell-form-group__input-default" value="" type="hidden" name="item[brand_id]">
+                          </div>`
+    $('.size-forms').remove();
+    $('.brand-forms').remove();
+    $('.add-forms').append(resetBrandValueHtml)
   }
   $('#level1_category').on('change',function(e){
     e.preventDefault();
     $('.level1_category--form').nextAll().remove();
-    $('.size-forms').remove();
-    $('.brand-forms').remove();
+    resetSizeBrandForm()
     var level1_category_val = Number($(this).val())
     if (level1_category_val !=""){
       $.ajax({
@@ -75,8 +128,7 @@ $(function(){
   $(document).on('change','#level2_category',function(e){
     e.preventDefault();
     $('.level2_category--form').nextAll().remove();
-    $('.size-forms').remove();
-    $('.brand-forms').remove();
+    resetSizeBrandForm()
     var level2_category_val = Number($(this).val());
     $.ajax({
       type:'GET',
@@ -112,7 +164,9 @@ $(function(){
           insertHTML += appendOption(child,option_type);
         });
         appendSizeForm(insertHTML);
-        appendBrandForm();
+        if (getBrandGroupId()!= 0){
+          appendBrandForm();
+        }
       }
     })
     .fail(function(){
@@ -121,8 +175,7 @@ $(function(){
   })
   $(document).on('change','#level3_category',function(e){
     e.preventDefault();
-    $('.size-forms').remove();
-    $('.brand-forms').remove();
+    resetSizeBrandForm()
     var level3_category_val = Number($(this).val());
     $.ajax({
       type:'GET',
@@ -132,7 +185,6 @@ $(function(){
     })
     .done(function(children){
       var insertHTML = '';
-      console.log(children)
       var option_type = 'size';
       if(children.length !=0){
         children.forEach(function(child){
@@ -140,7 +192,9 @@ $(function(){
         });
         appendSizeForm(insertHTML);
       }
-      appendBrandForm();
+      if (getBrandGroupId()!= 0){
+        appendBrandForm();
+      }
     })
     .fail(function(){
       alert('失敗しました')
