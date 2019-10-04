@@ -84,7 +84,7 @@ class ItemsController < ApplicationController
       :condition,
       :category_id,
       :size_id,
-      # :brand_id,
+      :brand_id,
       shipping_attributes: [:id,
                             :fee_burden,
                             :service,
@@ -94,7 +94,7 @@ class ItemsController < ApplicationController
                               :image_url,
                               :_destroy, #newとの共存可能
                               :item_id]
-    ).merge(seller_id: current_user.id,trading_status:0,brand_id:2)
+    ).merge(seller_id: current_user.id,trading_status:0)
   end
 
 end

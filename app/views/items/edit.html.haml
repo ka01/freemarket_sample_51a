@@ -68,7 +68,10 @@
                   = f.label "ブランド"
                   %span.sell-form-group__arbitrary 任意
                   .sell-form-group__select-wrap
-                    %input#item_brand_id.sell-form-group__input-default{:name => "item[brand_id]", :placeholder => "例）入力禁止。brand_id:2が自動入力されます", :type => "text"}/
+                    %input#item_brand_id.sell-form-group__input-default{ placeholder: '例) シャネル', type: "text", value: "#{@item.brand.name}"}
+                    = f.hidden_field :brand_id,id: 'brand-form' ,class: 'sell-form-group__input-default', value: "#{@item.brand.id}"
+                    %div
+                      %ul.sell-brand-suggest.form-suggest-list
               .sell-form-group
                 = f.label "商品の状態"
                 %span.sell-form-group__require 必須
