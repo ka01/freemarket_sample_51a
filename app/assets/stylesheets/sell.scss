@@ -135,6 +135,7 @@
 .sell-price>li {
   padding: 24px 0;
   border-top: 1px solid #ccc;
+  text-align: -webkit-match-parent;
 }
 
 .sell-form-group {
@@ -233,6 +234,17 @@
     float: left;
     width: 50%;
     line-height: 48px;
+    &--require {
+      box-sizing: border-box;
+      background: #ea352d;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      vertical-align: top;
+      font-weight: 600;
+    }
   }
 
   &__right {
@@ -241,12 +253,12 @@
     float: right;
     text-align: right;
     display: block;
-    line-height: 48px;
+    line-height: 48px; 
     &--input-default {
       box-sizing: border-box;
       margin: 0;
       text-align: right;
-      width: 100%;
+      width: 80%;
       height: 48px;
       padding: 10px 16px 8px;
       border-radius: 4px;
@@ -255,28 +267,19 @@
       line-height: 1.5;
       font-size: 16px;
     }
+    >h3 {
+      font-size: 34px;
+      font-weight: 500;
+    }
   }
-  &__right>div {
-    display: inline-block;
-    width: 80%;
-    margin: 0 0 0 5%;
+  &__sell-fee-left {
+    float: left;
+    width: 50%;
+    >h3 {
+      font-size: 16px;
+      font-weight: 600;
+    }
   }
-}
-.sell-fee-left {
-  float: left;
-  width: 50%;
-}
-.sell-fee-right {
-  float: right;
-  width: 50%;
-  text-align: right;
-}
-.sell-bold .sell-fee-left{
-  font-size: 16px;
-  font-weight: 600;
-}
-.sell-bold .sell-fee-right{
-  font-size: 34px;
 }
 .sell-btn {
   &__btn-red {
@@ -372,4 +375,10 @@
       margin: 0;
     }
   }
+}
+#non {
+  line-height: 14px;
+}
+#non-second {
+  line-height: 16px;
 }
