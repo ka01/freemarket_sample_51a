@@ -92,8 +92,8 @@ class SignupController < ApplicationController
                                   :first_name,
                                   :family_name_kana,
                                   :first_name_kana,
-                                  :zip_code,
-                                  :prefecture,
+                                  :postcode,
+                                  :prefecture_code,
                                   :city,
                                   :adress1,
                                   :adress2,
@@ -141,8 +141,8 @@ class SignupController < ApplicationController
     session[:first_name] = params[:user][:deliver_adress_attributes][:first_name]
     session[:family_name_kana] =  params[:user][:deliver_adress_attributes][:family_name_kana]
     session[:first_name_kana] = params[:user][:deliver_adress_attributes][:first_name_kana]
-    session[:zip_code] = params[:user][:deliver_adress_attributes][:zip_code]
-    session[:prefecture] = params[:user][:deliver_adress_attributes][:prefecture]
+    session[:postcode] = params[:user][:deliver_adress_attributes][:postcode]
+    session[:prefecture_code] = params[:user][:deliver_adress_attributes][:prefecture_code]
     session[:city] = params[:user][:deliver_adress_attributes][:city]
     session[:adress1] = params[:user][:deliver_adress_attributes][:adress1]
     session[:telephone] = params[:user][:deliver_adress_attributes][:telephone]
@@ -154,8 +154,8 @@ class SignupController < ApplicationController
       first_name: session[:first_name],
       family_name_kana: session[:family_name_kana],
       first_name_kana: session[:first_name_kana],
-      zip_code: session[:zip_code],
-      prefecture: session[:prefecture],
+      postcode: session[:postcode],
+      prefecture_code: session[:prefecture_code],
       city: session[:city],
       adress1: session[:adress1],
       telephone: session[:telephone],
