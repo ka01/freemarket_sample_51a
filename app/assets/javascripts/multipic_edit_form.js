@@ -39,9 +39,12 @@ $(function(){
 //🔥発火点---Editビュー読み込み----------------------------------------------------------------------------------------------------------------------
   $(window).bind("load", function(){
     if(document.URL.match(/\/items\/\d+\/edit/)) {                                  //正規表現でeditのpathの場合発火する
-      var image_count = $('.re__sell-upload-drop-box__file').last().data('image')   //既存5枚の場合,drophereはこの時点でないので"5" ※①
+      var image_count = $('.re__sell-upload-drop-box__file').length   //既存5枚の場合,drophereはこの時点でないので"5" ※①
+      console.log(image_count)
       picture_num = image_count                                                     //Editビュー初期表示ではpicture_numとimage_countは揃える"5" ※②
-      appendDropBox(image_count + 1, picture_num + 1)                               //※②,①を引数にDrophereを作成
+      if (image_count != 10){
+        appendDropBox(image_count , picture_num + 1)                               //※②,①を引数にDrophereを作成
+      }
     }
   });
 //🔥発火点---ファイル読み込み(編集ボタンor新規画像選択を押す)----------------------------------------------------------------------------------------------------------------------
@@ -63,7 +66,7 @@ $(function(){
         ).done(function(){
           image_count = $('.re__sell-upload-drop-box__file').length                 //既存5枚の場合,成形した1枚も含めて"6" ※④
           if (image_count != 10){
-          appendDropBox(image_count, picture_num + 1)                               //※④,③+1を引数にDrophereを作成
+            appendDropBox(image_count, picture_num + 1)                               //※④,③+1を引数にDrophereを作成
           }
         })
       }
