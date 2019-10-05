@@ -6,7 +6,7 @@
     .id-chapter
       .id-chapter__head 本人情報の登録
       -# = form_with model: @identification, data: { remote: false },class: "id-form" do |f|
-      = form_for(@identification, url:identification_update_mypage_index_path(@identification),html:{ method: "patch"} ,class: "id-form") do |f|
+      = form_for(@identification, url:identification_update_mypage_index_path(@identification),html:{ method: "patch" ,class: "id-form"}) do |f|
         %p
           お客さまの本人情報をご登録ください。
           %br>/

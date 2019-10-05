@@ -51,8 +51,6 @@
               = f.label :必須, { class: 'form-require' }
               .prefecture-select-wrap
                 = d.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
-                -# = d.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県'
-                -# = d.collection_select :prefecture, Prefecture.all, :id, :name
                 %i.prefecture.fas.fa-chevron-down
             .new-member-registration-form-content__group
               = f.label :市区町村, { class: 'new-registration-label' }
