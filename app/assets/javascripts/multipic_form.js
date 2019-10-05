@@ -12,7 +12,7 @@ $(function(){
     var file = $(this).prop('files')[0];
     var reader = new FileReader();
     inputs.push($(this));
-    var img = $(`<div class= "img_view"><img width="114" height="116"></div>`);
+    var img = $(`<div class= "img_view"><img></div>`);
     reader.onload = function(e) {
       var btn_wrapper = $('<div class="btn_wrapper"><div class="btn edit">編集</div><div class="btn delete">削除</div></div>');
       img.append(btn_wrapper);
@@ -20,9 +20,10 @@ $(function(){
         src: e.target.result
       })
     }
+
     reader.readAsDataURL(file);
     images.push(img);
-    
+
     if(images.length >= 5) {
       dropzone2.css({
         'display': 'block'
@@ -59,7 +60,9 @@ $(function(){
       })
       return;
     }
-    var new_image = $(`<input multiple="multiple" name="item_images[image_url][]" id="sell-upload-drop-box__file" class="sell-upload-drop-box__file" type="file" data-image= ${images.length}>`);
+
+    var new_image = $(`<input name="item[item_images_attributes][${images.length}][image_url]" id="sell-upload-drop-box__file" class="sell-upload-drop-box__file" type="file" data-image= ${images.length}>`);
+
     input_area.prepend(new_image);
   });
   $(document).on('click', '.delete', function() {
@@ -103,7 +106,7 @@ $(function(){
         dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
       }
       if(images.length == 8) {
-        dropzone2.find('p').replaceWith('<p>ココをクリックしなさい</p>')
+        dropzone2.find('i').replaceWith('<p>ココをクリックしなさい</p>')
       }
     } else {
       dropzone.css({

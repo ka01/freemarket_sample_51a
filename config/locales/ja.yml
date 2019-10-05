@@ -211,9 +211,9 @@ ja:
       condition:
         brandnew: 新品、未使用
         mint: 未使用に近い
-        verygood: 目立った傷や穢れなし
-        good: やや傷や穢れあり
-        poor: 傷や穢れあり
+        verygood: 目立った傷や汚れなし
+        good: やや傷や汚れあり
+        poor: 傷や汚れあり
         damege: 全体的に状態が悪い
       trading_status:
         selling:   販売中
@@ -225,7 +225,7 @@ ja:
       fee_burden:
         seller: 送料込み(出品者負担)
         buyer: 着払い(購入者負担)
-      service: 
+      service:
         undecided: 未定
         rakuraku: らくらくメルカリ便
         yumail: ゆうメール
@@ -233,9 +233,9 @@ ja:
         postal: 普通郵便(定形、定形外)
         yamato: クロネコトマト
         yupack: ゆうパック
-        clickpost: 週刊ポスト
+        clickpost: クリックポスト
         yupaket: ゆうパケット
       handling_time:
         within2days: 1~2日で発送
         within3days: 2~3日で発送
-        within7days: そのうち発送
+        within7days: 4~7日発送
