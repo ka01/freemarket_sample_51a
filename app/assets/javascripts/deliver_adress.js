@@ -1,5 +1,5 @@
 $(function(){
-  $("#user_postcode").jpostal({
+  $("#user_deliver_adress_attributes_postcode").jpostal({
     postcode : [ "#user_deliver_adress_attributes_postcode" ],
     address  : {
                   "#user_deliver_adress_attributes_prefecture_code" : "%3",
