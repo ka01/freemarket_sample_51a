@@ -5,7 +5,17 @@
         = image_tag item.item_images.first.image_url.url
       .mypage-content__list-body
         .mypage-content__list-body--text
-          =item.name
-        .mypage-content__list-body--state.doing
-          公開停止中
+          = item.name
+        - if item.read_attribute_before_type_cast(:trading_status)==0
+          .mypage-content__list-body--state.selling
+            出品中
+        - elsif item.read_attribute_before_type_cast(:trading_status)==1
+          .mypage-content__list-body--state.stop_deal
+            公開停止中
+        - elsif item.read_attribute_before_type_cast(:trading_status)==2
+          .mypage-content__list-body--state.deal
+            取引中
+        - else
+          .mypage-content__list-body--state.complete
+            売却済
       .mypage-content__list-body--icon.fas.fa-chevron-right

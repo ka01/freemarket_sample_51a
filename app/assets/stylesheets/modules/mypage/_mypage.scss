@@ -116,10 +116,16 @@ input[name="mypage-tab__item2"] {
       display: inline-block;
     }
     &--state{
-      &.doing{
+      &.selling{
+        background: #0099e8;
+      }
+      &.stop_deal{
         background: red;
       }
-      &.done{
+      &.deal{
+        background: red;
+      }
+      &.complete{
         background: #888;
       }
       display: inline-block;

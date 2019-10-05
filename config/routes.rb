@@ -47,4 +47,6 @@ Rails.application.routes.draw do
     end
   end
   resources :category, only: [:index, :show]
+  get '/item_images/destroy', to: 'item_images#destroy'
+  resources :brand, only: [:index]
 end
