@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_185319) do
+ActiveRecord::Schema.define(version: 2019_10_05_205255) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -109,6 +109,15 @@ ActiveRecord::Schema.define(version: 2019_10_05_185319) do
     t.index ["size_id"], name: "index_items_on_size_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_likes_on_item_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
     t.bigint "seller_id", null: false
@@ -182,6 +191,8 @@ ActiveRecord::Schema.define(version: 2019_10_05_185319) do
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
+  add_foreign_key "likes", "items"
+  add_foreign_key "likes", "users"
   add_foreign_key "purchases", "items"
   add_foreign_key "purchases", "users", column: "buyer_id"
   add_foreign_key "purchases", "users", column: "seller_id"

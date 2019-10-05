@@ -1,10 +1,16 @@
 - if user_signed_in? && @seller.id != current_user.id
   .details-item-button__container.clearfix
     .details-item-button__left
-      = button_tag "", type: "button", name: "like", data: {toggle: "like"}, data: {id: "m32062559021"}, data: {ga: "element"}, data: {'ga-category': "LIKE"}, class: "item-button item-button-like is-liked" do
-        %i.fa.fa-heart
-        %span いいね！
-        %span{ class: "fade-in-down", data: {num: "like"} } 2
+      - if @like
+        = button_tag "", type: "button", name: "like", class: "item-button item-button-like liked" ,data: {item: "#{@item.id}"} do
+          %i.fa.fa-heart
+          %span いいね！
+          %span{ class: "fade-in-down like_count", data: {num: "like"} } #{@like_counts}
+      - else
+        = button_tag "", type: "button", name: "like", class: "item-button item-button-like unliked", data: {item: "#{@item.id}"}  do
+          %i.fa.fa-heart
+          %span いいね！
+          %span{ class: "fade-in-down like_count", data: {num: "like"} } #{@like_counts}
       = button_tag "",  class: "item-button item-button-report clearfix", data: {open: "modal"}, data: {modal: "report-item"} do
         %i.fa.fa-flag
         %span 不適切な商品の報告
