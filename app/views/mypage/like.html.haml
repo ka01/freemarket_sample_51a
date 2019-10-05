@@ -1,0 +1,10 @@
+= render 'layouts/header'
+- breadcrumb :like
+= render 'layouts/breadcrumbs'
+
+%main.container.clearfix
+  .id-chapter
+    %h2.id-chapter__head いいね！一覧
+    = render 'listings/shared/listings-content'
+  = paginate(@items)
+  = render 'mypage/shared/sidemenus/sidemenu'

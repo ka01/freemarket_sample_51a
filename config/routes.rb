@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get "card"
       get "identification"
       patch "identification_update"
+      get "like"
       resources :listings do
         collection do
           get "listing"
