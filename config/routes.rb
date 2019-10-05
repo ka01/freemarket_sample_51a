@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_size_children', defaults: { format: 'json' }
       get 'search'
+      get 'change_trading_status/:id', to: 'items#change_trading_status', as: :change_trading_status
     end
   end
   resources :signup do
