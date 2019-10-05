@@ -13,8 +13,8 @@ class ItemsController < ApplicationController
 
   def show
     @seller = User.find(@item.seller_id)
-    @before_item = Item.where.not(seller_id: current_user.id).where.not(id: @item.id).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
-    @after_item = Item.where.not(seller_id: current_user.id).where.not(id: [@item.id,@before_item.id]).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
+    @before_item = user_signed_in? ? Item.where.not(seller_id: current_user.id).where.not(id: @item.id).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first : Item.where.not(id: @item.id).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
+    @after_item = user_signed_in? ? Item.where.not(seller_id: current_user.id).where.not(id: [@item.id,@before_item.id]).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first : Item.where.not(id: [@item.id,@before_item.id]).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
   end
 
   def new
