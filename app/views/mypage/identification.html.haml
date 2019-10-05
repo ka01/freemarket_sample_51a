@@ -5,7 +5,8 @@
   .my-content
     .id-chapter
       .id-chapter__head 本人情報の登録
-      = form_with model: @user, class: "id-form" do |f|
+      -# = form_with model: @identification, data: { remote: false },class: "id-form" do |f|
+      = form_for(@identification, url:identification_update_mypage_index_path(@identification),html:{ method: "patch"} ,class: "id-form") do |f|
         %p
           お客さまの本人情報をご登録ください。
           %br>/
@@ -16,23 +17,23 @@
               .fas.fa-chevron-right
           .id-form-group
             = f.label "お名前"
-            %p 加山 雄三
+            %p #{current_user.family_name} #{current_user.first_name}
           .id-form-group
             = f.label "お名前カナ"
-            %p カヤマ ユウゾウ
+            %p #{current_user.family_name_kana} #{current_user.first_name_kana}
           .id-form-group
             = f.label "生年月日"
-            %p 2000/07/31
+            %p #{current_user.birth_year}/#{current_user.birth_month}/#{current_user.birth_day}
           .id-form-group
             = f.label "郵便番号"
             %span.id-form-group__arbitrary 任意
-            = f.text_field :zip_code, placeholder: "例）1234567", type: "text", class: "id-form-group__input-default"
+            = f.text_field :postcode, placeholder: "例）1234567", type: "text", class: "id-form-group__input-default"
           .id-form-group
             = f.label "都道府県"
             %span.id-form-group__arbitrary 任意
             .id-form-group__select-wrap
               %i.id-form-group__select-wrap--icon-bottom
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: ""}, {class: "id-form-group__select-wrap--select-default"}
+              = f.collection_select :prefecture_code, Prefecture.all, :id, :name, {prompt: ""}, {class: "id-form-group__select-wrap--select-default"}
           .id-form-group
             = f.label "市区町村"
             %span.id-form-group__arbitrary 任意

@@ -36,12 +36,38 @@ class MypageController < ApplicationController
   end
 
   def identification
+    if Identification.where(user_id:current_user.id).present?
+      @identification = current_user.identification
+    else
+      @identification = Identification.new
+    end
   end
 
+  def identification_update
+    if Identification.where(user_id:current_user.id).present?
+      @identification = current_user.identification
+      if @identification.update(identification_params)
+        flash[:notice] = '本人情報を更新しました'
+        redirect_to identification_mypage_index_path
+      else
+        render :identification
+      end
+    else
+      @identification = Identification.new(identification_params)
+      if @identification.save
+        flash[:notice] = '本人情報を登録しました'
+        redirect_to identification_mypage_index_path
+      else
+        render :identification
+      end
+    end
+  end
   private
 
   def profile_params
     params.require(:user).permit(:nickname,:introduction)
   end
-
+  def identification_params
+    params.require(:identification).permit(:postcode,:prefecture_code,:city,:address1,:address2).merge(user_id: current_user.id)
+  end
 end
