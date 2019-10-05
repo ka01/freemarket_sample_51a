@@ -5,7 +5,6 @@
   .my-content
     .id-chapter
       .id-chapter__head 本人情報の登録
-      -# = form_with model: @identification, data: { remote: false },class: "id-form" do |f|
       = form_for(@identification, url:identification_update_mypage_index_path(@identification),html:{ method: "patch" ,class: "id-form"}) do |f|
         %p
           お客さまの本人情報をご登録ください。
@@ -33,7 +32,7 @@
             %span.id-form-group__arbitrary 任意
             .id-form-group__select-wrap
               %i.id-form-group__select-wrap--icon-bottom
-              = f.collection_select :prefecture_code, Prefecture.all, :id, :name, {prompt: ""}, {class: "id-form-group__select-wrap--select-default"}
+              = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name,{prompt: ""},{class: "id-form-group__select-wrap--select-default"}
           .id-form-group
             = f.label "市区町村"
             %span.id-form-group__arbitrary 任意
