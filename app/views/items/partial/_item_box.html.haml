@@ -15,4 +15,4 @@
           ¥#{item.price}
         .items__box__icon
           = fa_icon 'heart', class: "icon-like-border"
-          %span 14
+          %span #{Like.where(item_id: item.id).count}

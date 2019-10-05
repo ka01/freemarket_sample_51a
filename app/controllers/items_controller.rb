@@ -6,9 +6,9 @@ class ItemsController < ApplicationController
   def index
     @ladies = Category.find_by(name:'レディース')
     @mens = Category.find_by(name:'メンズ')
-    @item = Item.order('id DESC')
-    @ladies_items = @item.inject([]){|result,n| result << n if n.category.root.name=="レディース";result}.take(4)
-    @mens_items = @item.inject([]){|result,n| result << n if n.category.root.name=="メンズ";result}.take(4)
+    @items = Item.order('id DESC')
+    @ladies_items = @items.inject([]){|result,n| result << n if n.category.root.name=="レディース";result}.take(4)
+    @mens_items = @items.inject([]){|result,n| result << n if n.category.root.name=="メンズ";result}.take(4)
   end
 
   def show
