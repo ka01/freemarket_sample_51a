@@ -4,20 +4,20 @@
     = render 'items/partial/search'
   .search-content
     = render 'items/partial/responsive'
-    .search-container__right
-      %h2.search-result
-        = @q.name_cont
-        %span.search-result__sub の検索結果
+  .search-container__right
+    %h2.search-result
+      = @q.name_cont
+      %span.search-result__sub の検索結果
+    - if @search_result.present?
+      .search-result__num
+        = "1-#{@search_result.length}件表示"
+    - else
+      %p.search-result__description 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+      %h3.search-result__new
+        新着商品
+    .search-items
       - if @search_result.present?
-        .search-result__num
-          = "1-#{@search_result.length}件表示"
+        = render partial: 'items/partial/search-item_box', collection: @search_result, as:'item'
       - else
-        %p.search-result__description 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
-        %h3.search-result__new
-          新着商品
-      .search-items
-        - if @search_result.present?
-          = render partial: 'items/partial/search-item_box', collection: @search_result, as:'item'
-        - else
-          = render partial: 'items/partial/search-item_box', collection: @new_items, as:'item'
+        = render partial: 'items/partial/search-item_box', collection: @new_items, as:'item'
 = render 'layouts/footer'

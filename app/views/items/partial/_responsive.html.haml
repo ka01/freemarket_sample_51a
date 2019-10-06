@@ -1,17 +1,12 @@
-.hidden-large-box
-  .hidden-select-box
-    %i.hidden-select-box__icon.fas.fa-exchange-alt
-    .hidden-select-box__name 並び替え
-    %select.hidden-select-box__left-search
-      %option{value: ""}
-      %option{value: ""}
-        これはハリボテです
-  .hidden-select-box
-    %i.hidden-select-box__icon.fas.fa-search
-    .hidden-select-box__name 詳細検索
-    %button.hidden-select-box__search-box
-%section.items-box-container
-  = search_form_for @q, url:search_items_path do |f|
+= search_form_for @q, url:search_items_path do |f|
+  .hidden-large-box
+    .hidden-select-box
+      = f.select(:sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' }, { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} )
+    .hidden-select-box
+      %i.hidden-select-box__icon.fas.fa-search
+      .hidden-select-box__name 詳細検索
+      .hidden-select-box__search-box
+  .items-box-container
     .search-form-group-top
       %lavel
         %i.fas.fa-plus
@@ -23,12 +18,11 @@
         %i.fas.fa-list-ul
         %span
           カテゴリーを選択する
-        .search-select-wrap{"data-search": "parent"}
+        .search-select-wrap
           .search-select-wrap__icon.fas.fa-chevron-down
-          = f.fields_for :category do |category|
-            = category.collection_select :category_id_eq, @categories, :id, :name, {prompt: "全て"}, {class: "search-input-default select"}
-        -# Jsで実装する部分%div{"data-search" => "child"}
-        -# Jsで実装する部分%div{"data-search" => "grand-child"}
+          = f.collection_select :category_id_eq, @categories, :id, :name, {prompt: "まだ実装できていない"}, class: "search-input-default select", id: "ransack_category_id"
+        #category_children
+        #category_grandchildren
     .search-form-group
       %lavel
         %i.fas.fa-tags
@@ -67,33 +61,33 @@
           %option{value: "six"}
             50000~
       .search-select-wrap.half
-        = f.number_field:price_gteq, placeholder: "¥Min", class:"search-input-default price", id: "min-price"
+        = f.search_field:price_gteq, placeholder: "¥Min", class:"search-input-default price", id: "min-price"
         %span ~
-        = f.number_field:price_lteq, placeholder: "¥Max", class:"search-input-default price", id: "max-price"
+        = f.search_field:price_lteq, placeholder: "¥Max", class:"search-input-default price", id: "max-price"
     .search-form-group.clearfix
       %lavel
-        %i.fas.fa-star
-        %span
-          商品の状態
-      %div.form-group__check
-        .checkbox
-          .checkbox__lavel
-            -# enum部分これから実装します
-            -# =f.collection_check_boxes :condition_id_in, Item.conditions.map { |k, v| [Item.conditions_I18n[k], v]}
-            -#   = b.label do
-            -#     .box
-            -#       = b.check_box
-            -#       = b.text
+      %i.fas.fa-star
+      %span
+        商品の状態
+      .search-select-wrap
+        .search-select-wrap__icon.fas.fa-chevron-down
+        = f.select :condition_eq_any, Item.conditions.map{|k,v| [Item.conditions_i18n[k], v]},{ include_blank: '全て' }
     .search-form-group
       %label
-        %i.fas.fa-truck-moving
-        %span
-          配送料の負担
+      %i.fas.fa-truck-moving
+      %span
+        配送料の負担
+      .search-select-wrap
+        .search-select-wrap__icon.fas.fa-chevron-down
+        = f.select :shipping_fee_burden_eq_any, Shipping.fee_burdens.map{|k,v| [Shipping.fee_burdens_i18n[k], v]},{ include_blank: '全て' }
     .search-form-group
       %label
-        %i.fas.fa-shopping-cart
-        %span
-          販売状況
+      %i.fas.fa-shopping-cart
+      %span
+        販売状況
+      .search-select-wrap
+        .search-select-wrap__icon.fas.fa-chevron-down
+        = f.select :trading_status_eq_any, Item.trading_statuses.map{|k,v| [Item.trading_statuses_i18n[k], v]},{ include_blank: '全て' }
     .search-extend-btn
       = f.button "クリア", type: :reset, class:"btn-default btn-gray search-btn"
       = f.submit "完了", class: "btn-default btn-red search-btn"

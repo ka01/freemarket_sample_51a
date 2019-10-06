@@ -1,4 +1,4 @@
-.ransack-select {
+.ransack-select {// カテゴリー選択した際にjsにて出現する子・孫カテゴリー部分
   margin-top: 5px;
   width: 95%;
   height: 50px;
@@ -24,9 +24,7 @@
   position: relative;
   margin: 40px auto 0;
   width: 1020px;
-  display: flex;
   &__right {
-    float: right;
     width: 700px;
     height: auto;
   }
@@ -156,6 +154,19 @@
   width: 340px;
   position: relative;
   display: flex;
+  #q_sorts {
+    background: #fff;
+    height: 80px;
+    width: 340px;
+    padding: 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 0.1px;
+    cursor: pointer;
+    outline: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
   &__icon.fas.fa-exchange-alt {
     position: absolute;
     right: 165px;
@@ -190,7 +201,8 @@
   }
   &__search-box {
     background: #fff;
-    outline: 1px solid #ccc;
+    border: 1px solid #ccc;
+    border-left: none;
     width: 320px;
     font-size: 14px;
     height: 60px;
@@ -201,7 +213,7 @@
   display: none;
   background: #fff;
   width: 552px;
-  height: 100%;
+  height: auto;
   padding: 64px;
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.4);
 }
@@ -265,6 +277,21 @@
   margin: 0 20px 0;
   width: 100%;
   height: 50%;
+}
+#q_condition_eq_any, #q_trading_status_eq_any,#q_shipping_fee_burden_eq_any {
+  margin: 8px 0 0;
+  height: 48px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 @media screen and (min-width: 1068px) {
@@ -334,7 +361,6 @@
     height: 48px;
     width: 215px;
     padding: 0 16px;
-    border-radius: 4px;
     border: 1px solid #ccc;
     background: 0;
     font-size: 16px;
