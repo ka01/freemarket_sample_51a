@@ -27,9 +27,9 @@
         .buy-user__content
           %h3 配送先
           %address.buy-user__content__text
-            〒#{current_user.deliver_adress.zip_code}
+            〒#{current_user.deliver_adress.postcode}
             %br
-            =current_user.deliver_adress.prefecture
+            = (JpPrefecture::Prefecture.find current_user.deliver_adress.prefecture_code).name
             =current_user.deliver_adress.city
             =current_user.deliver_adress.adress1
             =current_user.deliver_adress.adress2

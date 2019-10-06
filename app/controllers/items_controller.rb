@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destrpy, :edit ,:update]
+  before_action :set_item, only: [:show, :destrpy, :edit ,:update,:change_trading_status]
   before_action :authenticate_user!, only:[:new]
   before_action :set_search
 
@@ -13,8 +13,8 @@ class ItemsController < ApplicationController
 
   def show
     @seller = User.find(@item.seller_id)
-    @before_item = Item.where.not(seller_id: current_user.id).where.not(id: @item.id).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
-    @after_item = Item.where.not(seller_id: current_user.id).where.not(id: [@item.id,@before_item.id]).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
+    @before_item = user_signed_in? ? Item.where.not(seller_id: current_user.id).where.not(id: @item.id).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first : Item.where.not(id: @item.id).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
+    @after_item = user_signed_in? ? Item.where.not(seller_id: current_user.id).where.not(id: [@item.id,@before_item.id]).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first : Item.where.not(id: [@item.id,@before_item.id]).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
   end
 
   def new
@@ -69,6 +69,18 @@ class ItemsController < ApplicationController
     @category = Category.find(params[:parent_id])
     @size_children = @category.size.children if @category.size
   end
+
+  def change_trading_status
+    if @item.trading_status_before_type_cast == 0
+      @item.trading_status = 1
+      @item.save
+    else
+      @item.trading_status = 0
+      @item.save
+    end
+    redirect_to item_path(@item)
+  end
+
 
   private
 

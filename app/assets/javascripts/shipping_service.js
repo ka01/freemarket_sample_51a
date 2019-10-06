@@ -10,12 +10,14 @@ $(function(){
       $('#item_shipping_attributes_service').find("[value='postal']").hide()
       $('#item_shipping_attributes_service').find("[value='clickpost']").hide()
       $('#item_shipping_attributes_service').find("[value='yupaket']").hide()
+      $('#item_shipping_attributes_service').val("")
     }else{
       $('#item_shipping_attributes_service').find("[value='rakuraku']").show()
       $('#item_shipping_attributes_service').find("[value='letterpack']").show()
       $('#item_shipping_attributes_service').find("[value='postal']").show()
       $('#item_shipping_attributes_service').find("[value='clickpost']").show()
       $('#item_shipping_attributes_service').find("[value='yupaket']").show()
+      $('#item_shipping_attributes_service').val("")
     }
   })
 })

@@ -45,12 +45,12 @@
             .new-member-registration-form-content__group
               = f.label :郵便番号, { class: 'new-registration-label' }
               = f.label :必須, { class: 'form-require' }
-              = d.text_field :zip_code, placeholder: '例）1234567', class: "input-default"
+              = d.text_field :postcode, placeholder: '例）1234567', class: "input-default"
             .new-member-registration-form-content__group
               = f.label :都道府県, { class: 'new-registration-label' }
               = f.label :必須, { class: 'form-require' }
               .prefecture-select-wrap
-                = d.collection_select :prefecture, Prefecture.all, :id, :name
+                = d.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
                 %i.prefecture.fas.fa-chevron-down
             .new-member-registration-form-content__group
               = f.label :市区町村, { class: 'new-registration-label' }

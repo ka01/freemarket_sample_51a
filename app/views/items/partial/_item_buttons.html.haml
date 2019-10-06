@@ -1,4 +1,4 @@
-- if @seller.id != current_user.id
+- if user_signed_in? && @seller.id != current_user.id
   .details-item-button__container.clearfix
     .details-item-button__left
       = button_tag "", type: "button", name: "like", data: {toggle: "like"}, data: {id: "m32062559021"}, data: {ga: "element"}, data: {'ga-category': "LIKE"}, class: "item-button item-button-like is-liked" do

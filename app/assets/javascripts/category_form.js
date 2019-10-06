@@ -91,12 +91,18 @@ $(function(){
     $('.add-forms').append(childSelectHtml);
   }
   function resetSizeBrandForm(){
+    var resetSizeValueHtml =''
+    resetSizeValueHtml =`<div class="sell-form-group size-forms reset-form">
+                            <select class="sell-form-group__select-wrap--default" name="item[size_id]">
+                            <option selected="selected" value="">---</option>
+                          </div>`
     var resetBrandValueHtml =''
-    resetBrandValueHtml =`<div class="sell-form-group brand-forms">
+    resetBrandValueHtml =`<div class="sell-form-group brand-forms reset-form">
                             <input id="brand-form" class="sell-form-group__input-default" value="" type="hidden" name="item[brand_id]">
                           </div>`
     $('.size-forms').remove();
     $('.brand-forms').remove();
+    $('.add-forms').append(resetSizeValueHtml)
     $('.add-forms').append(resetBrandValueHtml)
   }
   $('#level1_category').on('change',function(e){
