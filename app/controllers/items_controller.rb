@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destrpy, :edit ,:update,:change_trading_status]
+  before_action :set_item, only: [:show, :destroy, :edit ,:update,:change_trading_status]
   before_action :authenticate_user!, only:[:new]
   before_action :set_search
 
