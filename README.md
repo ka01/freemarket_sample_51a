@@ -289,9 +289,4 @@ Association
 ***
 
 ## ER図
-
-![ER図](https://imgur.com/D0mUkWc)
-![Imgur](https://imgur.com/D0mUkWc)
-<blockquote class="imgur-embed-pub" lang="en" data-id="D0mUkWc"><a href="https://imgur.com/D0mUkWc">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-[img]https://i.imgur.com/D0mUkWc.png[/img]
 <img src="https://i.imgur.com/D0mUkWc.png" alt="ER図" title="メルカリER図">
