@@ -15,7 +15,7 @@
               .re__sell-upload-items-container
                 %ul.re__sell-upload-items
                   = f.fields_for :item_images do |i|
-                    %li.re__sell-upload-drop-box.drophere{:style => "width: calc(620px);"}
+                    %li.re__sell-upload-drop-box.drophere
                       = i.file_field :image_url, id: "re__sell-upload-drop-box__file", class:"re__sell-upload-drop-box__file", type: "file", 'data-image': 0
                       = i.label :image_url, class: "re__sell-upload-drop-box__text", for: "re__sell-upload-drop-box__file" do
                         %p
