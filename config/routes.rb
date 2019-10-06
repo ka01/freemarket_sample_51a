@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get "card"
       get "identification"
       patch "identification_update"
+      get "like"
       resources :listings do
         collection do
           get "listing"
@@ -51,4 +52,6 @@ Rails.application.routes.draw do
   resources :category, only: [:index, :show]
   get '/item_images/destroy', to: 'item_images#destroy'
   resources :brand, only: [:index]
+  get 'likes/:item_id/create', to: 'likes#create'
+  get 'likes/:item_id/destroy', to: 'likes#destroy'
 end

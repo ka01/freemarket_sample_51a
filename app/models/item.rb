@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   has_many :purchases
   belongs_to :brand, optional: true
   #以下アソシエーションは今後の実装で必要な為、コメントアウトを残しています
-  # has_many :likes dependent: :destroy
+  has_many :likes, dependent: :destroy
   # has_many :comments dependent: :destroy
   # has_many :messages dependent: :destroy
   has_one :shipping, dependent: :destroy

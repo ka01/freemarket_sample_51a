@@ -6,15 +6,17 @@ class ItemsController < ApplicationController
   def index
     @ladies = Category.find_by(name:'レディース')
     @mens = Category.find_by(name:'メンズ')
-    @item = Item.order('id DESC')
-    @ladies_items = @item.inject([]){|result,n| result << n if n.category.root.name=="レディース";result}.take(4)
-    @mens_items = @item.inject([]){|result,n| result << n if n.category.root.name=="メンズ";result}.take(4)
+    @items = Item.order('id DESC')
+    @ladies_items = @items.inject([]){|result,n| result << n if n.category.root.name=="レディース";result}.take(4)
+    @mens_items = @items.inject([]){|result,n| result << n if n.category.root.name=="メンズ";result}.take(4)
   end
 
   def show
     @seller = User.find(@item.seller_id)
     @before_item = user_signed_in? ? Item.where.not(seller_id: current_user.id).where.not(id: @item.id).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first : Item.where.not(id: @item.id).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
     @after_item = user_signed_in? ? Item.where.not(seller_id: current_user.id).where.not(id: [@item.id,@before_item.id]).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first : Item.where.not(id: [@item.id,@before_item.id]).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
+    @like = Like.find_by(user_id: current_user.id, item_id: @item.id)
+    @like_counts = Like.where(item_id: @item.id).count
   end
 
   def new

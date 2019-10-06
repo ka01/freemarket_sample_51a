@@ -62,6 +62,11 @@ class MypageController < ApplicationController
       end
     end
   end
+  def like
+    @likes = Like.where(user_id: current_user.id)
+    @items = []
+    @likes.map{|target| @items.push(target.item).flatten!}
+    @items = Kaminari.paginate_array(@items).page(params[:page]).per(12)  end
   private
 
   def profile_params
