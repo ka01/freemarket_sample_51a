@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   has_one :deliver_adress
   accepts_nested_attributes_for :deliver_adress
-
+  has_one :identification
 
   VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_KANA_REGEX  =                 /\A[ァ-ヶー－]+\z/

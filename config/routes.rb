@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get "logout"
       get "card"
       get "identification"
+      patch "identification_update"
       resources :listings do
         collection do
           get "listing"

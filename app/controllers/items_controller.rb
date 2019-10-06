@@ -73,11 +73,10 @@ class ItemsController < ApplicationController
   def change_trading_status
     if @item.trading_status_before_type_cast == 0
       @item.trading_status = 1
-      @item.save
     else
       @item.trading_status = 0
-      @item.save
     end
+    @item.save
     redirect_to item_path(@item)
   end
 
