@@ -4,7 +4,7 @@ $(function(){
     var item_id = Number($(this).data('item'))
     $.ajax({
       type:'get',
-      url:'/likes/'+ item_id + '/create',
+      url:`/likes/${item_id}/create`,
       data:{id: item_id},
       dataType:'json'
     })
@@ -21,7 +21,7 @@ $(function(){
     var item_id = Number($(this).data('item'))
     $.ajax({
       type:'get',
-      url:'/likes/'+ item_id + '/destroy',
+      url:`/likes/${item_id}/destroy`,
       data:{id: item_id},
       dataType:'json'
     })
