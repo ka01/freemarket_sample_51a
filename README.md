@@ -289,5 +289,5 @@ Association
 ***
 
 ## ER図
-
-[Imgur](https://imgur.com/bIaAf9t)
+gem 'rails-erd'で自動生成
+<img src="https://i.imgur.com/D0mUkWc.png" alt="ER図" title="メルカリER図">
