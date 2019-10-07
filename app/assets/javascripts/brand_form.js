@@ -31,7 +31,7 @@ $(function(){
       return 2
     }else if (level1_id == 'ベビー・キッズ'){
       return 3
-    }else if (level1_id == 'インテリア・住まい・雑貨'){
+    }else if (level1_id == 'インテリア・住まい・小物'){
       return 4
     }else if (level1_id == 'コスメ・香水・美容'){
       return 7
