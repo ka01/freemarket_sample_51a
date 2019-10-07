@@ -54,4 +54,5 @@ Rails.application.routes.draw do
   resources :brand, only: [:index]
   get 'likes/:item_id/create', to: 'likes#create'
   get 'likes/:item_id/destroy', to: 'likes#destroy'
+  resources :brand_groups, only: [:index, :show]
 end
