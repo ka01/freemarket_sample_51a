@@ -1,0 +1,18 @@
+= render 'layouts/header'
+- breadcrumb :brand, @brand
+= render 'layouts/breadcrumbs'
+.brand
+  .brand__children
+    - @categories.take(9).each do |category|
+      =link_to category.name ,category_path(category),class:'category__child--link'
+  .brand__head
+    ="#{@brand.name}の商品一覧"
+  .brand__content
+    = render partial: 'items/partial/item_box', collection: @items, as:'item'
+  = paginate(@items)
+  .brand__discription
+    .brand__discription--head
+      = @brand.name
+    .brand__discription--text
+      = discription_brand_text(@brand,@items)
+= render 'layouts/footer'

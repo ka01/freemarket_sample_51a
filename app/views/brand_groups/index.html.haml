@@ -1,12 +1,9 @@
 = render 'layouts/header'
-- breadcrumb :brand
+- breadcrumb :brand_group
 = render 'layouts/breadcrumbs'
-.categories
-  %h2.categories__head ブランド一覧
-  %nav.categories__level1-list
+.brand_groups
+  %h2.brand_groups__head ブランド一覧
+  %nav.brand_groups__level1-list
     - @brandgroups.each do |brandgroup|
-      = link_to brandgroup.name, "#category-#{brandgroup.id}", class: 'categories__level1-list--link'
-  -# .categories-level1-box
-  -#   %ul.categories-level1-box__wrapper
-  -#     = render partial: 'level1-box', collection: @categories, as: 'level1'
+      = link_to brandgroup.name, brand_group_path(brandgroup), class: 'brand_groups__level1-list--link'
 = render 'layouts/footer'

@@ -74,10 +74,6 @@ crumb :category do
   parent :root
 end
 
-crumb :brand do
-  link "ブランド一覧", brand_index_path
-  parent :root
-end
 crumb :category_level1 do |level1|
   link level1.name, category_path(level1)
   parent :category
@@ -93,6 +89,15 @@ crumb :category_level3 do |level3|
   parent :category_level2,level3.parent
 end
 
+crumb :brand_group do
+  link "ブランド一覧", brand_index_path
+  parent :root
+end
+
+crumb :brand do |brand|
+  link brand.name, brand_path(brand)
+  parent :brand_group
+end
 
 # crumb :user do |user|
 #   link "@#{user.nickname}", user_path(user)

@@ -51,7 +51,7 @@ Rails.application.routes.draw do
   end
   resources :category, only: [:index, :show]
   get '/item_images/destroy', to: 'item_images#destroy'
-  resources :brand, only: [:index]
+  resources :brand, only: [:index, :show]
   get 'likes/:item_id/create', to: 'likes#create'
   get 'likes/:item_id/destroy', to: 'likes#destroy'
   resources :brand_groups, only: [:index, :show]
