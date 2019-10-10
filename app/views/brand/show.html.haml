@@ -4,7 +4,7 @@
 .brand
   .brand__children
     - @categories.take(9).each do |category|
-      =link_to category.name ,category_path(category),class:'category__child--link'
+      =link_to category.name ,brand_brand_category_path(@brand,category),class:'brand__category--link'
   .brand__head
     ="#{@brand.name}の商品一覧"
   .brand__content

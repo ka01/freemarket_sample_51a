@@ -1,5 +1,5 @@
 module CategoryHelper
-  def discription_name(category)
+  def discription_category_name(category)
     if category.depth == 0
       return category.name
     else
@@ -7,7 +7,7 @@ module CategoryHelper
     end
   end
 
-  def first_sentence(category)
+  def category_first_sentence(category)
     if category.root.name=="レディース"||category.root.name == "メンズ"
       return "の着ない服、いらない洋服を売るならメルカリへ。"
     elsif category.root.name == "ベビー・キッズ"
@@ -25,7 +25,7 @@ module CategoryHelper
     end
   end
 
-  def second_sentence(category,items)
+  def category_second_sentence(category,items)
     if category.depth == 0
       return "#{category.name}の商品は#{items.length}点以上あります。"
     else
@@ -33,7 +33,7 @@ module CategoryHelper
     end
   end
 
-  def third_sentence(category)
+  def category_third_sentence(category)
     if category.depth == 0
       return "人気のあるカテゴリーは#{category.indirects.sort_by{rand}[0].name}と#{category.indirects.sort_by{rand}[0].name}です。"
     elsif category.depth == 1
@@ -49,11 +49,11 @@ module CategoryHelper
     end
   end
 
-  def forth_sentence(items)
+  def category_forth_sentence(items)
     return "人気の商品は「#{items[0].name if items[0]}」や「#{items[1].name if items[1]}」や「#{items[2].name if items[2]}」があります。"
   end
 
-  def fifth_sentence(category)
+  def category_fifth_sentence(category)
     if category.root.name == "レディース" || category.root.name == "メンズ"
       return "の買い取りやリサイクル処分、服の整理を検討中の方にお勧めです"
     elsif category.root.name == "ベビー・キッズ"
@@ -76,14 +76,14 @@ module CategoryHelper
   end
 
 
-  def discription_text(category,items)
+  def discription_category_text(category,items)
     return"#{category.name}"+
-    first_sentence(category)+
-    second_sentence(category,items)+
-    third_sentence(category)+
-    forth_sentence(items)+
+    category_first_sentence(category)+
+    category_second_sentence(category,items)+
+    category_third_sentence(category)+
+    category_forth_sentence(items)+
     "#{category.name}"+
-    fifth_sentence(category)
+    category_fifth_sentence(category)
   end
 
 end

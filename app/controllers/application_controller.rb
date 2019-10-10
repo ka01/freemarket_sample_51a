@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   end
 
   def multinav_category
-    @categories = Category.where(ancestry: nil)
+    @header_categories = Category.where(ancestry: nil)
   end
 
   def set_search

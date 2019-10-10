@@ -99,6 +99,11 @@ crumb :brand do |brand|
   parent :brand_group
 end
 
+crumb :brand_category do |brand , category|
+  link category.name, brand_brand_category_path(category)
+  parent :brand, brand
+end
+
 # crumb :user do |user|
 #   link "@#{user.nickname}", user_path(user)
 #   parent :users

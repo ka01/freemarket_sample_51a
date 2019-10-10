@@ -1,6 +1,9 @@
 class BrandGroupsController < ApplicationController
   def index
-    @brandgroups=BrandGroup.order('id ASC')
+    @brandgroups = BrandGroup.order('id ASC')
+    @brandgroup = BrandGroup.find(1)
+    @brands = Brand.where(brand_group_id:@brandgroup.id)
+    @brand_initials = @brands.inject([]){|result,n| result << n.name[0] unless result.include?(n.name[0]);result}.sort!
   end
 
   def show
@@ -9,6 +12,5 @@ class BrandGroupsController < ApplicationController
     @brands = Brand.where(brand_group_id:@brandgroup.id)
     @brand_initials = @brands.inject([]){|result,n| result << n.name[0] unless result.include?(n.name[0]);result}.sort!
   end
-
 
 end

@@ -1,0 +1,14 @@
+- breadcrumb :brand_category, @brand,@category
+= render 'layouts/breadcrumbs'
+.brand-category
+  .brand-category__head
+    ="#{@brand.name}#{@category.name}の商品一覧"
+  .brand-category__content
+    = render partial: 'items/partial/item_box', collection: @items, as:'item'
+  = paginate(@items)
+  .brand-category__discription
+    .brand-category__discription--head
+      = "#{@brand.name}#{@category.name}"
+    .brand-category__discription--text
+      = discription_brand_category_text(@brand,@category,@items)
+= render 'layouts/footer'
