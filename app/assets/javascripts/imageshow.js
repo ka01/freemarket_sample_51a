@@ -6,7 +6,6 @@ $(function(){
   });
   $(document).on('mouseenter','.owl-dot',function() {
     var index = $('.owl-dot').index(this);
-    console.log(index)
     $('.owl-item.active').removeClass('active')
     $('.owl-item').eq(index).addClass('active')
     $(this).css({'opacity': '1'})
