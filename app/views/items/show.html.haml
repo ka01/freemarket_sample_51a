@@ -7,14 +7,19 @@
       .owl-carousel
         .owl-stage-outer
           .owl-stage
-            .owl-item.active{style: "width: 300px;"}
-              .owl-item-inner
-                - if @item.trading_status == "complete"
-                  = image_tag "soldout_tag.png", class: "photo-main--soldout"
-                  = image_tag @item.item_images.first.image_url.url
-                - else
-                  = image_tag @item.item_images.first.image_url.url
-
+            - @item.item_images.each do |image|
+              .owl-item{style: "width: 300px;"}
+                .owl-item-inner
+                  - if @item.trading_status == "complete"
+                    = image_tag "soldout_tag.png", class: "photo-main--soldout"
+                    = image_tag image.image_url.url
+                  - else
+                    = image_tag image.image_url.url
+          .owl-dots
+            - @item.item_images.each do |image|
+              .owl-dot
+                .owl-dot-inner
+                  = image_tag image.image_url.url
     %table.details-item__table
       %tbody
         %tr
