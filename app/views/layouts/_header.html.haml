@@ -49,7 +49,7 @@
                         .brand-1__text
                           シュプリーム
                     %li.brand-1__item
-                      = link_to  brand_path(3) do
+                      = link_to  brand_path(219) do
                         .brand-1__text
                           アディダス
                     %li.brand-1__item
@@ -122,6 +122,34 @@
           %ul.pc-header__nav-box__left__menu{ data: {mega: "1"}, style: "width: auto;"}
         %li.pc-header__nav-box__left__menu__list.pc-header__nav-box__left__menu__list--second
           %h2.pc-header__nav-box__left__menu__list__search
-            = link_to "/", class: "pc-header__nav-root.list-parent" do
-              = fa_icon 'tag', class: 'icon-tag'
-              %span ブランドから探す
+        .nav-brand
+          .brand-title
+            = link_to brand_groups_path do
+              .brand-title
+                = fa_icon 'tag', class: 'icon-tag'
+                %span ブランドから探す
+                %ul.brand-1
+                  %li.brand-1__item
+                    = link_to  brand_path(2447) do
+                      .brand-1__text
+                        シャネル
+                  %li.brand-1__item
+                    = link_to  brand_path(9490) do
+                      .brand-1__text
+                        ナイキ
+                  %li.brand-1__item
+                    = link_to  brand_path(6155) do
+                      .brand-1__text
+                        ルイ ヴィトン
+                  %li.brand-1__item
+                    = link_to  brand_path(8413) do
+                      .brand-1__text
+                        シュプリーム
+                  %li.brand-1__item
+                    = link_to  brand_path(219) do
+                      .brand-1__text
+                        アディダス
+                  %li.brand-1__item
+                    = link_to  brand_groups_path do
+                      .brand-1__text
+                        ブランド一覧
