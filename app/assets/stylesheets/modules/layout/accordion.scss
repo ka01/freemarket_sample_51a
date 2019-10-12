@@ -1,4 +1,4 @@
-.hover-category-title{
+.hover-title{
   display: block;
 }
 .hover-category-1{
@@ -8,7 +8,7 @@
   display: block;
 }
 .category-title :hover{
-    color:blue;
+    color:#b3d4fc
 }
 .category-1{
   display: none;
@@ -84,4 +84,30 @@
       color:black;
     }
   }
+}
+.brand-title :hover{
+  color:#b3d4fc
+}
+.brand-1{
+display: none;
+background-color:white;
+width:auto;
+position: absolute;
+box-shadow: 0 0 1px gray;
+&__item{
+  width: 224px;
+  &:hover{
+    background-color: red;
+  }
+}
+&__text{
+  height: 44px;
+  line-height: 44px;
+  margin-left: 8px;
+  font-size: 14px;
+  color:black;
+  &:hover{
+    color:white;
+  }
+}
 }

@@ -64,8 +64,16 @@
   display: none;
 }
 
+.owl-item{
+  display:none;
+}
+.owl-item.active{
+  display:block;
+}
+
 .owl-dots {
   line-height: 0;
+  font-size:0;
 }
 
 .owl-dot {

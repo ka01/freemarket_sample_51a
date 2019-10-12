@@ -1,9 +1,9 @@
 $(document).ready(function(){
   $('.category-title').hover(function(){
-    $(this).addClass('hover-category-title');
-    $('.hover-category-title').children('.category-1').show();
+    $(this).addClass('hover-title');
+    $('.hover-title').children('.category-1').show();
   },function(){
-    $(this).removeClass('hover-category-title');
+    $(this).removeClass('hover-title');
     $(this).children('.category-1').hide();
   });
 
@@ -21,5 +21,13 @@ $(document).ready(function(){
   },function(){
     $(this).removeClass('hover-category-2');
     $(this).children('.category-3').hide();
+  });
+
+  $('.brand-title').hover(function(){
+    $(this).addClass('hover-title');
+    $('.hover-title').children('.brand-1').show();
+  },function(){
+    $(this).removeClass('hover-title');
+    $(this).children('.brand-1').hide();
   });
 });

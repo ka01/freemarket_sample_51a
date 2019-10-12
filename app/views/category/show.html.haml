@@ -18,7 +18,7 @@
   = paginate(@items)
   .category__discription
     .category__discription--head
-      = discription_name(@category)
+      = discription_category_name(@category)
     .category__discription--text
-      = discription_text(@category,@items)
+      = discription_category_text(@category,@items)
 = render 'layouts/footer'

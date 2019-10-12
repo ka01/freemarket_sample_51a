@@ -1,0 +1,4 @@
+.brand-list-initial-box{ id:"brand_initial-#{brand_initial}"}
+  .brand-list-initial-box-initial
+    #{brand_initial}
+  = render partial: 'level2-box', collection: @brands.select{|x| x.name[0] == brand_initial}, as: 'brand'

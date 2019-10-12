@@ -1,0 +1,19 @@
+= render 'layouts/header'
+- breadcrumb :brand_group
+= render 'layouts/breadcrumbs'
+.brand-index
+  %div
+    .brand_groups
+      %h2.brand_groups__head ブランド一覧
+      %nav.brand_groups__level1-list
+        - @brandgroups.each do |brandgroup|
+          = link_to brandgroup.name, brand_group_path(brandgroup), class: 'brand_groups__level1-list--link'
+    .brand-initial-link-box
+      - @brand_initials.each do |brand_initial|
+        .brand-initial-link-box-initial
+          = link_to brand_initial, "#brand_initial-#{brand_initial}"
+    .brand-list-box
+      .brand-list-box-title
+        #{@brandgroup.name}
+      = render partial: 'level1-box', collection: @brand_initials, as: 'brand_initial'
+= render 'layouts/footer'
