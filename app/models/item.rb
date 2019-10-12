@@ -1,7 +1,6 @@
 class Item < ApplicationRecord
   has_many :users, through: :purchases
   belongs_to :category
-  belongs_to :brand
   has_many :purchases
   belongs_to :brand, optional: true
   has_many :likes, dependent: :destroy

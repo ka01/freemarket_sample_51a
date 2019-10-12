@@ -17,4 +17,14 @@ $(function(){
     item_price_field.children('p').text("¥" + item_fee);
     item_price_field.children('h3').text("¥" + item_benefit);
   })
+
+  $(window).bind("load", function(){
+    if(document.URL.match(/\/items\/\d+\/edit/)) {
+      item_price = $('#item_price').val();
+      item_fee = Math.floor(item_price / 10);
+      item_benefit = separate(item_price - item_fee);
+      item_price_field.children('p').text("¥" + item_fee);
+      item_price_field.children('h3').text("¥" + item_benefit);
+    }
+  })
 });
