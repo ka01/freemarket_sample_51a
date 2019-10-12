@@ -82,7 +82,7 @@
           .sell-content.clearfix
             %h3.sell-content__sub-head 販売価格(300〜9,999,999)
             = link_to "/jp/help_center/article/64/", class:"sell-content__sub-head--question" do
-              ?         
+              ?
             .sell-content__form-box
               %ul.sell-price
                 %li.sell-form-group.clearfix
@@ -91,7 +91,7 @@
                     %span.sell-form-group__left--require 必須
                   .sell-form-group__right
                     %span ¥
-                    = f.text_field :price, autofocus: true,class:"sell-form-group__right--input-default", placeholder:"例）300", autocomplete:"off"
+                    = f.text_field :price,class:"sell-form-group__right--input-default", placeholder:"例）300", autocomplete:"off"
                 %li.clearfix
                   .sell-form-group__sell-fee-left
                     %p 販売手数料 (10%)

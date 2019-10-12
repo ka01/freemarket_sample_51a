@@ -40,7 +40,6 @@ $(function(){
   $(window).bind("load", function(){
     if(document.URL.match(/\/items\/\d+\/edit/)) {                                  //正規表現でeditのpathの場合発火する
       var image_count = $('.re__sell-upload-drop-box__file').length   //既存5枚の場合,drophereはこの時点でないので"5" ※①
-      console.log(image_count)
       picture_num = image_count                                                     //Editビュー初期表示ではpicture_numとimage_countは揃える"5" ※②
       if (image_count != 10){
         appendDropBox(image_count , picture_num + 1)                               //※②,①を引数にDrophereを作成
