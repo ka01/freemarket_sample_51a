@@ -13,9 +13,9 @@ class ItemsController < ApplicationController
 
   def show
     @seller = User.find(@item.seller_id)
-    @before_item = user_signed_in? ? Item.where.not(seller_id: current_user.id).where.not(id: @item.id).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first : Item.where.not(id: @item.id).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
-    @after_item = user_signed_in? ? Item.where.not(seller_id: current_user.id).where.not(id: [@item.id,@before_item.id]).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first : Item.where.not(id: [@item.id,@before_item.id]).where( 'id >= ?', rand(Item.first.id..Item.last.id)).first
-    @like = Like.find_by(user_id: current_user.id, item_id: @item.id)
+    @before_item = user_signed_in? ? Item.where.not(seller_id: current_user.id).where.not(id: @item.id).random_item : Item.where.not(id: @item.id).random_item
+    @after_item = user_signed_in? ? Item.where.not(seller_id: current_user.id).where.not(id: [@item.id,@before_item.id]).random_item : Item.where.not(id: [@item.id,@before_item.id]).random_item
+    @like = Like.find_by(user_id: current_user.id, item_id: @item.id)  if user_signed_in?
     @like_counts = Like.where(item_id: @item.id).count
   end
 

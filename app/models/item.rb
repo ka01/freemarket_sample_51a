@@ -36,4 +36,6 @@ class Item < ApplicationRecord
     validates :price
     validates :condition
   end
+
+  scope :random_item, -> {where( 'id >= ?', rand(Item.first.id..Item.last.id)).first}
 end
