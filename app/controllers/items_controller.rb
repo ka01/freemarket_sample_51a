@@ -13,8 +13,8 @@ class ItemsController < ApplicationController
 
   def show
     @seller = User.find(@item.seller_id)
-    @before_item = user_signed_in? ? Item.where.not(seller_id: current_user.id).where.not(id: @item.id).random_item : Item.where.not(id: @item.id).random_item
-    @after_item = user_signed_in? ? Item.where.not(seller_id: current_user.id).where.not(id: [@item.id,@before_item.id]).random_item : Item.where.not(id: [@item.id,@before_item.id]).random_item
+    @before_item = user_signed_in? ? Item.not_seller(current_user.id).not_item(@item.id).random_item : Item.not_item(@item.id).random_item
+    @after_item = user_signed_in? ? Item.not_seller(current_user.id).not_item([@item.id,@before_item.id]).random_item : Item.not_item([@item.id,@before_item.id]).random_item
     @like = Like.find_by(user_id: current_user.id, item_id: @item.id)  if user_signed_in?
     @like_counts = Like.where(item_id: @item.id).count
   end

@@ -38,4 +38,6 @@ class Item < ApplicationRecord
   end
 
   scope :random_item, -> {where( 'id >= ?', rand(Item.first.id..Item.last.id)).first}
+  scope :not_item, -> (id){where.not(id: id)}
+  scope :not_seller, -> (id){where.not(seller_id: id)}
 end
